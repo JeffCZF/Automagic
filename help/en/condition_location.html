@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Location</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Location</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Location</b> checks whether a location is inside a specific area or not. The condition can also check if an area is entered or exited by comparing the location of the last execution and the current location.<br/><br/>
+        The condition uses the location already made available to the flow from a location trigger or uses the last known location of the system.<br/>
+        The condition fails when no location is available in the flow and the device does not have a last known location ready. This usually happens when the flow is executed manually. Either use one of the location triggers to execute your flow or explicitly acquire the location using an action <strong>Init Variable Location</strong> before the condition is reached.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Enable WiFi when you enter your office.</li>
+        <li>Stop recording in <b>Gleeo Time Tracker</b> when you leave your office.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Location</div>
+    <div class="setting_description">The location used by this condition.</div>
+
+    <div class="setting_title">Location Name</div>
+    <div class="setting_description">The name to use for this location. This name is used in the condition name and to select an existing location on the map.</div>
+
+    <div class="setting_title">Radius</div>
+    <div class="setting_description">The radius around the location in meters.</div>
+
+    <div class="setting_title">Entering</div>
+    <div class="setting_description">True when the location was outside the defined location and is inside now.</div>
+
+    <div class="setting_title">Exiting</div>
+    <div class="setting_description">True when the location was inside the defined location and is outside now.</div>
+
+    <div class="setting_title">Ignore when previous state was not known</div>
+    <div class="setting_description">Ignore entering/exiting when the location has not been known before. This is usually the case when the flow is executed for the first time after starting <b>Automagic</b>.</div>
+
+    <div class="setting_title">Inside</div>
+    <div class="setting_description">True when the location is inside. This is also true when the location has been inside before and therefore is possibly true for every location provided by a trigger.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>location</code></div>
+    <div class="variable_description">the reported location</div>
+
+    <div class="variable_name"><code>location_name</code></div>
+    <div class="variable_description">the name of the location</div>
+
+    <div class="variable_name"><code>entering</code></div>
+    <div class="variable_description">whether the location has been entered or not</div>
+
+    <div class="variable_name"><code>exiting</code></div>
+    <div class="variable_description">whether the location has been exited or not</div>
+
+    <div class="variable_name"><code>inside</code></div>
+    <div class="variable_description">whether the location is inside the defined area or not</div>
+</div>
+</body>
+
+</html>

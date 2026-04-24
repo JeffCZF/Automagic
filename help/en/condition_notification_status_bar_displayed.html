@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Notification on Statusbar Displayed</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Notification on Statusbar Displayed</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Notification on Statusbar Displayed</b> checks whether a notification of an app is displayed in the statusbar and supplies the information of the first matching notification as variables to the flow.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Check every 5 minutes if an Hangout message is displayed in the statusbar and play a notification sound.</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Package Name</div>
+    <div class="setting_description">The comma separated list of apps that displayed the notification. Glob patterns can be used to match multiple packages. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Notification ID</div>
+    <div class="setting_description">The ID of the notification. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/></div>
+
+    <div class="setting_title">Filter</div>
+    <div class="setting_description">Defines the text that must be contained in one of the available fields. <a href="action_script.html#inline_expressions">Variables are supported</a> for <em>contains text</em> and <em>matches glob</em>.</div>
+
+    <div class="setting_title">Ignore regular events</div>
+    <div class="setting_description">
+        Defines whether or not the condition should ignore regular events.<br/>
+        A notification is considered <em>regular</em> when the notification is not marked as ongoing by the posting app.
+    </div>
+
+    <div class="setting_title">Ignore ongoing events</div>
+    <div class="setting_description">
+        Defines whether or not the condition should ignore ongoing events.<br/>
+        A notification is marked as an ongoing event by the application that posts the notification and is usually set when a notification shows some progress like a file download, an app is playing a sound, or an app is running as a foreground service.
+    </div>
+
+    <div class="setting_title">Ignore group summary</div>
+    <div class="setting_description">
+        Defines whether or not the condition should ignore group summaries.<br/>
+        A group summary is an additional notification that is used to group several related notifications together.
+    </div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>title</code></div>
+    <div class="variable_description">the title of the displayed notification</div>
+
+    <div class="variable_name"><code>content_title</code></div>
+    <div class="variable_description">the title of the content displayed by the notification</div>
+
+    <div class="variable_name"><code>content_title_big</code></div>
+    <div class="variable_description">the title of the big content displayed by the notification</div>
+
+    <div class="variable_name"><code>notification_text</code> (This function is not officially supported by Android and does not work with all notifications)</div>
+    <div class="variable_description">the textual content of the notification</div>
+
+    <div class="variable_name"><code>notification_text_big</code> (This function is not officially supported by Android and does not work with all notifications)</div>
+    <div class="variable_description">the textual content of the big, expanded view of the notification</div>
+
+    <div class="variable_name"><code>notification_channel_id</code> (Android 8.0+)</div>
+    <div class="variable_description">the ID of the notification channel</div>
+
+    <div class="variable_name"><code>notification_priority</code> (Android 4.1+, This function is not officially supported by Android and does not work with all notifications)</div>
+    <div class="variable_description">the priority of the notification (-2=Minimum to 2=Maximum), when available</div>
+
+    <div class="variable_name"><code>notification_large_icon</code> (This function is not officially supported by Android and does not work with all notifications)</div>
+    <div class="variable_description">the large icon of the notification, when available</div>
+
+    <div class="variable_name"><code>notification_when</code></div>
+    <div class="variable_description">the time shown in the notification</div>
+
+    <div class="variable_name"><code>notification_number</code></div>
+    <div class="variable_description">number shown in the notification, when available</div>
+
+    <div class="variable_name"><code>notification_vibrate_default</code></div>
+    <div class="variable_description">whether the notification vibrates using the default pattern</div>
+
+    <div class="variable_name"><code>notification_vibrate_pattern</code></div>
+    <div class="variable_description">vibration pattern as a list of numbers (pause duration in ms, vibrate duration in ms, ...), when available</div>
+
+    <div class="variable_name"><code>notification_sound_default</code></div>
+    <div class="variable_description">whether the notification should play the default notification sound</div>
+
+    <div class="variable_name"><code>notification_sound_uri</code></div>
+    <div class="variable_description">the URI of the sound to play, when available</div>
+
+    <div class="variable_name"><code>notification_people</code> (Android 4.4+)</div>
+    <div class="variable_description">a list of relevant people of the notification (list of URIs), when available</div>
+
+    <div class="variable_name"><code>notification_info_text</code> (Android 4.4+)</div>
+    <div class="variable_description">the info text displayed by the notification, when available</div>
+
+    <div class="variable_name"><code>notification_sub_text</code> (Android 4.4+)</div>
+    <div class="variable_description">the sub text displayed by the notification, when available</div>
+
+    <div class="variable_name"><code>notification_summary_text</code> (Android 4.4+)</div>
+    <div class="variable_description">the summary text displayed by the notification, when available</div>
+
+    <div class="variable_name"><code>notification_progress</code> (Android 4.4+)</div>
+    <div class="variable_description">the current progress shown by the notification, when available</div>
+
+    <div class="variable_name"><code>notification_progress_max</code> (Android 4.4+)</div>
+    <div class="variable_description">the maximum progress, when available</div>
+
+    <div class="variable_name"><code>notification_progress_indeterminate</code> (Android 4.4+)</div>
+    <div class="variable_description">whether the progress is indeterminate, when available</div>
+
+    <div class="variable_name"><code>notification_text_lines</code> (Android 4.4+)</div>
+    <div class="variable_description">the text lines shown by the notification, when available</div>
+
+    <div class="variable_name"><code>notification_background_image_uri</code> (Android 5+)</div>
+    <div class="variable_description">the URI of the background image to show, when available</div>
+
+    <div class="variable_name"><code>notification_category</code> (Android 5+)</div>
+    <div class="variable_description">the category of the notification, when available</div>
+
+    <div class="variable_name"><code>notification_accent_color</code> (Android 5+)</div>
+    <div class="variable_description">the accent color of the notification, when available</div>
+
+    <div class="variable_name"><code>notification_ticker_text</code></div>
+    <div class="variable_description">the scrolling text shown by the notification</div>
+
+    <div class="variable_name"><code>notification_visibility</code> (Android 5+)</div>
+    <div class="variable_description">the visibility of the notification (-1=secret, 0=private, 1=public)</div>
+
+    <div class="variable_name"><code>notification_ongoing</code></div>
+    <div class="variable_description">whether this is an ongoing event</div>
+
+    <div class="variable_name"><code>notification_foreground_service</code></div>
+    <div class="variable_description">whether this notification is used to mark a foreground service</div>
+
+    <div class="variable_name"><code>notification_local_only</code></div>
+    <div class="variable_description">whether the notification should be displayed on the local device only</div>
+
+    <div class="variable_name"><code>notification_group</code> (Android 7+)</div>
+    <div class="variable_description">the group key of the notification</div>
+
+    <div class="variable_name"><code>notification_is_group_summary</code> (Android 7+)</div>
+    <div class="variable_description">whether the notification is the group summary</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">the name of the package that displayed the notification</div>
+
+    <div class="variable_name"><code>app_name</code></div>
+    <div class="variable_description">the display name of the app</div>
+
+    <div class="variable_name"><code>id</code></div>
+    <div class="variable_description">the id of the notification</div>
+
+    <div class="variable_name"><code>buttons</code> (This function is not officially supported by Android and does not work with all notifications)</div>
+    <div class="variable_description">the list of buttons available on the big, expanded notification</div>
+
+    <div class="variable_name"><code>wearable_actions</code> (Android 4.4+, This function is not officially supported by Android and does not work with all notifications)</div>
+    <div class="variable_description">the list of actions displayed on Android Wear</div>
+
+    <div class="variable_name"><code>count</code></div>
+    <div class="variable_description">the number of notifications matching the condition</div>
+</div>
+
+</body>
+
+</html>

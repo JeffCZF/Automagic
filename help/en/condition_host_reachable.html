@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Host Reachable</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Host Reachable</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Host Reachable</b> tests whether a host can be reached by either opening a TCP-connection using a socket or by executing a ping command.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Check once an hour if a server can be reached or not.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Type</div>
+    <div class="setting_description">
+        Type of the check:
+        <ul>
+            <li><b>Automatic</b>: Tries to connect to the host to port 7 to determine if the host is available. This method might use ping on some versions of Android.</li>
+            <li><b>Socket</b>: Tries to establish a TCP-connection to the specified host and port. The host is only considered to be reachable when the connection can be successfully established.</li>
+            <li><b>Ping</b>: Checks the reachability of the host using a <code>ping</code>-command (only one echo-request is sent). This option only works when the <code>ping</code>-command is available on the device.</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Host</div>
+    <div class="setting_description">The host to check. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Port</div>
+    <div class="setting_description">The port to connect to (only for type=Socket). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+</body>
+
+</html>

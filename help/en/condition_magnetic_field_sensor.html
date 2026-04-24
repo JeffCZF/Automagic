@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Magnetic Field Sensor</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Magnetic Field Sensor</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Magnetic Field Sensor</b> checks whether the measured value of the magnetic field sensor is below or above the defined level.<br/>
+        <br/>
+        <span class="warning">Warning:</span> Some devices turn off the sensors when the screen is off.<br/>
+        <span class="warning">Warning:</span> Some devices can not determine the current value of the sensor and only deliver a value when the measured value of the sensor changes. This condition does not work on such devices.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Execute some actions only when the device is placed near a magnet.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Sensitivity</div>
+    <div class="setting_description">The sensitivity of the slider to define the field strength.</div>
+
+    <div class="setting_title">Magnetic Field Strength</div>
+    <div class="setting_description">Whether the trigger should execute when the illuminance passes above or below a certain value and the level to use.</div>
+
+    <div class="setting_title">Timeout</div>
+    <div class="setting_description">The amount of time to wait for a value of the sensor, the condition is terminated with an error when no value becomes available.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>magnetic_field_strength</code></div>
+    <div class="variable_description">the measured strength in micro Tesla</div>
+</div>
+
+</body>
+
+</html>
