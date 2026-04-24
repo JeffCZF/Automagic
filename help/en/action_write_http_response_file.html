@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Write HTTP Response File (Experimental)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Write HTTP Response File (Experimental)</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Write HTTP Response File (Experimental)</b> writes the specified file as a response to a HTTP request. The flow must be invoked by a trigger <em>HTTP Request</em> to write a response.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Example:
+    <ul>
+        <li>Fetch a file on your Android device from your desktop PC when connected to the same WiFi network.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">File</div>
+    <div class="setting_description">The name of the file to deliver. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Custom HTTP Headers</div>
+    <div class="setting_description">
+        A text containing the custom HTTP headers to send. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Each line should start with the header name and a colon followed by the value to send.<br/>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>User-Agent: my own user agent</code></li>
+            <li><code>SOAPAction: "test"</code></li>
+        </ul>
+    </div>
+</div>
+
+
+</body>
+
+</html>
