@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Custom Widget Overlay Showing</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Custom Widget Overlay Showing</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Custom Widget Overlay Showing</b> checks if a particular custom widget is currently showing as an overlay.<br/>
+        <br/>
+        <span class="note">Note:</span> Android sometimes temporarily hides overlays for security reasons. This condition can not detect this circumstance and might assume that the widget is showing.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Execute some actions of a flow only when a particular overlay is showing.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Overlay Name List</div>
+    <div class="setting_description">The names of the overlays to check. The condition evaluates to true when at least one of the overlays is showing. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+</body>
+
+</html>

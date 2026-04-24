@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Calendar Event</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Calendar Event</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Calendar Event</b> checks, whether an event on the calendar is currently active.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Send an SMS to the calling number telling when your meeting ends.</li>
+        <li>Don't let the SMS be read aloud in a meeting.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Starting</div>
+    <div class="setting_description">The start time offset the condition should consider an event as active.</div>
+
+    <div class="setting_title">Ending</div>
+    <div class="setting_description">The end time offset the condition should consider an event as active.</div>
+
+    <div class="setting_title">Calendars</div>
+    <div class="setting_description">A comma separated list of calendar names that should be checked for events. The values can contain glob pattern characters like <code>*</code> and <code>?</code>. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Titles</div>
+    <div class="setting_description">A comma separated list of event titles to match. The values can contain glob pattern characters like <code>*</code> and <code>?</code>. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>Plan*</code> matches titles like <code>Planning</code>, <code>Plan B</code> etc.</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Descriptions</div>
+    <div class="setting_description">A comma separated list of event descriptions to match. The values can contain glob pattern characters like <code>*</code> and <code>?</code>. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Locations</div>
+    <div class="setting_description">A comma separated list of event locations to match. The values can contain glob pattern characters like <code>*</code> and <code>?</code>. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Event Type</div>
+    <div class="setting_description">Whether the trigger should consider all day events or regular events (not all day) or both.</div>
+
+    <div class="setting_title">Event Availability</div>
+    <div class="setting_description">Whether the trigger should consider events marked as free, busy or tentative.</div>
+
+    <div class="setting_title">Multiple Events</div>
+    <div class="setting_description">The event that should be preferred to fill the variables when multiple events match the defined criteria of the condition.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>event_calendar</code></div>
+    <div class="variable_description">the name of the calendar of the event</div>
+
+    <div class="variable_name"><code>event_title</code></div>
+    <div class="variable_description">the title of the event</div>
+
+    <div class="variable_name"><code>event_description</code></div>
+    <div class="variable_description">the description of the event</div>
+
+    <div class="variable_name"><code>event_location</code></div>
+    <div class="variable_description">the location of the event</div>
+
+    <div class="variable_name"><code>event_start</code></div>
+    <div class="variable_description">the start time of the event</div>
+
+    <div class="variable_name"><code>event_end</code></div>
+    <div class="variable_description">the end time of the event</div>
+
+    <div class="variable_name"><code>event_all_day</code></div>
+    <div class="variable_description">boolean indicating if the event is all day or not</div>
+
+    <div class="variable_name"><code>event_availability</code></div>
+    <div class="variable_description">FREE, BUSY or TENTATIVE depending on the availability of the event</div>
+
+    <div class="variable_name"><code>event_id</code></div>
+    <div class="variable_description">the ID of the event</div>
+</div>
+
+</body>
+
+</html>

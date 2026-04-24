@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Device Storage Space</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Device Storage Space</h1>
+
+<div class="summary">
+    <p>
+       The condition <b>Device Storage Space</b> checks the storage space on the filesystem containing the specified path.<br/>
+    </p>
+
+    Example:
+    <ul>
+        <li>Check every morning if 100MB are still free on the SD card.</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Filesystem</div>
+    <div class="setting_description">The path of the filesystem to check. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Compare Free or Used Space</div>
+    <div class="setting_description">Whether to check the free or used space on the filesystem.</div>
+
+    <div class="setting_title">Size</div>
+    <div class="setting_description">The size to check.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>available_blocks</code></div>
+    <div class="variable_description">the number of free blocks available to applications</div>
+
+    <div class="variable_name"><code>free_blocks</code></div>
+    <div class="variable_description">the number of free blocks inclusive reserved blocks not usable by applications</div>
+
+    <div class="variable_name"><code>block_count</code></div>
+    <div class="variable_description">the total number of blocks in the filesystem</div>
+
+    <div class="variable_name"><code>block_size</code></div>
+    <div class="variable_description">the size of the blocks in bytes</div>
+
+    <div class="variable_name"><code>available_space</code></div>
+    <div class="variable_description">the available space in bytes</div>
+
+    <div class="variable_name"><code>used_space</code></div>
+    <div class="variable_description">the used space in bytes</div>
+</div>
+
+</body>
+
+</html>

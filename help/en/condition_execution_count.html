@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Execution Count</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Execution Count</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Execution Count</b> checks whether the condition has been executed a certain amount of times. An internal counter is incremented whenever the condition is executed. The counter is reset to zero when the condition is met.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Play an alarm when 2 SMS are received within 5 minutes.</li>
+        <li>Turn off the screen when the device is shook 2 times in 10 seconds.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Count</div>
+    <div class="setting_description">The count to compare. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Timed</div>
+    <div class="setting_description">Only consider executions that happened within the given duration.</div>
+
+    <div class="setting_title">Duration</div>
+    <div class="setting_description">The maximum age of executions to consider.</div>
+</div>
+
+</body>
+
+</html>

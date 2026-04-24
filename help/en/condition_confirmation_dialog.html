@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Confirmation Dialog</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Confirmation Dialog</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Confirmation Dialog</b> shows a dialog with a question and continues flow execution depending on the button pressed.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Turn on bluetooth but ask for confirmation first.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Title</div>
+    <div class="setting_description">The optional title of the dialog. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Question</div>
+    <div class="setting_description">The text of the question to ask. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">False Button / True Button</div>
+    <div class="setting_description">The text labels of the buttons that execute the true/false-branch of the condition. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Behavior on Back button</div>
+    <div class="setting_description">Whether to ignore the back button or to confirm the dialog with true or false.</div>
+
+    <div class="setting_title">Activate Timeout</div>
+    <div class="setting_description">Whether an automatic timeout should be used when the user does not react within the specified time.</div>
+
+    <div class="setting_title">Duration</div>
+    <div class="setting_description">The amount of time to automatically close the dialog and to continue the flow.</div>
+
+    <div class="setting_title">Value on Timeout</div>
+    <div class="setting_description">Whether the flow should be continued on the true- or false-branch.</div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>operation</code></div>
+    <div class="variable_description">the operation used to close the dialog.<br/>
+        <br/>
+        Can be one of:
+        <ul>
+            <li><code>yes</code> when the user pressed the Yes-button</li>
+            <li><code>no</code> when the user pressed the No-button</li>
+            <li><code>timeout</code> when the dialog was closed by a timeout</li>
+            <li><code>cancel</code> when the user pressed the back key and the appropriate option is set</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>
