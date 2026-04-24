@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Send USSD Request</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Send USSD Request</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Send USSD Request</b> sends a USSD request to the provider.<br/>
+        <br/>
+        <span class="warning">Warning:</span> Some versions of Android don't properly handle USSD request failures so a dialog of the system might be shown when a USSD request fails which causes the action to timeout after 30 seconds.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Query the prepaid balance.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">SIM</div>
+    <div class="setting_description">The SIM card.</div>
+
+    <div class="setting_title">USSD Request</div>
+    <div class="setting_description">The request to send. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>ussd_failure_code</code> (only provided on error)</div>
+    <div class="variable_description"></div>
+
+    <div class="variable_name"><code>ussd_response</code> (only provided on success)</div>
+    <div class="variable_description">the response text</div>
+</div>
+
+</body>
+
+</html>

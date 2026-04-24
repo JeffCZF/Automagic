@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Send SMS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Send SMS</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Send SMS</b> sends an SMS to the specified phone number.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Send an SMS with your location as a response to an SMS containing the text <strong>Where are you?</strong>.</li>
+        <li>Send an SMS to your partner when you are on your way home.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">SIM</div>
+    <div class="setting_description">The SIM card.</div>
+
+    <div class="setting_title">To</div>
+    <div class="setting_description">
+        The number to send the SMS to. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Example:
+        <ul>
+            <li>use <code>{sms_sender}</code> to fill in the phone number received in an <b>SMS Received</b> trigger.</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Message</div>
+    <div class="setting_description">
+        The message to send. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Example:
+        <ul>
+            <li>use <code>{location,<wbr/>locationformat}</code> to fill in a nearby address of the location. The location can be determined using an action <b>Init Variable Location</b>.</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Truncate</div>
+    <div class="setting_description">Whether to truncate the message text to fit within one SMS or to send the message using multiple SMS parts.</div>
+
+    <div class="setting_title">SMS Sending Limit</div>
+    <div class="setting_description">Defines how many SMS can be sent within the given amount of time. The action interrupts the flow with an error when the limit is exceeded.</div>
+
+    <div class="setting_title">Store sent SMS</div>
+    <div class="setting_description">Whether to store the sent SMS in the sent messages of the devices messaging app or not. This function is not officially supported by Android and might not work on all devices. Android 4.4+ automatically stores all sent SMS.</div>
+
+    <div class="setting_title">Delivery Report Options</div>
+    <div class="setting_description">Whether to request a delivery report and whether the report should be synchronous which blocks the action until the report is received or the timeout elapsed or to asynchronously deliver the report to trigger <em>Automagic SMS Deliver Report Received</em>.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>sms_delivery_report_status</code> (only when a synchronous delivery report is requested and received)</div>
+    <div class="variable_description">the status code (0-31=OK, 32-63=delivery pending, &gt;64=error)</div>
+</div>
+</body>
+
+</html>

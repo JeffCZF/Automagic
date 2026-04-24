@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Send Broadcast</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Send Broadcast</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Send Broadcast</b> send a broadcast using the specified intent. Please also see the <a href="http://developer.android.com/reference/android/content/Intent.html">documentation of the Android Intent class</a>.
+        <br/>
+        <span class="tip">Tip:</span> Some broadcast receivers require special permissions to be launched. Check the log after testing the action when the broadcast receiver fails.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Control an app that exposes its actions using a broadcast receiver.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Action</div>
+    <div class="setting_description">The action to use in the intent. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Category List</div>
+    <div class="setting_description">The list of categories as a comma separated list to add to the intent. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Data URI</div>
+    <div class="setting_description">The data URI to set on the intent. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Mime Type</div>
+    <div class="setting_description">The mime type to set on the intent. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Package Name</div>
+    <div class="setting_description">The specific package to launch. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Class Name</div>
+    <div class="setting_description">The specific class to launch. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Flag List</div>
+    <div class="setting_description">The flags to add to the intent.</div>
+
+    <div class="setting_title">Extras</div>
+    <div class="setting_description">
+        A script used to add an unlimited number of extras to the intent.<br/>
+        <br/>
+        Additionally to the regular built in functions of Automagic also the following functions are available to add the extras to the intent:
+        <ul>
+            <li><code>putString(key, value)</code></li>
+            <li><code>putBoolean(key, value)</code></li>
+            <li><code>putFloat(key, value)</code></li>
+            <li><code>putDouble(key, value)</code></li>
+            <li><code>putByte(key, value)</code></li>
+            <li><code>putShort(key, value)</code></li>
+            <li><code>putChar(key, value)</code></li>
+            <li><code>putInt(key, value)</code></li>
+            <li><code>putLong(key, value)</code></li>
+            <li><code>putUri(key, value)</code></li>
+            <li><code>putBooleanArray(key, value)</code></li>
+            <li><code>putByteArray(key, value)</code></li>
+            <li><code>putIntArray(key, value)</code></li>
+            <li><code>putIntegerArrayList(key, value)</code></li>
+            <li><code>putLongArray(key, value)</code></li>
+            <li><code>putFloatArray(key, value)</code></li>
+            <li><code>putDoubleArray(key, value)</code></li>
+            <li><code>putShortArray(key, value)</code></li>
+            <li><code>putCharArray(key, value)</code></li>
+            <li><code>putStringArray(key, value)</code></li>
+            <li><code>putStringArrayList(key, value)</code></li>
+            <li><code>putUriArray(key, value)</code></li>
+            <li><code>putUriArrayList(key, value)</code></li>
+        </ul>
+        <br/>
+
+        Example:
+        <pre>putString("key1", "Hello");<br/>putBoolean("key2", true);<br/>putDouble("key3", 1.23);<br/>putInt("key4", 42);<br/>putInt("key5", a+4*b);</pre>
+
+        <a href="action_script.html">See action Script for a description of the scripting language.</a>
+
+    </div>
+
+    <div class="setting_title">Send ordered broadcast</div>
+    <div class="setting_description">Whether Automagic should send an ordered broadcast which allows a broadcast receiver to provide a result to Automagic.</div>
+
+    <div class="setting_title">Access Result Extras</div>
+    <div class="setting_description">
+        Script to access the returned extras.<br/>
+        Following functions are supported:
+        <ul>
+            <li><code>getString(String key)</code></li>
+            <li><code>getChar(String key, String defaultValue)</code></li>
+            <li><code>getBoolean(String key, Boolean defaultValue)</code></li>
+            <li><code>getFloat(String key, Number defaultValue)</code></li>
+            <li><code>getDouble(String key, Number defaultValue)</code></li>
+            <li><code>getByte(String key, Number defaultValue)</code></li>
+            <li><code>getShort(String key, Number defaultValue)</code></li>
+            <li><code>getInt(String key, Number defaultValue)</code></li>
+            <li><code>getLong(String key, Number defaultValue)</code></li>
+            <li><code>getBundle(String key)</code></li>
+            <li><code>getUri(String key)</code></li>
+            <li><code>getBooleanArray(String key)</code></li>
+            <li><code>getByteArray(String key)</code></li>
+            <li><code>getShortArray(String key)</code></li>
+            <li><code>getCharArray(String key)</code></li>
+            <li><code>getIntArray(String key)</code></li>
+            <li><code>getIntegerArrayList(String key)</code></li>
+            <li><code>getLongArray(String key)</code></li>
+            <li><code>getFloatArray(String key)</code></li>
+            <li><code>getDoubleArray(String key)</code></li>
+            <li><code>getStringArray(String key)</code></li>
+            <li><code>getUriArray(String key)</code></li>
+            <li><code>getUriArrayList(String key)</code></li>
+            <li><code>getParcelableAsString(String key)</code></li>
+            <li><code>getParcelableArrayAsString(String key)</code></li>
+            <li><code>getParcelableArrayListAsString(String key)</code></li>
+            <li><code>getParcelable(String key)</code></li>
+        </ul>
+
+        <a href="action_script.html">See action Script for a description of the scripting language.</a>
+    </div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>result_code</code> (only if <em>Send ordered broadcast</em> is enabled)</div>
+    <div class="variable_description">the returned result code</div>
+
+    <div class="variable_name"><code>operation</code> (only if <em>Send ordered broadcast</em> is enabled)</div>
+    <div class="variable_description">string "ok", when result_code was -1, "cancel" otherwise</div>
+
+    <div class="variable_name"><code>data_string</code> (only if <em>Send ordered broadcast</em> is enabled)</div>
+    <div class="variable_description">the data of the received intent as a string</div>
+
+    <div class="variable_name"><code>abort_broadcast</code> (only if <em>Send ordered broadcast</em> is enabled)</div>
+    <div class="variable_description">boolean flag indicating whether or not the broadcast receiver aborted the broadcast.</div>
+</div>
+
+</body>
+
+</html>
