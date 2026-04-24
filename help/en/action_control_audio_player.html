@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Control Audio Player</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Control Audio Player</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Control Audio Player</b> can launch and control the default audio player of Android. Note that device and manufacturer specific audio players will probably not work.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This function is not officially supported by Android and might not work on all devices.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Pause the audio player when the headphones are disconnected.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Control Type</div>
+    <div class="setting_description">
+        Defines the method used to control the media player:
+        <ul>
+            <li><b>Media Button</b>: Simulates the press of a media button</li>
+            <li><b>Broadcast</b>: Sends a broadcast to the audio service</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Media Button</div>
+    <div class="setting_description">
+        The button to press (not all apps handle all buttons):
+        <ul>
+            <li><b>Play</b>: Starts to play (Android >3)</li>
+            <li><b>Play/Pause</b>: Toggles between play and pause</li>
+            <li><b>Pause</b>: Pauses the audio player (Android >3)</li>
+            <li><b>Stop</b>: Stops the audio player</li>
+            <li><b>Previous</b>: Plays the previous track</li>
+            <li><b>Next</b>: Plays the next track</li>
+            <li><b>Fast forward</b>: Fast forward</li>
+            <li><b>Rewind</b>: Rewind</li>
+            <li><b>Eject</b>: Ejects the media (for example a CD tray) (Android >3)</li>
+            <li><b>Close</b>: Closes the media tray (for example a CD tray) (Android >3)</li>
+            <li><b>Record</b>: Starts to record (Android >3)</li>
+            <li><b>Track</b>: Switches the audio track (Android >4.4)</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">send to specified app</div>
+    <div class="setting_description">Whether to let the system choose the app to handle the media button or if the media button event should be sent to a specific app. This is mostly useful when multiple audio players are installed and the event is not handled by the desired player.</div>
+
+    <div class="setting_title">Package Name</div>
+    <div class="setting_description">The app to send the media button event to. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Class Name</div>
+    <div class="setting_description">The component inside the app that should handle the media button. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Action</div>
+    <div class="setting_description">
+        The action to execute:
+        <ul>
+            <li><b>Launch</b>: Launches the audio player</li>
+            <li><b>Play</b>: Starts to play</li>
+            <li><b>Play/Pause</b>: Toggles between play and pause</li>
+            <li><b>Pause</b>: Pauses the audio player</li>
+            <li><b>Stop</b>: Stops the audio player</li>
+            <li><b>Previous</b>: Plays the previous track</li>
+            <li><b>Next</b>: Plays the next track</li>
+            <li><b>Cycle Repeat</b>: Activates the next cycle mode</li>
+            <li><b>Toggle Shuffle</b>: Toggles the shuffle mode on/off</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+
+</html>

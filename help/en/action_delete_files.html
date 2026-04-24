@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Delete Files</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Delete Files</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Delete Files</b> locally deletes one or multiple files or folders including contained files.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Monthly delete all files in the <code>/mnt/sdcard/download/</code> folder.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Source Files</div>
+    <div class="setting_description">
+        A comma separated list of files or directories to delete. Glob patterns can be used to match multiple files. <a href="action_script.html#inline_expressions">Variables are supported.</a>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>/mnt/sdcard/download/*</code> matches all files and subfolders in the <code>download</code> directory</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Show progress notification</div>
+    <div class="setting_description">Whether or not to show a notification on the statusbar indicating the progress of the operation.</div>
+</div>
+
+</body>
+
+</html>

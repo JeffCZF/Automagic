@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Combine Images</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Combine Images</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Combine Images</b> allows to superimpose two images on top of each other. The images have to be loaded with action <b>Init Variable Image File</b>.<br/>
+        <br/>
+        <span class="note">Note:</span> The action has to create a copy of the image in memory so please ensure to scale down the images first when memory becomes an issue.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Superimpose a logo on an image as a watermark.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Variable with first image (DST)</div>
+    <div class="setting_description">The variable containing the base image. The result is saved in this variable. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Variable with second image (SRC)</div>
+    <div class="setting_description">The variable containing the image to combine with the first one. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Mode</div>
+    <div class="setting_description">How to combine the two images.</div>
+
+    <div class="setting_title">Alignment of second image</div>
+    <div class="setting_description">The alignment of the second image on the first one.</div>
+
+    <div class="setting_title">X/Y-Offset</div>
+    <div class="setting_description">The offset of the second image relative to the gravity. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Opacity of second image</div>
+    <div class="setting_description">The opacity of the second image. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+</body>
+
+</html>

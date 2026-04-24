@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Compare Images</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Compare Images</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Compare Images</b> compares two images pixel by pixel and provides an output image that shows the differences in the selected color and provides variables containing the total number of equal and different pixels.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Compare two screenshots to check if the screen contents differ.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Image 1 Variable</div>
+    <div class="setting_description">The name of the variable containing the first image to compare.</div>
+
+    <div class="setting_title">Top/Left Inset Image 1</div>
+    <div class="setting_description">The top/left inset to ignore in the comparison. The value can either be specified as a number of pixels (without suffix) or a percentage by appending the percent sign. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Bottom/Right Inset Image 1</div>
+    <div class="setting_description">The bottom/right inset to ignore in the comparison. The value can either be specified as a number of pixels (without suffix) or a percentage by appending the percent sign. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Image 2 Variable</div>
+    <div class="setting_description">The name of the variable containing the second image to compare.</div>
+
+    <div class="setting_title">Top/Left Inset Image 2</div>
+    <div class="setting_description">The top/left inset to ignore in the comparison. The value can either be specified as a number of pixels (without suffix) or a percentage by appending the percent sign. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Bottom/Right Inset Image 2</div>
+    <div class="setting_description">The bottom/right inset to ignore in the comparison. The value can either be specified as a number of pixels (without suffix) or a percentage by appending the percent sign. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Tolerance</div>
+    <div class="setting_description">
+        The tolerance that specifies how different the two compared pixels on the two images are allowed to be to still be considered equal.<a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        Examples:
+        <ul>
+            <li>0=no tolerance, pixels have to be absolutely equal</li>
+            <li>0.1=a bit of tolerance, pixels can be a slightly different and still be considered equal</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Output Color for Differences</div>
+    <div class="setting_description">The color to use on the resulting image to indicate the differences. Equal pixels are transparent on the resulting image.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>image_data</code></div>
+    <div class="variable_description">the resulting image containing the different pixels in the specified color</div>
+
+    <div class="variable_name"><code>equal_pixel_count</code></div>
+    <div class="variable_description">the number of equal pixels</div>
+
+    <div class="variable_name"><code>different_pixel_count</code></div>
+    <div class="variable_description">the number of different pixels</div>
+</div>
+
+</body>
+
+</html>

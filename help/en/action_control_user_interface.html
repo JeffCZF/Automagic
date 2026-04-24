@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Control UI</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Control UI</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Control UI</b> uses the accessibility features of the device to control the user interface and allows to automatically press buttons, long-click elements, scroll lists and change the values of checkboxes and radio buttons.<br/>
+        <br/>
+        <span class="note">Note:</span> This action controls the user interface by simulating user input, therefore the screen has to be active, unlocked and the user interface must be showing on screen.<br/>
+        The accessibility service of Automagic needs to be enabled in the preferences for this action to work. At least Android 4.1 (Jelly Bean) is required.<br/>
+        <br/>
+        <span class="note">Note:</span> Turning on the accessibility service is not possible on some devices when a screen brightness or screen filter app displays an overlay over other controls. Please disable such apps temporarily when pressing the OK button in system settings is not possible.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Start the location settings page and enable/disable GPS.</li>
+        <li>Start the device update check by pressing the "Check now" button.</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Script</div>
+    <div class="setting_description">
+        Defines the actions to execute.<br/>
+        <a href="action_script.html#inline_expressions">See action Script for a description of the basic features of the scripting language.</a><br/>
+        <br/>
+        <span class="warning">Warning:</span> The following example scripts are highly device specific! Please only use the scripts for reference and don't just copy/paste the scripts. It might click the wrong control elements on your device.<br/>
+        <br/>
+        Clear all notifications:
+        <pre>
+notifications();//to expand the notifications
+sleep(1000);//wait one second for animations to complete
+clicked = click("Clear all notifications");//click the button
+if(not clicked) //check whether the button has been successfully clicked
+{
+    back();//hide the notification when the clear button was not available
+}
+        </pre>
+
+        Toggle GPS on/off:<br/>
+        Use an action <b>Launch App: Settings/Location services</b> to directly start the GPS settings page
+        <pre>
+sleep(1000);//wait for settings page to show
+click("GPS satellites");//toggle setting on/off
+sleep(500);
+back();//go back to the previous screen
+        </pre>
+
+        Open the Apps drawer:
+        <pre>
+home();//ensure the main home screen is showing
+sleep(1000);//wait one second for animations to complete
+click("Apps");//open the apps drawer
+        </pre>
+    </div>
+</div>
+
+<h2>Supported Functions</h2>
+
+<ul class="functions">
+    <li><code>Boolean sleep(Number milliseconds)</code><br/>Waits for the specified amount of <code>milliseconds</code>.</li>
+    <li><code>Boolean sleep(String duration)</code><br/>Waits for the specified amount of <code>milliseconds</code>.</li>
+    <li><code>Boolean back()</code><br/>Presses the back key.</li>
+    <li><code>Boolean home()</code><br/>Presses the home key.</li>
+    <li><code>Boolean notifications()</code><br/>Expands the statusbar.</li>
+    <li><code>Boolean quickSettings()</code><br/>Opens the quick settings of the status bar.</li>
+    <li><code>Boolean recents()</code><br/>Opens the recent application list.</li>
+    <li><code>Boolean powerDialog()</code><br/>Opens the power long-press dialog. (Android 5+)</li>
+    <li><code>Boolean toggleSplitScreen()</code><br/>Toggles the split screen mode. (Android 7+)</li>
+    <li><code>Boolean lockScreen()</code><br/>Locks the screen (Android 9+)</li>
+    <li><code>Boolean takeScreenshot()</code><br/>Takes a screenshot (Android 9+)</li>
+    <li><code>Boolean click(String pattern)</code><br/>Clicks on the element containing the given glob <code>pattern</code>.</li>
+    <li><code>Boolean click(Number x, Number y)</code><br/>Clicks on the element at the specified location.</li>
+    <li><code>Boolean clickById(String id)</code><br/>Clicks on the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean clickByIdAndIndex(String id, Number index)</code><br/>Clicks on the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean touchGesture(Number startMillis, Number endMillis, List coordinates, ...)</code><br/>Simulates touch screen input by replaying the given coordinates within the specified amount of time. (Android 7+)</li>
+    <li><code>Boolean longclick(String pattern)</code><br/>Longclicks on the element containing the given glob <code>pattern</code>.</li>
+    <li><code>Boolean longclick(Number x, Number y)</code><br/>Longclicks on the element at the specified location.</li>
+    <li><code>Boolean longclickById(String id, Number index)</code><br/>Longclicks on the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean longclickByIdAndIndex(String id, Number index)</code><br/>Longclicks on the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean check(String pattern)</code><br/>Checks the element containing the given glob <code>pattern</code>.</li>
+    <li><code>Boolean check(Number x, Number y)</code><br/>Checks the element at the specified location.</li>
+    <li><code>Boolean checkById(String id, Number index)</code><br/>Checks the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean checkByIdAndIndex(String id, Number index)</code><br/>Checks the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean isChecked(String pattern)</code><br/>Tests whether the element containing the given glob <code>pattern</code> is checked.</li>
+    <li><code>Boolean isChecked(Number x, Number y)</code><br/>Tests whether the element at the specified location is checked.</li>
+    <li><code>Boolean isCheckedById(String id)</code><br/>Tests whether the element with the given <code>id</code> is checked. (Android 4.3+)</li>
+    <li><code>Boolean isCheckedByIdAndIndex(String id, Number index)</code><br/>Tests whether the n-th element with the given <code>id</code> is checked. (Android 4.3+)</li>
+    <li><code>Boolean uncheck(String pattern)</code><br/>Unchecks the element containing the given glob <code>pattern</code>.</li>
+    <li><code>Boolean uncheck(Number x, Number y)</code><br/>Unchecks the element at the specified location.</li>
+    <li><code>Boolean uncheckById(String id)</code><br/>Unchecks the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean uncheckByIdAndIndex(String id, Number index)</code><br/>Unchecks the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean scrollForward(String pattern)</code><br/>Scrolls the element containing the given glob <code>pattern</code>.</li>
+    <li><code>Boolean scrollForward(Number x, Number y)</code><br/>Scrolls the element at the specified location.</li>
+    <li><code>Boolean scrollForwardById(String id)</code><br/>Scrolls the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean scrollForwardByIdAndIndex(String id, Number index)</code><br/>Scrolls the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean scrollBackward(String pattern)</code><br/>Scrolls the element containing the given glob <code>pattern</code>.</li>
+    <li><code>Boolean scrollBackward(Number x, Number y)</code><br/>Scrolls the element at the specified location.</li>
+    <li><code>Boolean scrollBackwardById(String id)</code><br/>Scrolls the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean scrollBackwardByIdAndIndex(String id, Number index)</code><br/>Scrolls the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean select(String pattern)</code><br/>Selects the element containing the given glob <code>pattern</code>.</li>
+    <li><code>Boolean select(Number x, Number y)</code><br/>Selects the element at the specified location.</li>
+    <li><code>Boolean selectById(String id)</code><br/>Selects the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean selectByIdAndIndex(String id, Number index)</code><br/>Selects the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean clearSelection(String pattern)</code><br/>Unselects the element containing the given glob <code>pattern</code>.</li>
+    <li><code>Boolean clearSelection(Number x, Number y)</code><br/>Unselects the element at the specified location.</li>
+    <li><code>Boolean clearSelectionById(String id)</code><br/>Unselects the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean clearSelectionByIdAndIndex(String id, Number index)</code><br/>Unselects the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean focus(String pattern)</code><br/>Focuses the element containing the given glob <code>pattern</code>.</li>
+    <li><code>Boolean focus(Number x, Number y)</code><br/>Focuses the element at the specified location.</li>
+    <li><code>Boolean focusById(String id)</code><br/>Focuses the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean focusByIdAndIndex(String id, Number index)</code><br/>Focuses the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean expand(String pattern)</code><br/>Expands the element containing the given glob <code>pattern</code>. (Android 4.4+)</li>
+    <li><code>Boolean expand(Number x, Number y)</code><br/>Expands the element at the specified location. (Android 4.4+)</li>
+    <li><code>Boolean expandById(String id)</code><br/>Expands the element with the given <code>id</code>. (Android 4.4+)</li>
+    <li><code>Boolean expandByIdAndIndex(String id, Number index)</code><br/>Expands the n-th element with the given <code>id</code>. (Android 4.4+)</li>
+    <li><code>Boolean collapse(String pattern)</code><br/>Collapses the element containing the given glob <code>pattern</code>. (Android 4.4+)</li>
+    <li><code>Boolean collapse(Number x, Number y)</code><br/>Collapses the element at the specified location. (Android 4.4+)</li>
+    <li><code>Boolean cut()</code><br/>Cuts the text of the focused element. (Android 4.3+)</li>
+    <li><code>Boolean cut(String pattern)</code><br/>Cuts the text of the element containing the given glob <code>pattern</code>. (Android 4.3+)</li>
+    <li><code>Boolean cut(Number x, Number y)</code><br/>Cuts the text of the element at the specified location. (Android 4.3+)</li>
+    <li><code>Boolean cutById(String id)</code><br/>Cuts the text of the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean cutByIdAndIndex(String id, Number index)</code><br/>Cuts the text of the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean copy()</code><br/>Copies the text of the focused element. (Android 4.3+)</li>
+    <li><code>Boolean copy(String pattern)</code><br/>Copies the text of the element containing the given glob <code>pattern</code>. (Android 4.3+)</li>
+    <li><code>Boolean copy(Number x, Number y)</code><br/>Copies the text of the element at the specified location. (Android 4.3+)</li>
+    <li><code>Boolean copyById(String id)</code><br/>Copies the text of the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean copyByIdAndIndex(String id, Number index)</code><br/>Copies the text of the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean paste()</code><br/>Pastes text to the focused element. (Android 4.3+)</li>
+    <li><code>Boolean paste(String pattern)</code><br/>Pastes text to the element containing the given glob <code>pattern</code>. (Android 4.3+)</li>
+    <li><code>Boolean paste(Number x, Number y)</code><br/>Pastes text to the element at the specified location. (Android 4.3+)</li>
+    <li><code>Boolean pasteById(String id)</code><br/>Pastes text to the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean pasteByIdAndIndex(String id, Number index)</code><br/>Pastes text to the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean setSelection2(Number start, Number end)</code><br/>Sets the selection of the focused element to the defined range. (Android 4.3+)</li>
+    <li><code>Boolean setSelection2(String pattern, Number start, Number end)</code><br/>Sets the selection of the element containing the given glob <code>pattern</code>. (Android 4.3+)</li>
+    <li><code>Boolean setSelection2(Number x, Number y, Number start, Number end)</code><br/>Sets the selection of the element at the specified location. (Android 4.3+)</li>
+    <li><code>Boolean setSelection2ById(String id, Number start, Number end)</code><br/>Sets the selection of the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean setSelection2ByIdAndIndex(String id, Number index, Number start, Number end)</code><br/>Sets the selection of the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>Boolean dismiss(String pattern)</code><br/>Dismisses the element containing the given glob <code>pattern</code>. (Android 4.4+)</li>
+    <li><code>Boolean dismiss(Number x, Number y)</code><br/>Dismisses the element at the specified location. (Android 4.4+)</li>
+    <li><code>Boolean dismissById(String id)</code><br/>Dismisses the element with the given <code>id</code>. (Android 4.4+)</li>
+    <li><code>Boolean dismissByIdAndIndex(String id, Number index)</code><br/>Dismisses the n-th element with the given <code>id</code>. (Android 4.4+)</li>
+    <li><code>String getText()</code><br/>Returns the text of the focused element.</li>
+    <li><code>String getText(String pattern)</code><br/>Returns the text of the element containing the given glob <code>pattern</code>.</li>
+    <li><code>String getText(Number x, Number y)</code><br/>Returns the text of the element at the specified location.</li>
+    <li><code>String getTextById(String id)</code><br/>Returns the text of the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>String getTextByIdAndIndex(String id, Number index)</code><br/>Returns the text of the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>String getContentDescription()</code><br/>Returns the content description of the focused element.</li>
+    <li><code>String getContentDescription(String pattern)</code><br/>Returns the content description of the element containing the given glob <code>pattern</code>.</li>
+    <li><code>String getContentDescription(Number x, Number y)</code><br/>Returns the content description of the element at the specified location.</li>
+    <li><code>String getContentDescriptionById(String id)</code><br/>Returns the content description of the element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>String getContentDescriptionByIdAndIndex(String id, Number index)</code><br/>Returns the content description of the n-th element with the given <code>id</code>. (Android 4.3+)</li>
+    <li><code>String getTextInActiveWindow()</code><br/>Returns the text of all text elements. The order of the text elements can differ from the visual position.</li>
+    <li><code>String getContentDescriptionInActiveWindow()</code><br/>Returns the content description of all elements. The order of the text elements can differ from the visual position.</li>
+    <li><code>Boolean setText2(String pattern, String text)</code><br/>Sets the text of the element containing the given glob <code>pattern</code>. (Android 5+)</li>
+    <li><code>Boolean setText2(Number x, Number y, String text)</code><br/>Sets the text of the element at the specified location. (Android 5+)</li>
+    <li><code>Boolean setText2ById(String id, String text)</code><br/>Sets the text of the element with the given <code>id</code>. (Android 5+)</li>
+    <li><code>Boolean setText2ByIdAndIndex(String id, Number index, String text)</code><br/>Sets the text of the n-th element with the given <code>id</code>. (Android 5+)</li>
+    <li><code>List getBounds(String pattern)</code><br/>Returns the bounds of the element containing the given glob <code>pattern</code> in a list with the values [x, y, width, height].</li>
+    <li><code>List getBoundsById(String id)</code><br/>Returns the bounds of the element with the given <code>id</code> in a list with the values [x, y, width, height]. (Android 4.3+)</li>
+    <li><code>List getBoundsByIdAndIndex(String id, Number index)</code><br/>Returns the bounds of the n-th element with the given <code>id</code> in a list with the values [x, y, width, height]. (Android 4.3+)</li>
+    <li><code>Boolean existsElementById(String id)</code><br/>Returns true when the element with the given <code>id</code> exists on the current window. (Android 4.3+)</li>
+    <li><code>Boolean existsElementByIdAndIndex(String id, Number index)</code><br/>Returns true when the n-th element with the given <code>id</code> exists on the current window. (Android 4.3+)</li>
+    <li><code>Number getNumberOfElementsWithId(String id)</code><br/>Returns number of elements with the defined <code>id</code> on the current window. (Android 4.3+)</li>
+    <li><code>Boolean sendKey(Number keyCode)</code><br/>Simulates the specified key (Automagic input method required).</li>
+    <li><code>Boolean sendKey(String keyCodeName)</code><br/>Simulates the specified key (Automagic input method required).</li>
+    <li><code>Boolean sendKey(String keyCodeName, String metaKey, ...)</code><br/>Simulates the specified key with meta key state (Automagic input method required).</li>
+    <li><code>Boolean sendText(String text)</code><br/>Sends the text to the focused component (Automagic input method required).</li>
+    <li><code>Boolean setText(String text)</code><br/>Sets the text of the focused component (Automagic input method required).</li>
+    <li><code>Boolean setSelection(Number start, Number end)</code><br/>Sets the selection of the focused component (Automagic input method required).</li>
+    <li><code>List getSelection()</code><br/>Returns the start and end position of the cursor in a list with the values [start, end] (Automagic input method required).</li>
+    <li><code>Boolean selectAll()</code><br/>Selects the text of the focused component (Automagic input method required).</li>
+</ul>
+
+</body>
+
+</html>

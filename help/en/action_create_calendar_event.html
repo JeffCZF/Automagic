@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Create Calendar Event</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Create Calendar Event</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Create Calendar Event</b> creates an event on the specified calendar of the device (Android 4+ required)<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Create a calendar event based on the text of a received SMS.</li>
+        <li>Create a calendar event for every received call.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Calendar</div>
+    <div class="setting_description">The name of calendar to create the event in. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Start/End Type</div>
+    <div class="setting_description">Whether the event should be created relative to the time when the action is executed or absolute.</div>
+
+    <div class="setting_title">Start in</div>
+    <div class="setting_description">The start offset of the event from now. <em>1h</em> creates an event that starts in one hour. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Duration</div>
+    <div class="setting_description">The desired duration of the event like <em>1h</em> or <em>45m</em>. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">From</div>
+    <div class="setting_description">A script whose last statement must evaluate to a date (milliseconds since 1970) to use as the start time of the event.</div>
+
+    <div class="setting_title">To</div>
+    <div class="setting_description">A script whose last statement must evaluate to a date (milliseconds since 1970) to use as the end time of the event.</div>
+
+    <div class="setting_title">All day</div>
+    <div class="setting_description">When checked creates an event lasting the whole day, the event spans all days intersecting the time span specified in <em>Start in/Duration</em> or <em>From/To</em>.</div>
+
+    <div class="setting_title">Title</div>
+    <div class="setting_description">The title. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Description</div>
+    <div class="setting_description">The description. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Location</div>
+    <div class="setting_description">The event location. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Reminders</div>
+    <div class="setting_description">The reminders to create. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Event Availability</div>
+    <div class="setting_description">The availability (not all calendars support Tentative).</div>
+
+    <div class="setting_title">Visibility</div>
+    <div class="setting_description">The visibility.</div>
+</div>
+
+</body>
+
+</html>
