@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Export Flows</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Export Flows</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Export Flows</b> exports the selected flows to the specified file.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Export all flows to a file and upload the file to Dropbox as a backup.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Flow pattern list</div>
+    <div class="setting_description">A comma separated list of flow names to export. Glob patterns <code>*</code> and <code>?</code> can be used to match similar named flows. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>Test Flow</code></li>
+            <li><code>Test Flow, SMS Flow</code></li>
+            <li><code>*time tracking*</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Exclude flow pattern list</div>
+    <div class="setting_description">A comma separated list of flow names to <b>not</b> export even when the field <b>Flow pattern list</b> includes the flow. Glob patterns <code>*</code> and <code>?</code> can be used to match similar named flows. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Widget pattern list</div>
+    <div class="setting_description">A comma separated list of widget names to export. Glob patterns <code>*</code> and <code>?</code> can be used to match similar named widgets. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Exclude widget pattern list</div>
+    <div class="setting_description">A comma separated list of widget names to <b>not</b> export even when the field <b>Widget pattern list</b> includes the widget. Glob patterns <code>*</code> and <code>?</code> can be used to match similar named widgets. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Target File</div>
+    <div class="setting_description">The path of the target file. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>export_path</code></div>
+    <div class="variable_description">the path of the created file</div>
+</div>
+
+</body>
+
+</html>

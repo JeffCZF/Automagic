@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Execute SSH Command (Experimental)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Execute SSH Command (Experimental)</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Execute SSH Command</b> connects to an SSH server and executes a command.<br/>
+        <br/>
+        <span class="note">Note:</span> It can not be guaranteed that this action is compatible with all SSH servers.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Execute a command on a NAS every evening.</li>
+        <li>Show the free memory of the server on a widget.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Server/Port</div>
+    <div class="setting_description">The IP or name of the SSH server to connect to. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Validate host key</div>
+    <div class="setting_description">Whether the host key should be checked or not. Skipping the host key check reduces the security of SSH.</div>
+
+    <div class="setting_title">Username</div>
+    <div class="setting_description">The username. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Authentication type</div>
+    <div class="setting_description">Whether to use password authentication or public key authentication. Keyboard interactive authentication is not supported.</div>
+
+    <div class="setting_title">Password</div>
+    <div class="setting_description">The password.</div>
+
+    <div class="setting_title">Private key file</div>
+    <div class="setting_description">The path to the private key file (OpenSSH format). You may need to convert the key to another format when the key does not work in Automagic. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Public key file</div>
+    <div class="setting_description">The path to the public key file (OpenSSH format). You may need to convert the key to another format when the key does not work in Automagic. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Passphrase</div>
+    <div class="setting_description">The passphrase of the key or empty when no passphrase is used.</div>
+
+    <div class="setting_title">Test connection/Update host key</div>
+    <div class="setting_description">Tries to establish a connection to the specified server using the given credentials. Variables are not replaced.</div>
+
+    <div class="setting_title">Command</div>
+    <div class="setting_description">The command to execute. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Feed input file</div>
+    <div class="setting_description">Whether to feed an input file to the executed command (like <em>cat file | ssh user@server command</em>)</div>
+
+    <div class="setting_title">Input file</div>
+    <div class="setting_description">The file to feed to the command. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Timeout</div>
+    <div class="setting_description">The overall timeout (connect and execute).</div>
+
+    <div class="setting_title">Store stdout in a variable or file</div>
+    <div class="setting_description">Whether to store the output of the command in a variable (max. 1MB, text). Binary output should always be stored in a file.</div>
+
+    <div class="setting_title">Variable to store the standard output</div>
+    <div class="setting_description">The output written by the command to the standard output is stored in the variable defined in this field.</div>
+
+    <div class="setting_title">File to store the standard output</div>
+    <div class="setting_description">The path to the file to store the output of the command. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Variable to store the error output</div>
+    <div class="setting_description">The output written by the command to the error output is stored in the variable defined in this field.</div>
+
+    <div class="setting_title">Variable to store the exit code</div>
+    <div class="setting_description">The exit code of the command is stored in the variable defined in this field.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>stdout</code></div>
+    <div class="variable_description">the standard output of the command</div>
+
+    <div class="variable_name"><code>stderr</code></div>
+    <div class="variable_description">the standard error output of the command</div>
+
+    <div class="variable_name"><code>exit_code</code></div>
+    <div class="variable_description">the exit code of the command</div>
+</div>
+
+</body>
+
+</html>

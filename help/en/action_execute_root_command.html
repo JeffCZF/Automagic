@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Execute Root Command</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Execute Root Command</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Execute Root Command</b> executes a shell command as root by passing the command to <code>su</code> and stores the output in variables.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This function requires root access, is not officially supported by Android and might not work on all devices.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li><code>reboot</code> to reboot the device</li>
+        <li><code>reboot -p</code> to shutdown</li>
+    </ul>
+    String variables are replaced before the command is passed to the interpreter.<br/>
+    You can use this for example to create a filename based on the current date: <code>ps&nbsp;>&nbsp;file-<wbr/>{triggertime,datetime,yyyyMMdd}<wbr/>.txt</code>.
+
+    <p>
+        Special characters in the command have to be escaped using backslash or placed in quotes as appropriate:<br/>
+        <code>cat 'Test File1.txt' > 'Test File2.txt'</code><br/>
+        <code>cat Test\ File1.txt > Test\ File2.txt</code><br/>
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+    <div class="setting_title">Command</div>
+    <div class="setting_description">
+        Enter the shell command to execute in this field. The command is passed to <code>su</code> to be interpreted.
+        The available commands vary from device to device. <a href="action_script.html#inline_expressions">Variables are supported.</a>
+    </div>
+
+    <div class="setting_title">User</div>
+    <div class="setting_description">The user to use for executing the command. Defaults to root when not specified. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">SE Context</div>
+    <div class="setting_description">The SE context to use to execute the command. This setting is often required when using Android 5+ or any other device that set SELinux to enforcing. Requires <em>su</em> that allows to switch SE context (like SuperSU v1.97+). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Working Directory</div>
+    <div class="setting_description">The path the command is executed in. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Timeout</div>
+    <div class="setting_description">The timeout for the command.</div>
+
+    <div class="setting_title">Variable to store the standard output</div>
+    <div class="setting_description">The output written by the command to the standard output is stored in the variable defined in this field.</div>
+
+    <div class="setting_title">Variable to store the error output</div>
+    <div class="setting_description">The output written by the command to the error output is stored in the variable defined in this field.</div>
+
+    <div class="setting_title">Variable to store the exit code</div>
+    <div class="setting_description">The exit code of the command is stored in the variable defined in this field.</div>
+
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>stdout</code></div>
+    <div class="variable_description">the standard output of the command</div>
+
+    <div class="variable_name"><code>stderr</code></div>
+    <div class="variable_description">the standard error output of the command</div>
+
+    <div class="variable_name"><code>exit_code</code></div>
+    <div class="variable_description">the exit code of the command</div>
+</div>
+
+</body>
+
+</html>
