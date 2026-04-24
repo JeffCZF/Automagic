@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Shortcut</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Shortcut</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Shortcut</b> is executed when a shortcut on the launcher is pressed.<br/>
+        You can create the shortcut and select an icon by pressing the <b>Install Shortcut</b> button.<br/>
+        <br/>
+        <span class="note">Note:</span> Starting with Android 8 the install shortcut button might not have any effect. In this case you can create the shortcut by saving the trigger then going to the launcher, long press a free area, select <em>Widgets</em> then <em>AM Shortcut</em> to create a new shortcut.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Turn WiFi on by pressing the shortcut.</li>
+        <li>Launch a settings application screen by pressing the shortcut.</li>
+        <li>Start recording in Gleeo Time Tracker by pressing the shortcut.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Title</div>
+    <div class="setting_description">The title/name of the shortcut to create. The title is used to identify the Shortcut-trigger in Automagic, which means that a shortcut can execute multiple triggers when two Shortcut-triggers use the same title. The title is passed to the launcher at the time when the button <b>Install Shortcut</b> is pressed.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+</div>
+
+</body>
+
+</html>

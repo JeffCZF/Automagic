@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SMS Sent</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>SMS Sent</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>SMS Sent</b> is executed when an SMS is sent and stored as a sent SMS in the default SMS outbox of the standard Android SMS database.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This function is not officially supported by Android and might not work on all devices.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Send every sent SMS as a mail to your mail account.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">SMS Receiver List</div>
+    <div class="setting_description">The list of call numbers when the flow is executed. Multiple numbers can be separated by commas.<br/>
+        Glob patterns (*, ?) can be used to filter on similar numbers like corporate number ranges:<br/>
+        <br/>
+        Examples:
+        <ul>
+            <li>+17001111111</li>
+            <li>+17001111111,+17002222222</li>
+            <li>*70033311*</li>
+            <li>*70033311*,*70033?22*</li>
+        </ul>
+
+        Special characters like <code>+</code>, <code>-</code> and <code>.</code> are removed before comparing the number.<br/>
+        <br/>
+    </div>
+
+    <div class="setting_title">Contains Text</div>
+    <div class="setting_description">Only executes the flow when the text of the SMS contains the given text (no wildcards supported). The text is not case sensitive.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>sms_text</code></div>
+    <div class="variable_description">the text of the SMS</div>
+
+    <div class="variable_name"><code>sms_receiver</code></div>
+    <div class="variable_description">the receiver of the SMS</div>
+
+    <div class="variable_name"><code>contact_name</code></div>
+    <div class="variable_description">the name of the contact if available</div>
+
+    <div class="variable_name"><code>contact_company</code></div>
+    <div class="variable_description">the company of the contact if available</div>
+
+    <div class="variable_name"><code>contact_title</code></div>
+    <div class="variable_description">the title of the contact if available</div>
+
+    <div class="variable_name"><code>contact_note</code></div>
+    <div class="variable_description">the note of the contact if available</div>
+
+    <div class="variable_name"><code>contact_nickname</code></div>
+    <div class="variable_description">the nickname of the contact if available</div>
+
+    <div class="variable_name"><code>contact_email</code></div>
+    <div class="variable_description">an email address of the contact if available</div>
+
+    <div class="variable_name"><code>contact_groups</code></div>
+    <div class="variable_description">the list of groups of the contact if available</div>
+</div>
+
+</body>
+
+</html>

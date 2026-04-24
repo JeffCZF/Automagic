@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Step counter</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Step counter</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Step counter</b> uses the Step counter/Pedometer of the device and executes a flow when the specified number of steps have been counted. The device can optimise the battery usage and inform Automagic less often when the display is turned off.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This trigger uses the device hardware sensors and might increase battery usage (depending on device model). Some devices do not count the steps when the screen is off.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Create a calendar event 'Training highly recommended' for the next day when less than 1000 steps have been counted for the day.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">On every nth step (or less frequent)</div>
+    <div class="setting_description">Defines after how many steps a flow should be executed. The step counter can inform Automagic less often to save battery.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>step_count</code></div>
+    <div class="variable_description">the number of steps since the trigger was enabled</div>
+
+    <div class="variable_name"><code>step_count_total</code></div>
+    <div class="variable_description">the number of steps counted by the sensor since the last reboot</div>
+
+    <div class="variable_name"><code>last_step_time</code></div>
+    <div class="variable_description">the point in time of the last detected step. Automagic attempts to provide a regular system time but might fail on some devices due to differences on ROMs.</div>
+</div>
+
+</body>
+
+</html>

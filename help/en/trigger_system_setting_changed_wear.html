@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>System Setting Changed (Android Wear)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>System Setting Changed (Android Wear)</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>System Setting Changed (Android Wear)</b> is executed whenever a setting in the systems setting database was changed.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This function is not officially supported by Android and might not work on all devices.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Play an alert when the system turns on the blocking mode.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Android Wear device</div>
+    <div class="setting_description">The target device.</div>
+
+    <div class="setting_title">Category</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>System</b>: for regular settings</li>
+            <li><b>Secure</b>: for settings which can usually not be modified</li>
+            <li><b>Global</b>: for global Settings valid for all users of the device (Android 4.2+)</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Name</div>
+    <div class="setting_description">The name of the setting to watch.</div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the variable with the new value of the setting to pass to the flow.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>old_setting</code></div>
+    <div class="variable_description">the value of the setting before it was changed</div>
+
+    <div class="variable_name"><code>setting</code></div>
+    <div class="variable_description">the new value of the setting</div>
+
+    <div class="variable_name"><code>node_id</code></div>
+    <div class="variable_description">the ID of the Wear node</div>
+</div>
+
+</body>
+
+</html>

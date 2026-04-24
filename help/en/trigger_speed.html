@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Speed</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Speed</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Speed</b> is executed when the measured speed of the GPS receiver rises above or declines below a certain level.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This trigger uses the GPS receiver and might increase battery usage (depending on device model).<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Record the location in a file whenever you are driving faster than 120km/h.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Type</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>Declines below</b>: executes the trigger when the reported speed falls under a certain value</li>
+            <li><b>Rises above</b>: executes the trigger when the reported speed rises above a certain value</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Speed</div>
+    <div class="setting_description">The speed to compare.</div>
+
+    <div class="setting_title">Unit</div>
+    <div class="setting_description">The unit of the speed.</div>
+
+    <div class="setting_title">Threshold</div>
+    <div class="setting_description">
+        The minimal change in speed before the trigger is executed again.<br/>
+        <br/>
+        Example:<br/>
+        Type: <b>Declines below</b>, Speed <b>40km/h</b>, Threshold: <b>10km/h</b><br/>
+        The trigger is executed when the speed declines under 40km/h. The speed has to rise to at least 50km/h again before the trigger is executed again.
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>location</code></div>
+    <div class="variable_description">the reported location</div>
+
+    <div class="variable_name"><code>location_accuracy</code></div>
+    <div class="variable_description">the accuracy of the location</div>
+
+    <div class="variable_name"><code>location_altitude</code></div>
+    <div class="variable_description">the altitude of the location when available</div>
+
+    <div class="variable_name"><code>location_bearing</code></div>
+    <div class="variable_description">the direction of travel in degrees East of true North when available</div>
+
+    <div class="variable_name"><code>location_speed</code></div>
+    <div class="variable_description">the speed of travel in meters per second</div>
+</div>
+
+</body>
+
+</html>
