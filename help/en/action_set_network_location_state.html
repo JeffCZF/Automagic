@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Set Network Location State</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Set Network Location State</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Set Network Location State</b> changes the setting whether the system can use WiFi access points and the mobile network to determine your location.<br/>
+        <br/>
+        <span class="note">Note:</span> Android shows a confirmation dialog on some devices.<br/>
+        <span class="warning">Warning:</span> This function requires root access, is not officially supported by Android and might not work on all devices.
+        <br/>
+        <span class="note">Note:</span> <code>adb</code> can be used on some versions of Android to grant the permissions to execute the action without root:
+        <ol>
+            <li>Install <code>adb</code> on a computer (<a href="https://www.google.com/search?q=install+adb+for+android">search internet on how to install adb</a>)</li>
+            <li>enable <b>USB Debugging</b> in <b>System settings</b> -&gt; <b>Developer options</b> on your Android device</li>
+            <li>connect your Android device to the computer</li>
+            <li>execute following command in a terminal: <code>adb shell pm grant ch.gridvision.ppam.androidautomagic android.permission.WRITE_SECURE_SETTINGS</code></li>
+        </ol>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Turn on the network location when Google Maps is started.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Network Location</div>
+    <div class="setting_description">Whether the network location provider can be used to determine the location.</div>
+</div>
+
+</body>
+
+</html>
