@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HTTP Request</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>HTTP Request</h1>
+
+<div class="summary">
+    <p>
+        The action <b>HTTP Request</b> requests a resource from a server using the specified HTTP request method.<br/>
+        <br/>
+        <span class="note">Note:</span> This action is meant to be used for technical requests (REST and the like) and to process the response using scripts. If you simply want to download a file please use the action <em>Download URL</em>.<br/>
+        The action terminates with a status code of -1 for general errors. It will terminate with an error when not even a connection to the server can be established (network not available, IP can not be resolved etc.). Use an Exception-connection to handle such errors.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Fetch a web page of a weather service and test if it contains the word <em>rain</em>.</li>
+        <li>Get the price of a product from an online retailers REST service.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">URL</div>
+    <div class="setting_description">The URL to request. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        Examples:
+        <ul>
+            <li><code>http://example.com/<wbr/>weather.html?ts=<wbr/>{triggertime,dateformat,yyyyMMdd}<wbr/></code> becomes <code>http://example.com/<wbr/>weather.html?ts=20110213</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Verify certificates (https)</div>
+    <div class="setting_description">Whether certificates should be checked or not. Can be useful to ignore errors for self-signed certificates.</div>
+
+    <div class="setting_title">Authentication</div>
+    <div class="setting_description">Whether username and password should be passed to the server using basic authentication.</div>
+
+    <div class="setting_title">Username</div>
+    <div class="setting_description">The username to pass to the server. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Password</div>
+    <div class="setting_description">The password to pass to the server. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Client certificate</div>
+    <div class="setting_description">If a client certificate should be used.</div>
+
+    <div class="setting_title">Client certificate path</div>
+    <div class="setting_description">Path to the PKCS#12 file. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Client certificate password</div>
+    <div class="setting_description">The password to access the client certificate. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Network Type</div>
+    <div class="setting_description">Whether to use the currently available default network or send the request on the WiFi or cellular network.</div>
+
+    <div class="setting_title">Request Method</div>
+    <div class="setting_description">The HTTP request method to use. Not all methods are supported by all devices.</div>
+
+    <div class="setting_title">Content Type</div>
+    <div class="setting_description">The content type to use in the request as header Content-Type. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Form Field List</div>
+    <div class="setting_description">
+        Comma separated list with key=value to send as <code>application/x-www-form-urlencoded</code> to the server. The values are automatically URL encoded. <a href="action_script.html#inline_expressions">Variables are supported.</a>
+        <br/>
+        <br/>
+        Example: <code>Firstname=Hugo,Lastname=Habicht</code>
+    </div>
+
+    <div class="setting_title">Data</div>
+    <div class="setting_description">The text data to send to the server. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Form Field Name</div>
+    <div class="setting_description">The name of the form field to use for the uploaded file. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">File to upload</div>
+    <div class="setting_description">The path of the file to upload. The filename for the request is automatically determined based on the specified file. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Timeout</div>
+    <div class="setting_description">The timeout to use.</div>
+
+    <div class="setting_title">Custom HTTP Headers</div>
+    <div class="setting_description">
+        A text containing the custom HTTP headers to send. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Each line should start with the header name and a colon followed by the value to send.<br/>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>User-Agent: my own user agent</code></li>
+            <li><code>SOAPAction: "test"</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Store response in a variable or file</div>
+    <div class="setting_description">Whether to store the response in a variable or a file.</div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the variable to store the response in. The response is converted to a string. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        <span class="warning">Warning:</span> Responses larger than 1MB are not supported in a variable.
+    </div>
+
+    <div class="setting_title">Encoding</div>
+    <div class="setting_description">The encoding to use to read the response from the server. Leave empty to use the encoding as specified by the servers response.</div>
+
+    <div class="setting_title">File</div>
+    <div class="setting_description">The path to store the file in. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><em>name as declared in the field Variable</em></div>
+    <div class="variable_description">the response as string</div>
+
+    <div class="variable_name"><code>status_code</code></div>
+    <div class="variable_description">the numeric HTTP status code, -1 when a general error occurs</div>
+
+    <div class="variable_name"><code>error_message</code></div>
+    <div class="variable_description">error message when the request could not be executed and <code>status_code</code> is set to -1</div>
+
+    <div class="variable_name"><code>header_*</code></div>
+    <div class="variable_description">
+        All values of the response headers. The name of the variable is built using the prefix <code>header_</code> and the name of the header by replacing dash with underscore and converting the name to lowercase.<br/>
+        Examples:
+        <ul>
+            <li>Header <code>Accept</code> is stored in variable <code>header_accept</code></li>
+            <li>Header <code>Accept-Encoding</code> is stored in variable <code>header_accept_encoding</code></li>
+        </ul>
+        Values of headers that are specified multiple times in the response are provided as a list.<br/>
+        Headers leading to an invalid variable name are ignored.
+    </div>
+</div>
+
+</body>
+
+</html>

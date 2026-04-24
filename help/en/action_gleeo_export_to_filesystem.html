@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Gleeo Filesystem Export</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Gleeo Filesystem Export</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Gleeo Filesystem Export</b> creates a CSV export of the defined projects and time range.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Backup all data in Gleeo Time Tracker to the SD card.</li>
+        <li>Export the current month by pressing a shortcut on the launcher and attach the created file to a Google Mail message draft.</li>
+        <li>Each month export all recorded entries of the month to the SD card and send the file by mail to your employer.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Domains to Export</div>
+    <div class="setting_description">The list of domains to export. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Projects to Export</div>
+    <div class="setting_description">The list of projects to export. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Tasks to Export</div>
+    <div class="setting_description">The list of tasks to export. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Time Range</div>
+    <div class="setting_description">The time range to export.</div>
+
+    <div class="setting_title">CSV Column Delimiter</div>
+    <div class="setting_description">The delimiter used to separate two columns. Excel users can set this to <code>Semicolon</code> to simplify the import in Excel.</div>
+
+    <div class="setting_title">Target File</div>
+    <div class="setting_description">The file to store the exported data in. Variables can be used to create dynamic file names based on time.<br/>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>/mnt/sdcard/export_<wbr/>{triggertime,<wbr/>dateformat,<wbr/>yyyy_MM_dd}<wbr/>.csv</code> becomes <code>/mnt/sdcard/<wbr/>export_2011_02_13.csv</code></li>
+            <li><code>/mnt/sdcard/export_<wbr/>{export_start_time,<wbr/>dateformat,<wbr/>yyyy_MM_dd}-<wbr/>{export_end_time,<wbr/>dateformat,<wbr/>yyyy_MM_dd}<wbr/>.csv</code> becomes <code>/mnt/sdcard/<wbr/>export_2011_03_01-2011_03_31.csv</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Encoding</div>
+    <div class="setting_description">The encoding used to save the file.</div>
+
+    <div class="setting_title">Attach to Mail</div>
+    <div class="setting_description">Opens the desired Mail App and attaches the CSV file.</div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>export_start_time</code></div>
+    <div class="variable_description">the start time of the exported time range</div>
+
+    <div class="variable_name"><code>export_end_time</code></div>
+    <div class="variable_description">the end time of the exported time range</div>
+
+    <div class="variable_name"><code>export_path</code></div>
+    <div class="variable_description">the absolute path of the exported file</div>
+</div>
+
+</body>
+
+</html>

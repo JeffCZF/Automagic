@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Google Drive Init Variable File List</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Google Drive Init Variable File List</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Google Drive Init Variable File List</b> lists the files of a directory that match the specified name pattern.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Get a list of files and download only the ones smaller than 1MB.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Device account</div>
+    <div class="setting_description">The account to access Google Drive.</div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the variable to hold the list of files. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">File Pattern</div>
+    <div class="setting_description">The files to list. The file pattern can contain glob pattern characters like <code>*</code> and <code>?</code>. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Include file attributes</div>
+    <div class="setting_description">When selected, returns for each file a list of attributes with path, file type, file size and file date.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>files</code></div>
+    <div class="variable_description">the list of files</div>
+</div>
+
+</body>
+
+</html>

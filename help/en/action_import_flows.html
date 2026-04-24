@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Import Flows</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Import Flows</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Import Flows</b> imports all flows of the specified file. The imported flows are <b>disabled</b>. Already existing flows are not imported.<br/>
+        Flows can be enabled after importing when desired using action <b>Set Flow State</b> and the variable <code>{imported_flow_names,listformat,comma}</code>.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Import a flow to lock the device on the stolen device.</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">File</div>
+    <div class="setting_description">The file to import. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Replace existing</div>
+    <div class="setting_description">Whether or not to replace existing Flows, Triggers, Actions, Conditions and Widgets with the same name.</div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>imported_flow_names</code></div>
+    <div class="variable_description">the list of imported flows</div>
+
+    <div class="variable_name"><code>duplicate_flow_names</code></div>
+    <div class="variable_description">the list of duplicate flows that have not been imported</div>
+</div>
+
+</body>
+
+</html>

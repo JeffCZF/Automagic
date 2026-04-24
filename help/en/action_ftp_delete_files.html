@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FTP Delete Files</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>FTP Delete Files</h1>
+
+<div class="summary">
+    <p>
+        The action <b>FTP Delete Files</b> deletes the files specified on the FTP server.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Recursively delete all files in a directory on the server before uploading new files.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Protocol</div>
+    <div class="setting_description">Whether to use regular FTP (unencrypted), FTPS (Implicit FTP over SSL/TLS, default port 990) or FTPES (Explicit FTP over SSL/TLS).</div>
+
+    <div class="setting_title">Data Channel Protection (only for FTPS and FTPES)</div>
+    <div class="setting_description">Whether data transferred on the data channel should be encrypted (P) or not (C).</div>
+
+    <div class="setting_title">Server/Port</div>
+    <div class="setting_description">The name or IP and port (default 21) of the FTP server. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Username</div>
+    <div class="setting_description">The username to connect. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Password</div>
+    <div class="setting_description">The password to connect. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Paths on Server</div>
+    <div class="setting_description">
+        A comma separated list of files or directories to delete on the server. Glob patterns can be used to match multiple files. <a href="action_script.html#inline_expressions">Variables are supported.</a>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>/pub/export*</code> matches all files with a name starting with <code>export</code> in folder <code>/pub</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Control Encoding</div>
+    <div class="setting_description">Whether to use a special encoding for the control channel or not (Encoding of file names, not the encoding of the content of text files). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Show progress notification</div>
+    <div class="setting_description">Whether or not to show a notification on the statusbar indicating the progress of the operation.</div>
+</div>
+
+</body>
+
+</html>

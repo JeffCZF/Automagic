@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Gleeo Start Recording</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Gleeo Start Recording</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Gleeo Start Recording</b> starts recording the defined project and task in <b>Gleeo Time Tracker</b> when this task is not already recording.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Start tracking the time when you arrive at your office.</li>
+        <li>Start tracking the time when your employer calls.</li>
+        <li>Start tracking the time when you press a shortcut on the launcher.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Domain</div>
+    <div class="setting_description">The name of the domain to start recording. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Project</div>
+    <div class="setting_description">The name of the project to start recording. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Task</div>
+    <div class="setting_description">
+        The task to start recording. The task will be created in <b>Gleeo Time Tracker</b> when it not already exists.<br/>
+        <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>Phone Support for {incoming_number}</code> becomes <code>Phone Support for 17001111111</code></li>
+            <li><code>Visiting {trigger}</code> becomes <code>Visiting Customer X</code> (use different location triggers named <code>Customer X</code>, <code>Customer Y</code> etc.)</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Details</div>
+    <div class="setting_description">The details of the entry. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Extra 1</div>
+    <div class="setting_description">Extra 1 of the entry. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Extra 2</div>
+    <div class="setting_description">Extra 2 of the entry. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Move to Background</div>
+    <div class="setting_description">Whether to move <b>Gleeo Time Tracker</b> to the background when the task has been started.</div>
+</div>
+
+</body>
+
+</html>
