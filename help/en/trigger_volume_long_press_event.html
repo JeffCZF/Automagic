@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Volume Long Press Event</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Volume Long Press Event</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Volume Long Press Event</b> is executed when one of the volume keys is pressed down for a longer duration or hold and then released.<br/>
+        <br/>
+        <span class="note">Note:</span> <code>adb</code> has to be used to grant a permission to Automagic to use this feature:
+    <ol>
+        <li>Install <code>adb</code> on a computer (<a href="https://www.google.com/search?q=install+adb+for+android">search internet on how to install adb</a>)</li>
+        <li>enable <b>USB Debugging</b> in <b>System settings</b> -&gt; <b>Developer options</b> on your Android device</li>
+        <li>connect your Android device to the computer</li>
+        <li>execute following command in a terminal: <code>adb shell pm grant ch.gridvision.ppam.androidautomagic android.permission.SET_VOLUME_KEY_LONG_PRESS_LISTENER</code></li>
+    </ol>
+    <span class="warning">Warning:</span> This function is not officially supported by Android and might not work on all devices.<br/>
+    <span class="warning">Warning:</span> Activating this trigger prevents that holding the volume button for a longer duration changes the volume.<br/>
+    <span class="warning">Warning:</span> This trigger can miss Up events in case an app or dialog is shown while the volume key is held down.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Hold the volume down key pressed to skip to the next song.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Keys</div>
+    <div class="setting_description">The list of names of keys that should execute the trigger. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Press Duration</div>
+    <div class="setting_description">The minimum amount of time that the key has to be hold to execute the trigger. The Down action will be executed when the specified duration is reached, the up action as soon as the key is released.</div>
+
+    <div class="setting_title">Actions</div>
+    <div class="setting_description">Whether down, up or both actions should execute the trigger.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>key_code</code></div>
+    <div class="variable_description">the numeric keycode</div>
+
+    <div class="variable_name"><code>key_code_name</code></div>
+    <div class="variable_description">the name of the keycode</div>
+
+    <div class="variable_name"><code>key_duration</code></div>
+    <div class="variable_description">the duration of the event in milliseconds</div>
+
+    <div class="variable_name"><code>key_source_device_id</code></div>
+    <div class="variable_description">the ID of the sending device</div>
+
+    <div class="variable_name"><code>key_action_down</code></div>
+    <div class="variable_description">whether the action was down</div>
+
+    <div class="variable_name"><code>key_action_up</code></div>
+    <div class="variable_description">whether the action was up</div>
+</div>
+
+</body>
+
+</html>

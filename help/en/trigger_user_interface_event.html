@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>UI Event</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>UI Event</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>UI Event</b> executes a flow when the system detects a change in the user interface, for example when a window is opened, a button is pressed, a list is scrolled, text has been entered etc.<br/>
+        <br/>
+        <span class="note">Note: </span>The system informs Automagic not about all events. Some events that occur very frequently can be skipped by the system.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Execute a flow, when the Install button in Google Play is pressed.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Event Type</div>
+    <div class="setting_description">
+        <ul>
+            <li><em>Window opened</em>: A new window, dialog or popup has been opened. The variable <code>text</code> often contains the title of the window.</li>
+            <li><em>Component clicked</em>: A button or label has been clicked. The variable <code>text</code> of image buttons is often empty.</li>
+            <li><em>Component long clicked</em>: A button or label has been long clicked. The variable <code>text</code> of image buttons is often empty.</li>
+            <li><em>Component selected</em>: An element has been selected, e.g. a row in a list or an element in a dropdown.</li>
+            <li><em>Component focused</em>: The input focus has been moved to another element.</li>
+            <li><em>Component scrolled</em>: A list has been scrolled.</li>
+            <li><em>Text changed</em>: The text in a text input fields has been changed.</li>
+            <li><em>Text selection changed</em>: The text selection or cursor position has been changed.</li>
+            <li><em>Announcement</em>: An app made an announcement like changing the page in a book.</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Package Name</div>
+    <div class="setting_description">The list of apps to consider by this trigger. Glob patterns (*, ?) are supported.</div>
+
+    <div class="setting_title">Text</div>
+    <div class="setting_description">The text that should be contained in the event.</div>
+
+    <div class="setting_title">Remove non-printable characters from text</div>
+    <div class="setting_description">Whether non-printable unicode characters should be removed from the text like left-to-right marks that might be used in components on the user interface.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>event_type</code></div>
+    <div class="variable_description">
+        the event represented by a number:
+        <ul>
+            <li><em>Window opened</em>: <code>32</code></li>
+            <li><em>View clicked</em>: <code>1</code></li>
+            <li><em>View long clicked</em>: <code>2</code></li>
+            <li><em>View selected</em>: <code>4</code></li>
+            <li><em>View focused</em>: <code>8</code></li>
+            <li><em>Text changed</em>: <code>16</code></li>
+            <li><em>Text selection changed</em>: <code>8192</code></li>
+            <li><em>View scrolled</em>: <code>4096</code></li>
+            <li><em>Announcement</em>: <code>16384</code></li>
+        </ul>
+    </div>
+
+    <div class="variable_name"><code>content_description</code></div>
+    <div class="variable_description">the content description of the source</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">the package name of originating app</div>
+
+    <div class="variable_name"><code>source_class_name</code></div>
+    <div class="variable_description">the class name of the source</div>
+
+    <div class="variable_name"><code>source_bounds</code></div>
+    <div class="variable_description">the position and size of the element (null when not determinable)</div>
+
+    <div class="variable_name"><code>text</code></div>
+    <div class="variable_description">the text of the source or the title of the opened window</div>
+
+    <div class="variable_name"><code>label</code></div>
+    <div class="variable_description">the label of the source</div>
+
+    <div class="variable_name"><code>enabled</code></div>
+    <div class="variable_description">whether the source is enabled</div>
+
+    <div class="variable_name"><code>checked</code></div>
+    <div class="variable_description">whether the source is checked</div>
+
+    <div class="variable_name"><code>fullscreen</code></div>
+    <div class="variable_description">whether the source is executed in fullscreen mode</div>
+
+    <div class="variable_name"><code>password</code></div>
+    <div class="variable_description">whether the source is a password field</div>
+
+    <div class="variable_name"><code>scrollable</code></div>
+    <div class="variable_description">whether the source can be scrolled</div>
+
+    <div class="variable_name"><code>scroll_x</code></div>
+    <div class="variable_description">the scroll offset of the source left edge in pixels</div>
+
+    <div class="variable_name"><code>scroll_y</code></div>
+    <div class="variable_description">the scroll offset of the source top edge in pixels</div>
+
+    <div class="variable_name"><code>from_index</code></div>
+    <div class="variable_description">from index of the element</div>
+
+    <div class="variable_name"><code>to_index</code></div>
+    <div class="variable_description">to index of the element</div>
+
+    <div class="variable_name"><code>item_count</code></div>
+    <div class="variable_description">number of elements in a list</div>
+
+    <div class="variable_name"><code>current_item_index</code></div>
+    <div class="variable_description">item position when the element is contained in a list</div>
+
+    <div class="variable_name"><code>added_count</code></div>
+    <div class="variable_description">number of added characters when a text is edited</div>
+
+    <div class="variable_name"><code>removed_count</code></div>
+    <div class="variable_description">number of removed characters when a text is edited</div>
+
+    <div class="variable_name"><code>before_text</code></div>
+    <div class="variable_description">text before it was changed</div>
+
+    <div class="variable_name"><code>app_name</code></div>
+    <div class="variable_description">the name of the originating app</div>
+</div>
+
+</body>
+
+</html>

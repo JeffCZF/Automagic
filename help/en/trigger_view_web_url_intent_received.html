@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>View Web URL Intent Received</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>View Web URL Intent Received</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>View Web URL Intent Received</b> is executed when an app wants to show a URL in a browser.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Receive a URL request and read the text on a weather site aloud, forwarding all other URL to the browser to be displayed as usual.</li>
+    </ul>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>data_string</code></div>
+    <div class="variable_description">the received URL (http:// or https://)</div>
+
+    <div class="variable_name"><code>categories</code></div>
+    <div class="variable_description">the list of categories</div>
+
+    <div class="variable_name"><code>scheme</code></div>
+    <div class="variable_description">the scheme of the received intent</div>
+
+    <div class="variable_name"><code>type</code></div>
+    <div class="variable_description">the explicitly set MIME type of the received intent</div>
+</div>
+
+</body>
+
+</html>
