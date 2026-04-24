@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Battery Level BLE (Experimental)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Battery Level BLE (Experimental)</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Battery Level BLE (Experimental)</b> checks the battery level of a Bluetooth LE device that supports the standardized Battery service.<br/>
+        <br/>
+        <span class="warning">Warning:</span> Bluetooth LE is not working reliable on many Android ROMs. Restarting the device or turning Bluetooth off and on again can help when the condition does not work.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Check once a week if the battery of the Polar heart rate sensor is still OK.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Bluetooth Device Address</div>
+    <div class="setting_description">The address of the bluetooth device. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Bluetooth Device Name</div>
+    <div class="setting_description">The name of the bluetooth device.</div>
+
+    <div class="setting_title">Battery Level</div>
+    <div class="setting_description">
+        Defines the condition that must be met to continue the flow on the true branch:<br/>
+        <br/>
+        <b>lower than</b><br/>
+        true when the reported percentage by the device is below the defined level<br/>
+        <br/>
+        <b>higher than</b><br/>
+        true when the reported percentage by the device is above the defined level<br/>
+        <br/>
+        <b>exactly</b><br/>
+        true when the reported percentage by the device is exactly on the defined level<br/>
+        <br/>
+    </div>
+
+    <div class="setting_title">Level Percentage</div>
+    <div class="setting_description">Defines the level percentage.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>battery_level</code></div>
+    <div class="variable_description">the charging level of the battery</div>
+
+    <div class="variable_name"><code>battery_percentage</code></div>
+    <div class="variable_description">the charging percentage</div>
+</div>
+
+</body>
+
+</html>

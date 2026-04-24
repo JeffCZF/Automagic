@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>App Process Running</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>App Process Running</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>App Process Running</b> checks whether the process hosting an app is currently running.<br/>
+        <br/>
+        <span class="note">Note:</span> Android keeps processes in memory even when the process might not be required anymore and enough free memory is available.<br/>
+        <br/>
+        <span class="note">Note:</span> The official API used to access this information has been removed by Google on Android 5.1.1 which means that the condition is now marked as <em>not officially supported</em>.
+        <br/>
+        <span class="note">Note:</span> The unofficial workarounds to access this information don't work anymore on most devices running Android 7.
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Package Name</div>
+    <div class="setting_description">The name of the process to check. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>pid</code></div>
+    <div class="variable_description">the id of the process</div>
+
+    <div class="variable_name"><code>importance</code> (Android &lt;5.1.1)</div>
+    <div class="variable_description">the importance of the process. The smaller the value the higher the importance.</div>
+
+    <div class="variable_name"><code>lru</code> (Android &lt;5.1.1)</div>
+    <div class="variable_description">least recently used. Smaller value means more recently used.</div>
+
+    <div class="variable_name"><code>process_state</code> (not available on all versions of Android, Android &lt;5.1.1)</div>
+    <div class="variable_description">State of the process (2=Process hosting the current top activities)</div>
+
+    <div class="variable_name"><code>uid</code></div>
+    <div class="variable_description">the user id of the process</div>
+</div>
+
+</body>
+
+</html>

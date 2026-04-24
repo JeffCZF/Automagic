@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>App Task Running</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>App Task Running</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>App Task Running</b> checks whether a task for one of the specified packages is currently running.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This function is not officially supported by Android 5+ and might not work on all devices.
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Method</div>
+    <div class="setting_description">How the app should be determined. Method <b>Usage statistics</b> can be delayed on some devices.</div>
+
+    <div class="setting_title">Package Name</div>
+    <div class="setting_description">The name of the app to check. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">check most recent app task only</div>
+    <div class="setting_description">
+        if only the most recent app task should be checked (this is the active app on many Android versions)<br/>
+        <br/>
+        <span class="warning">Warning:</span> This option must be activated on Android 5+.
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">the package name of the foreground app</div>
+
+    <div class="variable_name"><code>index</code> (not available on Android 5+)</div>
+    <div class="variable_description">the index of this task. An index of zero denotes the most recent running task.</div>
+
+    <div class="variable_name"><code>base_activity</code> (not available on Android 5+)</div>
+    <div class="variable_description">the component launched as the first activity in the task</div>
+
+    <div class="variable_name"><code>top_activity</code> (not available on Android 5+)</div>
+    <div class="variable_description">the activity component at the top of the history stack of the task</div>
+
+    <div class="variable_name"><code>id</code> (not available on Android 5+)</div>
+    <div class="variable_description">a unique identifier for this task</div>
+
+    <div class="variable_name"><code>num_running</code> (not available on Android 5+)</div>
+    <div class="variable_description">the number of activities that are currently running (not stopped and persisted) in this task</div>
+
+    <div class="variable_name"><code>description</code> (not available on Android 5+)</div>
+    <div class="variable_description">a description of the task's current state</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Zip Files</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Zip Files</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Zip Files</b> creates a Zip archive containing the specified files and directories.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Zip all files in directory <code>/mnt/sdcard/xyz/</code> to the zip file <code>/mnt/sdcard/backup.zip</code>.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Source Files</div>
+    <div class="setting_description">
+        A comma separated list of files or directories to zip. Glob patterns can be used to match multiple files. <a href="action_script.html#inline_expressions">Variables are supported.</a>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>/mnt/sdcard/export*</code> matches all files with a name starting with <code>export</code> in folder <code>/mnt/sdcard</code></li>
+        </ul>
+        The files in the ZIP file are stored relative based on the parent directory of the files to archive:
+        <ul>
+            <li>Source Files <code>/mnt/sdcard/export*</code> will store all export* files directly (without parent folder) in the ZIP file</li>
+            <li>Source Files <code>/mnt/sdcard/download/</code> (note the trailing slash) will store all files in folder download directly (without parent folder) in the ZIP file</li>
+            <li>Source Files <code>/mnt/sdcard/download</code> (no trailing slash) will store the folder <code>download</code> and its contained files in the ZIP file</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">ZIP File</div>
+    <div class="setting_description">
+        The absolute path of the target ZIP file to create. <a href="action_script.html#inline_expressions">Variables are supported.</a>
+    </div>
+
+    <div class="setting_title">Show progress notification</div>
+    <div class="setting_description">Whether or not to show a notification on the statusbar indicating the progress of the operation.</div>
+</div>
+
+</body>
+
+</html>

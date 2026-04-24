@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Biometric Authentication Dialog</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Biometric Authentication Dialog</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Biometric Authentication Dialog</b> shows the authentication dialog of the system and validates a biometric attribute like a fingerprint.<br/>
+        <br/>
+        <span class="hint">The dialog is temporarily not shown by the system when the fingerprint scanning failed a few times.</span>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Show an authentication dialog for security reasons before deleting a file.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Title</div>
+    <div class="setting_description">The titel to show (mandatory). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Subtitle</div>
+    <div class="setting_description">The subtitle to show (optional). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Description</div>
+    <div class="setting_description">The description to show (optional). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Cancel button label</div>
+    <div class="setting_description">The label of the cancel button (mandatory). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Activate Timeout</div>
+    <div class="setting_description">Whether an automatic timeout should be used when the user does not react within the specified time.</div>
+
+    <div class="setting_title">Duration</div>
+    <div class="setting_description">The amount of time to automatically close the dialog and to continue the flow.</div>
+
+    <div class="setting_title">Value on Timeout</div>
+    <div class="setting_description">Whether the flow should be continued on the true- or false-branch.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>operation</code></div>
+    <div class="variable_description">the operation used to close the dialog.<br/>
+        <br/>
+        Can be one of:
+        <ul>
+            <li><code>success</code> when the user successfully authenticated</li>
+            <li><code>failure</code> when the user failed to authenticate</li>
+            <li><code>timeout</code> when the dialog was closed by a timeout</li>
+            <li><code>cancel</code> when the user pressed the back button or back key</li>
+        </ul>
+    </div>
+
+    <div class="variable_name"><code>error_code</code></div>
+    <div class="variable_description">Error code when the dialog was closed by an error</div>
+
+    <div class="variable_name"><code>error_message</code></div>
+    <div class="variable_description">Error description as text in case the dialog was closed by an error</div>
+</div>
+
+</body>
+
+</html>

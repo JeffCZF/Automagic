@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bluetooth Device Connected</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Bluetooth Device Connected</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Bluetooth Device Connected</b> checks whether a connection to a Bluetooth device exists.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This function is not directly supported by Android. The list of currently connected Bluetooth devices is collected using connect/disconnect events reported to Automagic.
+        Under certain circumstances, the list of connected devices might not correspond to the list of really connected devices, for example when Automagic is freshly installed and a bluetooth device was already connected. In such cases, the bluetooth adapter must be disabled temporarily and reenabled in the preferences of Android to force the Bluetooth devices to reconnect.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Turn on WiFi in the evening only when one of the Bluetooth devices at home is connected.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Bluetooth Device</div>
+    <div class="setting_description">Defines whether the condition should check if at least one connection to a device exists or if the condition should check a specific device.</div>
+
+    <div class="setting_title">Bluetooth Device Address</div>
+    <div class="setting_description">The address of the bluetooth device. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Bluetooth Device Name</div>
+    <div class="setting_description">The name of the bluetooth device.</div>
+
+    <div class="setting_title">Bluetooth Profile</div>
+    <div class="setting_description">Defines the type of connection to check. Not all device support all types.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>connected_devices_addresses</code></div>
+    <div class="variable_description">list of addresses of the connected devices</div>
+
+    <div class="variable_name"><code>connected_devices_names</code></div>
+    <div class="variable_description">list of names of the connected devices</div>
+</div>
+
+</body>
+
+</html>

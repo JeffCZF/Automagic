@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Action Sound Playing</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Action Sound Playing</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Action Sound Playing</b> checks if an action Sound is currently playing a sound.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Refresh a stop-button in a widget depending whether a sound is currently playing or not.</li>
+    </ul>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>sound_position</code></div>
+    <div class="variable_description">the playback position of the sound in milliseconds (first sound if multiple playing), null when no sound is playing</div>
+
+    <div class="variable_name"><code>sound_duration</code></div>
+    <div class="variable_description">the total duration of the sound in milliseconds (first sound if multiple playing), null when the media framework of Android can not determine the duration (live stream etc.)</div>
+</div>
+
+</body>
+
+</html>
