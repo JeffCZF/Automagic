@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>File Observer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>File Observer</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>File Observer</b> is executed when a path of interest on the filesystem is accessed or changed.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Create a copy of a file after it has been modified.</li>
+        <li>Upload a new image to Dropbox when a new subfile is created in folder <code>/sdcard/DCIM/Camera/</code>.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+    <div class="setting_title">Paths to Observe</div>
+    <div class="setting_description">A comma separated list of files or directories to observe. <a href="action_script.html#inline_expressions">Variables are supported (replaced when trigger is activated).</a></div>
+
+    <div class="setting_title">Event Types</div>
+    <div class="setting_description">
+        The type of events to observe.
+        <ul>
+            <li><b>File accessed</b>: Data was read from a file</li>
+            <li><b>Modify</b>: Data was written to a file</li>
+            <li><b>Metadata changed</b>: Metadata (permissions, owner, timestamp) was changed explicitly</li>
+            <li><b>Writable file closed</b>: Someone had a file or directory open for writing, and closed it</li>
+            <li><b>Unwritable file closed</b>: Someone had a file or directory open read-only, and closed it</li>
+            <li><b>File opened</b>: A file or directory was opened</li>
+            <li><b>File moved from</b>: A file or subdirectory was moved from the monitored directory</li>
+            <li><b>File moved to</b>: A file or subdirectory was moved to the monitored directory</li>
+            <li><b>Subfile created</b>: A new file or subdirectory was created under the monitored directory</li>
+            <li><b>Subfile deleted</b>: A file was deleted from the monitored directory</li>
+            <li><b>Delete Self</b>: The monitored file or directory was deleted; monitoring effectively stops</li>
+            <li><b>Self moved</b>: The monitored file or directory was moved; monitoring continues</li>
+        </ul>
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>registered_path</code></div>
+    <div class="variable_description">the path of the observed file or directory</div>
+
+    <div class="variable_name"><code>event</code></div>
+    <div class="variable_description">the event represented as a number:
+        <ul>
+            <li><b>File accessed</b>: 1 (0x00000001)</li>
+            <li><b>Modify</b>: 2 (0x00000002)</li>
+            <li><b>Metadata changed</b>: 4 (0x00000004)</li>
+            <li><b>Writable file closed</b>: 8 (0x00000008)</li>
+            <li><b>Unwritable file closed</b>: 16 (0x00000010)</li>
+            <li><b>File opened</b>: 32 (0x00000020)</li>
+            <li><b>File moved from</b>: 64 (0x00000040)</li>
+            <li><b>File moved to</b>: 128 (0x00000080)</li>
+            <li><b>Subfile created</b>: 256 (0x00000100)</li>
+            <li><b>Subfile deleted</b>: 512 (0x00000200)</li>
+            <li><b>Delete Self</b>: 1024 (0x00000400)</li>
+            <li><b>Self moved</b>: 2048 (0x00000800)</li>
+        </ul>
+    </div>
+
+    <div class="variable_name"><code>path</code></div>
+    <div class="variable_description">the path of the file or directory which triggered the event, relative to the main monitored file or directory</div>
+</div>
+
+</body>
+
+</html>

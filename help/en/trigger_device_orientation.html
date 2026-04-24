@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Device Orientation</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Device Orientation</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Device Orientation</b> executes the flow when the device is moved to the defined orientation.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This trigger uses the device hardware sensors and might increase battery usage (depending on device model). Some devices turn off the sensors when the screen is off.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Reduce the ringer volume when the device screen is facing down.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Device Orientation</div>
+    <div class="setting_description">
+        The desired orientation of the device.<br/>
+        <br/>
+        <ul>
+            <li><b>Face down:</b> The display of the device is facing down for example when lying on a table with the display towards the table.</li>
+            <li><b>Face up:</b> The display of the device is facing up for example when lying on a table with the display facing away from the table.</li>
+            <li><b>Face left:</b> The display faces to the left with the longer side lying on a table when the upper edge of the device is pointing away from you.</li>
+            <li><b>Face right:</b> The display faces to the right with the longer side lying on a table when the upper edge of the device is pointing away from you.</li>
+            <li><b>Standing upright:</b> The device is standing upright on a table.</li>
+            <li><b>Standing upside-down:</b> The device is standing upside-down on a table.</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Negate</div>
+    <div class="setting_description">Whether the condition should be negated or not.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+</div>
+
+</body>
+
+</html>

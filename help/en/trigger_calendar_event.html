@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Calendar Event</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Calendar Event</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Calendar Event</b> is executed when an event on the calendar starts or ends.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Mute the ringer when a meeting starts.</li>
+        <li>Vibrate 5 minutes before a meeting starts.</li>
+        <li>Start recording a task in <em>Gleeo Time Tracker</em> when a meeting starts.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Trigger at Event Start</div>
+    <div class="setting_description">Whether the trigger should execute at the start of the event. The duration specifies whether the trigger should execute a certain amount of time before or after the event begins.</div>
+
+    <div class="setting_title">Trigger at Event End</div>
+    <div class="setting_description">Whether the trigger should execute at the end of the event. The duration specifies whether the trigger should execute a certain amount of time before or after the event ends.</div>
+
+    <div class="setting_title">Calendars</div>
+    <div class="setting_description">A comma separated list of calendar names that should be checked for events. The names can contain glob pattern characters like <code>*</code> and <code>?</code>.</div>
+
+    <div class="setting_title">Titles</div>
+    <div class="setting_description">A comma separated list of event titles to match. The titles can contain glob pattern characters like <code>*</code> and <code>?</code>.<br/>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>Plan*</code> matches titles like <code>Planning</code>, <code>Plan B</code> etc.</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Descriptions</div>
+    <div class="setting_description">A comma separated list of event descriptions to match. The descriptions can contain glob pattern characters like <code>*</code> and <code>?</code>.</div>
+
+    <div class="setting_title">Locations</div>
+    <div class="setting_description">A comma separated list of event locations to match. The locations can contain glob pattern characters like <code>*</code> and <code>?</code>.</div>
+
+    <div class="setting_title">Event Type</div>
+    <div class="setting_description">Whether the trigger should consider all day events or regular events (not all day) or both.</div>
+
+    <div class="setting_title">Event Availability</div>
+    <div class="setting_description">Whether the trigger should consider events marked as free, busy or tentative.</div>
+
+    <div class="setting_title">Allow in device idle/doze (Android 6+)</div>
+    <div class="setting_description">Defines whether this trigger is allowed to wake the device from idle/doze mode. (see <a href="device_idle_mode.html">Device Idle/Doze Mode</a>)</div>
+
+    <div class="setting_title">Like alarm clock (Android 5+)</div>
+    <div class="setting_description">
+        Defines whether this trigger should be handled like an alarm clock which is usually displayed in the status bar.<br/>
+        This option ensures that Android invokes the trigger exactly at the specified time and prevents the system from delaying the event.
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>event_calendar</code></div>
+    <div class="variable_description">the name of the calendar of the event</div>
+
+    <div class="variable_name"><code>event_title</code></div>
+    <div class="variable_description">the title of the event</div>
+
+    <div class="variable_name"><code>event_description</code></div>
+    <div class="variable_description">the description of the event</div>
+
+    <div class="variable_name"><code>event_location</code></div>
+    <div class="variable_description">the location of the event</div>
+
+    <div class="variable_name"><code>event_start</code></div>
+    <div class="variable_description">the start time of the event</div>
+
+    <div class="variable_name"><code>event_end</code></div>
+    <div class="variable_description">the end time of the event</div>
+
+    <div class="variable_name"><code>event_all_day</code></div>
+    <div class="variable_description">boolean indicating if the event is all day or not</div>
+
+    <div class="variable_name"><code>event_availability</code></div>
+    <div class="variable_description">FREE, BUSY or TENTATIVE depending on the availability of the event</div>
+
+    <div class="variable_name"><code>event_id</code></div>
+    <div class="variable_description">the ID of the event</div>
+</div>
+
+</body>
+
+</html>

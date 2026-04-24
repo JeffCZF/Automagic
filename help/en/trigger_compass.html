@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Compass</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Compass</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Compass</b> executes the flow when the device changes its orientation.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This trigger uses the device hardware sensors and might increase battery usage (depending on device model). Some devices turn off the sensors when the screen is off.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Play a beep sound when the device is heading north.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Type</div>
+    <div class="setting_description">
+        The type of the trigger.<br/>
+        <br/>
+        <ul>
+            <li><b>Periodic</b>: executes the flow in periodic time intervals</li>
+            <li><b>On Change</b>: executes the flow when the orientation changed for at least some degrees.</li>
+            <li><b>On Relative Sector Change</b>: Remembers the device orientation when this trigger is enabled first, divides the orientation into the specified number of equal sectors and executes the flow whenever the device stays in a different sector.</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Frequency</div>
+    <div class="setting_description">Defines the frequency between flow executions.</div>
+
+    <div class="setting_title">Tolerance in Degrees</div>
+    <div class="setting_description">The minimum amount of change in the device orientation required to execute the flow.</div>
+
+    <div class="setting_title">trigger when steady</div>
+    <div class="setting_description">Executes the flow only when the device does not change the direction for a short period of time anymore.</div>
+
+    <div class="setting_title">Number of Sectors</div>
+    <div class="setting_description">
+        The number of equal sectors to divide the orientation of the device. The sectors are numbered starting at 1 and incrementing in clockwise order.<br/>
+        <br/>
+        Example:<br/>
+        When 4 sectors are desired the 360° possible degrees are divided into 4 sectors with an opening angle of 90° each. The sectors are relative to the initial device orientation when the trigger was enabled.
+        <ul>
+            <li>Sector 1: 315° to 45°</li>
+            <li>Sector 2: 45° to 135°</li>
+            <li>Sector 3: 135° to 225°</li>
+            <li>Sector 4: 225° to 315°</li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>azimuth</code></div>
+    <div class="variable_description">the azimuth in degrees</div>
+
+    <div class="variable_name"><code>pitch</code></div>
+    <div class="variable_description">the pitch in degrees</div>
+
+    <div class="variable_name"><code>roll</code></div>
+    <div class="variable_description">the roll in degrees</div>
+
+    <div class="variable_name"><code>azimuth_sector</code> (On Relative Sector Change only)</div>
+    <div class="variable_description">the azimuth sector (1 to Number of Sectors)</div>
+
+    <div class="variable_name"><code>pitch_sector</code> (On Relative Sector Change only)</div>
+    <div class="variable_description">the pitch sector (1 to Number of Sectors)</div>
+
+    <div class="variable_name"><code>roll_sector</code> (On Relative Sector Change only)</div>
+    <div class="variable_description">the roll sector (1 to Number of Sectors)</div>
+</div>
+
+</body>
+
+</html>
