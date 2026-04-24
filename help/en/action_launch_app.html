@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Launch App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Launch App</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Launch App</b> starts an app or a specific activity of an app.<br/>
+        <br/>
+        <span class="tip">Tip:</span> Some activities require special permissions to be launched. Check the log after testing the action when an activity fails to start.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Start the development settings directly using a shortcut.</li>
+        <li>Start the shopping list app when you are near the shopping mall.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Package Name</div>
+    <div class="setting_description">The name of the package to launch. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Class Name</div>
+    <div class="setting_description">
+        The specific activity to launch.<br/>
+        Leave empty to launch the default activity of a package. <a href="action_script.html#inline_expressions">Variables are supported.</a>
+    </div>
+
+</div>
+
+</body>
+
+</html>

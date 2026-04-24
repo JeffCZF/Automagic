@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Input Dialog</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Input Dialog</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Input Dialog</b> shows an input dialog with an input text field, password field, single- or multi-selection list.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Ask the user whether he wants to turn WiFi off or not.</li>
+        <li>Ask for the password to use for an FTP upload.</li>
+        <li>Ask whether airplane mode should be activated in the evening. Activate airplane mode when the user does not respond within 30 seconds.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Input Dialog Type</div>
+    <div class="setting_description">The type of the input dialog to show.<br/>
+        <br/>
+        Can be one of:
+        <ul>
+            <li><code>Multi-line text</code> for multiple lines of plain text input</li>
+            <li><code>Single-line text</code> for a single line of plain text input</li>
+            <li><code>Password</code> for a password input</li>
+            <li><code>PIN</code> for a pin input</li>
+            <li><code>Number</code> to type number characters</li>
+            <li><code>Phone number</code> to type characters used in phone numbers</li>
+            <li><code>Date</code> to show a date picker</li>
+            <li><code>Time</code> to show a time picker</li>
+            <li><code>Date & Time</code> to show a dialog with a date & time picker</li>
+            <li><code>Single Choice Menu</code> for a list of values like a menu without OK, Cancel buttons</li>
+            <li><code>Multi Choice</code> for a list of values the user can choose multiple values from</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Title</div>
+    <div class="setting_description">The title of the input dialog. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Prompt (only applicable to <code>Text</code> and <code>Password</code>)</div>
+    <div class="setting_description">The question or input description to show in the input dialog. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">List Values (only applicable to <code>Single Choice</code> and <code>Multi Choice</code>)</div>
+    <div class="setting_description">A comma separated list of values to show as values the user can choose from. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Default Value</div>
+    <div class="setting_description">
+        The default value provided when the user does not change the input value. This value is also provided when the user cancels the dialog or hits the back key. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        Whether the user has cancelled the dialog can be evaluated using the variable <code>operation</code> (see below).<br/>
+        <br/>
+        The default value for date/time input types must be formatted as specified below:
+        <ul>
+            <li><code>Date</code>: Pattern <code>yyyy-MM-dd</code> for example <code>2014-01-25</code> or when using a variable <code>{variable,dateformat,yyyy-MM-dd}</code></li>
+            <li><code>Time</code>: Pattern <code>HH:mm</code> (24-hour format) for example <code>14:20</code> or when using a variable <code>{variable,dateformat,HH:mm}</code></li>
+            <li><code>Date & Time</code>: Pattern <code>yyyy-MM-dd HH:mm</code> (time in 24-hour format) for example <code>2014-01-25 14:20</code> or when using a variable <code>{variable,dateformat,yyyy-MM-dd HH:mm}</code></li>
+        </ul>
+        Values not formatted according to the rules above are ignored.
+    </div>
+
+    <div class="setting_title">Font size</div>
+    <div class="setting_description">The size of the font used to enter text values.</div>
+
+    <div class="setting_title">Activate Timeout</div>
+    <div class="setting_description">Whether an automatic timeout should provide a value to the flow when the user does not react within the specified time.</div>
+
+    <div class="setting_title">Duration</div>
+    <div class="setting_description">The amount of time to automatically close the dialog and to continue the flow.</div>
+
+    <div class="setting_title">Value on Timeout</div>
+    <div class="setting_description">The value to provide to the flow when a timeout occurred. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Options</div>
+    <div class="setting_description">
+        <ul>
+            <li><em>Show when locked</em>: Show the input dialog even when the device is locked</li>
+            <li><em>Turn screen on</em>: Turn the screen on when the dialog is shown initially</li>
+            <li><em>Keep screen on</em>: Keep the screen on as long as the dialog is shown (power button still allows turn off the screen)</li>
+            <li><em>Enlarge dialog width</em>: Enlarge the width of the dialog to cover almost the entire screen</li>
+            <li><em>Keyboard hint to capitalize sentences</em>: Give a hint to the keyboard that sentences should be started with an uppercase letter</li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>operation</code></div>
+    <div class="variable_description">the operation used to close the dialog.<br/>
+        <br/>
+        Can be one of:
+        <ul>
+            <li><code>ok</code> when the user pressed the OK button</li>
+            <li><code>cancel</code> when the user pressed the cancel button or the back key</li>
+            <li><code>timeout</code> when the dialog was closed by a timeout</li>
+        </ul>
+    </div>
+
+    <div class="variable_name"><code>value</code></div>
+    <div class="variable_description">
+        the selected value in the dialog or the list of values in case of <code>Multi Choice</code> or a date when the input dialog type was of type date/time.
+        <code>value</code> for type <em>time</em> is the entered time of the current date.
+    </div>
+
+    <div class="variable_name"><code>index</code></div>
+    <div class="variable_description">the index of the selected value of a <code>Single Choice</code> list or -1 when not definable</div>
+
+    <div class="variable_name"><code>indices</code></div>
+    <div class="variable_description">the indices of the selected values of a <code>Multi Choice</code> list or -1 for every not definable value</div>
+</div>
+
+</body>
+
+</html>

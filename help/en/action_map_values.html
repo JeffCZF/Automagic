@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Map Values</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Map Values</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Map Values</b> takes an input value (the key) and maps it to an output value.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Scan the barcode on the laboratory door and map the value to a project/task to start the time tracker.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Input Value</div>
+    <div class="setting_description">
+        The input value to map to another value. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Examples:
+        <ul>
+            <li><code>{barcode_text}</code> to map a barcode</li>
+            <li><code>{incoming_number}</code> to map the number of an incoming call</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Mapping Definition</div>
+    <div class="setting_description">
+        The definition used to specify how the values should be mapped to the target values. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Mapping example:<br/>
+        <code>key1=>value1</code><br/>
+        <code>key2=>value2</code><br/>
+        <br/>
+        The part before the assignment operator (<code>=&gt;</code>) is used to specify the key values to match. A comma separated list can be used to specify multiple keys for one target value. Glob pattern characters <code>*</code> and <code>?</code> can also be used to match multiple values.<br/>
+        The part after the assignment operator (<code>=&gt;</code>) defines the target value to use as the map value.<br/>
+        The mapping rules are evaluated line by line from top to bottom. The first matching rule is applied.
+        <br/>
+        <br/>
+        Multi key mapping example:<br/>
+        <code>key1=>value1</code><br/>
+        <code>key2,key3,key4=>value2</code><br/>
+        <br/>
+        <br/>
+        Glob pattern mapping example:<br/>
+        <code>key1=>value1</code><br/>
+        <code>key?=>value2</code><br/>
+        <code>key*=>value3</code><br/>
+        <br/>
+        In the above example, the value <code>key1</code> would be mapped to <code>value1</code> because it is the first line matching the input value.<br/>
+        The values <code>key2</code> to <code>key9</code> would be matched by the second rule.<br/>
+        The value <code>key123</code> would be matched by the third rule.<br/>
+        <br/>
+        When no rule matches the output value is set to <code>null</code>.<br/>
+        <br/>
+        <br/>
+        If you want to map a few known bar codes to meaningful task names but also want to use the plain barcode when no mapping rule matches, you can use the following approach (the input value would be set to <code>{barcode_text}</code> in this example):<br/>
+        <br/>
+        Mapping definition:<br/>
+        <code>123321123=>Meeting</code><br/>
+        <code>989878945=>Office</code><br/>
+        <code>*=>{barcode_text}</code><br/>
+        <br/>
+        The third rule matches all unknown bar code values and maps the value to the original value. You can also use a condition <b>Expression</b> to detect not mappable values.<br/>
+        <br/>
+        The last twenty not mappable values detected while executing the action will be remembered in a list and can be added by using the button <b>Add unmapped values...</b>
+    </div>
+
+    <div class="setting_title">Output Variable</div>
+    <div class="setting_description">
+        The name of the variable to store the result in (usually without curly braces except when you want to create dynamically named variables). <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>mapped_value</code></div>
+    <div class="variable_description">the target value</div>
+</div>
+
+</body>
+
+</html>

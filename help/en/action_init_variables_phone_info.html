@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variables Phone Info</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variables Phone Info</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variables Phone Info</b> initializes the desired variables (not all values are available on all devices).<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Check the network operator once an hour.</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">SIM</div>
+    <div class="setting_description">The SIM card.</div>
+
+    <div class="setting_title">Variable Device ID (e.g. IMEI/MEID/ESN)</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable Software Version (e.g. IMEI/SV)</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable Line 1 Number (e.g. MSISDN)</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable Network Country ISO</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable Network Operator (e.g. MCC+MNC)</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable Network Operator Name</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable Phone Type</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable SIM State</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable SIM Country ISO</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable SIM Operator</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable SIM Operator Name</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable SIM Serial Number</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable Subscriber ID (e.g. IMSI)</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable Voice Mail Alpha Tag</div>
+    <div class="setting_description">The name of the variable.</div>
+
+    <div class="setting_title">Variable Voice Mail Number</div>
+    <div class="setting_description">The name of the variable.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>device_id</code></div>
+    <div class="variable_description">the device ID (e.g. IMEI/MEID/ESN), null when unavailable</div>
+
+    <div class="variable_name"><code>device_software_version</code></div>
+    <div class="variable_description">the software version (e.g. IMEI/SV), null when unavailable</div>
+
+    <div class="variable_name"><code>line1_number</code></div>
+    <div class="variable_description">the phone number string for line 1 (e.g. MSISDN), null when unavailable</div>
+
+    <div class="variable_name"><code>network_country_iso</code></div>
+    <div class="variable_description">the ISO country code (only when registered to a network, unreliable on CDMA)</div>
+
+    <div class="variable_name"><code>network_operator</code></div>
+    <div class="variable_description">numeric network operator name MCC+MNC (only when registered to a network, unreliable on CDMA)</div>
+
+    <div class="variable_name"><code>network_operator_name</code></div>
+    <div class="variable_description">network operator name (only when registered to a network, unreliable on CDMA)</div>
+
+    <div class="variable_name"><code>phone_type</code></div>
+    <div class="variable_description">type of the phone (0=no, 1=GSM, 2=CDMA, 3=SIP)</div>
+
+    <div class="variable_name"><code>sim_state</code></div>
+    <div class="variable_description">State of the SIM (0=unknown, 1=absent, 2=PIN required, 3=PUK required, 4=network locked, 5=ready)</div>
+
+    <div class="variable_name"><code>sim_country_iso</code></div>
+    <div class="variable_description">SIM ISO country code</div>
+
+    <div class="variable_name"><code>sim_operator</code></div>
+    <div class="variable_description">SIM MCC+MNC (only available when SIM in state ready)</div>
+
+    <div class="variable_name"><code>sim_operator_name</code></div>
+    <div class="variable_description">service provider name SPN (only available when SIM in state ready)</div>
+
+    <div class="variable_name"><code>sim_serial_number</code></div>
+    <div class="variable_description">serial number of the SIM, null when unavailable</div>
+
+    <div class="variable_name"><code>subscriber_id</code></div>
+    <div class="variable_description">the subscriber ID (e.g. IMSI), null when unavailable</div>
+
+    <div class="variable_name"><code>voice_mail_alpha_tag</code></div>
+    <div class="variable_description">the alphabetic identifier associated with the voice mail number</div>
+
+    <div class="variable_name"><code>voice_mail_number</code></div>
+    <div class="variable_description">the voice mail number, null when unavailable</div>
+</div>
+
+</body>
+
+</html>

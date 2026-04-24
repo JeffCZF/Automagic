@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Modify Image</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Modify Image</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Modify Image</b> can be used to modify an image that was previously loaded with an action <b>Init Variable Image File</b>.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Load an image, shrink the size and send the smaller file by mail.</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the variable holding the pixel data of the image. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Operation</div>
+    <div class="setting_description">
+        The type of modification to apply to the image:
+        <ul>
+            <li><em>Scale</em>: change the size of the image either respecting the aspect ratio or by distorting the image</li>
+            <li><em>Rotate</em>: rotates the image by 90° or 180°</li>
+            <li><em>Mirror</em>: mirrors the image horizontally or vertically</li>
+            <li><em>Crop & Scale</em>: extracts the largest possible area from the center of the image by respecting the aspect ratio of the original image and scales to the desired size</li>
+            <li><em>Crop to Selection</em>: crops the image to the defined area</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Width (Scale)</div>
+    <div class="setting_description">The new width of the image. The width is adjusted proportionally, when only the new height is specified. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Height (Scale)</div>
+    <div class="setting_description">The new height of the image. The height is adjusted proportionally, when only the new width is specified. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Rotate</div>
+    <div class="setting_description">How the image should be rotated.</div>
+
+    <div class="setting_title">Mirror</div>
+    <div class="setting_description">If the image should be mirrored horizontally or vertically.</div>
+
+    <div class="setting_title">Width (Crop & Scale)</div>
+    <div class="setting_description">The new width of the image. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Height (Crop & Scale)</div>
+    <div class="setting_description">The new height of the image. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">X, Y (Crop to Selection)</div>
+    <div class="setting_description">The X and Y position of the selection. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Width, Height (Crop to Selection)</div>
+    <div class="setting_description">The width and height of the selection. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>image_data</code></div>
+    <div class="variable_description">the local variable of the image</div>
+
+    <div class="variable_name"><code>image_width</code></div>
+    <div class="variable_description">the width of the image after the modification</div>
+
+    <div class="variable_name"><code>image_height</code></div>
+    <div class="variable_description">the height of the image after the modification</div>
+</div>
+
+</body>
+
+</html>

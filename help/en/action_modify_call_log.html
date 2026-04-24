@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Modify Call Log</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Modify Call Log</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Modify Call Log</b> marks the entries of the call log as acknowledged or clears the call log.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Delete the call log every Monday morning.</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Operation</div>
+    <div class="setting_description">if the entries should be marked as acknowledged or if the call log should be cleared.</div>
+
+    <div class="setting_title">Numbers</div>
+    <div class="setting_description">
+        The list of call numbers to delete. Multiple numbers can be separated by commas.<br/>
+        Glob patterns (*, ?) can be used to filter on similar numbers like corporate number ranges:<br/>
+        <br/>
+        Examples:
+        <ul>
+            <li>+17001111111</li>
+            <li>+17001111111,+17002222222</li>
+            <li>*70033311*</li>
+            <li>*70033311*,*70033?22*</li>
+        </ul>
+
+        Special characters like <code>+</code>, <code>-</code> and <code>.</code> are removed before comparing the number.
+    </div>
+</div>
+
+
+</body>
+
+</html>

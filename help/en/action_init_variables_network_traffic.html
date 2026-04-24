@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variables Network Traffic</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variables Network Traffic</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variables Network Traffic</b> initializes variables with the transmitted and received bytes since device boot of the system or a specific user ID that runs a given app.<br/>
+        <br/>
+        <span class="note">Note:</span> Some devices do not collect user/app specific values. This is also a known problem of Android 4.3.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Store the number of transferred data for each day in a log file.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Traffic</div>
+    <div class="setting_description">Whether the overall transferred data of the system should be stored or the transferred data transmitted by a particular app (respectively user ID).</div>
+
+    <div class="setting_title">Variable for total transmitted bytes</div>
+    <div class="setting_description">The name of the variable to store the sent bytes since device boot.</div>
+
+    <div class="setting_title">Variable for total received bytes</div>
+    <div class="setting_description">The name of the variable to store the received bytes since device boot.</div>
+
+    <div class="setting_title">Variable for mobile transmitted bytes</div>
+    <div class="setting_description">The name of the variable to store the sent bytes since device boot on the mobile interfaces.</div>
+
+    <div class="setting_title">Variable for mobile received bytes</div>
+    <div class="setting_description">The name of the variable to store the received bytes since device boot on the mobile interfaces.</div>
+
+    <div class="setting_title">Package Name</div>
+    <div class="setting_description">The name of the package to check (respectively the user that runs the app). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Variable for transmitted bytes</div>
+    <div class="setting_description">The name of the variable to store the sent bytes of the user ID running the specified app since device boot.</div>
+
+    <div class="setting_title">Variable for received bytes</div>
+    <div class="setting_description">The name of the variable to store the received bytes of the user ID running the specified app since device boot.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>total_transmitted_bytes</code></div>
+    <div class="variable_description">number of sent bytes or -1 when the device does not support this statistic</div>
+
+    <div class="variable_name"><code>total_received_bytes</code></div>
+    <div class="variable_description">number of received bytes or -1 when the device does not support this statistic</div>
+
+    <div class="variable_name"><code>mobile_transmitted_bytes</code></div>
+    <div class="variable_description">number of sent bytes over the mobile interfaces or -1 when the device does not support this statistic</div>
+
+    <div class="variable_name"><code>mobile_received_bytes</code></div>
+    <div class="variable_description">number of received bytes over the mobile interfaces or -1 when the device does not support this statistic</div>
+
+    <div class="variable_name"><code>uid_transmitted_bytes</code></div>
+    <div class="variable_description">number of sent bytes of the user ID or -1 when the device does not support this statistic</div>
+
+    <div class="variable_name"><code>uid_received_bytes</code></div>
+    <div class="variable_description">number of received bytes of the user ID or -1 when the device does not support this statistic</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Input Speech (Experimental)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Input Speech (Experimental)</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Input Speech (Experimental)</b> starts the speech recognition of the device and provides the recognized text to the flow in variable <code>value</code>. The speech recognition engine usually requires network access.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Control Automagic using spoken commands.</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">UI Mode</div>
+    <div class="setting_description">Whether user interface should be shown or the speech recognition should be executed in the background.</div>
+
+    <div class="setting_title">Prompt</div>
+    <div class="setting_description">An optional title to show in the user interface. This setting might be ignored by the engine. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Language</div>
+    <div class="setting_description">Optional the desired language to use in the speech recognition engine. This setting might be ignored by the engine. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Use Bluetooth headset (Android 3+)</div>
+    <div class="setting_description">Whether or not a Bluetooth headset is used.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>value</code></div>
+    <div class="variable_description">the recognized text</div>
+
+    <div class="variable_name"><code>operation</code></div>
+    <div class="variable_description">whether the recognition was successful (ok) or not (cancel)</div>
+</div>
+
+</body>
+
+</html>
