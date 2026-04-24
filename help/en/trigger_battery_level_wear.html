@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Battery Level (Android Wear)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Battery Level (Android Wear)</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Battery Level (Android Wear)</b> is executed whenever the battery level changes and the built in condition about the level holds true.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Lower the display brightness when the battery level falls below 50%.</li>
+        <li>Turn off WiFi when the battery level falls below 30%.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Android Wear device</div>
+    <div class="setting_description">The target device.</div>
+
+    <div class="setting_title">Battery Level</div>
+    <div class="setting_description">
+        Defines the condition that must be met to execute the flow:<br/>
+        <br/>
+        <b>becomes lower than</b><br/>
+        Executes the flow when the last reported percentage was above the defined level and the current percentage is below the defined level<br/>
+        <br/>
+        <b>becomes higher than</b><br/>
+        Executes the flow when the last reported percentage was below the defined level and the current percentage is above the defined level<br/>
+        <br/>
+        <b>becomes equal to</b><br/>
+        Executes the flow when the last reported percentage was different than the defined level and the current percentage equals the defined level<br/>
+        <br/>
+        <b>becomes full</b><br/>
+        Executes the flow when the last reported battery status was not full and is now full<br/>
+        <br/>
+        <b>lower than</b><br/>
+        Executes the flow whenever the reported percentage by the system is below the defined level. Depending on device this might cause the flow to be executed every few seconds. The flow is executed even when the last percentage has been the same.<br/>
+        <br/>
+        <b>higher than</b><br/>
+        Executes the flow whenever the reported percentage by the system is above the defined level. Depending on device this might cause the flow to be executed every few seconds. The flow is executed even when the last percentage has been the same.<br/>
+        <br/>
+        <b>exactly</b><br/>
+        Executes the flow whenever the reported percentage by the system is exactly on the defined level. Depending on device this might cause the flow to be executed every few seconds. The flow is executed even when the last percentage has been the same.<br/>
+        <br/>
+        <b>full</b><br/>
+        Executes the flow whenever the reported battery status by the system is full. Depending on device this might cause the flow to be executed every few seconds. The flow is executed even when the last status has been already full.<br/>
+    </div>
+
+    <div class="setting_title">Level Percentage</div>
+    <div class="setting_description">Defines the level percentage.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>battery_level</code></div>
+    <div class="variable_description">the charging level of the battery</div>
+
+    <div class="variable_name"><code>battery_percentage</code></div>
+    <div class="variable_description">the charging percentage</div>
+
+    <div class="variable_name"><code>battery_plugged</code></div>
+    <div class="variable_description">whether the battery is plugged (1=AC adapter, 2=USB, 4=Wireless) or not (0=not plugged)</div>
+
+    <div class="variable_name"><code>battery_present</code></div>
+    <div class="variable_description">whether the battery is present or not</div>
+
+    <div class="variable_name"><code>battery_scale</code></div>
+    <div class="variable_description">the maximum battery level</div>
+
+    <div class="variable_name"><code>battery_status</code></div>
+    <div class="variable_description">the status of the battery (1=unknown, 2=charging, 3=discharging, 4=not charging, 5=full)</div>
+
+    <div class="variable_name"><code>battery_technology</code></div>
+    <div class="variable_description">the technology of the battery</div>
+
+    <div class="variable_name"><code>battery_temperature</code></div>
+    <div class="variable_description">the temperature of the battery (in tenths of degree Celsius)</div>
+
+    <div class="variable_name"><code>battery_voltage</code></div>
+    <div class="variable_description">the current battery voltage</div>
+
+    <div class="variable_name"><code>battery_health</code></div>
+    <div class="variable_description">the health of the battery (1=unknown, 2=good, 3=overheat, 4=dead, 5=over voltage, 6=unspecified failure, 7=cold)</div>
+
+    <div class="variable_name"><code>node_id</code></div>
+    <div class="variable_description">the ID of the Wear node</div>
+</div>
+
+</body>
+
+</html>
