@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Phone Cell GSM</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Phone Cell GSM</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Phone Cell GSM</b> checks whether the phone is connected to one of the specified cells of interest.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Turn on WiFi when the phone cell at home is detected.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Method</div>
+    <div class="setting_description">Whether the classic, a modern or both methods should be used to find cells. It's highly device dependent which method works best.</div>
+
+    <div class="setting_title">Location Area Code (LAC) List</div>
+    <div class="setting_description">A comma separated list of location area codes. A location area is set of base stations and usually covers a large area. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Cell ID (CID) List</div>
+    <div class="setting_description">A comma separated list of cell IDs. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>lac</code></div>
+    <div class="variable_description">the currently connected location area code (LAC), -1 if unknown</div>
+
+    <div class="variable_name"><code>cid</code></div>
+    <div class="variable_description">the currently connected cell ID (CID), -1 if unknown</div>
+
+    <div class="variable_name"><code>psc</code></div>
+    <div class="variable_description">the primary synchronization code (PSC), -1 if unknown</div>
+
+    <div class="variable_name"><code>neighboring_cells</code></div>
+    <div class="variable_description">the list of neighboring cells. Null or empty if not available</div>
+
+    <div class="variable_name"><code>cells</code> (Android 4.2+)</div>
+    <div class="variable_description">the list of all known cells by the system. Null or empty if not available</div></div>
+</div>
+
+</body>
+
+</html>

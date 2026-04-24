@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Pressure Sensor</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Pressure Sensor</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Pressure Sensor</b> checks whether the measured pressure is below or above the defined value.<br/>
+        <br/>
+        <span class="warning">Warning:</span> Some devices turn off the sensors when the screen is off.<br/>
+        <span class="warning">Warning:</span> Some devices can not determine the current value of the sensor and only deliver a value when the measured value of the sensor changes. This condition does not work on such devices.
+    </p>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Pressure (in mbar)</div>
+    <div class="setting_description">Whether the condition should check if the pressure is above or below the defined pressure.</div>
+
+    <div class="setting_title">Timeout</div>
+    <div class="setting_description">The amount of time to wait for a value of the sensor, the condition is terminated with an error when no value becomes available.</div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>pressure</code></div>
+    <div class="variable_description">the measured pressure in mbar</div>
+</div>
+
+</body>
+
+</html>

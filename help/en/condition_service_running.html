@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Service Running</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Service Running</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>Service Running</b> checks whether the specified service is currently running.
+    </p>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Service Class</div>
+    <div class="setting_description">The class name of the service to check. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">the package name of the service</div>
+
+    <div class="variable_name"><code>service_name</code></div>
+    <div class="variable_description">the display name of the service</div>
+
+    <div class="variable_name"><code>pid</code></div>
+    <div class="variable_description">the process this service is running in</div>
+
+    <div class="variable_name"><code>uid</code></div>
+    <div class="variable_description">the user id owning this service</div>
+
+    <div class="variable_name"><code>active_since</code></div>
+    <div class="variable_description">the time this service has been started (in milliseconds since the device was booted)</div>
+
+    <div class="variable_name"><code>last_activity_time</code></div>
+    <div class="variable_description">the time this service was last active (in milliseconds since boot not counting sleep phases)</div>
+
+    <div class="variable_name"><code>restarting</code></div>
+    <div class="variable_description">the time when this service will be started, 0 when the service is currently running</div>
+
+    <div class="variable_name"><code>foreground</code></div>
+    <div class="variable_description">true when the service is run as a foreground process</div>
+</div>
+
+</body>
+
+</html>
