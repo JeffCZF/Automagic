@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Device Idle/Doze Mode</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Device Idle/Doze Mode</h1>
+
+<div class="summary">
+
+    <h2>What it is</h2>
+
+    <p>
+        Device Idle/Doze Mode is a battery saving method introduced by Android 6.<br/>
+        When a device is not plugged to a power source and is not moved for about one hour, the device enters the device idle/doze mode. In this mode alarms registered by apps are not executed anymore in general. Thus the CPU of the device has not to be activated that often anymore which should lead to a reduction in battery use.
+    </p>
+
+    <p>
+        An app can instruct Android to execute a few important alarms in this mode anyway but certain restrictions apply:
+    </p>
+    <ul>
+        <li>Android will execute at most one such alarm per 15 minutes when the device <em>is</em> in idle/doze mode</li>
+        <li>Android will execute at most one such alarm each minute when the device <em>is not</em> in idle/doze mode</li>
+    </ul>
+
+    <p>Most time-based triggers like <b>Periodic Timer</b> and <b>Calendar Event</b> have an option called <b>Allow in device idle/doze</b> to define whether the trigger should ask Android to execute the trigger in device idle/doze mode.</p>
+
+    <p>When an app does not obey the restrictions but registers two alarms for almost the same time, Android delays the second alarm until one minute respectively 15 minutes have elapsed, depending on whether idle/doze mode is in effect or not.</p>
+
+    <p>This definition has the disadvantage that many flow combinations can not be implemented in a reliable way anymore since you might not know in advance if two alarms will violate the one-minute/15-minute restriction.</p>
+
+    <h2>Example</h2>
+
+    <p>
+        You might have a flow that plays a ringtone every morning at 6:00 and you have a second flow to play an alarm when a meeting starts (let's assume it starts at 6:05).<br/>
+        Android will not execute the two flows in device idle/doze mode when option <b>Allow in device idle/doze</b> is not active but will delay both triggers until the device is woken from device idle/doze mode.<br/>
+        With option <b>Allow in device idle/doze</b> enabled for both triggers, Android will play the sound at 6:00 and will execute the second flow at 6:05 when idle/doze mode is not in effect. The second flow will be delayed to run at 6:15 when doze mode happens to be in effect.
+    </p>
+
+    <h2>Best practices</h2>
+    <ul>
+        <li>Enable flags to execute triggers in device idle/doze mode only when the flow is really important like a calendar event notification, an alarm in the morning etc.</li>
+        <li>Don't enable flags to execute triggers in device idle/doze mode when the trigger is executed frequently since it could delay more important flows.</li>
+        <li>When an important flow is executed like an alarm in the morning, wake the device (see workarounds).</li>
+    </ul>
+
+    <h2>Workarounds</h2>
+    <ul>
+        <li>Wake device from idle/doze immediately when it falls into device idle/doze mode:</li>
+        <ul>
+            <li>trigger <b>Device Idle/Doze Mode: On</b></li>
+            <li>action <b>Turn Screen On</b> (or action <b>Exit Device Idle/Doze Mode</b> on a rooted device)</li>
+        </ul>
+        <li>Wake device from device idle/doze periodically so that the device executes normally for about an hour:</li>
+        <ul>
+            <li>trigger <b>Periodic Timer: every 1h or less frequently</b> (ensure to check <b>Allow in device idle/doze</b>)</li>
+            <li>action <b>Turn Screen On</b> (or action <b>Exit Device Idle/Doze Mode</b> on a rooted device)</li>
+        </ul>
+        <li>Wake device from idle/doze when an important flow with <b>Allow in device idle/doze</b> is executed:</li>
+        <ul>
+            <li>trigger <b>Time: every day at 6:00</b> (ensure to check <b>Allow in device idle/doze</b>)</li>
+            <li>action <b>Turn Screen On</b> (or action <b>Exit Device Idle/Doze Mode</b> on a rooted device)</li>
+            <li>...normal Actions of the flow...</li>
+        </ul>
+    </ul>
+</div>
+
+</body>
+
+</html>

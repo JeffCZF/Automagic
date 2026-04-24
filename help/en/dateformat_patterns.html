@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Date Format Pattern</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+<table BORDER="1" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+ <tr>
+      <td><B>Symbol</B></td> <td><B>Meaning</B></td> <td><B>Presentation</B></td> <td><B>Example</B></td> </tr>
+ <tr> <td><code>D</code></td> <td>day in year</td>             <td>(Number)</td>      <td>189</td> </tr>
+ <tr> <td><code>E</code></td> <td>day of week</td>             <td>(Text)</td>        <td>Tuesday</td> </tr>
+ <tr> <td><code>F</code></td> <td>day of week in month</td>    <td>(Number)</td>      <td>2 <i>(2nd Wed in July)</i></td> </tr>
+ <tr> <td><code>G</code></td> <td>era designator</td>          <td>(Text)</td>        <td>AD</td> </tr>
+ <tr> <td><code>H</code></td> <td>hour in day (0-23)</td>      <td>(Number)</td>      <td>0</td> </tr>
+ <tr> <td><code>K</code></td> <td>hour in am/pm (0-11)</td>    <td>(Number)</td>      <td>0</td> </tr>
+ <tr> <td><code>L</code></td> <td>stand-alone month</td>       <td>(Text/Number)</td> <td>July / 07</td> </tr>
+ <tr> <td><code>M</code></td> <td>month in year</td>           <td>(Text/Number)</td> <td>July / 07</td> </tr>
+ <tr> <td><code>S</code></td> <td>fractional seconds</td>      <td>(Number)</td>      <td>978</td> </tr>
+ <tr> <td><code>W</code></td> <td>week in month</td>           <td>(Number)</td>      <td>2</td> </tr>
+ <tr> <td><code>X (Android 7+)</code></td> <td>time zone (ISO 8601)</td>     <td>(Timezone)</td>    <td>-08 / -0800 / -08:00</td> </tr>
+ <tr> <td><code>Z</code></td> <td>time zone (RFC 822)</td>     <td>(Timezone)</td>    <td>-0800</td> </tr>
+ <tr> <td><code>a</code></td> <td>am/pm marker</td>            <td>(Text)</td>        <td>PM</td> </tr>
+ <tr> <td><code>u (Android 7+)</code></td> <td>day of week (1 = Monday, ..., 7 = Sunday)</td> <td>(Number)</td> <td>2</td> </tr>
+ <tr> <td><code>c (deprecated)</code></td> <td>stand-alone day of week</td> <td>(Text/Number)</td> <td>Tuesday / 2</td> </tr>
+ <tr> <td><code>d</code></td> <td>day in month</td>            <td>(Number)</td>      <td>10</td> </tr>
+ <tr> <td><code>h</code></td> <td>hour in am/pm (1-12)</td>    <td>(Number)</td>      <td>12</td> </tr>
+ <tr> <td><code>k</code></td> <td>hour in day (1-24)</td>      <td>(Number)</td>      <td>24</td> </tr>
+ <tr> <td><code>m</code></td> <td>minute in hour</td>          <td>(Number)</td>      <td>30</td> </tr>
+ <tr> <td><code>s</code></td> <td>second in minute</td>        <td>(Number)</td>      <td>55</td> </tr>
+ <tr> <td><code>w</code></td> <td>week in year</td>            <td>(Number)</td>      <td>27</td> </tr>
+ <tr> <td><code>y</code></td> <td>year</td>                    <td>(Number)</td>      <td>2010</td> </tr>
+ <tr> <td><code>z</code></td> <td>time zone</td>               <td>(Timezone)</td>    <td>Pacific Standard Time</td> </tr>
+ <tr> <td><code>'</code></td> <td>escape for text</td>         <td>(Delimiter)</td>   <td>'Date='</td> </tr>
+ <tr> <td><code>''</code></td> <td>single quote</td>           <td>(Literal)</td>     <td>'o''clock'</td> </tr>
+ </table>
+<br/>
+
+<div class="summary">
+    <p class="sample_separator">&nbsp;</p>
+    Examples:<br/>
+    The examples use the date <b>27th of September 2013 14:15:37</b>.
+    <table BORDER="1" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+        <tr><td><B>Pattern</B></td><td><B>Result</B></td></tr>
+        <tr><td><code>dd.MM.yyyy</code></td><td>27.09.2013</td></tr>
+        <tr><td><code>dd.MM.yyyy HH:mm:ss</code></td><td>27.09.2013 14:15:37</td></tr>
+        <tr><td><code>dd.MM.yyyy HH:mm</code></td><td>27.09.2013 14:15</td></tr>
+        <tr><td><code>dd.MM.yyyy hh:mm a</code></td><td>27.09.2013 2:15 PM</td></tr>
+        <tr><td><code>yyyy-MM-dd HH:mm:ss.SSS</code></td><td>2013-09-27 14:15:37.432</td></tr>
+        <tr><td><code>EEEE, dd'th' MMM yyyy</code></td><td>Friday, 27th September 2013</td></tr>
+        <tr><td><code>'Week' w</code></td><td>Week 39</td></tr>
+        <tr><td><code>'Day' D 'of the year' yyyy</code></td><td>Day 270 of the year 2013</td></tr>
+    </table>
+</div>
+</body>
+
+</html>

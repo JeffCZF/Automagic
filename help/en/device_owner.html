@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Device Owner</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Device Owner</h1>
+
+<div class="summary">
+
+    <p>
+        Setting the device administrator of an app as a device owner enables several capabilities to an app that are not available otherwise.
+    </p>
+    <p>
+        The procedure to set Automagic as the device owner is quite complicated and can potentially go wrong so this feature is completely unsupported and you do this on your own risk.
+    </p>
+    <ol>
+        <li>Enable Developer options->USB debugging on your device</li>
+        <li>Set the Screen lock to <b>None</b></li>
+        <li>Install Automagic available on Google Play</li>
+        <li>Remove all Google Accounts from your device</li>
+        <li>Execute <code>adb shell dpm set-device-owner ch.gridvision.ppam.androidautomagic/.AutomagicDeviceAdminReceiver</code></li>
+        <li>Add your Google accounts</li>
+    </ol>
+</div>
+
+</body>
+
+</html>

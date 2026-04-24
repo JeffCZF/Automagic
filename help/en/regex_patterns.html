@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Regular expressions</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <style type="text/css">
+        div#center {
+            position: absolute;
+            left: 50%;
+            width: 1000px;
+            margin-left: -490px;
+            background: #2D2D2D;
+        }
+        .datatable td { padding-right: 20px; }
+        .pattern_column { white-space: nowrap; vertical-align: top;}
+        code {white-space: pre;}
+        code.example {white-space: pre;}
+    </style>
+</head>
+<body>
+<h3>Regular expressions</h3>
+
+<p>
+Regular expressions can be used to test if a text contains a specific text or more general whether a given text matches a defined pattern.
+</p>
+Basic pattern examples:<br/>
+ <table>
+<tr> <td class="pattern_column"><code>Test.*</code></td> <td> This pattern matches a text that starts with Test with an unlimited number of successive characters, for example <b>Test</b>, <b>Testabc</b> but not <b>abcTest</b>, <b>123Test123</b></td></tr>
+<tr> <td class="pattern_column"><code>Test.+</code></td> <td> This pattern matches a text that starts with Test with an unlimited number of successive characters but must contain at least one character after <code>Test</code>. For example <b>TestX</b> but not <b>Test</b> </td> </tr>
+<tr> <td class="pattern_column"><code>[a-c]{3}</code></td> <td> This pattern matches a text that consists of exactly three characters a to c, for example: <b>aaa</b>, <b>abc</b>, <b>cba</b> but not <b>xyz</b>.</td> </tr>
+<tr> <td class="pattern_column"><code>\d{3}.*</code></td> <td> This pattern matches a text that starts with three digits, for example <b>123abc</b>, <b>123456</b> but not <b>12abc</b> or <b>abc123</b>.</td> </tr>
+</table>
+
+ <p>
+ Automagic supports regular expressions with following functions in action <em>Script</em> or condition <em>Expression</em>:
+     <ul class="functions">
+     <li><code>Boolean matches(String s, String pattern)</code><br/>Returns whether the string <code>s</code> matches the regular expression <code>pattern</code>.</li>
+     <li><code>Boolean matches(String s, String pattern, List groups)</code><br/>Returns whether the string <code>s</code> matches the regular expression <code>pattern</code> and fills the captured groups into the existing list <code>groups</code>.</li>
+     <li><code>List findAll(String s, String pattern)</code><br/>Returns a list of all matched values in <code>s</code> of regex <code>pattern</code>.</li>
+     <li><code>List findAll(String s, String pattern, boolean returnGroups)</code><br/>Returns a list of all matched values in <code>s</code> of regex <code>pattern</code>. Optionally item consists of a list of the matched groups. (see <a href="regex_patterns.html">Regular expressions</a>)</li>
+     <li><code>String replaceAll(String s, String regex, String replacement)</code><br/>Returns a modified string by replacing all substrings matching <code>regex</code> with <code>replacement</code> in string <code>s</code>.</li>
+     <li><code>List split(String s, String pattern)</code><br/>Splits the string <code>s</code> into a list of strings by using the regular expression <code>pattern</code> as the delimiter.</li>
+     </ul>
+ </p>
+ <br/>
+
+<h3>Examples for function <code>Boolean matches(String s, String pattern)</code></h3>
+<ul class="functions">
+    <li>
+        Test if a text contains the word <b>test</b>:<br/>
+        <code class="example">result = matches("this is a test", ".*test.*")</code><br/>
+    </li>
+    <li>
+        Test if a text contains at least three digits at the beginning:<br/>
+        <code class="example">result = matches("1234567", "\\d{3}.*")</code><br/>
+        The regular expression would only require one backslash by itself, but one backslash has to be escaped with one additional backslash in a string in a script of Automagic.
+    </li>
+</ul>
+
+
+<h3>Examples for function <code>Boolean matches(String s, String pattern, List groups)</code></h3>
+<ul class="functions">
+    <li>
+        Test if a text contains a number and store the first number in the list <code>groups</code>:<br/>
+        <code class="example">groups = newList();
+result = matches("contact 123456 called", "\\D*(\\d*).*");
+        </code><br/>
+        The list <code>groups</code> will contain the two elements "contact 123456 called" and "123456".
+    </li>
+</ul>
+
+
+<h3>Examples for function <code>List findAll(String s, String pattern)</code></h3>
+<ul class="functions">
+    <li>
+        Returns a list of all matched values in <code>s</code> of regex <code>pattern</code>.:<br/>
+        <code class="example">result = findAll("contact 123456 calls at 8 o'clock", "\\d*");
+        </code><br/>
+        The list <code>groups</code> will contain the two elements "123456" and "8".
+    </li>
+</ul>
+
+
+<h3>Examples for function <code>String replaceAll(String s, String regex, String replacement)</code></h3>
+<ul class="functions">
+    <li>
+        Remove all numbers from a text:<br/>
+        <code class="example">result = replaceAll("contact 123456 called", "\\d", "");</code><br/>
+        <code>result</code> will contain "contact  called".
+    </li>
+    <li>
+        Remove consecutive whitespace characters and replace with one space character:<br/>
+        <code class="example">result = replaceAll("a  b    c", "\\s+", " ");</code><br/>
+        <code>result</code> will contain "a b c".
+    </li>
+    <li>
+        Separate the characters in a text by spaces:<br/>
+        <code class="example">result = replaceAll("1234567", "(.)", "$1 ");</code><br/>
+        <code>result</code> will contain "1 2 3 4 5 6 7 ".<br/>
+        $1 refers to the text matched in the first capturing group enclosed by parenthesis.
+    </li>
+    <li>
+        Insert different delimiters between characters:<br/>
+        <code class="example">result = replaceAll("123456", "(.)(.)", "$1/$2-");</code><br/>
+        <code>result</code> will contain "1/2-3/4-5/6-".<br/>
+        $1 refers to the text matched in the first capturing group enclosed by parenthesis, $2 refers to the second capturing group enclosed by parenthesis.
+    </li>
+</ul>
+
+
+<h3>Examples for function <code>List split(String s, String pattern)</code></h3>
+<ul class="functions">
+    <li>
+        Split the text on every colon to create a list of tokens:<br/>
+        <code class="example">result = split("this:is:a:test", ":");</code><br/>
+        The list <code>result</code> will contain the four elements "this", "is", "a" and "test".
+    </li>
+    <li>
+        Split a text into a list of words:<br/>
+        <code class="example">result = split("this is a:test", "\\W");</code><br/>
+        The list <code>result</code> will contain the four elements "this", "is", "a" and "test".
+    </li>
+</ul>
+
+     <br/>
+<h3>Android regular expressions</h3>
+ <p>Automagic uses the built-in classes of Android to support regular expressions. <a href="http://developer.android.com/reference/java/util/regex/Pattern.html">Android API online documentation</a>
+</p>
+
+     <p>
+The following documentation is an extract of the most important features of the regular expression syntax.
+     </p>
+     <br/>
+ <h3>Escape sequences</h3>
+ <p><table>
+ <tr> <td> \ </td> <td>Quote the following metacharacter (so <code>\.</code> matches a literal <code>.</code>).</td> </tr>
+ <tr> <td> \Q </td> <td>Quote all following metacharacters until <code>\E</code>.</td> </tr>
+ <tr> <td> \E </td> <td>Stop quoting metacharacters (started by <code>\Q</code>).</td> </tr>
+ <tr> <td> \\ </td> <td>A literal backslash.</td> </tr>
+ <tr> <td> &#x005c;u<i>hhhh</i> </td> <td>The Unicode character U+hhhh (in hex).</td> </tr>
+ <tr> <td> &#x005c;x<i>hh</i> </td> <td>The Unicode character U+00hh (in hex).</td> </tr>
+ <tr> <td> \c<i>x</i> </td> <td>The ASCII control character ^x (so <code>\cH</code> would be ^H, U+0008).</td> </tr>
+
+ <tr> <td> \a </td> <td>The ASCII bell character (U+0007).</td> </tr>
+ <tr> <td> \e </td> <td>The ASCII ESC character (U+001b).</td> </tr>
+ <tr> <td> \f </td> <td>The ASCII form feed character (U+000c).</td> </tr>
+ <tr> <td> \n </td> <td>The ASCII newline character (U+000a).</td> </tr>
+ <tr> <td> \r </td> <td>The ASCII carriage return character (U+000d).</td> </tr>
+ <tr> <td> \t </td> <td>The ASCII tab character (U+0009).</td> </tr>
+ </table>
+
+ <h3>Character classes</h3>
+ <p>It's possible to construct arbitrary character classes using set operations:
+ <table>
+ <tr> <td> [abc] </td> <td>Any one of <code>a</code>, <code>b</code>, or <code>c</code>. (Enumeration.)</td> </tr>
+ <tr> <td> [a-c] </td> <td>Any one of <code>a</code>, <code>b</code>, or <code>c</code>. (Range.)</td> </tr>
+ <tr> <td> [^abc] </td> <td>Any character <i>except</i> <code>a</code>, <code>b</code>, or <code>c</code>. (Negation.)</td> </tr>
+ <tr> <td> [[a-f][0-9]] </td> <td>Any character in either range. (Union.)</td> </tr>
+ <tr> <td> [[a-z]&&[jkl]] </td> <td>Any character in both ranges. (Intersection.)</td> </tr>
+ </table>
+ <p>Most of the time, the built-in character classes are more useful:
+ <table>
+ <tr> <td> \d </td> <td>Any digit character (see note below).</td> </tr>
+ <tr> <td> \D </td> <td>Any non-digit character (see note below).</td> </tr>
+ <tr> <td> \s </td> <td>Any whitespace character (see note below).</td> </tr>
+ <tr> <td> \S </td> <td>Any non-whitespace character (see note below).</td> </tr>
+ <tr> <td> \w </td> <td>Any word character (see note below).</td> </tr>
+ <tr> <td> \W </td> <td>Any non-word character (see note below).</td> </tr>
+ <tr> <td> \p{<i>NAME</i>} </td> <td> Any character in the class with the given <i>NAME</i>. </td> </tr>
+ <tr> <td> \P{<i>NAME</i>} </td> <td> Any character <i>not</i> in the named class. </td> </tr>
+ </table>
+ <p>Note that these built-in classes don't just cover the traditional ASCII range. For example,
+ <code>\w</code> is equivalent to the character class <code>[\p{Ll}\p{Lu}\p{Lt}\p{Lo}\p{Nd}]</code>.
+ For more details see <a href="http://www.unicode.org/reports/tr18/#Compatibility_Properties">Unicode TR-18</a>,
+ and bear in mind that the set of characters in each class can vary between Unicode releases.
+ If you actually want to match only ASCII characters, specify the explicit characters you want;
+ if you mean 0-9 use <code>[0-9]</code> rather than <code>\d</code>, which would also include
+ Gurmukhi digits and so forth.
+
+ <h3>Quantifiers</h3>
+ <p>Quantifiers match some number of instances of the preceding regular expression.
+ <table>
+ <tr> <td> * </td> <td>Zero or more.</td> </tr>
+ <tr> <td> ? </td> <td>Zero or one.</td> </tr>
+ <tr> <td> + </td> <td>One or more.</td> </tr>
+ <tr> <td> {<i>n</i>} </td> <td>Exactly <i>n</i>.</td> </tr>
+ <tr> <td> {<i>n,</i>} </td> <td>At least <i>n</i>.</td> </tr>
+ <tr> <td> {<i>n</i>,<i>m</i>} </td> <td>At least <i>n</i> but not more than <i>m</i>.</td> </tr>
+ </table>
+ <p>Quantifiers are "greedy" by default, meaning that they will match the longest possible input
+ sequence. There are also non-greedy quantifiers that match the shortest possible input sequence.
+ They're same as the greedy ones but with a trailing <code>?</code>:
+ <table>
+ <tr> <td> *? </td> <td>Zero or more (non-greedy).</td> </tr>
+ <tr> <td> ?? </td> <td>Zero or one (non-greedy).</td> </tr>
+ <tr> <td> +? </td> <td>One or more (non-greedy).</td> </tr>
+ <tr> <td> {<i>n</i>}? </td> <td>Exactly <i>n</i> (non-greedy).</td> </tr>
+ <tr> <td> {<i>n,</i>}? </td> <td>At least <i>n</i> (non-greedy).</td> </tr>
+ <tr> <td> {<i>n</i>,<i>m</i>}? </td> <td>At least <i>n</i> but not more than <i>m</i> (non-greedy).</td> </tr>
+ </table>
+ <p>Quantifiers allow backtracking by default. There are also possessive quantifiers to prevent
+ backtracking. They're same as the greedy ones but with a trailing <code>+</code>:
+ <table>
+ <tr> <td> *+ </td> <td>Zero or more (possessive).</td> </tr>
+ <tr> <td> ?+ </td> <td>Zero or one (possessive).</td> </tr>
+ <tr> <td> ++ </td> <td>One or more (possessive).</td> </tr>
+ <tr> <td> {<i>n</i>}+ </td> <td>Exactly <i>n</i> (possessive).</td> </tr>
+ <tr> <td> {<i>n,</i>}+ </td> <td>At least <i>n</i> (possessive).</td> </tr>
+ <tr> <td> {<i>n</i>,<i>m</i>}+ </td> <td>At least <i>n</i> but not more than <i>m</i> (possessive).</td> </tr>
+ </table>
+
+ <h3>Zero-width assertions</h3>
+ <p><table>
+ <tr> <td> ^ </td> <td>At beginning of line.</td> </tr>
+ <tr> <td> $ </td> <td>At end of line.</td> </tr>
+ <tr> <td> \A </td> <td>At beginning of input.</td> </tr>
+ <tr> <td> \b </td> <td>At word boundary.</td> </tr>
+ <tr> <td> \B </td> <td>At non-word boundary.</td> </tr>
+ <tr> <td> \G </td> <td>At end of previous match.</td> </tr>
+ <tr> <td> \z </td> <td>At end of input.</td> </tr>
+ <tr> <td> \Z </td> <td>At end of input, or before newline at end.</td> </tr>
+ </table>
+
+ <h3>Look-around assertions</h3>
+ <p>Look-around assertions assert that the subpattern does (positive) or doesn't (negative) match
+ after (look-ahead) or before (look-behind) the current position, without including the matched
+ text in the containing match. The maximum length of possible matches for look-behind patterns
+ must not be unbounded.
+ <p><table>
+ <tr> <td> (?=<i>a</i>) </td> <td>Zero-width positive look-ahead.</td> </tr>
+ <tr> <td> (?!<i>a</i>) </td> <td>Zero-width negative look-ahead.</td> </tr>
+ <tr> <td> (?&lt;=<i>a</i>) </td> <td>Zero-width positive look-behind.</td> </tr>
+ <tr> <td> (?&lt;!<i>a</i>) </td> <td>Zero-width negative look-behind.</td> </tr>
+ </table>
+
+ <h3>Groups</h3>
+
+ <p><table>
+ <tr> <td> (<i>a</i>) </td> <td>A capturing group.</td> </tr>
+ <tr> <td> (?:<i>a</i>) </td> <td>A non-capturing group.</td> </tr>
+ <tr> <td> (?&gt;<i>a</i>) </td> <td>An independent non-capturing group. (The first match of the subgroup is the only match tried.)</td> </tr>
+ <tr> <td> \<i>n</i> </td> <td>The text already matched by capturing group <i>n</i>.</td> </tr>
+ </table>
+ <p>See <code><a href="http://developer.android.com/reference/java/util/regex/Matcher.html#group()">group()</a></code> for details of how capturing groups are numbered and accessed.
+
+ <h3>Operators</h3>
+ <p><table>
+ <tr> <td> <i>ab</i> </td> <td>Expression <i>a</i> followed by expression <i>b</i>.</td> </tr>
+ <tr> <td> <i>a</i>|<i>b</i> </td> <td>Either expression <i>a</i> or expression <i>b</i>.</td> </tr>
+ </table>
+
+ <h3>Flags</h3>
+ <p><table>
+ <tr> <td> (?dimsux-dimsux:<i>a</i>) </td> <td>Evaluates the expression <i>a</i> with the given flags enabled/disabled.</td> </tr>
+ <tr> <td> (?dimsux-dimsux) </td> <td>Evaluates the rest of the pattern with the given flags enabled/disabled.</td> </tr>
+ </table>
+
+ <p>The flags are:
+ <table>
+ <tr><td><code>i</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#CASE_INSENSITIVE">CASE_INSENSITIVE</a></code></td> <td>case insensitive matching</td></tr>
+ <tr><td><code>d</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#UNIX_LINES">UNIX_LINES</a></code></td>       <td>only accept <code>'\n'</code> as a line terminator</td></tr>
+ <tr><td><code>m</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#MULTILINE">MULTILINE</a></code></td>        <td>allow <code>^</code> and <code>$</code> to match beginning/end of any line</td></tr>
+ <tr><td><code>s</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#DOTALL">DOTALL</a></code></td>           <td>allow <code>.</code> to match <code>'\n'</code> ("s" for "single line")</td></tr>
+ <tr><td><code>u</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#UNICODE_CASE">UNICODE_CASE</a></code></td>     <td>enable Unicode case folding</td></tr>
+ <tr><td><code>x</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#COMMENTS">COMMENTS</a></code></td>         <td>allow whitespace and comments</td></tr>
+ </table>
+
+</body>
+
+</html>

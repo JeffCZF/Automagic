@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>WiFi Available</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>WiFi Available</h1>
+
+<div class="summary">
+    <p>
+        The condition <b>WiFi Available</b> checks whether one specific WiFi access point is currently available. The condition waits for the first available scan result when wifi has just been enabled and no scan result is available yet.<br/>
+        <br/>
+        <span class="note">Note:</span> Starting with Android 6, scan results are only provided to apps when the location services of the system are enabled.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Check if a specific free access point is available and enable this one.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">SSID List</div>
+    <div class="setting_description">
+        The comma separated list of SSIDs to accept. The condition is true when one of the access points in the list is available. Glob patterns can be used to match multiple SSIDs. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        The variables supplied by the condition relate to the available access point with the highest signal strength.
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>access_points</code></div>
+    <div class="variable_description">the list of available access point SSIDs</div>
+
+    <div class="variable_name"><code>bssid</code> (only set when the SSID is available)</div>
+    <div class="variable_description">the BSSID of the available access point</div>
+
+    <div class="variable_name"><code>bssids</code> (only set when the SSID is available)</div>
+    <div class="variable_description">the list of BSSIDs of the available access points</div>
+
+    <div class="variable_name"><code>ssid</code> (only set when the SSID is available)</div>
+    <div class="variable_description">the SSID of the WiFi network</div>
+
+    <div class="variable_name"><code>capabilities</code> (only set when the SSID is available)</div>
+    <div class="variable_description">the capabilities of the WiFi network</div>
+
+    <div class="variable_name"><code>frequency</code> (only set when the SSID is available)</div>
+    <div class="variable_description">the frequency of the WiFi network</div>
+
+    <div class="variable_name"><code>level</code> (only set when the SSID is available)</div>
+    <div class="variable_description">the signal strength level of the WiFi network</div>
+</div>
+
+</body>
+
+</html>

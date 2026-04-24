@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Script examples</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <style type="text/css">
+        textarea.sample_code {
+            outline: none !important;
+            margin-bottom: 10pt;
+            background-color: #000000;
+            color: white;
+            border: 0;
+            font-family: monospace;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Script examples</h1>
+
+<div class="summary">
+<p>
+    This page shows some short examples of the most important functions provided by the built-in scripting language.
+</p>
+<p>
+   Copy/Paste the examples into an action <b>Script</b> and use <b>Menu->Execute</b> to test the action. The output will be written to the Automagic Log accessible with <b>Menu->Log</b>.
+</p>
+
+<h2>String operations</h2>
+
+<h3>Test if a variable contains a value (exactly)</h3>
+<textarea class="sample_code" cols="80" rows="27" readonly wrap="off">
+value = "test";
+result = value == "test";
+log(result); // true
+
+result = value == "abcd";
+log(result); // false
+
+// using the result in an if-then-else
+if (result)
+{
+    log("equal values");
+}
+else
+{
+    log("different values");
+}
+
+// without assigning to a variable first
+if (value == "test")
+{
+    log("it's test");
+}
+else
+{
+    log("value contains something else");
+}
+</textarea>
+
+<h3>Test if a variable partly contains a specific text</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+value = "this is a test value";
+result = contains(value, "test");
+log(result);// true
+
+result = contains(value, "1234");
+log(result);// false
+</textarea>
+
+<h3>Test if a string matches a regular expression (see <a href="regex_patterns.html">Regular expressions</a>)</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+value = "my suitcase code is 1234";
+result = matches(value, '.*\\d{4}.*');
+log(result);// true
+
+result = matches(value, '.*\\d{5}.*');
+log(result);// false
+</textarea>
+
+<h3>Find the content of the groups in a regular expression</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+value = "my code is 1234";
+list = newList();
+result = matches(value, '.*(\\d{4}).*', list);
+log(result);// true
+
+log(list);// [my code is 1234, 1234]
+</textarea>
+
+
+<h3>Create a list of lines from a multiline text</h3>
+<textarea class="sample_code" cols="80" rows="9" readonly wrap="off">
+value = "line1\nline2\nline3\nline4";
+lines = split(value, "\\n"); // or "\\r?\\n" for Windows+Unix
+
+// log each line
+for (line in lines)
+{
+    log(line);
+}
+</textarea>
+
+
+<h3>Create a list of words</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "The code of my suitcase is 1234";
+words = split(value, "\\W");
+log(words);// [The, code, of, my, suitcase, is, 1234]
+</textarea>
+
+
+<h3>Extract the contents of an HTML element</h3>
+<textarea class="sample_code" cols="80" rows="6" readonly wrap="off">
+text = "&lt;html>this is the content&lt;/html>";
+start = indexOf(text, "&lt;html>") + 6;
+end = indexOf(text, "&lt;/html>", start);
+value = substring(text, start, end);
+log(value);// this is the content
+</textarea>
+
+
+<h3>Modify a phone number from 00411234567 to 0 0 4 1 1 2 3 4 5 6 7 for better text to speech output</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "00411234567";
+optimized_value = replaceAll(value, "(.)", "$1 ");
+log(optimized_value);// 0 0 4 1 1 2 3 4 5 6 7
+</textarea>
+
+
+<h3>Test if a file name ends with the suffix .mp3</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+filename = "test.mp3";
+result = endsWith(filename, ".mp3");
+log(result);// true
+</textarea>
+
+
+<h3>Strip off the file extension</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+filename = "test.mp3";
+name = left(filename, length(filename) - 4);
+log(name);// test
+</textarea>
+
+
+<h3>Convert a text to upper case</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "This is a test";
+upper = toUpperCase(value);
+log(upper);// THIS IS A TEST
+</textarea>
+
+
+<h3>Remove whitespace around a text</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "   test   ";
+trimmed = trim(value);
+log(trimmed);// test
+</textarea>
+
+
+<h3>Replace variables in a string literal</h3>
+<textarea class="sample_code" cols="80" rows="5" readonly wrap="off">
+date = getDate();// gets the current date+time
+number = 42;
+value = "Today is the {date,dateformat,dd.MM.yyyy} and the answer to the ultimate question of life, the universe, and everything is {number}";
+log(value); // Today is the 29.03.2014 and the answer to the ultimate question of life, the universe, and everything is 42
+</textarea>
+
+
+<h2>Date & Time</h2>
+
+<h3>Get and format the current date + time (see <a href="dateformat_patterns.html">Date Format Pattern</a>)</h3>
+<textarea class="sample_code" cols="80" rows="9" readonly wrap="off">
+date = getDate();
+log("It's {date,dateformat,yyyy.MM.dd HH:mm:ss.SSS}");// It's 2014.03.29 14:03:25.437
+log("It's {date,dateformat,yyyy.MM.dd hh:mm:ss a}");// It's 2014.03.29 02:03:25 PM
+log("It's {date,dateformat,dd. MMM yy}");// It's 29. Mar 14
+log("It's {date,dateformat,dd. MMMM yy}");// It's 29. March 14
+log("It's {date,dateformat,EEE dd. MMMM yy}");// It's Sat 29. March 14
+log("It's {date,dateformat,EEEE dd. MMMM yy}");// It's Saturday 29. March 14
+log("It's week {date,dateformat,w}");// It's week 13
+</textarea>
+
+
+<h3>Create a specific date</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+date = getDate(2014, 3, 29);// 29.03.2014 00:00:00
+date = getDate(2014, 3, 29, 14, 3, 0);// 29.03.2014 14:03:00
+date = getDate(date, 13, 0, 0);// 29.03.2014 13:00:00
+</textarea>
+
+
+<h3>Duration between two dates</h3>
+<textarea class="sample_code" cols="80" rows="16" readonly wrap="off">
+date1 = getDate(2014, 3, 29, 14, 0, 0);// 29.03.2014 14:00:00
+date2 = getDate(2014, 3, 29, 15, 7, 30);// 29.03.2014 15:07:30
+difference = date2 - date1;
+
+// log difference in milliseconds
+log(difference);// 4050000
+
+// log difference in seconds
+log(difference/1000);// 4050
+
+// log difference in duration format
+log(getDurationString(difference));// 1h 7m 30s
+
+// log difference in format HH:mm:ss (only works when less than 24 hours)
+log("{difference,dateformat,timezone,UTC,HH:mm:ss}");// 01:07:30
+</textarea>
+
+
+<h3>Get the date from a text value and reformat</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "03/29/2014 14:00";
+date = getDate(value, "MM/dd/yyyy HH:mm");
+log("{date,dateformat,EEEE dd. MMMM}");// Saturday 29. March
+</textarea>
+
+
+<h3>Modifying a date</h3>
+<textarea class="sample_code" cols="80" rows="10" readonly wrap="off">
+date = getDate(2014, 3, 29, 14, 0, 0);// 29.03.2014 14:00:00
+new_date = addSeconds(date, 30);// 29.03.2014 14:00:30
+new_date = addMinutes(date, 15);// 29.03.2014 14:15:00
+new_date = addHours(date, 3);// 29.03.2014 17:00:00
+
+// the same by adding milliseconds
+new_date = date + 30*1000;// 29.03.2014 14:00:30
+new_date = date + 15*60*1000;// 29.03.2014 14:15:00
+new_date = date + 3*60*60*1000;// 29.03.2014 17:00:00
+</textarea>
+
+
+<h2>Lists</h2>
+
+<h3>Creating lists</h3>
+<textarea class="sample_code" cols="80" rows="9" readonly wrap="off">
+list = newList();
+log(list);// [] (empty)
+
+list = newList("a", "b", "c");
+log(list);// [a, b, c]
+
+list = [1 to 10];
+log(list);// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</textarea>
+
+
+<h3>Adding elements to a list</h3>
+<textarea class="sample_code" cols="80" rows="10" readonly wrap="off">
+list = newList();
+
+// adding elements
+addElement(list, "a");
+addElement(list, "b");
+addElement(list, "c");
+addElement(list, "d");
+addElement(list, "e");
+log(list);// [a, b, c, d, e]
+</textarea>
+
+
+<h3>Sorting the values in a list</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("c", "a", "d", "b");
+sort(list);
+log(list);// [a, b, c, d]
+</textarea>
+
+
+<h3>Reversing the values in a list</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+reverse(list);
+log(list);// [d, c, b, a]
+</textarea>
+
+
+<h3>Finding the index of an element</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+index = indexOfElement(list, "c");
+log(index);// 2
+</textarea>
+
+
+<h3>Remove an element at a specific index</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+removeElement(list, 2);
+log(list);// [a, b, d]
+</textarea>
+
+
+<h3>Inserting an element into the list</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+addElement(list, 2, "x");
+log(list);// [a, b, x, c, d]
+</textarea>
+
+
+<h3>Test if an element is in the list</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+result = containsElement(list, "c");
+log(result);// true
+</textarea>
+
+
+<h3>Adding an element if it is not in the list yet</h3>
+<textarea class="sample_code" cols="80" rows="8" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+element = "x";
+if (not containsElement(list, element))
+{
+    addElement(list, element);
+}
+log(list);// [a, b, c, d, x]
+</textarea>
+
+
+<h3>Removing value "c" from the list</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+removeElementValue(list, "c");
+log(list);// [a, b, d]
+</textarea>
+
+
+<h3>Testing the number of elements in a list</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+length = length(list);
+log(length);// 4
+</textarea>
+
+
+<h3>Adding an element to the list but keeping the list 4 element long</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+addElement(list, "x");
+if (length(list) > 4)
+{
+    removeElement(list, 0);
+}
+log(list);// [b, c, d, x]
+</textarea>
+
+
+<h3>Looping over the elements of a list</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+for (element in list)
+{
+    log(element);
+}
+// logs a, b, c, d each on a separate line
+</textarea>
+
+
+<h2>Maps</h2>
+
+<h3>Creating an empty map</h3>
+<textarea class="sample_code" cols="80" rows="3" readonly wrap="off">
+map = newMap();
+log(map);// {} (empty)
+</textarea>
+
+<h3>Adding key/value-pairs to a map</h3>
+<textarea class="sample_code" cols="80" rows="6" readonly wrap="off">
+map = newMap();
+addMapEntry(map, "key1", "a");
+addMapEntry(map, "key2", "b");
+addMapEntry(map, "key3", "c");
+log(map);// {key1=a, key2=b, key3=c}
+</textarea>
+
+
+<h3>overwriting an entry</h3>
+<textarea class="sample_code" cols="80" rows="8" readonly wrap="off">
+map = newMap();
+addMapEntry(map, "key1", "a");
+addMapEntry(map, "key2", "b");
+addMapEntry(map, "key3", "c");
+
+addMapEntry(map, "key3", "x");
+log(map);// {key1=a, key3=b, key3=x}
+</textarea>
+
+
+<h3>Accessing the value for a key</h3>
+<textarea class="sample_code" cols="80" rows="8" readonly wrap="off">
+map = newMap();
+addMapEntry(map, "key1", "a");
+addMapEntry(map, "key2", "b");
+addMapEntry(map, "key3", "c");
+
+value = getMapValue(map, "key2");
+log(value);// b
+</textarea>
+
+<h3>get a list of all keys and values in map</h3>
+<textarea class="sample_code" cols="80" rows="13" readonly wrap="off">
+map = newMap();
+addMapEntry(map, "key1", "a");
+addMapEntry(map, "key2", "b");
+addMapEntry(map, "key3", "c");
+
+// get a list of all values in map
+values = getMapValues(map);
+log(values);// [a, b, c]
+
+// get a list of all keys in map
+values = getMapKeys(map);
+log(values);// [key1, key2, key3]
+</textarea>
+
+
+<h2>XML</h2>
+
+The examples in this section use the following input XML (in variable <code>input</code>):
+<pre>
+&lt;books>
+    &lt;book>
+        &lt;title>Book 1&lt;/title>
+        &lt;price>12.50&lt;/price>
+        &lt;pages format="A4">745&lt;/pages>
+    &lt;/book>
+    &lt;book>
+        &lt;title>Book 2&lt;/title>
+        &lt;price>35.70&lt;/price>
+        &lt;pages format="A5">120&lt;/pages>
+    &lt;/book>
+    &lt;book>
+        &lt;title>Book 3&lt;/title>
+        &lt;price>17.90&lt;/price>
+        &lt;pages format="letter">1230&lt;/pages>
+    &lt;/book>
+&lt;/books>
+</pre>
+
+
+<h3>Extract book titles</h3>
+<textarea class="sample_code" cols="80" rows="12" readonly wrap="off">
+// title of the first book
+title = evaluateXPathAsString(input, "/books/book[1]/title");
+log(title);// Book 1
+
+// title of the second book
+title = evaluateXPathAsString(input, "/books/book[2]/title");
+log(title);// Book 2
+
+// title of the last book
+title = evaluateXPathAsString(input, "/books/book[last()]/title");
+log(title);// Book 3
+</textarea>
+
+
+<h3>Extract the price of the books</h3>
+<textarea class="sample_code" cols="80" rows="8" readonly wrap="off">
+// price of the book with title 'Book 1'
+price = evaluateXPathAsString(input, "/books/book[title='Book 1']/price");
+log(price);// 12.50
+
+// price of the first book with more than 1000 pages
+price = evaluateXPathAsString(input, "/books/book[pages>1000]/price");
+log(price);// 17.90
+</textarea>
+
+
+<h3>Print the format of Book 1</h3>
+<textarea class="sample_code" cols="80" rows="3" readonly wrap="off">
+format = evaluateXPathAsString(input, "/books/book[title='Book 1']/pages/@format");
+log(format);// A4
+</textarea>
+
+<h3>Print Book title of book with page format A5</h3>
+<textarea class="sample_code" cols="80" rows="3" readonly wrap="off">
+format = evaluateXPathAsString(input, "/books/book/pages[@format='A5']/../title");
+log(format);// Book 2
+</textarea>
+
+
+
+
+<h2>Number theory</h2>
+
+<h3>RSA (uses experimental functions)</h3>
+<textarea class="sample_code" cols="80" rows="23" readonly wrap="off">
+p = randomProbablePrime(512);
+q = randomProbablePrime(512);
+
+phi = (p-1)*(q-1);
+n = p*q;
+e = 65537;
+
+pk = modInverse(e, phi);
+
+log("n: " + n);
+
+orig = "This is a test";
+log("orig: " + orig);
+
+m = convertStringToBigInteger(orig);
+log("m: " + m);
+
+enc = modPow(m, e, n);
+log("encoded: " + enc);
+
+dec = modPow(enc, pk, n);
+log("decoded: " + convertBigIntegerToString(dec));
+</textarea>
+
+
+<h3>Diffie Hellman (uses experimental functions)</h3>
+<textarea class="sample_code" cols="80" rows="12" readonly wrap="off">
+g = 5;
+p = randomProbablePrime(512);
+
+a = 6;
+b = 15;
+
+alice = modPow(g, a, p);
+bob = modPow(g, b, p);
+
+log(s = modPow(bob, a, p));
+log(s = modPow(alice, b, p));
+</textarea>
+
+
+</div>
+
+</body>
+
+</html>
