@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Media Session Changed (Experimental)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Media Session Changed (Experimental)</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Media Session Changed (Experimental)</b> is executed when the media session of the specified player changes (new track is played, media image is loaded etc.). A regular change in position alone does not invoke the trigger.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Show the title of the current track in an overlay widget.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Package Names</div>
+    <div class="setting_description">The name of the media player to monitor. Glob patterns (*, ?) are supported.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>playback_state</code></div>
+    <div class="variable_description">current state (0=none, 1=stopped, 2=paused, 3=playing, 4=fast forwarding, 5=rewinding, 6=buffering, 7=error, 8=connecting, 9=skip to previous, 10=skip to next, 11=skip to item in queue)</div>
+
+    <div class="variable_name"><code>playback_position</code></div>
+    <div class="variable_description">current position in ms</div>
+
+    <div class="variable_name"><code>title</code></div>
+    <div class="variable_description">the title</div>
+
+    <div class="variable_name"><code>subtitle</code></div>
+    <div class="variable_description">the subtitle</div>
+
+    <div class="variable_name"><code>description</code></div>
+    <div class="variable_description">the description</div>
+
+    <div class="variable_name"><code>icon</code></div>
+    <div class="variable_description">the current image</div>
+
+    <div class="variable_name"><code>icon_uri</code></div>
+    <div class="variable_description">the URI to load the image</div>
+
+    <div class="variable_name"><code>media_duration</code></div>
+    <div class="variable_description">duration of the track in ms</div>
+</div>
+
+</body>
+
+</html>

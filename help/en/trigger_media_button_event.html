@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Media Button Event (Experimental)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Media Button Event (Experimental)</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Media Button Event (Experimental)</b> executes a flow when the system detects a media button event, for example when the play-button is pressed on a headset.<br/>
+        <br/>
+        <span class="warning">Warning:</span> When an audio player is launched, future events are usually sent to the audio player and not to Automagic anymore. If this is not the desired behaviour, Automagic has to be registered to receive the events again using an action <b>Reregister Media Button Receiver</b>.
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Events</div>
+    <div class="setting_description">Whether the trigger should be executed for all media button events or only for a specific button.</div>
+
+    <div class="setting_title">Specific event</div>
+    <div class="setting_description">
+        The Event/Button that should be reacted upon.<br/>
+        Wired headsets usually generate the event <em>Headset Hook</em>.
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>key_code</code></div>
+    <div class="variable_description">the numeric keycode</div>
+
+    <div class="variable_name"><code>key_code_name</code> (Android 3.1+)</div>
+    <div class="variable_description">the name of the keycode</div>
+
+    <div class="variable_name"><code>key_duration</code></div>
+    <div class="variable_description">the duration of the event in milliseconds</div>
+
+    <div class="variable_name"><code>key_source_device_id</code></div>
+    <div class="variable_description">the ID of the sending device</div>
+</div>
+
+</body>
+
+</html>

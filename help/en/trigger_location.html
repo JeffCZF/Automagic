@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Location</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Location</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Location</b> is executed when the location is entering the defined region or exiting the defined region.<br/>
+        The accuracy of the location depends heavily on the available location provider.<br/>
+        <br/>
+        <span class="tip">Tip:</span> Enabling GPS in the phone settings can yield much better location accuracy but might use more battery. Locations with WiFi access points might work accurate enough and GPS can be disabled in the global phone settings to reduce battery strain.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Start recording in Gleeo Time Tracker when you are in the office, stop recording when you leave.</li>
+        <li>Switch the ringer to vibrate when you are at your office.</li>
+        <li>Turn off the ringer in the church. (Do it manually when it is important!)</li>
+        <li>Send an SMS when you are home.</li>
+    </ul>
+
+    <p>
+        <span class="note">Note:</span> The location is usually checked every 4 minutes when the device is not actively used and the classic method is used. This can result in the GPS icon on the statusbar being visible every 4 minutes. Entering/exiting a location can be missed when you are moving fast through a location with a small radius and the 4 minute check misses the location.
+        Locations can be reported more often when the device is active or another application also uses the location features (for example when using Google Maps).
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Method</div>
+    <div class="setting_description">
+        The method used to detect the geofence.<br/>
+        <em>Modern</em> uses the new geofence API provided by Google and should be tuned to use only a minimum amount of battery power.<br/>
+        The algorithms to detect the locations are not known and can vary depending on device model. Please experiment with both methods to see what works best for you.
+    </div>
+
+    <div class="setting_title">Location</div>
+    <div class="setting_description">The location used by this trigger.</div>
+
+    <div class="setting_title">Location Name</div>
+    <div class="setting_description">The name to use for this location. This name is used in the trigger name and to select an existing location on the map.</div>
+
+    <div class="setting_title">Radius</div>
+    <div class="setting_description">The radius around the location in meters.</div>
+
+    <div class="setting_title">Entering/Exiting</div>
+    <div class="setting_description">Whether to execute the flow when the location within the defined radius is entered or exited.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>location</code></div>
+    <div class="variable_description">the configured location</div>
+
+    <div class="variable_name"><code>location_name</code></div>
+    <div class="variable_description">the name of the location</div>
+
+    <div class="variable_name"><code>entering</code></div>
+    <div class="variable_description">whether the location has been entered or not</div>
+</div>
+
+</body>
+
+</html>

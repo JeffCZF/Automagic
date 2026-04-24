@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>NFC Tag</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>NFC Tag</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>NFC Tag</b> executes the flow when an NFC tag is detected.<br/>
+        You can either write a special ID to the NFC tag that will be used to identify the tag and execute the flow (this is the recommended option to use when you have a writable NFC tag) or you can also read the ID of an existing NFC tag. This is especially useful for read-only NFC tags like the ones often found in credit cards or read-only NFC tags (Live Tags, Smart Tags etc.) of some device manufacturers. Please also check the <code>Tip</code> in the settings section of this page.<br/>
+        <br/>
+        <span class="note">Note:</span> Not all NFC tags are supported.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Turn on the airplane mode when an NFC tag in the bedroom is scanned.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Tag Type</div>
+    <div class="setting_description">Whether an NFC tag is written using a specific ID defined in Automagic (recommended) or an existing NFC tag should be used (does not work with all tags, some devices show an app selection list when other apps are installed that also handle NFC tags).</div>
+
+    <div class="setting_title">Tag IDs</div>
+    <div class="setting_description">A comma separated list of tag IDs. Glob patterns can be used to match multiple tag IDs.</div>
+
+    <div class="setting_title">Write ID to NFC tag</div>
+    <div class="setting_description">
+        Opens a screen to write the specified IDs to an NFC tag. The NFC tag must be writable and must be able to contain NDEF formatted data.<br/>
+        Multiple IDs can be written to the tag but the tag IDs must contain only regular characters, underscore and numbers.<br/>
+        <br/>
+        Option <b>Write alternate tag information</b> on the writer screen allows to define whether or not different type of information should be written to the NFC tag.
+        Some devices show a warning dialog when a regular Automagic NFC tag is scanned since the tag contains a Web-URL.
+        Writing an alternate tag uses a different URL that avoids this warning message.<br/>
+        <br/>
+        Android 4+: Option <b>Include Android Application Record</b> on the writer screen allows to define whether or not an additional AAR (Android Application Record) should be written to the tag.
+        An AAR uses slightly more space on the NFC tag but ensures that the tag is preferably handled by Automagic and not by another app.
+    </div>
+
+    <div class="setting_title">Read ID from NFC Tag</div>
+    <div class="setting_description">
+        Opens a screen to read the ID of an existing NFC tag. Glob patterns can be used to match multiple tag IDs.<br/>
+        <br/>
+        <span class="tip">Tip:</span> Some devices contain apps that can handle generic NFC tags and are shown in a selection list when an NFC tag is scanned. Uninstall or deactivate unused apps when the selection dialog bugs you. You can deactivate apps in the system settings on an Android 4+ device (System settings->Apps->All, Select the app->Deactivate).<br/>
+        For example, you can disable the app <strong>Tags</strong> on a Galaxy Nexus to prevent the selection list from showing.
+    </div>
+
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>nfc_tag_ids</code></div>
+    <div class="variable_description">the scanned tag ID or a comma separated list when the tag contained multiple IDs</div>
+</div>
+
+</body>
+
+</html>
