@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sleep</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Sleep</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Sleep</b> pauses the flow execution for a certain amount of time.<br/>
+        <br/>
+        <span class="note">Note:</span> Please uncheck the option <em>Keep device awake</em> when the period is longer than one to two minutes and the functions of the flow does not require an active device CPU.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Sleep a second when a vibrate action is executing.</li>
+        <li>Slow down a countdown flow.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Duration</div>
+    <div class="setting_description">The amount of time to sleep. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Keep device awake</div>
+    <div class="setting_description">
+        Ensure that the device does not go into deep sleep while the action is executed.<br/>
+        Unchecking this option will not prevent the device from falling into deep sleep mode. The device will be woken up when the specified period has elapsed.
+    </div>
+
+    <div class="setting_title">Wakeup from idle/doze (Android 6+)</div>
+    <div class="setting_description">Defines if this action is allowed resume from idle/doze mode. (see <a href="device_idle_mode.html">Device Idle/Doze Mode</a>)</div>
+</div>
+
+</body>
+
+</html>

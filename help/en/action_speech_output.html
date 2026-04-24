@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Speech Output</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Speech Output</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Speech Output</b> uses the default text to speech engine installed to read the defined text.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Read out the incoming SMS.</li>
+        <li>Read the current time when you press a shortcut.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Voice</div>
+    <div class="setting_description">The voice/language to use. The list of available voices depends on the installed TTS engine.</div>
+
+    <div class="setting_title">Audio Stream Type</div>
+    <div class="setting_description">The type of the audio stream to use to emit the speech output.</div>
+
+    <div class="setting_title">Text</div>
+    <div class="setting_description">
+        The text to speak. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        Examples:
+        <ul>
+            <li>use <code>{triggertime,<wbr/>dateformat,<wbr/>HH:mm:ss}</code> to read the time</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Speech Rate</div>
+    <div class="setting_description">Whether or not to use a custom speech rate (0.5=slow, 1.0=normal, 2.0=fast). Not supported by all text to speech engines. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Pitch</div>
+    <div class="setting_description">Whether or not to use a custom pitch (0.5=low, 1.0=normal, 2.0=high). Not supported by all text to speech engines. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Synthesis Embedded</div>
+    <div class="setting_description">When checked the engine must not use network access to synthesise the speech. Not supported by all text to speech engines.</div>
+
+    <div class="setting_title">Synthesis Network</div>
+    <div class="setting_description">When checked the engine must use network based synthesis. Not supported by all text to speech engines.</div>
+
+    <div class="setting_title">Show status bar notification to stop speaking</div>
+    <div class="setting_description">Shows a status bar notification when the tts engine is speaking that stops the speaking when selected.</div>
+
+    <div class="setting_title">Request audio focus</div>
+    <div class="setting_description">
+        Defines whether or not and how Automagic should request audio focus. This causes other apps like music players to pause playback or to temporarily lower the volume.<br/>
+        <br/>
+        Possible settings:
+        <ul>
+            <li><b>Transient</b>: Automagic requests temporary audio focus, other apps usually pause playback temporarily (depends on app)</li>
+            <li><b>Transient may duck</b>: Automagic requests temporary audio focus, other apps either temporarily pause playback or temporarily lower the volume (depends on app)</li>
+            <li><b>Normal</b>: Automagic requests the normal audio focus, other apps usually pause/stop playback (depends on app)</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Show Custom Widget Overlay</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Show Custom Widget Overlay</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Show Custom Widget Overlay</b> displays a custom Widget (defined within Automagic) on an arbitrary position on the display. The overlay is also shown on the lock screen on many Android versions.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This function is not officially supported by Android and might not work on all devices.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Show the battery percentage as a semi-transparent rectangle over the statusbar.</li>
+        <li>Prevent accidental touches by displaying an overlay that covers the entire screen.</li>
+        <li>Shade the screen to a darker level than the built-in screen brightness control allows by displaying a semi transparent overlay covering the entire screen.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Overlay name</div>
+    <div class="setting_description">
+        The name/identification of the overlay. The same name can be used to hide the overlay using action <b>Hide Custom Widget Overlay.<br/></b>
+        The same identification can be used in multiple actions to display the same overlay in different configurations depending on situation (e.g.different settings when in landscape or portrait).
+    </div>
+
+    <div class="setting_title">Widget</div>
+    <div class="setting_description">The name of the widget to display. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Width/Height</div>
+    <div class="setting_description">The size of the overlay. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Gravity</div>
+    <div class="setting_description">The position to align the overlay on the screen.</div>
+
+    <div class="setting_title">X/Y-Offset</div>
+    <div class="setting_description">The offset of the overlay relative to the gravity. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Draggable</div>
+    <div class="setting_description">Whether the overlay can be moved on the screen using Drag&amp;Drop.</div>
+
+    <div class="setting_title">Opacity</div>
+    <div class="setting_description">The transparency respectively opacity of the widget.</div>
+
+    <div class="setting_title">Clickable</div>
+    <div class="setting_description">Whether the overlay should react to clicks/touches. <span class="warning">Warning:</span> A clickable overlay blocks the touches of underlying elements!</div>
+
+    <div class="setting_title">Stretch widget</div>
+    <div class="setting_description">Whether the widget should be stretched to fill the entire area of the overlay.</div>
+
+    <div class="setting_title">Use accessibility service (Android 5.1+)</div>
+    <div class="setting_description">Uses the accessibility service to show the overlay and thus could be shown even on the lock screen on some versions of Android</div>
+
+    <div class="setting_title">Attempt to show on top</div>
+    <div class="setting_description">
+        Whether Automagic should attempt to show the widget on top of everything else (over statusbar and lock screen).<br/>
+        This option might not work on all devices, especially on newer versions of Android (Android 8+).<br/>
+        This option can prevent certain apps like video players to temporarily override the screen brightness.
+    </div>
+
+    <div class="setting_title">Don't restrict positions</div>
+    <div class="setting_description">
+        Whether the system should allow to place the widget outside the regular display area. On some versions of Android this also allows to place the in the area of the navigation bar.<br/>
+        Older Version of Android only respect this option when option <b>Use accessibility service</b> is enabled.
+    </div>
+</div>
+
+</body>
+
+</html>

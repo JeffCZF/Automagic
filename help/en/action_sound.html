@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sound</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Sound</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Sound</b> plays the selected sound.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Beep every 5 minutes when <b>Gleeo Time Tracker</b> is recording.</li>
+        <li>Play an additional alert when an SMS is received.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Sound Type</div>
+    <div class="setting_description">
+        The type of sound to select.<br/>
+        <br/>
+        Possible settings:
+        <ul>
+            <li><b>Built-in sound</b>: to select a built-in notification, alarm or ringtone</li>
+            <li><b>File</b>: to select an arbitrary audio file to play</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Sound</div>
+    <div class="setting_description">The name of the selected ringtone, notification or alarm sound.</div>
+
+    <div class="setting_title">File</div>
+    <div class="setting_description">The path or the URL to the audio file to play. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Audio Stream Type</div>
+    <div class="setting_description">The stream to use to play the sound.</div>
+
+    <div class="setting_title">Start Position</div>
+    <div class="setting_description">The start position in milliseconds to use to start the playback. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Show status bar notification to stop sound</div>
+    <div class="setting_description">Shows a status bar notification when the sound is playing that stops the sound when selected.</div>
+
+    <div class="setting_title">Wait for sound to finish</div>
+    <div class="setting_description">Makes the action wait for the sound to finish before continuing with the next element in the flow.</div>
+
+    <div class="setting_title">Request audio focus</div>
+    <div class="setting_description">
+        Defines whether or not and how Automagic should request audio focus. This causes other apps like music players to pause playback or to temporarily lower the volume.<br/>
+        <br/>
+        Possible settings:
+        <ul>
+            <li><b>Transient</b>: Automagic requests temporary audio focus, other apps usually pause playback temporarily (depends on app)</li>
+            <li><b>Transient may duck</b>: Automagic requests temporary audio focus, other apps either temporarily pause playback or temporarily lower the volume (depends on app)</li>
+            <li><b>Normal</b>: Automagic requests the normal audio focus, other apps usually pause/stop playback (depends on app)</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>
