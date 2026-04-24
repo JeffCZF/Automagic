@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Script</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Script</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Script</b> executes a script doing some simple calculations and can be used to modify variables.
+    </p>
+</div>
+
+<h2>Script Description</h2>
+
+<div class="summary">
+<h2>Reserved Keywords</h2>
+
+<p>Following list of keywords are reserved and are therefore not allowed to be used as a variable name:</p>
+<code> abstract alias and AND assert
+    boolean break byte
+    case catch char class const continue
+    def default do double
+    else elsif ensure enum extends
+    false final finally float for
+    goto
+    if implements import in instanceof int interface
+    long
+    mod
+    native new next not NOT null
+    or OR
+    package private protected public
+    redo repeat rescue retry return
+    self short static strictfp super switch synchronized
+    then this throw throws to transient true try
+    undef unless until
+    void volatile
+    when while
+    xor XOR
+    yield</code>
+
+<p>
+    Only a few of the reserved keywords are currently used but are reserved for future extensions of the scripting language.
+</p>
+
+
+<h2>Comments</h2>
+
+<p>Scripts can contain comments that are not executed when the script is interpreted.</p>
+<ul>
+    <li>text after <code>//</code> to the end of the line</li>
+    <li>text between <code>/*</code> and <code>*/</code>. Such a comment can also span multiple lines.</li>
+</ul>
+
+Examples:
+<pre>
+    a=1+2;<b>//this is a comment</b>
+    b=a+3;
+    c=b+a;
+    <b>/* this is a
+        multiline comment */</b>
+    d=c*2;
+</pre>
+
+
+<h2 id="variables">Variables</h2>
+
+<p>
+    A value like a number or a string can be stored in a variable using the assignment operator <code>=</code><br/>
+    Variable names are case sensitive. A variable name has to start with a letter, a currency symbol (such as "$") or a connecting punctuation character (such as "_"). The rest of the variable name can also contain digits. Unicode characters are supported, but it is highly recommended to use US-ASCII characters.
+</p>
+Examples:
+<pre>
+    a = 3;//assign the number three to the variable a
+    b = a;//assign the value stored in variable a to the variable b
+</pre>
+
+<p>
+    There exist two types of variable scopes:
+</p>
+
+<h3>Flow Local</h3>
+Every variable declared in a script, expression or inline script is by default flow local as long as the name of the variable does not start with <code>global_</code>.<br/>
+<br/>
+Examples of flow local variables with a value assigned:
+<ul>
+    <li><code>a = 1;</code>&nbsp;&nbsp;&nbsp;number one stored in a variable called 'a'</li>
+    <li><code>var1 = 1.234;</code>&nbsp;&nbsp;&nbsp;decimal number 1.234 stored in a variable called 'var1'</li>
+    <li><code>var_123 = "Hello World";</code>&nbsp;&nbsp;&nbsp;string "Hello World" stored in a variable called 'var_123'</li>
+    <li><code>_m = true;</code>&nbsp;&nbsp;&nbsp;boolean value 'true' stored in a variable called '_m'</li>
+    <li><code>var2 = a;</code>&nbsp;&nbsp;&nbsp;stores the value stored in variable 'a' in a variable called 'var2'</li>
+</ul>
+
+<h3>Global</h3>
+Every variable that starts with <code>global_</code> is global and therefore accessible by other flows and will also be persisted to the external memory and reloaded when you stop/restart the Automagic service.<br/>
+<br/>
+Examples of global variables with a value assigned:
+<ul>
+    <li><code>global_a = 1;</code>&nbsp;&nbsp;&nbsp;number one stored in a variable called 'global_a'</li>
+    <li><code>global_var1 = 1.234;</code>&nbsp;&nbsp;&nbsp;decimal number 1.234 stored in a variable called 'global_var1'</li>
+    <li><code>global_var_123 = "Hello World";</code>&nbsp;&nbsp;&nbsp;string "Hello World" stored in a variable called 'global_var_123'</li>
+    <li><code>global_m = true;</code>&nbsp;&nbsp;&nbsp;boolean value 'true' stored in a variable called 'global_m'</li>
+</ul>
+
+<p>
+    Variables are references to values (like a pointer). Assigning the value stored in a variable to another variable does not copy the value but both variables point to the exact same value.<br/>
+    This is especially important when modifiable values like lists are used.<br/>
+    Example:
+<pre>
+    a = newList(1, 2, 3);
+    b = a;
+    //at this point both variables a and b point to the exact
+    // same list (the list only exists once)
+    addElement(a, 4);
+    //the list now contains 1, 2, 3, 4
+    //both variables a and b still point to the same list
+
+    //both loops therefore print the values 1, 2, 3 and 4 in the log:
+    for (x in a)
+    {
+        log("{x}");
+    }
+
+    for (x in b)
+    {
+        log("{x}");
+    }
+</pre>
+
+</p>
+
+
+<h2>Operators</h2>
+
+<p>Following operators are supported in expressions:</p>
+<ul>
+    <li><code>+</code>&nbsp;&nbsp;&nbsp; addition and string concatenation</li>
+    <li><code>-</code>&nbsp;&nbsp;&nbsp; subtraction</li>
+    <li><code>*</code>&nbsp;&nbsp;&nbsp; multiplication</li>
+    <li><code>/</code>&nbsp;&nbsp;&nbsp; division</li>
+    <li><code>%</code>&nbsp;&nbsp;&nbsp; modulo division</li>
+    <li><code>&lt;</code>&nbsp;&nbsp;&nbsp; less than</li>
+    <li><code>&lt;=</code>&nbsp;&nbsp;&nbsp; less than or equal</li>
+    <li><code>&gt;</code>&nbsp;&nbsp;&nbsp; greater than</li>
+    <li><code>&gt;=</code>&nbsp;&nbsp;&nbsp; greater than or equal</li>
+    <li><code>==</code>&nbsp;&nbsp;&nbsp; equal</li>
+    <li><code>!=</code>&nbsp;&nbsp;&nbsp; not equal</li>
+    <li><code>AND</code>, <code>&&</code>&nbsp;&nbsp;&nbsp; and</li>
+    <li><code>OR</code>, <code>||</code>&nbsp;&nbsp;&nbsp; or</li>
+    <li><code>XOR</code>, <code>^</code>&nbsp;&nbsp;&nbsp; exclusive or</li>
+    <li><code>NOT</code>, <code>!</code>&nbsp;&nbsp;&nbsp; not (unary)</li>
+</ul>
+
+
+<h2>Expressions</h2>
+
+<p>An expression is a construct made up of variables, operators and function calls, that evaluates to a single value.</p>
+Examples:
+<ul>
+    <li><code>42</code></li>
+    <li><code>1+2</code></li>
+    <li><code>a=1</code></li>
+    <li><code>b=a+1</code></li>
+    <li><code>c=(a+1)*(b-3)</code></li>
+    <li><code>global_a=1</code></li>
+    <li><code>a=sqrt(9)</code></li>
+    <li><code>b=addDays(triggertime, 3)</code></li>
+    <li><code>c=replace("hello automagic", "automagic", "world")</code></li>
+    <li><code>b=addDays(triggertime, sqrt(9))</code></li>
+    <li><code>b="Hello " + "World"</code></li>
+    <li><code>a=true</code></li>
+    <li><code>b=false</code></li>
+    <li><code>c=a AND b OR c&gt;=5</code></li>
+    <li><code>c=NOT a AND NOT b</code></li>
+</ul>
+
+<h3 id="inline_expressions">String Inline Expressions</h3>
+
+<p>Inline expressions in strings can be used to replace a part of the string by a variable or expression. The rules described here also apply to the text fields of triggers, conditions and actions documented in the help page with <cite>Variables are supported</cite>.<br/>
+    An inline expression is enclosed in curly braces: <code>{expression}</code>
+</p>
+Example simple inline expressions:
+<ul>
+    <li><code>var1="Test";<br/>var2="This is a {var1}";</code><br/>'var2' will contain the string "This is a Test" after the script is evaluated</li>
+    <li><code>var="one plus two is {1 + 2}";</code><br/>'var' is evaluated to "one plus two is 3"</li>
+</ul>
+
+<p>Inline expressions can be formatted by defining a format type and depending on the format type a pattern to use: <code>{var<b>,formattype,pattern</b>}</code></p>
+Example inline expressions with formatting:
+<ul>
+    <li><code>var="Today is {getDate(),<wbr/>dateformat,<wbr/>dd.MM.yyyy}";</code><br/>'var' will contain the string "Today is 21.07.2012"</li>
+    <li><code>var="It's {getDate(),<wbr/>dateformat,<wbr/>HH:mm}";</code><br/>'var' will contain the string "It's 12:32"</li>
+    <li><code>var="It's {getDate(),<wbr/>dateformat,<wbr/>timezone,UTC,<wbr/>HH:mm}";</code><br/>'var' will contain the string "It's 10:32"</li>
+    <li><code>var="Value: {1.456789,<wbr/>numberformat,<wbr/>0.00}";</code><br/>'var' is evaluated to "Value: 1.46"</li>
+    <li><code>var="I'm here: {location,<wbr/>locationformat,<wbr/>decimal}";</code><br/>'var' is evaluated to "I'm here: 46.76817,7.603751"</li>
+    <li><code>var="{files,<wbr/>listformat,<wbr/>comma}";</code><br/>'var' is evaluated to "/mnt/sdcard/file1,/mnt/sdcard/file2"</li>
+</ul>
+
+Supported format types:
+<ul>
+    <li><code>dateformat</code>: Formats the date using the specified date pattern. See <a href="dateformat_patterns.html">pattern characters</a> for a description of the supported patterns.<br/>
+        The optional sub-format <code>timezone</code> along with the name of the timezone can be used to define the timezone used to format the date/time. Accepted timezone names are either UTC, GMT or the Olson name of a timezone name of the form <i>Area/Location</i>, such as <code>America/Los_Angeles</code> (device dependent). GMT is used for unknown timezone names.<br/>
+        Examples:
+        <ul>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,UTC,<wbr/>HH:mm}</code></li>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,America/Los_Angeles,<wbr/>HH:mm}</code></li>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,Europe/London,<wbr/>HH:mm}</code></li>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,Europe/Paris,<wbr/>HH:mm}</code></li>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,Africa/Harare,<wbr/>HH:mm}</code></li>
+        </ul>
+    </li>
+    <li><code>numberformat</code>: Formats the number using the specified decimal format. See <a href="numberformat_patterns.html">pattern characters</a> for a description of the supported patterns.</li>
+    <li><code>locationformat</code>: Formats the address of the location when available in a single line of text when no format is specified. (Data connection is required)<br/>
+        Following locationformat patterns are supported:
+        <ul>
+            <li><code>multiline</code>: Formats the address as a multiline text. (Data connection is required)</li>
+            <li><code>decimal</code>: Formats latitude,longitude as decimal numbers (+/-DDD.DDDDD). Example: 46.76817,7.603751.</li>
+            <li><code>microdegrees</code>: Formats latitude,longitude multiplied by 1'000'000 as integers. Example: 46768355,7604022. This format can be useful in a call to a REST service.</li>
+            <li><code>swiss</code>: Formats latitude,longitude converted to the <a href="http://de.wikipedia.org/wiki/Schweizer_Landeskoordinaten">Swiss coordinate system</a>.</li>
+        </ul>
+    </li>
+    <li><code>listformat</code>: Formats the list of values as a multiline text with one item per line when no pattern is specified.<br/>
+        Following listformat patterns are supported:
+        <ul>
+            <li><code>comma</code>: Formats the list of values as a comma separated list.</li>
+            <li><code>semicolon</code>: Formats the list of values as a semicolon separated list.</li>
+        </ul>
+    </li>
+    <li><code>jsonformat</code>: Formats the value as JSON fragment.</li>
+</ul>
+
+<p>
+Inline expressions in strings with single quotes are not interpreted. This can be helpful for regular expressions, where a quantifier like <b>{2}</b> in the pattern <b>([0-9]){2}.*</b> should not be replaced with <b>2</b>.
+</p>
+Example:
+<ul>
+    <li><code>var='Today is {getDate(),<wbr/>dateformat,<wbr/>dd.MM.yyyy}';</code><br/>'var' is evaluated to 'Today is {getDate(),<wbr/>dateformat,<wbr/>dd.MM.yyyy}'</li>
+</ul>
+
+
+<h2>Control Structures</h2>
+
+
+<h3><code>if</code> Statement</h3>
+An if statement can be used to evaluate a block of code when a condition is true.<br/>
+Example:
+<pre>
+    if (a&lt;3)
+    {
+        b = 0;
+    }
+    else
+    {
+        b = 1;
+    }
+</pre>
+In this example variable <code>b</code> is assigned the value zero when the variable <code>a</code> contains a value less than 3, <code>b</code> is assigned the value one when the variable <code>a</code> contains a value greater or equal to 3.
+
+
+<h3><code>for</code> Loop</h3>
+A for loop evaluates a block of code for every value in a list of values.<br/>
+Example:
+<pre>
+    list=newList(1, 2, 3);
+
+    for (a in list)
+    {
+        log("a contains {a}");
+    }
+</pre>
+This example would print the following output in the log:
+<pre>
+    a contains 1
+    a contains 2
+    a contains 3
+</pre>
+
+<h3>Numeric List Creation Expression</h3>
+Since it is very common to create a list containing a sequence of numeric values there is a shorthand to create such a list using <code>[&lt;number&gt; to &lt;number&gt;, &lt;step size&gt;]</code>:<br/>
+Examples:
+<pre>
+    list = [1 to 10];//without the optional step size
+
+    for (a in list)
+    {
+        log(a);
+    }
+    //logs 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+    //inlined
+    for (a in [1 to 10])
+    {
+        log(a);
+    }
+    //logs 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+    //inlined with step size of 2
+    for (a in [1 to 10, 2])
+    {
+        log(a);
+    }
+    //logs 1, 3, 5, 7, 9
+
+    //inlined with negative step size of -3
+    for (a in [10 to 1, -3])
+    {
+        log(a);
+    }
+    //logs 10, 7, 4, 1
+
+</pre>
+
+<h3>Access to list and map entries</h3>
+Single values of lists and maps can be accessed with brackets.<br/>
+Examples:
+<pre>
+    list = [1 to 10];
+    a = list[0];//get first element of the list: 1
+    a = list[1];//get second element of the list: 2
+
+    list[2] = 999;//assigns 999 to the third element of the list
+
+    map = newMap();
+    map["key1"] = 1;//creates a map entry key1-->1
+    map["key2"] = 2;//creates a map entry key2-->2
+
+    a = map["key1"];//gets the value of entry with key1: 1
+    a = map["key2"];//gets the value of entry with key2: 2
+</pre>
+
+<h3><code>while</code> Loop</h3>
+A while-loop evaluates a block of code as long as a condition is true.<br/>
+Example:
+<pre>
+    a = 0;
+
+    while (a &lt; 10)
+    {
+        log(a);
+        a = a + 1;
+    }
+    //logs 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+</pre>
+
+<h3><code>return</code> statement</h3>
+The return statement can be used to terminate a script early and optionally to return a given value.<br/>
+Example:
+<pre>
+    a = null;
+    if (a == null)
+    {
+        return;
+    }
+
+    log("X");//not reached since return terminates the script
+</pre>
+
+<h3><code>break</code> statement</h3>
+The break statement can be used to terminate a loop and to continue the script after the loop body.<br/>
+Example:
+<pre>
+    for (a in [1 to 10])
+    {
+        if (a == 4)
+        {
+            break;
+        }
+        log(a);
+    }
+
+    log("X");
+    //logs 1, 2, 3, X
+</pre>
+
+<h3><code>continue</code> statement</h3>
+The continue statement can be used to immediately continue with the next iteration of the loop.<br/>
+Example:
+<pre>
+    for (a in [1 to 10])
+    {
+        if (a == 4)
+        {
+            continue;
+        }
+        log(a);
+    }
+
+    log("X");
+    //logs 1, 2, 3, 5, 6, 7, 8, 9, 10, X
+</pre>
+
+<h2>Functions</h2>
+Built in functions can be called to calculate trigonometric values, create lists, extract values from an XML and much more.<br/>
+Examples:
+<pre>
+    a = sin(1.2);//evaluates to 0.932039...
+    a = max(1, 2, 3, 4, 5);//evaluates to 5
+    a = isEmpty([1 to 10]);//evaluates to false
+    a = containsElement([1 to 10, 2], 3);//evaluates to true
+</pre>
+
+<span class="tip">Tip:</span> Please also see the <a href="script_examples.html">Script examples</a> page that shows some commonly used script snippets.
+
+<ul class="functions">
+    <li><code>Object convertNull(Object value, Object defaultValue)</code><br/>Returns the value of the first argument or returns <code>default</code> when the value is null.</li>
+    <li><code>Number abs(Number value)</code><br/>Returns the absolute value of <code>value</code>.</li>
+    <li><code>Number pow(Number base, Number exponent)</code><br/>Returns the value of the first argument raised to the power of the second argument.</li>
+    <li><code>Number sqrt(Number a)</code><br/>Returns the square root of the number.</li>
+    <li><code>Number sin(Number a)</code><br/>Returns the sine of the angle in radians.</li>
+    <li><code>Number cos(Number a)</code><br/>Returns the cosine of the angle in radians.</li>
+    <li><code>Number tan(Number a)</code><br/>Returns the tangent of the angle in radians.</li>
+    <li><code>Number asin(Number a)</code><br/>Returns the sine of the angle in radians.</li>
+    <li><code>Number acos(Number a)</code><br/>Returns the arc cosine of the angle in radians.</li>
+    <li><code>Number atan(Number a)</code><br/>Returns the arc tangent of the angle in radians.</li>
+    <li><code>Number atan2(Number y, Number x)</code><br/>Returns the angle of the polar representation of the rectangular coordinate (x, y).</li>
+    <li><code>Number sinh(Number a)</code><br/>Returns the hyperbolic sine of the value.</li>
+    <li><code>Number cosh(Number a)</code><br/>Returns the hyperbolic cosine of the value.</li>
+    <li><code>Number tanh(Number a)</code><br/>Returns the hyperbolic tangent of the value.</li>
+    <li><code>Number log10(Number a)</code><br/>Returns the base 10 logarithm of the value.</li>
+    <li><code>Number ln(Number a)</code><br/>Returns the natural logarithm (base <i>e</i>) of the value.</li>
+    <li><code>Number toRadians(Number a)</code><br/>Converts the Number from degrees to radians.</li>
+    <li><code>Number toDegrees(Number a)</code><br/>Converts the Number from radians to degrees.</li>
+    <li><code>Number round(Number a)</code><br/>Rounds the number to the nearest integer.</li>
+    <li><code>Number ceil(Number a)</code><br/>Returns the next highest integer value by rounding up value if necessary.</li>
+    <li><code>Number floor(Number a)</code><br/>Returns the next lowest integer value by rounding down value if necessary.</li>
+    <li><code>Date addDays(Date d, Number a)</code><br/>Returns a new date by adding <code>a</code> number of days to the date <code>d</code>.</li>
+    <li><code>Date addHours(Date d, Number a)</code><br/>Returns a new date by adding <code>a</code> number of hours to the date <code>d</code>.</li>
+    <li><code>Date addMinutes(Date d, Number a)</code><br/>Returns a new Date by adding <code>a</code> number of minutes to the date <code>d</code>.</li>
+    <li><code>Date addSeconds(Date d, Number a)</code><br/>Returns a new date by adding <code>a</code> number of seconds to the date <code>d</code>.</li>
+    <li><code>Date getDate()</code><br/>Returns the current date and time.</li>
+    <li><code>Date getDate(String date, String pattern)</code><br/>Converts the string to a date using the specified pattern. (see <a href="dateformat_patterns.html">pattern characters</a>)</li>
+    <li><code>Date getDate(Number year, Number month, Number day)</code><br/>Returns the Date specified by the arguments.</li>
+    <li><code>Date getDate(Number year, Number month, Number day, Number hours, Number minutes, Number seconds)</code><br/>Returns the date specified by the arguments.</li>
+    <li><code>Date getDate(Date date, Number hours, Number minutes, Number seconds)</code><br/>Returns the date specified by the arguments.</li>
+    <li><code>Date getDate(Date date, Number hours, Number minutes, Number seconds, String timezone)</code><br/>Returns the date specified by the arguments in the defined timezone.</li>
+    <li><code>Number getUptimeMillis()</code><br/>Returns milliseconds since boot, not counting time spent in deep sleep.</li>
+    <li><code>Number getElapsedRealtimeMillis()</code><br/>Returns milliseconds since boot, including time spent in sleep.</li>
+    <li><code>Number getDurationMillis(String duration)</code><br/>Returns the duration in milliseconds specified by the duration string (e.g. "2m 15s" returns 135000).</li>
+    <li><code>String getDurationString(Number duration)</code><br/>Returns the duration string representing the specified milliseconds (e.g. 135000 returns "2m 15s").</li>
+    <li><code>Number getByteSize(String byteSize)</code><br/>Returns the number of bytes specified by the string (e.g. "10kb 15b" returns 10255).</li>
+    <li><code>String getByteSizeString(Number byteSize)</code><br/>Returns the formatted byte string representing the specified bytes (e.g. 10255 returns "10kb 15b").</li>
+    <li><code>Number toNumber(String number)</code><br/>Converts the specified parameter to a number.</li>
+    <li><code>Number min(Number n1, Number n2, ...)</code><br/>Returns the smallest number of the arguments.</li>
+    <li><code>Number max(Number n1, Number n2, ...)</code><br/>Returns the largest number of the arguments.</li>
+    <li><code>Boolean isEmpty(String s)</code><br/>Returns whether the string is empty or not.</li>
+    <li><code>Number length(String s)</code><br/>Returns the number of characters in string <code>s</code>.</li>
+    <li><code>String substring(String s, Number start, Number end)</code><br/>Returns the substring of the specified string.</li>
+    <li><code>String substring(String s, Number start)</code><br/>Returns the substring starting at the specified index.</li>
+    <li><code>String left(String s, Number length)</code><br/>Returns the first <code>length</code> characters of the specified string.</li>
+    <li><code>String right(String s, Number length)</code><br/>Returns the last <code>length</code> characters of the specified string.</li>
+    <li><code>Number indexOf(String s, String search)</code><br/>Returns the first index of <code>search</code> in <code>s</code>.</li>
+    <li><code>Number indexOf(String s, String search, Number start)</code><br/>Returns the first index of <code>search</code> after <code>start</code> in <code>s</code>.</li>
+    <li><code>Number lastIndexOf(String s, String search)</code><br/>Returns the last index of <code>search</code> in <code>s</code>.</li>
+    <li><code>Number lastIndexOf(String s, String search, Number start)</code><br/>Returns the last index of <code>search</code> before <code>start</code> in <code>s</code>.</li>
+    <li><code>Boolean startsWith(String s, String prefix)</code><br/>Checks whether the string <code>s</code> starts with <code>prefix</code>.</li>
+    <li><code>Boolean endsWith(String s, String suffix)</code><br/>Checks whether the string <code>s</code> ends with <code>suffix</code>.</li>
+    <li><code>Boolean contains(String s, String search)</code><br/>Checks whether the string <code>s</code> contains the substring <code>search</code>.</li>
+    <li><code>List split(String s, String pattern)</code><br/>Splits the string <code>s</code> into a list of strings by using the regular expression <code>pattern</code> as the delimiter. (see <a href="regex_patterns.html">Regular expressions</a>)</li>
+    <li><code>List splitCSVRecord(String s)</code><br/>Splits the comma delimited string <code>s</code> into a list of tokens. Takes double quotes for escaped fields into consideration.</li>
+    <li><code>List splitCSVRecords(String s)</code><br/>Splits multiple lines of a comma delimited string <code>s</code> into a list (per line) of list of tokens. Takes double quotes for escaped fields into consideration.</li>
+    <li><code>String join(List list, String delimiter)</code><br/>Joins the elements of the list into a string by separating the elements with the specified <code>delimiter</code>.</li>
+    <li><code>Boolean matches(String s, String pattern)</code><br/>Returns whether the string <code>s</code> matches the regular expression <code>pattern</code>. (see <a href="regex_patterns.html">Regular expressions</a>)</li>
+    <li><code>Boolean matches(String s, String pattern, List groups)</code><br/>Returns whether the string <code>s</code> matches the regular expression <code>pattern</code> and fills the captured groups into the existing list <code>groups</code>. (see <a href="regex_patterns.html">Regular expressions</a>)</li>
+    <li><code>List findAll(String s, String pattern)</code><br/>Returns a list of all matched values in <code>s</code> of regex <code>pattern</code>. (see <a href="regex_patterns.html">Regular expressions</a>)</li>
+    <li><code>List findAll(String s, String pattern, boolean returnGroups)</code><br/>Returns a list of all matched values in <code>s</code> of regex <code>pattern</code>. Optionally item consists of a list of the matched groups. (see <a href="regex_patterns.html">Regular expressions</a>)</li>
+    <li><code>String replace(String s, String search, String replace)</code><br/>Returns a modified string by replacing all occurrences of <code>search</code> with <code>replace</code> in string <code>s</code>.</li>
+    <li><code>String replaceAll(String s, String regex, String replacement)</code><br/>Returns a modified string by replacing all substrings matching <code>regex</code> with <code>replacement</code> in string <code>s</code>. (see <a href="regex_patterns.html">Regular expressions</a>)</li>
+    <li><code>String trim(String s)</code><br/>Returns a modified string by removing all leading and trailing whitespace from string <code>s</code>.</li>
+    <li><code>String concat(Object o1, ...)</code><br/>Returns the string concatenation of the specified objects.</li>
+    <li><code>String toUpperCase(String s)</code><br/>Converts the string to upper case using the rules of the default locale.</li>
+    <li><code>String toLowerCase(String s)</code><br/>Converts the string to lower case using the rules of the default locale.</li>
+    <li><code>String encodeURLForm(String urlPart)</code><br/>URL-encodes the specified <code>urlPart</code> (for application/x-www-form-urlencoded, spaces are encoded as +).</li>
+    <li><code>String encodeURL(String urlPart)</code><br/>URL-encodes the specified <code>urlPart</code> (spaces are encoded as %20).</li>
+    <li><code>String encodeHTML(String text)</code><br/>HTML-encodes the specified <code>text</code>.</li>
+    <li><code>List newList(Object o1, ...)</code><br/>Returns a new list containing the specified objects.</li>
+    <li><code>List copyList(List list)</code><br/>Returns a copy of specified list (flat copy).</li>
+    <li><code>Number length(List list)</code><br/>Returns the number of elements in <code>list</code>.</li>
+    <li><code>Boolean isEmpty(List list)</code><br/>Returns whether the list contains any elements or not.</li>
+    <li><code>List addElement(List list, Object o1)</code><br/>Returns the same list after adding the object at the end of the list. Returns a new list when the list should not exist yet.</li>
+    <li><code>List addElement(List list, Number index, Object o1)</code><br/>Returns the same list after adding the object at the specified index (zero based).</li>
+    <li><code>List addAllElements(List list, List elementsToAdd)</code><br/>Returns the same list after adding all elements specified in list <code>elementsToAdd</code>.</li>
+    <li><code>List removeDuplicateElements(List list)</code><br/>Returns the same list after removing all duplicates.</li>
+    <li><code>List removeElementValue(List list, Object o1)</code><br/>Returns the same list after removing all elements with the specified value.</li>
+    <li><code>List removeAllElementValues(List list, List elementsToRemove)</code><br/>Returns the same list after removing all elements contained in the second list.</li>
+    <li><code>Boolean containsElement(List list, Object o1)</code><br/>Returns <code>true</code> when the list contains the specified element.</li>
+    <li><code>Object removeElement(List list, Number index)</code><br/>Removes the object at the specified index (zero based) and returns the removed object.</li>
+    <li><code>List removeElements(List list, Number fromIndex, Number toIndex)</code><br/>Removes the objects at the specified index range (zero based, [fromIndex,toIndex[) and returns the removed objects in a list.</li>
+    <li><code>Object getElement(List list, Number index)</code><br/>Returns the object at the specified index (zero based).</li>
+    <li><code>List setElement(List list, Number index, Object value)</code><br/>Sets the object at the specified index (zero based).</li>
+    <li><code>Object getRandomElement(List list)</code><br/>Returns a random element of the list.</li>
+    <li><code>List shuffleList(List list)</code><br/>Randomly shuffles the elements of the list.</li>
+    <li><code>Number indexOfElement(List list, Object value)</code><br/>Returns the first index of the element in the list or -1 when the element is not contained in the list.</li>
+    <li><code>Number indexOfElement(List list, Object value, Number start)</code><br/>Returns the first index of the element in the list that is bigger or equal to <code>start</code> or -1 when the element is not contained in the list.</li>
+    <li><code>List sort(List list, Boolean casesensitive, Boolean natural)</code><br/>Modifies the list by sorting the values.</li>
+    <li><code>List reverse(List list)</code><br/>Modifies the list by reversing the order of the contained values.</li>
+    <li><code>Map newMap()</code><br/>Returns a new empty map</li>
+    <li><code>Map newMapFromValues(String key1, Object value1, ...)</code><br/>Returns a new map initialized to contain the specified keys and values.</li>
+    <li><code>Boolean isEmpty(Map map)</code><br/>Returns whether the map contains any elements or not.</li>
+    <li><code>Number length(Map map)</code><br/>Returns the number of elements in <code>map</code>.</li>
+    <li><code>Map copyMap(Map map)</code><br/>Returns a copy of specified map (flat copy).</li>
+    <li><code>Map addMapEntry(Map map, String key, Object value)</code><br/>Adds a new entry <code>key-&gt;value</code> to the map and returns the map. Returns a new map when the map should not exist yet.</li>
+    <li><code>Map addAllMapEntries(Map map, Map entriesToAdd)</code><br/>Adds all entries of the second map to the first map and returns the first map.</li>
+    <li><code>Object getMapValue(Map map, String key)</code><br/>Returns the object for <code>key</code> or <code>null</code> when no mapping for key exists.</li>
+    <li><code>Object getMapValue(Map map, String key, Object default)</code><br/>Returns the object for <code>key</code> or <code>default</code> when no mapping for key exists or <code>map</code> is null.</li>
+    <li><code>Object removeMapEntry(Map map, String key)</code><br/>Removes the entry for the given <code>key</code> and returns the value.</li>
+    <li><code>List getMapKeys(Map map)</code><br/>Returns a list of the keys of <code>map</code>.</li>
+    <li><code>List getMapValues(Map map)</code><br/>Returns a list of the values of <code>map</code>.</li>
+    <li><code>String evaluateXPathAsString(String xml, String xpath)</code><br/>Evaluates the XPath expression on the given XML and returns the result as a string. (see <a href="http://www.w3.org/TR/xpath/">XPath Specification</a>)</li>
+    <li><code>String hash(String value, String encoding, String algorithm)</code><br/>Calculates the hash of <code>value</code> using the specified <code>encoding</code> (like <code>UTF-8</code> or <code>UTF-16LE</code>) and hashing <code>algorithm</code> (like <code>MD5</code> or <code>SHA1</code>).</li>
+    <li><code>String toJSON(Object value)</code><br/>Converts the specified object to a JSON string.</li>
+    <li><code>String toJSON(Object value, Boolean indent)</code><br/>Converts the specified object to a JSON string, indented or not.</li>
+    <li><code>Object fromJSON(String value)</code><br/>Converts the specified JSON string into an object.</li>
+    <li><code>Object log(Object value)</code><br/>Logs the specified object in the Automagic log and returns the unmodified object.</li>
+    <li><code>Object eval(String script)</code><br/>Evaluates the string as a script and returns the value of the last expression.</li>
+    <li><code>Number random()</code><br/>Returns a random number between 0.0 and 1.0 (exclusive).</li>
+    <li><code>Number random(Number low, Number high)</code><br/>Returns a random number between <code>low</code> and <code>high</code> (inclusive).</li>
+    <li><code>Boolean sleep(Number milliseconds)</code><br/>Waits for the specified amount of <code>milliseconds</code>.</li>
+    <li><code>Boolean sleep(String duration)</code><br/>Waits for the specified <code>duration</code> like "2m 30s".</li>
+    <li><code>Boolean existsFile(String path)</code><br/>Checks whether the file denoted by <code>path</code> exists or not.</li>
+    <li><code>Boolean isDirectory(String path)</code><br/>Checks whether the file denoted by <code>path</code> is a directory.</li>
+    <li><code>String getExternalStorageDir()</code><br/>Returns the path to the primary external storage directory.</li>
+    <li><code>Number getPixelColor(Bitmap image_data, Number x, Number y)</code><br/>Returns the color (argb) of the pixel of the <code>image</code> at location <code>x</code>, <code>y</code>.</li>
+    <li><code>Number getRed(Number color)</code><br/>Returns the red component of the specified <code>color</code>.</li>
+    <li><code>Number getGreen(Number color)</code><br/>Returns the green component of the specified <code>color</code>.</li>
+    <li><code>Number getBlue(Number color)</code><br/>Returns the blue component of the specified <code>color</code>.</li>
+    <li><code>Number getAlpha(Number color)</code><br/>Returns the alpha component of the specified <code>color</code>.</li>
+    <li><code>Number newColor(Number a, Number r, Number g, Number b)</code><br/>Returns a new color from the specified ARGB components.</li>
+    <li><code>Number distance(Location loc1, Location loc2)</code><br/>Calculates the distance between locations <code>loc1</code> and <code>loc2</code> in meters.</li>
+    <li><code>Location newLocation(Number latitude, Number longitude)</code><br/>Creates a new Location for the specified <code>latitude</code> and <code>longitude</code>.</li>
+    <li><code>String setHTTPResponseHeader(String header, String value)</code><br/>Sets the HTTP response header to the specified value and returns the value.</li>
+    <li><code>Number setHTTPResponseStatus(Number status)</code><br/>Sets the HTTP response status to the specified value and returns the value.</li>
+    <li><code>Boolean isList(Object value)</code><br/>Returns whether the specified value is a List or not.</li>
+    <li><code>Boolean isMap(Object value)</code><br/>Returns whether the specified value is a Map or not.</li>
+    <li><code>Boolean isString(Object value)</code><br/>Returns whether the specified value is a String or not.</li>
+    <li><code>Boolean isNumber(Object value)</code><br/>Returns whether the specified value is a Number or not.</li>
+    <li><code>Boolean isBoolean(Object value)</code><br/>Returns whether the specified value is a Boolean or not.</li>
+    <li><code>Boolean isLocation(Object value)</code><br/>Returns whether the specified value is a Location or not.</li>
+    <li><code>Object getWidgetElementProperty(String widgetName, String elementName, String property)</code><br/>Gets the current value of the property of the specified widget element.</li>
+    <li><code>Object setWidgetElementProperty(String widgetName, String elementName, String property, Object value)</code><br/>Sets the given property of the specified widget element to <code>value</code>.</li>
+    <li><code>Boolean refreshWidget(String widgetName, Boolean reloadImages)</code><br/>Refreshes the widget and optionally also reloads images.</li>
+    <li><code>String getAppName(String packageName)</code><br/>Returns the display name of the app from the specified package or null when not available.</li>
+    <li><code>String getActivityName(String packageName, String className)</code><br/>Returns the display name of the activity from the specified package and class or null when not available.</li>
+    <li><code>String getServiceName(String packageName, String className)</code><br/>Returns the display name of the service from the specified package and class or null when not available.</li>
+    <li><code>List getFlowNames()</code><br/>Returns a list containing the names of all flows.</li>
+    <li><code>List getFlowNamesByGroup(String group)</code><br/>Returns a list containing the names of the flows of the specified <code>group</code>.</li>
+    <li><code>List getFlowGroupNames()</code><br/>Returns a list containing the names of the flow groups.</li>
+    <li><code>List getWidgetNames()</code><br/>Returns a list containing the names of all widgets.</li>
+    <li><code>Map getFlowStatisticsDuration()</code><br/>Returns a map of the executed flows. Key=Flow name, Value=total execution duration in milliseconds, sorted by value descending.</li>
+    <li><code>Map getFlowStatisticsCount()</code><br/>Returns a map of the executed flows. Key=Flow name, Value=total execution count, sorted by value descending.</li>
+    <li><code>Boolean resetFlowStatistics()</code><br/>Resets the flow statistics.</li>
+    <li><code>Object getValue(String name, Object default)</code><br/>Returns the value of the variable named <code>name</code> or returns <code>default</code> when the variable is undefined or null.</li>
+    <li><code>Object setValue(String name, Object value)</code><br/>Sets the variable named <code>name</code> to <code>value</code> and returns <code>value</code></li>
+    <li><code>Object removeVariable(String name)</code><br/>Removes the variable named <code>name</code>.</li>
+    <li><code>List getVariableNames()</code><br/>Returns a list of all variables currently available (local and global).</li>
+    <li><code>Number getAndroidSDKVersion()</code><br/>Returns the SDK version number of the Android framework. (see <a href="https://source.android.com/source/build-numbers.html#platform-code-names-versions-api-levels-and-ndk-releases">Android API versions</a>)</li>
+    <li><code>Object getContext()</code><br/>Returns the context of the application.</li>
+    <li><code>Object callJavaStaticMethod(String className, String methodSignature, Object params, ...)</code><br/>Calls the defined public static method of the defined class.</li>
+    <li><code>Object callJavaConstructor(String className, String constructorSignature, Object params, ...)</code><br/>Calls the public constructor of the defined class.</li>
+    <li><code>Object callJavaMethod(Object obj, String className, String methodSignature, Object params, ...)</code><br/>Calls the specified instance method on the defined object.</li>
+    <li><code>Object getJavaStaticField(String className, String fieldName)</code><br/>Returns the value of the specified public static field.</li>
+    <li><code>Object setJavaStaticField(String className, String fieldName, Object value)</code><br/>Sets the value of the specified public static field.</li>
+    <li><code>Object getJavaField(Object obj, String className, String fieldName)</code><br/>Returns the value of the specified public instance field.</li>
+    <li><code>Object setJavaField(Object obj, String className, String fieldName, Object value)</code><br/>Sets the value of the specified public instance field.</li>
+</ul>
+<span class="note">Note:</span> Are you missing a function? Please let us know in the forum.
+
+
+<h2>Advanced Topics</h2>
+Every executable expression in a script evaluates to a value. A block of code evaluates to the value produced by the last expression in the block and allows to create inline scripts with multiple expressions:
+<pre>
+    s = "{a=1;b=2}";
+    log(s);//logs 2
+
+    a = true;
+    b = if (a) 1 else 2;
+    log(b);//logs 1
+
+    for (a in [0 to 10])
+    {
+        log(if(a&lt;5) "X" else "-");
+    }
+    //logs X, X, X, X, X, -, -, -, -, -, -
+
+    b=0;
+    log(for(a in [1 to 10]) {b=b+a});
+    //logs 55
+
+</pre>
+
+</div>
+
+</body>
+
+</html>

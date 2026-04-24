@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Save Variable in Image File</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Save Variable in Image File</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Save Variable in Image File</b> saves the pixel data that was previously loaded with an action <b>Init Variable Image File</b> into a file.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Load an image, shrink the size and send the smaller file by mail.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the variable holding the pixel data of the image. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">File</div>
+    <div class="setting_description">The path of the file to store the image in. The type is determined by the file extension. (.jpg, .webp and .png are supported). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Image quality</div>
+    <div class="setting_description">How much the file should be compressed (0=small file/bad image quality, 100=big file/good image quality). The image quality is ignored for PNG-files. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Perform Action on Notification on Statusbar</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Perform Action on Notification on Statusbar</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Perform Action on Notification on Statusbar</b> clicks the notification or one of the action buttons which are usually available in the big, expanded notification on Android 4.1+.<br/>
+        The flow must be executed by a trigger <b>Notification on Statusbar Displayed</b> or the action after a condition <b>Notification on Statusbar Displayed</b> otherwise Automagic has no possibility to access the notification.<br/>
+        <br/>
+        <span class="warning">Warning:</span> Android 4.1+ is required. This function is not officially supported by Android and might not work on all devices.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Automatically archive a mail when the mail contains a specific text.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Action Type</div>
+    <div class="setting_description">Whether to perform a click on the notification or to perform a click on a button of the notification or to execute an action of a wearable.</div>
+
+    <div class="setting_title">Button</div>
+    <div class="setting_description">The label of the button to click. The label needs to match the entered text exactly. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Wearable Action</div>
+    <div class="setting_description">The name of the wearable action. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Input</div>
+    <div class="setting_description">The text to pass to the wearable action (only takes effect when the action allows text input). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+</body>
+
+</html>

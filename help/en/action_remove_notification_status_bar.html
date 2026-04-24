@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Remove Notification on Statusbar</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Remove Notification on Statusbar</h1>
+
+<div class="summary">
+    <p>
+       The action <b>Remove Notification on Statusbar</b> removes the specified or all notifications on the statusbar added by the action <b>Notification on Statusbar</b>.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Example:
+    <ul>
+        <li>Show a notification when a sound profile is active and remove the notification when the sound profile is deactivated.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Notification Type</div>
+    <div class="setting_description">Whether the action should affect only notifications of Automagic or notifications of all apps in general (Android 4.3+)</div>
+
+    <div class="setting_title">Automagic Notification ID</div>
+    <div class="setting_description">
+        The ID of the notification to remove. The ID must match the ID used in the action <b>Notification on Statusbar</b>. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <b>All</b> removes all removable notifications of Automagic irrespective of the ID.
+    </div>
+
+    <div class="setting_title">Notifications</div>
+    <div class="setting_description">Whether to remove all removable notifications or only the notifications of the specified app.</div>
+
+    <div class="setting_title">Package Names</div>
+    <div class="setting_description">The names of the packages/apps to remove the notifications from. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Notification ID</div>
+    <div class="setting_description">
+        The ID of the notification to remove. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        Trigger <b>Notification on Statusbar Displayed</b> provides the ID of the notification in variable <code>id</code>. Use <code>{id}</code> to remove the notification that triggered the flow.
+    </div>
+
+    <div class="setting_title">Filter</div>
+    <div class="setting_description">Defines the text that must be contained in one of the available fields. <a href="action_script.html#inline_expressions">Variables are supported</a> for <em>contains text</em> and <em>matches glob</em>.</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Scan Barcode</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Scan Barcode</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Scan Barcode</b> opens an activity to scan a barcode using the camera of the device.<br/>
+        <br/>
+        <span class="tip">Tip:</span> You can use an action <b>Map Values</b> to map known barcode values like a QR code on a laboratory door to a project/task.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Start recording the time in <b>Gleeo Time Tracker</b> based on a barcode on a laboratory door.</li>
+        <li>Scan a barcode on a book and open the browser to search the book on Amazon.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Timeout</div>
+    <div class="setting_description">The timeout duration to automatically cancel the barcode scan.</div>
+
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>operation</code></div>
+    <div class="variable_description">the operation used to close the scan barcode activity.<br/>
+        <br/>
+        Can be one of:
+        <ul>
+            <li><code>ok</code> when a bar code has been successfully scanned</li>
+            <li><code>cancel</code> when the user pressed the back button or another button to leave the activity</li>
+            <li><code>timeout</code> when the activity was closed by a timeout</li>
+        </ul>
+    </div>
+
+    <div class="variable_name"><code>barcode_text</code></div>
+    <div class="variable_description">the value of the barcode as a text string</div>
+
+    <div class="variable_name"><code>barcode_format</code></div>
+    <div class="variable_description">the format of the barcode</div>
+</div>
+
+</body>
+
+</html>

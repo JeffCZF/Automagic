@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Notification on Statusbar</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Notification on Statusbar</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Notification on Statusbar</b> shows a notification on the status bar. The notification is displayed until the notification is clicked or clear is pressed.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Show a notification when a background flow sends your location by mail.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Icon</div>
+    <div class="setting_description">
+        The icon to use for this notification.<br/>
+        <br/>
+        Custom icons are supported starting with Android 6.<br/>
+        <br/>
+        <span class="note">Note:</span> Android will usually show all non-transparent parts as white so it's recommended to create custom PNG images with a transparent background and a white color to paint the contents.<br/>
+        <span class="note">Note:</span> Option 'Custom icon' can lead to crashes on some devices with Android 6.0.
+    </div>
+
+    <div class="setting_title">Title</div>
+    <div class="setting_description">The title of the notification. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Message</div>
+    <div class="setting_description">The message of the notification. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Channel (Android 8+)</div>
+    <div class="setting_description">
+        The ID of the notification channel to use. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        Apps can not change the channel settings once the channel has been created. Use the button <b>Channel settings…</b> to change the settings once the channel has been created or use an action <b>Modify Notification Channel</b> to change the settings on supported devices.<br/>
+        The initial channel settings are inferred from the settings in the notification action based on the settings like <b>Play Sound</b>, <b>Vibrate</b>, <b>Flash LED</b>, <b>Priority</b> and <b>Visibility</b>.
+    </div>
+
+    <div class="setting_title">Play Sound</div>
+    <div class="setting_description">Plays the default notification sound when checked.</div>
+
+    <div class="setting_title">Vibrate</div>
+    <div class="setting_description">Vibrates when checked.</div>
+
+    <div class="setting_title">Flash LED</div>
+    <div class="setting_description">Flash the notification LED using the supplied color and blink rate. Notification LED and user defined colors are not supported on all devices.</div>
+
+    <div class="setting_title">Local only</div>
+    <div class="setting_description">Whether it's recommended to show this notification only on the main device but not on paired devices like an Android Wear watch.</div>
+
+    <div class="setting_title">Accent color</div>
+    <div class="setting_description">The color used by the device for in the notification (usually the background color of the icon in the expanded statusbar).</div>
+
+    <div class="setting_title">Ongoing</div>
+    <div class="setting_description">Flags this notification as an ongoing event and prevents the removal of this notification from the statusbar. A notification ID is mandatory when this option is selected.</div>
+
+    <div class="setting_title">Keep on Clear</div>
+    <div class="setting_description">Prevents the removal of this notification from the statusbar. A notification ID is mandatory when this option is selected.</div>
+
+    <div class="setting_title">Notification ID</div>
+    <div class="setting_description">
+        Defines the ID (a number from 1 to 999) to use as the identification of this notification. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        This is useful when the notification is used for trigger <b>Notification on Statusbar Selected</b> or when the notification is used to show a profile like status.<br/>
+        A notification with the same ID replaces an older notification of the same ID. The notification can be removed from the statusbar using the action <b>Remove Notification on Statusbar</b>.<br/>
+        <br/>
+        The button <b>Remove, X</b> can be used to remove a notification with this ID on the statusbar.
+    </div>
+
+    <div class="setting_title">Category (Android 5+)</div>
+    <div class="setting_description">The category of the notification. The category defines if a notification is allowed to pass the interruptions filter.</div>
+
+    <div class="setting_title">Priority (Android 4.1+)</div>
+    <div class="setting_description">
+        Defines the priority of the notification. A notification with a low priority might be displayed in the expanded statusbar only (depends on Android version).<br/>
+        Settings like <b>Play Sound</b> and <b>Vibrate</b> can be ignored by the system when the priority is low or forced when the priority is high.<br/>
+        <br/>
+        <span class="note">Note:</span> On Android 8+ the priority is mapped to notification channel importance as follows: Minimum&#8209;&gt;Low, Low&#8209;&gt;Medium, Normal&#8209;&gt;High, High&#8209;&gt;Urgent, Maximum&#8209;&gt;Maximum.
+    </div>
+
+    <div class="setting_title">Visibility (Android 5+)</div>
+    <div class="setting_description">Whether notifications are secret, private or public which defines whether the notifications are displayed on the lock screen or not. The lock screen must also be configured appropriately.</div>
+
+    <div class="setting_title">Big Message (Android 4.1+)</div>
+    <div class="setting_description">
+        Defines a big message that will be displayed when the notification is expanded (by swiping down on the notification). The notification usually also shows the big message when the notification is displayed as the topmost notification on the notification drawer. You can affect the ordering of the notifications by using the priority setting. <a href="action_script.html#inline_expressions">Variables are supported.</a>
+    </div>
+
+    <div class="setting_title">Show progressbar</div>
+    <div class="setting_description">Defines whether a progressbar should be shown in the notification.</div>
+
+    <div class="setting_title">Indeterminate progress</div>
+    <div class="setting_description">Whether the progress should be indeterminate.</div>
+
+    <div class="setting_title">Progressbar value / Max value</div>
+    <div class="setting_description">The current value of the progress and the maximum value (100%). <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Large Icon (Android 3+)</div>
+    <div class="setting_description">Defines whether a large icon should be displayed in the notification. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Group (Android 7+)</div>
+    <div class="setting_description">Defines the group of this notification. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Group summary (Android 7+)</div>
+    <div class="setting_description">Defines whether this notification is the group summary for this group. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Actions (Android 4.1+)</div>
+    <div class="setting_description">
+        Up to three actions displayed as buttons when the notification is expanded (by swiping down on the notification). The notification usually also shows the action buttons when the notification is displayed as the topmost notification on the notification drawer. You can affect the ordering of the notifications by using the priority setting.<br/>
+        <br/>
+        <span class="tip">Tip:</span> Use action <b>Execute Flows</b> to execute a complex flow consisting of multiple actions and conditions.<br/>
+        <br/>
+        Following variables are supplied to the executed action:
+        <ul>
+            <li><code>action_number</code>: contains the number of the action (1, 2 or 3)</li>
+            <li><code>action_text</code>: the text label of the selected action button on the notification</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Actions for Android Wear (Android 4.1+)</div>
+    <div class="setting_description">
+        Up to three actions to show on an Android Wear device. When such an action is defined, the other actions are usually not displayed anymore on the Android Wear device.<br/>
+        <br/>
+        <span class="tip">Tip:</span> Use action <b>Execute Flows</b> to execute a complex flow consisting of multiple actions and conditions.<br/>
+        <br/>
+        Following variables are supplied to the executed action:
+        <ul>
+            <li><code>action_number</code>: contains the number of the action (1, 2 or 3)</li>
+            <li><code>action_text</code>: the text label of the selected action button on the notification</li>
+            <li><code>input_value</code>: the selected input value or the recognized text of the speech input</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Request Sync</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Request Sync</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Request Sync</b> starts the synchronisation process of one or multiple accounts or some parts of the accounts. The order and the exact timing of the synchronisation is controlled by Android.<br/>
+        The action does not wait for the synchronisation to finish.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Disable the automatic synchronisation to save battery but execute the synchronisation manually every hour between 8am and 8pm.</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Accounts</div>
+    <div class="setting_description">
+        The accounts to synchronize in format <em>Type</em>:<em>Name</em>.
+        Glob patterns can be used to match multiple accounts. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <ul>
+            <li><code>*</code> synchronises all accounts</li>
+            <li><code>Google:*</code> synchronises all Google accounts</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Authorities</div>
+    <div class="setting_description">
+        The parts/databases of the accounts to synchronize. Specify a <code>*</code> to synchronize all parts of the account.
+        Glob patterns can be used to match multiple authorities. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <ul>
+            <li><code>*</code> synchronises all authorities of the specified accounts</li>
+            <li><code>com.android.calendar</code> synchronises all calendars of the specified accounts</li>
+        </ul>
+    </div>
+</div>
+
+
+</body>
+
+</html>

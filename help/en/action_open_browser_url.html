@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Open URL in Browser</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Open URL in Browser</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Open URL in Browser</b> opens the browser with the specified URL.<br/>
+        <br/>
+        <span class="tip">Tip:</span> The browser can also be used to download a file by using a URL pointing to a PDF or other downloadable file.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Open a news page every morning.</li>
+        <li>Download a PDF every morning at 5am.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">URL</div>
+    <div class="setting_description">
+        The url to open. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        <span class="tip">Tip:</span> You can use a variable to open n URL that changes dynamically by date. <br/><br/><code>http://test.com/<wbr/>newspaper_<wbr/>{triggertime,dateformat,yyyyMMdd}<wbr/>.pdf</code><br/><br/>will be replaced to<br/><br/><code>http://test.com/<wbr/>newspaper_20120123.pdf</code>
+    </div>
+
+    <div class="setting_title">Use defined app</div>
+    <div class="setting_description">Whether to use a defined app to open the URL or to let the system choose the most appropriate app.</div>
+
+    <div class="setting_title">Package Name</div>
+    <div class="setting_description">The app to open the URL. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Class Name</div>
+    <div class="setting_description">The component inside the app to open the URL with. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+</div>
+
+</body>
+
+</html>
