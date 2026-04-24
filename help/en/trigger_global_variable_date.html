@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Global Variable Date/Time</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Global Variable Date/Time</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Global Variable Date/Time</b> is executed when the point of time stored in the global variable is reached.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Execute a flow daily on sunrise/sunset.</li>
+        <li>Execute a flow in irregular intervals.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Global Variable</div>
+    <div class="setting_description">The name of the global variable containing the point of time.</div>
+
+    <div class="setting_title">Trigger immediately on missed events</div>
+    <div class="setting_description">Execute the trigger when the point in time stored in the variable has passed and the trigger did not yet execute the trigger for this point in time (for example when the device was turned off at the date/time specified in the variable or when a past date is assigned to the global variable)</div>
+
+    <div class="setting_title">Allow in device idle/doze (Android 6+)</div>
+    <div class="setting_description">Defines whether this trigger is allowed to wake the device from idle/doze mode. (see <a href="device_idle_mode.html">Device Idle/Doze Mode</a>)</div>
+
+    <div class="setting_title">Like alarm clock (Android 5+)</div>
+    <div class="setting_description">
+        Defines whether this trigger should be handled like an alarm clock which is usually displayed in the status bar.<br/>
+        This option ensures that Android invokes the trigger exactly at the specified time and prevents the system from delaying the event.
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+</div>
+
+</body>
+
+</html>

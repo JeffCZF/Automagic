@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hardware Key Event</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Hardware Key Event</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Hardware Key Event</b> is executed when the specified key is pressed/released. Most devices usually only provide hardware keys for volume up and volume down. The power key can usually not be intercepted.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Scroll down in a browser window when the volume down key is pressed.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Keys</div>
+    <div class="setting_description">The list of names of keys that should execute the trigger. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Actions</div>
+    <div class="setting_description">Whether down, up or both actions should execute the trigger.</div>
+
+    <div class="setting_title">Block event (blocks down and up actions)</div>
+    <div class="setting_description">Whether or not the key event should be blocked so that the system does not send the key event to other apps.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>key_code</code></div>
+    <div class="variable_description">the numeric keycode</div>
+
+    <div class="variable_name"><code>key_code_name</code></div>
+    <div class="variable_description">the name of the keycode</div>
+
+    <div class="variable_name"><code>key_duration</code></div>
+    <div class="variable_description">the duration of the event in milliseconds</div>
+
+    <div class="variable_name"><code>key_source_device_id</code></div>
+    <div class="variable_description">the ID of the sending device</div>
+
+    <div class="variable_name"><code>key_action_down</code></div>
+    <div class="variable_description">whether the action was down</div>
+
+    <div class="variable_name"><code>key_action_down</code></div>
+    <div class="variable_description">whether the action was up</div>
+</div>
+
+</body>
+
+</html>

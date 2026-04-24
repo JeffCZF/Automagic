@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>GPS Status Event</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>GPS Status Event</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>GPS Status Event</b> is executed, when the system start or stops to use GPS.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Vibrate when the system begins to use GPS for information purposes.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">GPS Status Event</div>
+    <div class="setting_description">
+        The type of the event:
+        <ul>
+            <li><b>Started</b>: executes the trigger when the system starts to use GPS</li>
+            <li><b>Stopped</b>: executes the trigger when the system stops to use GPS</li>
+            <li><b>First fix received</b>: executes the trigger when the system uses GPS and the first fix has just been determined</li>
+            <li><b>Satellite status changed</b>: executes the trigger when the satellite status changes (usually very frequent)</li>
+        </ul>
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>gps_event_type</code></div>
+    <div class="variable_description">typ of the event (1=started, 2=stopped, 3=first fix, 4=satellite status)</div>
+
+    <div class="variable_name"><code>satellites</code></div>
+    <div class="variable_description">list containing strings each containing the information of one satellite</div>
+
+    <div class="variable_name"><code>time_to_first_fix</code></div>
+    <div class="variable_description">number of milliseconds between turning on GPS and receiving the first fix, contains 0 or the last value when no fix was determined yet</div>
+</div>
+
+</body>
+
+</html>

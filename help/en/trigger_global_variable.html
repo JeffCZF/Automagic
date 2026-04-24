@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Global Variable</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Global Variable</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Global Variable</b> is executed when a different value is assigned to a global variable. The trigger is not executed when the same value is assigned to the variable again.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Show a reminder when you sent more than 10 SMS in one day.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Global Variable</div>
+    <div class="setting_description">The name of the global variable to watch.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>old_</code><var>name_of_the_global_variable</var></div>
+    <div class="variable_description">contains the old value of the global variable before it has been updated</div>
+</div>
+
+</body>
+
+</html>

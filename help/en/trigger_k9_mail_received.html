@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>K-9 Mail Received</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>K-9 Mail Received</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>K-9 Mail Received</b> is executed when <a href="https://play.google.com/store/apps/details?id=com.fsck.k9">K-9 Mail</a> receives a mail.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Play an alert sound when you receive a mail from the boss.</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">K9 Account List</div>
+    <div class="setting_description">The comma separated list of accounts to consider (case insensitive). Glob patterns (*, ?) are supported.</div>
+
+    <div class="setting_title">Sender List</div>
+    <div class="setting_description">The comma separated list of sender mail addresses to consider (case insensitive). Glob patterns (*, ?) are supported.</div>
+
+    <div class="setting_title">Subject List</div>
+    <div class="setting_description">The comma separated list of subjects to consider (case insensitive).  Glob patterns (*, ?) are supported.</div>
+
+    <div class="setting_title">Receiver List</div>
+    <div class="setting_description">The comma separated list of receiver mail addresses to consider (case insensitive). Glob patterns (*, ?) are supported.</div>
+
+    <div class="setting_title">CC List</div>
+    <div class="setting_description">The comma separated list of CC-mail addresses to consider (case insensitive).  Glob patterns (*, ?) are supported.</div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>k9_account</code></div>
+    <div class="variable_description">the K-9 Mail account of the mail</div>
+
+    <div class="variable_name"><code>k9_folder</code></div>
+    <div class="variable_description">the K-9 folder of the mail</div>
+
+    <div class="variable_name"><code>k9_to</code></div>
+    <div class="variable_description">the recipients of the mail</div>
+
+    <div class="variable_name"><code>k9_from</code></div>
+    <div class="variable_description">the sender of the mail</div>
+
+    <div class="variable_name"><code>k9_from_self</code></div>
+    <div class="variable_description">whether or not the mail was sent by yourself (only set on newer versions of K-9)</div>
+
+    <div class="variable_name"><code>k9_subject</code></div>
+    <div class="variable_description">the subject of the mail</div>
+
+    <div class="variable_name"><code>k9_sent_date</code></div>
+    <div class="variable_description">the date the mail has been sent</div>
+
+    <div class="variable_name"><code>k9_cc</code></div>
+    <div class="variable_description">the cc of the mail</div>
+
+    <div class="variable_name"><code>k9_bcc</code></div>
+    <div class="variable_description">the bcc of the mail</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HTTP Request (Experimental)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>HTTP Request (Experimental)</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>HTTP Request (Experimental)</b> is executed when a HTTP request is received using the specified path and port.<br/>
+        <br/>
+        <span class="note">Note: </span>The built-in webserver is neither fast nor should you try to upload large files. Please don't use it to run webshops, corporate websites or sites like Slashdot on your phone.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Send an SMS from your Phone using your PC when the URL <code>http://192.168.1.XX:8080/sms?receiver=12345&text=test</code> is requested.</li>
+        <li>Return a page with the list of files on the SD card when the URL <code>http://192.168.1.XX:8080/files/xyz</code> is requested.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Path</div>
+    <div class="setting_description">
+        The path to handle by this trigger. Glob patterns (*, ?) are supported. <br/>
+        Examples:
+        <ul>
+            <li><code>/automagic/test</code></li>
+            <li><code>/automagic/files/*</code> to handle all paths that start with <code>/automagic/files/</code></li>
+        </ul>
+        The trigger with the longest path is preferred when multiple triggers match requested path since only one response can be written.<br/>
+        Examples: The first trigger is preferred when two triggers with paths <code>/automagic/test</code> and <code>/automagic/*</code> are available.
+    </div>
+
+    <div class="setting_title">Port</div>
+    <div class="setting_description">The port of the server.</div>
+
+    <div class="setting_title">Bind to WiFi interface only</div>
+    <div class="setting_description">Whether to listen for HTTP requests on all interfaces or just on the WiFi interface.</div>
+
+    <div class="setting_title">Keep WiFi awake</div>
+    <div class="setting_description">Whether to keep the WiFi radio awake, otherwise the WiFi radio might turn off to save battery and a connection to your device is no longer possible.</div>
+
+    <div class="setting_title">Finish HTTP Response</div>
+    <div class="setting_description">Whether to finish the HTTP response by sending an empty response to the client.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>remote_host</code></div>
+    <div class="variable_description">the name or IP of the remote host</div>
+
+    <div class="variable_name"><code>remote_port</code></div>
+    <div class="variable_description">the port of the remote host</div>
+
+    <div class="variable_name"><code>request_path</code></div>
+    <div class="variable_description">the decoded path of the request (e.g. <code>/automagic/test</code>)</div>
+
+    <div class="variable_name"><code>method</code></div>
+    <div class="variable_description">the HTTP method (e.g. GET, POST, PUT)</div>
+
+    <div class="variable_name"><code>header_*</code></div>
+    <div class="variable_description">
+        All values of the headers. The name of the variable is built using the prefix <code>header_</code> and the name of the header by replacing dash with underscore and converting the name to lowercase.<br/>
+        Examples:
+        <ul>
+            <li>Header <code>Accept</code> is stored in variable <code>header_accept</code></li>
+            <li>Header <code>Accept-Encoding</code> is stored in variable <code>header_accept_encoding</code></li>
+        </ul>
+        Headers leading to an invalid variable name are ignored.
+    </div>
+
+    <div class="variable_name"><code>param_*</code></div>
+    <div class="variable_description">
+        All values of the request parameters. The name of the variable is built using the prefix <code>param_</code> and the name of the parameter by converting the name to lowercase.<br/>
+        Example:
+        <ul>
+            <li>Parameter <code>test</code> is stored in variable <code>param_test</code></li>
+        </ul>
+        Parameters leading to an invalid variable name are ignored.
+    </div>
+
+    <div class="variable_name"><code>file_*</code></div>
+    <div class="variable_description">
+        All paths of the uploaded files. The name of the variable is built using the prefix <code>file_</code> and the name of the parameter by converting the name to lowercase.<br/>
+        Example:
+        <ul>
+            <li>Parameter <code>File</code> is stored in a variable <code>file_file</code></li>
+        </ul>
+        Parameters leading to an invalid variable name are ignored.
+    </div>
+
+    <div class="variable_name"><code>http_headers</code></div>
+    <div class="variable_description">Map containing all unmodified names and values of the received HTTP headers</div>
+
+    <div class="variable_name"><code>http_params</code></div>
+    <div class="variable_description">Map containing all unmodified names and values of the received HTTP parameters</div>
+
+    <div class="variable_name"><code>http_files</code></div>
+    <div class="variable_description">Map containing all unmodified form field names and paths to the uploaded files</div>
+</div>
+
+</body>
+
+</html>
