@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Set System Setting (Android Wear)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Set System Setting (Android Wear)</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Set System Setting (Android Wear)</b> stores the specified value in the settings database of the system.<br/>
+        <br/>
+        <span class="warning">Warning:</span> Modifying system settings to unsupported values can possibly harm your device or crash the system. Use at your own risk!<br/>
+        <br/>
+        <span class="note">Note:</span> Changes to some settings are not immediately picked up by the system but require an addition event to occur like turning the screen off and back on. Some settings need to be changed by special APIs, changing the value of such settings in the settings database are ignored by the system.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Change the value of a ROM specific setting not available in a regular action in Automagic.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Android Wear device</div>
+    <div class="setting_description">The target device. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Category</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>System</b>: for regular settings</li>
+            <li><b>Secure</b>: for settings which can usually not be modified</li>
+            <li><b>Global</b>: for global settings valid for all users of the device (Android 4.2+)</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Name</div>
+    <div class="setting_description">The name of the setting to modify. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Value</div>
+    <div class="setting_description">The value to store in the system settings database. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+</body>
+
+</html>

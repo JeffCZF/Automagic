@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Set Ringer Mode</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Set Ringer Mode</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Set Ringer Mode</b> changes the ringer to either <b>Normal</b>, <b>Silent</b> or <b>Vibrate</b> mode.<br/>
+        <br/>
+        <span class="note">Note for Android 5+:</span> The real silent mode has been removed by Google on Android 5. Activating silent mode instead switches the device interruption mode to <b>Priority interruptions only</b>. Please use action <b>Set Interruptions Mode</b> to switch between all three interruption modes.<br/>
+        <br/>
+        <span class="note">Note for Android 6+:</span> Google introduced a new mode called <b>Alarms only</b>. Activating silent mode now switches the device interruption/do not disturb mode to <b>Alarms only</b>. Please use action <b>Set Interruptions Mode</b> to switch between all four interruption modes.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Turn your phone to vibrate in your office.</li>
+        <li>Turn your phone to normal mode when plugged in to a power adapter.</li>
+        <li>Turn your phone to normal and maximise the ringer volume when you get an SMS containing the text <strong>Phone Lost!</strong></li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Ringer Mode</div>
+    <div class="setting_description">The ringer mode to set.</div>
+</div>
+
+</body>
+
+</html>

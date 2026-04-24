@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Set Screen Brightness</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Set Screen Brightness</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Set Screen Brightness</b> changes the screen brightness.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Turn down the screen brightness when the battery is below 50%.</li>
+        <li>Turn the screen brightness to maximum when the power adapter is connected.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Automatic brightness</div>
+    <div class="setting_description">Whether to use automatic brightness or the value specified using the slider. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Adaptive brightness</div>
+    <div class="setting_description">
+        Whether adaptive brightness should be changed to the defined value. <a href="action_script.html#inline_expressions">Variables are supported.</a><br/>
+        <br/>
+        <span class="warning">Warning:</span> This function is not officially supported by Android and might not work on all devices.
+    </div>
+
+    <div class="setting_title">Force update</div>
+    <div class="setting_description">Whether it should be ensured that the system applies the new values immediately. Otherwise the changes might take effect when the screen is turned on the next time on some versions of Android. Disabling this option can avoid flickering on some devices.</div>
+</div>
+
+</body>
+
+</html>

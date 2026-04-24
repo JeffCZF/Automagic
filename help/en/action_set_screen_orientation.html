@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Set Screen Orientation</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Set Screen Orientation</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Set Screen Orientation</b> forces the device to use the specified screen orientation setting. It can be used to force the screen to always use landscape mode or to use the sensor to enable reverse portrait and reverse landscape orientations.<br/>
+        <br/>
+        <span class="warning">Warning:</span> This function is not officially supported by Android and might not work on all devices. Some apps like launchers or games might crash when the screen can not be changed to the rotation required by the app.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Force the device to use landscape mode even for the launcher.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Screen Orientation</div>
+    <div class="setting_description">
+        The orientation setting to force:
+        <ul>
+            <li><b>Reset to default</b>: Reset to device default so the orientation is determined by the system</li>
+            <li><b>Landscape</b>: Force landscape</li>
+            <li><b>Portrait</b>: Force portrait</li>
+            <li><b>Sensor</b>: Force the use of the sensor detected orientation, even when an app requests landscape only</li>
+            <li><b>Don't use sensor</b>: Don't allow the use of the sensor to determine the orientation</li>
+            <li><b>Sensor Landscape</b>: Landscape or reverse landscape as determined by the sensor (from Android 2.3)</li>
+            <li><b>Sensor Portrait</b>: Portrait or reverse portrait as determined by the sensor (from Android 2.3)</li>
+            <li><b>Reverse Landscape</b>: Force reverse landscape (from Android 2.3)</li>
+            <li><b>Reverse Portrait</b>: Force reverse portrait (from Android 2.3)</li>
+            <li><b>Sensor all orientations</b>: All four possible orientations as determined by the sensor (from Android 2.3)</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Show status bar notification to reset</div>
+    <div class="setting_description">Shows a lock icon in the statusbar to indicate that an orientation setting is enforced. Selecting the notification resets to the default value and is the same as executing this action with <em>Reset to default</em></div>
+</div>
+
+</body>
+
+</html>

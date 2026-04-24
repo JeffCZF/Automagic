@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Set System Setting</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Set System Setting</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Set System Setting</b> stores the specified value in the settings database of the system.<br/>
+        <br/>
+        <span class="warning">Warning:</span> Modifying system settings to unsupported values can possibly harm your device or crash the system. Use at your own risk!<br/>
+        <br/>
+        <span class="note">Note:</span> Changes to some settings are not immediately picked up by the system but require an additional event to occur like turning the screen off and back on. Some settings need to be changed by special APIs, changing the value of such settings in the settings database are ignored by the system.<br/>
+        <br/>
+        <span class="note">Note:</span> <code>adb</code> can be used on some versions of Android to grant the permissions to modify settings from category <b>secure</b> and <b>global</b> without root:
+            <ol>
+                <li>Install <code>adb</code> on a computer (<a href="https://www.google.com/search?q=install+adb+for+android">search internet on how to install adb</a>)</li>
+                <li>enable <b>USB Debugging</b> in <b>System settings</b> -&gt; <b>Developer options</b> on your Android device</li>
+                <li>connect your Android device to the computer</li>
+                <li>execute following command in a terminal: <code>adb shell pm grant ch.gridvision.ppam.androidautomagic android.permission.WRITE_SECURE_SETTINGS</code></li>
+            </ol>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Change the value of a ROM specific setting not available in a regular action in Automagic.</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings working on different devices (not available on all devices)</div>
+
+    <div class="setting_title">Pulse notification light/LED</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>notification_light_pulse</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Night mode (Android 7+, when activated in System UI tuner)</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>Secure</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>twilight_mode</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on<br/><code>2</code> = automatic</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Location mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>Secure</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>location_mode</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = location mode off<br/><code>1</code> = Device only<br/><code>2</code> = Battery saving<br/><code>3</code> = High accuracy</td>
+            </tr>
+        </table>
+        <br/>Alternatively:
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>Secure</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>location_providers_allowed</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>+gps</code> = turn GPS on<br/><code>-gps</code> = turn GPS off<br/><code>+network</code> = turn Network on<br/><code>-network</code> = turn Network off</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="width: 300px;"><span class="warning">Warning:</span> Only change one value at a time! Changing multiple values at once will result in an inconsistent setting value which can only be fixed by a factory reset.<br/></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Mobile data</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>Global</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>mobile_data</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = mobile data off<br/><code>1</code> = mobile data on</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">LG specific settings (not available on all devices)</div>
+
+    <div class="setting_title">Pulse notification light/LED</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>lge_notification_light_pulse</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Samsung S3 specific settings (not available on all devices)</div>
+
+    <div class="setting_title">Driving mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>driving_mode_on</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Power saving mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>psm_switch</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Blocking mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>dormant_switch_onoff</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Multi window mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>multi_window_enabled</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">S Beam mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>sbeam_mode</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Vibration intensity</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Name:</td>
+                <td><code>VIB_RECVCALL_MAGNITUDE</code><br/><code>VIB_NOTIFICATION_MAGNITUDE</code><br/><code>VIB_FEEDBACK_MAGNITUDE</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = weak to<br/><code>5</code> = strong</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Samsung S5 specific settings (not available on all devices)</div>
+
+    <div class="setting_title">Car mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>car_mode_on</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Power saving mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>powersaving_switch</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Blocking mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>dormant_switch_onoff</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Multi window mode</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>multi_window_enabled</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Toolbox</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>toolbox_onoff</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Smart stay</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>intelligent_sleep_mode</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Smart pause</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>smart_pause</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Touch sensitivity</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>auto_adjust_touch</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="setting_title">Vibration intensity</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Name:</td>
+                <td><code>VIB_RECVCALL_MAGNITUDE</code><br/><code>VIB_NOTIFICATION_MAGNITUDE</code><br/><code>VIB_FEEDBACK_MAGNITUDE</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = weak to<br/><code>5</code> = strong</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">CyanogenMod specific settings (not available on all devices)</div>
+
+    <div class="setting_title">Expanded desktop</div>
+    <div class="setting_description">
+        <table>
+            <tr>
+                <td>Category:</td>
+                <td><code>System</code></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><code>expanded_desktop_state</code></td>
+            </tr>
+            <tr>
+                <td valign="top">Value:</td>
+                <td><code>0</code> = off<br/><code>1</code> = on</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Category</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>System</b>: for regular settings</li>
+            <li><b>Secure</b>: for settings which can usually not be modified</li>
+            <li><b>Global</b>: for global settings valid for all users of the device (Android 4.2+)</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Name</div>
+    <div class="setting_description">The name of the setting to modify. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Value</div>
+    <div class="setting_description">The value to store in the system settings database. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+</body>
+
+</html>
