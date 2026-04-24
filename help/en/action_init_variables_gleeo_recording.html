@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variables Gleeo Recording</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variables Gleeo Recording</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variables Gleeo Recording</b> checks if a task is recording in <b>Gleeo Time Tracker</b> and stores the recording project and task in variables.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Store the recording task when someone calls and start recording the same task again when the call ends.</li>
+        <li>Don't use a funny alert sound when you are working for a special project.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Variable for Recording Boolean</div>
+    <div class="setting_description">The name of the variable to store the boolean whether <b>Gleeo Time Tracker</b> is currently recording.</div>
+
+    <div class="setting_title">Variable for Recording Domain Title</div>
+    <div class="setting_description">The name of the variable to store the domain <b>Gleeo Time Tracker</b> is currently recording.</div>
+
+    <div class="setting_title">Variable for Recording Project Name</div>
+    <div class="setting_description">The name of the variable to store the project <b>Gleeo Time Tracker</b> is currently recording.</div>
+
+    <div class="setting_title">Variable for Recording Task Name</div>
+    <div class="setting_description">The name of the variable to store the task <b>Gleeo Time Tracker</b> is currently recording.</div>
+
+    <div class="setting_title">Variable for Recording Start Time</div>
+    <div class="setting_description">The name of the variable to store the start time of the currently recording task.</div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>recording</code></div>
+    <div class="variable_description">the recording boolean</div>
+
+    <div class="variable_name"><code>recording_domain_name</code></div>
+    <div class="variable_description">the domain name</div>
+
+    <div class="variable_name"><code>recording_project_title</code></div>
+    <div class="variable_description">the project name</div>
+
+    <div class="variable_name"><code>recording_task_name</code></div>
+    <div class="variable_description">the task name</div>
+
+    <div class="variable_name"><code>recording_start</code></div>
+    <div class="variable_description">the start time of the currently recording task</div>
+</div>
+
+</body>
+
+</html>

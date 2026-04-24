@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variables Contact Info</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variables Contact Info</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variables Contact Info</b> loads information of the specified contact and stores the information in a map.<br/>
+        <br/>
+        <span class="tip">Tip:</span> Condition <b>Debug Dialog</b> can be used to display the keys and values stored in the map.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Show all phone numbers of a contact.</li>
+    </ul>
+</div>
+
+<div class="summary">
+    <p>Example JSON of a contact:</p>
+    <pre style="overflow-x: auto;max-width: 720px;">
+        {
+          "display_name": "Contact XYZ", // name of the contact
+          "photo_thumb_uri": "content://com.android.contacts/contacts/124/photo", // URI of the small image
+          "photo_uri": "content://com.android.contacts/display_photo/3", // URI of the larger image
+          "last_time_contacted": 1479667934531, // point in time of the last contact, 0 when not known
+          "starred": true, // whether the contact is in the favorites or not
+          "times_contacted": 1, // count of contacts (according to contact app)
+          "phone_list": [{ // list of phone numbers
+            "number": "+41987654321",
+            "type": 2,
+            "type_label": "Mobile"
+          }, ... ],
+          "organization_list": [{ // list of organizations
+            "company": "Company X",
+            "type": 2,
+            "type_label": "Other",
+            "title": "Company"
+          }, ... ],
+          "note_list": [{ // list of notes
+              "note": "Note 1"
+            }, ... ],
+          "nickname_list": [{ // list of nicknames
+            "nickname": "MR. incredible",
+            "type": 0,
+            "type_label": "Other"
+          }, ... ],
+          "email_list": [{ // list of email addresses
+            "email": "example@gmail.com",
+            "type": 1,
+            "type_label": "Home"
+          }, ... ],
+          "relation_list": [{ // list of relations
+            "relation": "Person 123",
+            "type": 1,
+            "type_label": "Assistant
+          }, ... ],
+          "structured_postal_list": [{ // list of addresses
+            "formatted_address": "Mainstreet X\n1234 City",
+            "type": 1,
+            "type_label": "Home",
+            "street": "Mainstreet X",
+            "city": "City",
+            "postcode": "1234"
+          }, ... ],
+          "structured_name_list": [{ // list of the names
+            "display_name": "Contact XYZ",
+            "given_name": "Contact",
+            "family_name": "XYZ"
+          }, ... ],
+          "website_list": [{ // list of websites
+            "url": "www.automagic4android.com",
+            "type": 7,
+            "type_label": "Other"
+          }, ... ],
+          "sip_address_list": [{ // list of the SIP addresses
+            "number": "+41987654321",
+            "type": 2,
+            "type_label": "Mobile"
+          }, ... ],
+          "event_list": [{ // list of events
+            "start_date": "1978-07-04",
+            "type": 3,
+            "type_label": "Birthday"
+          }, ...],
+          "group_list": [ // list of the groups
+            "Group1",
+            "Group2",
+            "Group3"
+          ]
+        }
+    </pre>
+    <p>Please note that additional key value pairs might be added in future versions of Automagic.</p>
+    <br/>
+    <p>Examples of access to values in action <b>Script</b>:</p>
+    <pre style="overflow-x: auto;max-width: 720px;">
+        name = contact_info["display_name"];
+        photo_uri = contact_info["photo_uri"];
+        phone1 = contact_info["phone_list"][0]["number"];
+        phone2 = contact_info["phone_list"][1]["number"];
+        phone2type = contact_info["phone_list"][1]["type_label"];
+        nickname1 = contact_info["nickname_list"][0]["nickname"];
+    </pre>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Search type</div>
+    <div class="setting_description">Defines how the contact should be searched. The first found contact is used to provide the information.</div>
+
+    <div class="setting_title">Search value</div>
+    <div class="setting_description">The value used to search the contact. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>contact_info</code></div>
+    <div class="variable_description">the map containing the queried information</div>
+</div>
+
+</body>
+
+</html>

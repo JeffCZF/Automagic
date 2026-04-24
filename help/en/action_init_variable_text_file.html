@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variable Text File</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variable Text File</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variable Text File</b> reads the contents of a text file into the specified variable. Files up to 1MB are supported. Binary files are not supported.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Read a text file containing a mail template and send the text by mail.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">File</div>
+    <div class="setting_description">The path of the file to load. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Encoding</div>
+    <div class="setting_description">The encoding used to decode the bytes of the file to text.</div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the variable to store the text in. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Strip BOM</div>
+    <div class="setting_description">Whether the BOM (byte order mark) potentially found at the beginning of UTF encoded file should be removed from the resulting string or not.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>file_text</code></div>
+    <div class="variable_description">the name of the variable to store the text in</div>
+
+
+</div>
+
+</body>
+
+</html>

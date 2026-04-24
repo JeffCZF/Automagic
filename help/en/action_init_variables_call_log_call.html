@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variables Call Log</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variables Call Log</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variables Call Log</b> initializes variables with the values of the last entry of the call log.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Update a widget with the values of the last call.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Query Criteria</div>
+    <div class="setting_description">Specifies which call should be stored in the variables.</div>
+
+    <div class="setting_title">Variable for Call Number</div>
+    <div class="setting_description">The name of the variable to store the call number.</div>
+
+    <div class="setting_title">Variable for Call Date/Time</div>
+    <div class="setting_description">The name of the variable to store the point in time of the call.</div>
+
+    <div class="setting_title">Variable for Call Duration</div>
+    <div class="setting_description">The name of the variable to store the call duration.</div>
+
+    <div class="setting_title">Variable for Call Type</div>
+    <div class="setting_description">The name of the variable to store the call type (1=incoming, 2=outgoing, 3=missed).</div>
+
+    <div class="setting_title">Variable for Call Contact Name</div>
+    <div class="setting_description">The name of the variable to store the contact name.</div>
+
+    <div class="setting_title">Variable for Call New Flag</div>
+    <div class="setting_description">The name of the variable to store if the call log entry has not been marked acknowledged.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>call_number</code></div>
+    <div class="variable_description">the call number</div>
+
+    <div class="variable_name"><code>call_time</code></div>
+    <div class="variable_description">the time of the call in millis since 1970</div>
+
+    <div class="variable_name"><code>call_duration</code></div>
+    <div class="variable_description">the call duration in seconds</div>
+
+    <div class="variable_name"><code>call_type</code></div>
+    <div class="variable_description">the call type (1=incoming, 2=outgoing, 3=missed)</div>
+
+    <div class="variable_name"><code>call_cached_name</code></div>
+    <div class="variable_description">the name of the contact (might be outdated when the contact has been modified in the contacts afterwards)</div>
+
+    <div class="variable_name"><code>call_new</code></div>
+    <div class="variable_description">true or false whether the entry in the call log has not been acknowledged yet</div>
+</div>
+
+</body>
+
+</html>

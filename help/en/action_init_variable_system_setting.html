@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variable System Setting</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variable System Setting</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variable System Setting</b> reads a value from the system setting database and stores the value in a variable.<br/>
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Category</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>System</b>: for regular settings</li>
+            <li><b>Secure</b>: for settings which can usually not be modified</li>
+            <li><b>Global</b>: for global Settings valid for all users of the device (Android 4.2+)</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Name</div>
+    <div class="setting_description">The name of the setting to read. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the variable to store the value in. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>setting</code></div>
+    <div class="variable_description">the value of the setting</div>
+</div>
+
+</body>
+
+</html>

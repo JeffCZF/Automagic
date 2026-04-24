@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variable WiFi Access Point List</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variable WiFi Access Point List</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variable WiFi Access Point List</b> lists all configured or only enabled/disabled wifi networks into a variable.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Show a list of WiFI networks and allow to connect to the selected one.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Access Point Criteria</div>
+    <div class="setting_description">Whether all configured networks should be listed or only the enabled or disabled networks.</div>
+
+    <div class="setting_title">Variable for SSID list</div>
+    <div class="setting_description">The name of the variable to hold the list.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>access_points</code></div>
+    <div class="variable_description">the SSID-list of wifi networks</div>
+</div>
+
+</body>
+
+</html>

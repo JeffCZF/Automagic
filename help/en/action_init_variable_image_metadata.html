@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variable Image Metadata</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variable Image Metadata</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variable Image Metadata</b> extracts the metadata (e.g. Exif tags) from an image and stores the values in a map (key=label/name of the tag, value=description or raw value of the tag).<br/>
+        <br/>
+        Example to read the GPS location in an action <b>Script</b>:<br/>
+        <code>
+            location = getMapValue(image_metadata, "gps_location");
+        </code>
+        <br/>
+        <br/>
+        <span class="tip">Tip:</span> Condition <b>Debug Dialog</b> can be used to display the keys and values stored in the map.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Extract the GPS location and the thumbnail from a JPEG image.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">File</div>
+    <div class="setting_description">The path to the image file. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the variable to store the map with the values in. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Parse dates</div>
+    <div class="setting_description">Defines if date strings should be converted to proper date/time values or if the string should be stored as a string in the map.</div>
+
+    <div class="setting_title">Include metadata directory name</div>
+    <div class="setting_description">Whether to include the name of the metadata directory in the key of each read tag.</div>
+
+    <div class="setting_title">Get raw values</div>
+    <div class="setting_description">Defines if the metadata values should be converted to a human readable form or if the values should be loaded as is.</div>
+
+    <div class="setting_title">Extract thumbnail</div>
+    <div class="setting_description">Defines if an available thumbnail should be extracted from the metadata and stored in variable <code>thumbnail_image</code>.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>image_metadata</code></div>
+    <div class="variable_description">the map containing the extracted tag names/labels and the extracted values for each tag</div>
+
+    <div class="variable_name"><code>thumbnail_image</code></div>
+    <div class="variable_description">the thumbnail image extracted from the image metadata</div>
+</div>
+
+</body>
+
+</html>

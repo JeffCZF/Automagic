@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variable Location</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variable Location</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variable Location</b> acquires one location from the defined provider and stores the location in the variable.<br/>
+        <br/>
+        <span class="note">Note:</span> Getting one location can take several seconds to complete. The passive provider might not return a location until another app is activating one of the location providers.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Send the location in response to an SMS containing the text <strong>Where are you?</strong> to the sender.</li>
+        <li>Store the location coordinates in a file when the employer calls.</li>
+        <li>Send the location and phone number by mail whenever you call someone.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">
+        The name of the variable to store the location in.
+    </div>
+
+    <div class="setting_title">New or Last Known Location</div>
+    <div class="setting_description">Defines if the action should acquire a new location or if the action should use the last known location. Loading the last known location uses almost is very fast but might return an outdated location or no location might be available when the device was freshly started.</div>
+
+    <div class="setting_title">Location Provider</div>
+    <div class="setting_description">The location provider to use.<br/>
+        <b>Network</b><br/>
+        This provider uses the location provided by the cell tower and Wi-Fi signals. Depending on environment this provider can deliver location of about 60 meters of accuracy. Locations found using the cell tower can be very inaccurate (up to several kilometers or miles).<br/>
+        <br/>
+        <b>Passive</b><br/>
+        This provider delivers the location from the currently active provider (Network or GPS) without activating one of the providers by itself. This might result in very infrequent location updates.<br/>
+        <br/>
+        <b>GPS</b><br/>
+        This provider delivers the location using the GPS receiver. This provider usually uses more battery than the network provider.<br/>
+        <br/>
+        <b>High Accuracy (Experimental)</b><br/>
+        This provider delivers the finest available location using different sensors available on the device.<br/>
+        <br/>
+        <b>Balanced Power/Accuracy (Experimental)</b><br/>
+        This provider delivers the a location with an accuracy of about 100m and uses less battery than the high accuracy provider.<br/>
+        <br/>
+        <b>Low Power (Experimental)</b><br/>
+        This provider delivers the a location with an accuracy of about 10km.<br/>
+        <br/>
+        <b>No Power (Experimental)</b><br/>
+        This provider will only deliver locations when another app on the device has requested locations.<br/>
+        <br/>
+    </div>
+
+    <div class="setting_title">Minimum Accuracy (in meters)</div>
+    <div class="setting_description">Only newer locations with at least this accuracy are accepted.<br/>
+        This can be useful to filter out locations calculated using the cell tower when also more exact locations using WiFi are available.
+    </div>
+
+    <div class="setting_title">Timeout</div>
+    <div class="setting_description">The maximum amount of time to wait for a location fix, otherwise terminate the flow with an error.</div>
+
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>location</code></div>
+    <div class="variable_description">the reported location</div>
+
+    <div class="variable_name"><code>location_accuracy</code></div>
+    <div class="variable_description">the accuracy of the location</div>
+
+    <div class="variable_name"><code>location_altitude</code></div>
+    <div class="variable_description">the altitude of the location when available (not available on all devices)</div>
+
+    <div class="variable_name"><code>location_bearing</code></div>
+    <div class="variable_description">the direction of travel in degrees East of true North when available (not available on all devices)</div>
+
+    <div class="variable_name"><code>location_speed</code></div>
+    <div class="variable_description">the speed of travel in meters per second when available (not available on all devices)</div>
+</div>
+
+</body>
+
+</html>

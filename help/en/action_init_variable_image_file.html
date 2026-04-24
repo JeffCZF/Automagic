@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variable Image File</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variable Image File</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variable Image File</b> loads the pixel data of an image into the specified local variable to modify the image with action <b>Modify Image</b> or to read color values of pixels with script function <b>getPixelColor</b>.<br/>
+        <br/>
+        <span class="warning">Warning:</span> Loading large images uses a lot of internal memory which could cause Automagic to crash in the worst case. It's recommended to read only one image into memory and not to load very large images.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Load an image, shrink the size and send the smaller file by mail.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">File</div>
+    <div class="setting_description">The path or URL to the image file. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the local variable to store the pixel data. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>image_data</code></div>
+    <div class="variable_description">the local variable of the image</div>
+
+    <div class="variable_name"><code>image_width</code></div>
+    <div class="variable_description">the width of the image</div>
+
+    <div class="variable_name"><code>image_height</code></div>
+    <div class="variable_description">the height of the image</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Init Variable Package Info</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Init Variable Package Info</h1>
+
+<div class="summary">
+    <p>
+        The action <b>Init Variable Package Info</b> loads information of the specified apps/packages and stores the information in a map.<br/>
+        <br/>
+        <span class="tip">Tip:</span> Condition <b>Debug Dialog</b> can be used to display the keys and values stored in the map.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Load the list of permissions used by an app and check which permissions have been granted.</li>
+    </ul>
+</div>
+
+<div class="summary">
+    <h2>Format</h2>
+    <p>The map contains the package name as the key and a map with the queried information as value. Example shown as JSON:</p>
+    <pre style="overflow-x: auto;">
+        {
+          "package1": {"version_name": xyz, "version_code": 123},
+          "package2": {"version_name": xyz, "version_code": 123}
+        }
+    </pre>
+    <p>Example JSON queried for one app:</p>
+    <pre style="overflow-x: auto;max-width: 720px;">
+        {
+          "com.android.vending": {
+            "version_name": "6.4.12.C-all [0] 2744941", // the version name
+            "version_code": 80641200, // the version number
+            "first_install_time": 1230796800000, // the time at which the app was first installed (millis since 1970)
+            "last_update_time": 1461091018180, // the time at which the app was last updated (millis since 1970)
+            "install_location": -1, // -1=auto?, 0=auto, 1=internal only, 2=prefer external
+            "application_info": {
+              "data_dir": "/data/user/0/com.android.vending", // full path to a directory assigned to the package for its persistent data
+              "class_name": "com.google.android.finsky.FinskyApp", // class implementing the Application object
+              "source_dir": "/data/app/com.android.vending-2/base.apk", // full path to the base APK for this application
+              "label": "Google Play Store", // the label of the app (current locale)
+              "uid": 10024, // the kernel user-ID that has been assigned to this application
+              "icon_uri": "android.resource://com.android.vending/2130903045", // URI to load the icon of the app
+              "target_sdk_version": 23, // the API level that the application targets
+              "enabled": true // whether or not the Android system can instantiate components of the application
+            },
+            "requested_permissions": [
+              {
+                "permission": "android.permission.WRITE_EXTERNAL_STORAGE", // the name of the permission
+                "requested_permission_flag": 3, // 1=requested, 3=requested & granted
+                "label": "modify or delete the contents of your USB storage", // the label of the permission
+                "description": "Allows the app to write to the USB storage.", // the description of the permission
+                "protection_level": 1, // protection level as number
+                "protection_level_text": "dangerous", // protection level expressed as text
+                "group": "android.permission-group.STORAGE", // the group name of the permission
+                "group_label": "Storage", // the permission group label
+                "group_description": "access photos, media, and files on your device" // the permission group description
+              }, ...
+            ],
+            "activity_info": [
+              {
+                "name": "com.android.vending.AssetBrowserActivity",
+                "label": "Play Store",
+                "icon_uri": "android.resource://com.android.vending/2130903045",
+                "enabled": true, // whether the activity is enabled
+                "exported": true // whether the activity can be used by other apps
+                "permission": "com.google.android..." // permission required to access this activity (when defined)
+              },
+            ],
+            "receiver_info": [
+              {
+                "name": "com.google.android.gcm.GCMBroadcastReceiver",
+                "label": "Google Play Store",
+                "enabled": true,
+                "exported": true,
+                "permission": "com.google.android.c2dm.permission.SEND"
+              }, ...
+            ],
+            "provider_info": [
+              {
+                "name": "com.google.android.finsky.providers.RecentSuggestionsProvider",
+                "label": "Google Play Store",
+                "authority": "com.google.android.finsky.RecentSuggestionsProvider",
+                "enabled": true,
+                "exported": false
+              }, ...
+            ],
+            "service_info": [
+              {
+                "name": "com.google.android.finsky.services.ReviewsService",
+                "label": "Google Play Store",
+                "enabled": true,
+                "exported": true
+              }, ...
+            ]
+          }, ...
+        }
+    </pre>
+    <p>Please note that additional key value pairs might be added in future versions of Automagic.</p>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Type</div>
+    <div class="setting_description">Whether to query information about all installed packages or only a few selected packages.</div>
+
+    <div class="setting_title">Package Names</div>
+    <div class="setting_description">The list of packages to query. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Include permission infos</div>
+    <div class="setting_description">If information about permissions requested by the app should be queried.</div>
+
+    <div class="setting_title">Include activity infos</div>
+    <div class="setting_description">If information about activities defined by the app should be queried.</div>
+
+    <div class="setting_title">Include receiver infos</div>
+    <div class="setting_description">If information about receivers defined by the app should be queried.</div>
+
+    <div class="setting_title">Include provider infos</div>
+    <div class="setting_description">If information about content providers defined by the app should be queried.</div>
+
+    <div class="setting_title">Include service infos</div>
+    <div class="setting_description">If information about services defined by the app should be queried.</div>
+
+    <div class="setting_title">Variable</div>
+    <div class="setting_description">The name of the variable to store the result in.</div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>package_info</code></div>
+    <div class="variable_description">the map containing the queried information</div>
+</div>
+
+</body>
+
+</html>
