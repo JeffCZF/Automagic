@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Periodic Timer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Periodic Timer</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Periodic Timer</b> is executed in the specified interval.<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Remind about a recording task in Gleeo Time Tracker every 5 minutes.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Interval</div>
+    <div class="setting_description">Defines the time interval between flow executions.</div>
+
+    <div class="setting_title">Wake device when in sleep mode</div>
+    <div class="setting_description">
+        Defines whether the device should be woken up from sleep mode.<br/>
+        Disabling this option saves a bit of battery but delays the trigger invocation for an unknown amount of time when the devices is asleep.
+    </div>
+
+    <div class="setting_title">Limit time range</div>
+    <div class="setting_description">Whether the trigger should be active all the time or only within a defined time range.</div>
+
+    <div class="setting_title">Weekdays</div>
+    <div class="setting_description">The day on which the trigger should be active.</div>
+
+    <div class="setting_title">From - To</div>
+    <div class="setting_description">The start of the time range and the end of the time range. A To-time smaller than the From-time will move the To-time to the next day to simplify checks for time ranges crossing midnight.</div>
+
+    <div class="setting_title">At fixed times</div>
+    <div class="setting_description">
+        Defines if the timer should execute the flow periodically in the set interval relative to midnight (or at the From-time when a limited time range is in effect).<br/>
+        If this option is not set, the interval starts at the moment when the trigger is enabled.<br/>
+        <br/>
+        Examples when a flow is activated at 07:13:
+        <ul>
+            <li>Option <b>not set</b>, Interval 1h: Flow executes at 08:13, 09:13, 10:13, ...</li>
+            <li>Option <b>set</b>, Interval 1h: Flow executes at 08:00, 09:00, 10:00, ...</li>
+            <li>Option <b>set</b>, Interval 1h, Time range 07:00 - 09:00: Flow executes at 08:00, 09:00 (next day: 07:00, 08:00, 09:00)</li>
+            <li>Option <b>set</b>, Interval 1h, Time range 07:30 - 09:30: Flow executes at 07:30, 08:30, 09:30</li>
+        </ul>
+        <br/>
+        Note that disabling <em>Wake device when in sleep mode</em> can delay the execution when the device is in deep sleep.
+    </div>
+
+    <div class="setting_title">Allow in device idle/doze (Android 6+)</div>
+    <div class="setting_description">Defines whether this trigger is allowed to wake the device from idle/doze mode. (see <a href="device_idle_mode.html">Device Idle/Doze Mode</a>)</div>
+
+    <div class="setting_title">Like alarm clock (Android 5+)</div>
+    <div class="setting_description">
+        Defines whether this trigger should be handled like an alarm clock which is usually displayed in the status bar.<br/>
+        This option ensures that Android invokes the trigger exactly at the specified time and prevents the system from delaying the event.
+    </div>
+</div>
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+</div>
+
+</body>
+
+</html>

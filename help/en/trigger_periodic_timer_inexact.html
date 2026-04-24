@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Periodic Timer Inexact</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Periodic Timer Inexact</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Periodic Timer Inexact</b> is executed approximately in the specified interval. The device can adjust the time of the trigger a bit and call the trigger when the device is currently also executing other tasks. This trigger uses less battery than the regular trigger <b>Periodic Timer</b><br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Check approximately once an hour if a server is online.</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Interval (Inexact)</div>
+    <div class="setting_description">Defines the time interval between flow executions. Android only supports the times available in this list.</div>
+
+    <div class="setting_title">Wake device when in sleep mode</div>
+    <div class="setting_description">
+        Defines whether the device should be woken up from sleep mode.<br/>
+        Disabling this option saves a bit of battery but delays the trigger invocation for an unknown amount of time when the devices is asleep.
+    </div>
+
+    <div class="setting_title">Limit time range</div>
+    <div class="setting_description">Whether the trigger should be active all the time or only within a defined time range.</div>
+
+    <div class="setting_title">Weekdays</div>
+    <div class="setting_description">The day on which the trigger should be active.</div>
+
+    <div class="setting_title">From - To</div>
+    <div class="setting_description">The start of the time range and the end of the time range. A To-time smaller than the From-time will move the To-time to the next day to simplify checks for time ranges crossing midnight.</div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+</div>
+
+
+</body>
+
+</html>

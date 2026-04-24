@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Phone Cell GSM</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Phone Cell GSM</h1>
+
+<div class="summary">
+    <p>
+        The trigger <b>Phone Cell GSM</b> is executed when the device connects or disconnects from the defined cells. Changes within the defined list of cells don't invoke the trigger.<br/>
+        <br/>
+        <span class="warning">Warning:</span> Some devices don't report the cell to Automagic when the screen is turned off.
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    Examples:
+    <ul>
+        <li>Turn WiFi on, when the device connects to one of the cells at home.</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">Settings</div>
+
+    <div class="setting_title">Method</div>
+    <div class="setting_description">Whether the classic, a modern or both methods should be used to find cells. It's highly device dependent which method works best.</div>
+
+    <div class="setting_title">Trigger when</div>
+    <div class="setting_description">Whether the trigger should execute the flow when connected/disconnected from an area defined by a list of cells or on every cell change (can be frequent).</div>
+
+    <div class="setting_title">Location Area Code (LAC) List</div>
+    <div class="setting_description">A comma separated list of location area codes. A location area is set of base stations and usually covers a large area. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Cell ID (CID) List</div>
+    <div class="setting_description">A comma separated list of cell IDs. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Cell ID (CID) List to Ignore</div>
+    <div class="setting_description">A comma separated list of cell IDs to ignore. Glob patterns (*, ?) are supported. <a href="action_script.html#inline_expressions">Variables are supported.</a></div>
+
+    <div class="setting_title">Connected / Disconnected</div>
+    <div class="setting_description">Whether the trigger should be executed when the device connects or disconnects from the listed cells. Changes within the defined list of cells don't invoke the trigger.</div>
+
+    <div class="setting_title">Wake device</div>
+    <div class="setting_description">Whether the trigger should wake the CPU of the device every X minutes or not. This is necessary for some devices when the cell is not updated regularly. Consumes more battery when a shorter time interval is chosen.</div>
+
+    <div class="setting_title">Turn screen on</div>
+    <div class="setting_description">Whether the display should be turned on briefly or not. This is necessary for some devices when the cell is not updated otherwise. This option increases battery consumption and should only be enabled when the cell is not updated otherwise.</div>
+
+    <div class="setting_title">Force update</div>
+    <div class="setting_description">Whether the cell update should be forced. This option increases battery consumption and should only be enabled when the cell is not updated otherwise.</div>
+</div>
+
+
+<div class="variables_section">
+    A variable is a container for a value that can be used in many actions and conditions to dynamically define a part of a text.<br/><a href="action_script.html#inline_expressions">See action Script for a description.</a><br/>
+    <br/>
+
+    <div class="variables_title">Supplied Variables</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">the time the trigger executed</div>
+
+    <div class="variable_name"><code>lac</code></div>
+    <div class="variable_description">the currently connected cells location area code (LAC), -1 if unknown</div>
+
+    <div class="variable_name"><code>cid</code></div>
+    <div class="variable_description">the currently connected cells ID (CID), -1 if unknown</div>
+
+    <div class="variable_name"><code>psc</code></div>
+    <div class="variable_description">the currently connected cells primary synchronization code (PSC), -1 if unknown</div>
+
+    <div class="variable_name"><code>last_lac</code></div>
+    <div class="variable_description">the last connected cells location area code (LAC), -1 if unknown or the trigger was just activated</div>
+
+    <div class="variable_name"><code>last_cid</code></div>
+    <div class="variable_description">the last connected cells ID (CID), -1 if unknown or the trigger was just activated</div>
+
+    <div class="variable_name"><code>last_psc</code></div>
+    <div class="variable_description">the last connected cells primary synchronization code (PSC), -1 if unknown or the trigger was just activated</div>
+
+    <div class="variable_name"><code>connected</code></div>
+    <div class="variable_description">true when connected to the defined cells, false otherwise</div>
+
+    <div class="variable_name"><code>disconnected</code></div>
+    <div class="variable_description">true when disconnected from the defined cells, false otherwise</div>
+</div>
+
+</body>
+
+</html>
