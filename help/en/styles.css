@@ -1,0 +1,120 @@
+h1 {
+    font-size: 16pt;
+    color: white;
+}
+
+h2 {
+    font-size: 14pt;
+    color: white;
+}
+
+h3 {
+    font-size: 12pt;
+    color: white;
+}
+
+body {
+    font-family: sans-serif;
+    background: black;
+    color: white;
+}
+
+code {
+    font-size: 11pt;
+    color: #FFF;
+}
+
+a {
+    color: #5db4cc;
+    text-decoration: underline;
+}
+
+.summary {
+    color: #cccccc;
+    margin-bottom: 20pt;
+}
+
+.sample_separator {
+    font-size: 1pt;
+    height: 10px;
+}
+
+.variables_section {
+    border: #dddddd solid 1px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    background: #333333;
+    padding: 5px;
+    color: #cccccc;
+    margin-bottom: 10px;
+}
+
+.variables_title {
+    padding-bottom: 5px;
+    color: #eeeeee;
+    font-weight: bold;
+}
+
+.variable_name {
+    padding: 5px;
+    background: #444444;
+    font-weight: bold;
+    color: #eeeeee;
+}
+
+.variable_description {
+    padding: 5px;
+    background: #444444;
+    color: #eeeeee;
+    margin-bottom: 5pt;
+}
+
+.settings_section {
+    border: #dddddd solid 1px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    background: #333333;
+    padding: 5px;
+    color: #cccccc;
+    margin-bottom: 10px;
+}
+
+.settings_title {
+    padding-bottom: 5px;
+    color: #eeeeee;
+    font-weight: bold;
+}
+
+.setting_title {
+    padding: 5px;
+    background: #444444;
+    color: #eeeeee;
+    font-weight: bold;
+}
+
+.setting_description {
+    padding: 5px;
+    background: #444444;
+    color: #eeeeee;
+    margin-bottom: 5pt;
+    overflow: auto;
+}
+
+.note {
+    font-weight: bold;
+    color: #93e061;
+}
+
+.tip {
+    font-weight: bold;
+    color: #85a4ff;
+}
+
+.warning {
+    font-weight: bold;
+    color: #ff9d8f;
+}
+
+ul.functions li {
+    padding-bottom: 10px;
+}
