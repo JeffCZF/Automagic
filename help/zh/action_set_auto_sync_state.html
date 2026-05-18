@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设置自动同步状态</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>设置自动同步状态</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>设置自动同步状态</b> 打开或关闭自动同步。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>晚上关闭自动同步。</li>
+        <li>周末关闭公司帐户的自动同步。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">自动同步</div>
+    <div class="setting_description">是打开还是关闭自动同步。</div>
+
+    <div class="setting_title">全局或特定</div>
+    <div class="setting_description">是全局更改自动同步，还是仅针对指定的帐户/权限进行更改。更改全局开关不会更改单个帐户/权限的设置。</div>
+
+    <div class="setting_title">帐户</div>
+    <div class="setting_description">
+        要更改的帐户，格式为 <em>类型</em>:<em>名称</em>。
+        可以使用通配符模式匹配多个帐户。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <ul>
+            <li><code>*</code> 更改所有帐户</li>
+            <li><code>Google:*</code> 更改所有 Google 帐户</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">权限</div>
+    <div class="setting_description">
+        要更改的帐户部分/数据库。指定 <code>*</code> 可更改帐户的所有部分。
+        可以使用通配符模式匹配多个权限。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <ul>
+            <li><code>*</code> 更改指定帐户的所有权限</li>
+            <li><code>com.android.calendar</code> 更改指定帐户的所有日历</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>

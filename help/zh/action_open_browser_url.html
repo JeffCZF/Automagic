@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>在浏览器中打开 URL</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>在浏览器中打开 URL</h1>
+
+<div class="summary">
+    <p>
+        <b>在浏览器中打开 URL</b>动作使用指定的 URL 打开浏览器。<br/>
+        <br/>
+        <span class="tip">提示：</span> 浏览器也可用于下载文件，只需使用指向 PDF 或其他可下载文件的 URL。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>每天早上打开新闻页面。</li>
+        <li>每天早上 5 点下载 PDF。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">URL</div>
+    <div class="setting_description">
+        要打开的 URL。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        <span class="tip">提示：</span> 您可以使用变量来打开随日期动态变化的 URL。<br/><br/><code>http://test.com/<wbr/>newspaper_<wbr/>{triggertime,dateformat,yyyyMMdd}<wbr/>.pdf</code><br/><br/>将被替换为<br/><br/><code>http://test.com/<wbr/>newspaper_20120123.pdf</code>
+    </div>
+
+    <div class="setting_title">使用指定应用</div>
+    <div class="setting_description">是使用定义的应用打开 URL，还是让系统选择最合适的应用。</div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">用于打开 URL 的应用。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">类名</div>
+    <div class="setting_description">应用内用于打开 URL 的组件。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+</div>
+
+</body>
+
+</html>

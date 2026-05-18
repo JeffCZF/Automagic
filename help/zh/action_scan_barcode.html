@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>扫描条形码</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>扫描条形码</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>扫描条形码</b> 打开一个活动，使用设备的摄像头扫描条形码。<br/>
+        <br/>
+        <span class="tip">提示：</span> 您可以使用动作 <b>映射值</b> 将已知的条形码值（如实验室门上的二维码）映射到项目/任务。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>根据实验室门上的条形码，开始在 <b>Gleeo Time Tracker</b> 中记录时间。</li>
+        <li>扫描书籍上的条形码，并打开浏览器在亚马逊上搜索该书。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">超时</div>
+    <div class="setting_description">自动取消条形码扫描的超时时间。</div>
+
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>operation</code></div>
+    <div class="variable_description">用于关闭扫描条形码活动的操作。<br/>
+        <br/>
+        可以是以下之一：
+        <ul>
+            <li><code>ok</code>：成功扫描条形码</li>
+            <li><code>cancel</code>：用户按下返回按钮或其他按钮离开活动</li>
+            <li><code>timeout</code>：活动因超时关闭</li>
+        </ul>
+    </div>
+
+    <div class="variable_name"><code>barcode_text</code></div>
+    <div class="variable_description">条形码的值（文本字符串）</div>
+
+    <div class="variable_name"><code>barcode_format</code></div>
+    <div class="variable_description">条形码的格式</div>
+</div>
+
+</body>
+
+</html>

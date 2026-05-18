@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>对状态栏通知执行操作</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>对状态栏通知执行操作</h1>
+
+<div class="summary">
+    <p>
+        <b>对状态栏通知执行操作</b>动作点击通知或其中一个操作按钮（这些按钮通常在 Android 4.1+ 的大尺寸展开通知中可用）。<br/>
+        流程必须由触发器 <b>状态栏通知已显示</b> 执行，或者是在条件 <b>状态栏通知已显示</b> 之后的动作，否则 Automagic 无法访问该通知。<br/>
+        <br/>
+        <span class="warning">警告：</span> 需要 Android 4.1+。此功能不受 Android 官方支持，可能无法在所有设备上正常工作。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当邮件包含特定文本时自动归档邮件。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">操作类型</div>
+    <div class="setting_description">是对通知执行点击，还是对通知的按钮执行点击，或者执行可穿戴设备的操作。</div>
+
+    <div class="setting_title">按钮</div>
+    <div class="setting_description">要点击的按钮的标签。标签必须与输入的文本完全匹配。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">可穿戴操作</div>
+    <div class="setting_description">可穿戴操作的名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">输入</div>
+    <div class="setting_description">传递给可穿戴操作的文本（仅当操作允许文本输入时生效）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+</body>
+
+</html>

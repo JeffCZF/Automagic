@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>显示自定义小部件叠加层</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>显示自定义小部件叠加层</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>显示自定义小部件叠加层</b> 在显示屏上的任意位置显示一个自定义小部件（在 Automagic 中定义）。在许多 Android 版本中，该叠加层也会显示在锁屏界面上。<br/>
+        <br/>
+        <span class="warning">警告：</span>此功能并非 Android 官方支持，可能无法在所有设备上运行。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将电池百分比显示为一个覆盖在状态栏上的半透明矩形。</li>
+        <li>通过显示覆盖整个屏幕的叠加层来防止意外触摸。</li>
+        <li>通过显示覆盖整个屏幕的半透明叠加层，将屏幕遮罩到比内置屏幕亮度控制允许的更暗的水平。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">叠加层名称</div>
+    <div class="setting_description">
+        叠加层的名称/标识。可以使用相同的名称通过动作 <b>隐藏自定义小部件叠加层</b> 来隐藏叠加层。<br/>
+        可以在多个动作中使用相同的标识，以根据情况（例如横屏或竖屏时的不同设置）以不同的配置显示相同的叠加层。
+    </div>
+
+    <div class="setting_title">小部件</div>
+    <div class="setting_description">要显示的小部件的名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">宽度/高度</div>
+    <div class="setting_description">叠加层的尺寸。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">对齐方式</div>
+    <div class="setting_description">在屏幕上对齐叠加层的位置。</div>
+
+    <div class="setting_title">X/Y 偏移</div>
+    <div class="setting_description">相对于对齐方式的叠加层偏移量。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">可拖动</div>
+    <div class="setting_description">是否可以通过拖放在屏幕上移动叠加层。</div>
+
+    <div class="setting_title">不透明度</div>
+    <div class="setting_description">小部件的透明度或不透明度。</div>
+
+    <div class="setting_title">可点击</div>
+    <div class="setting_description">叠加层是否应响应点击/触摸。<span class="warning">警告：</span>可点击的叠加层会阻止对其下方元素的触摸！</div>
+
+    <div class="setting_title">拉伸小部件</div>
+    <div class="setting_description">是否应拉伸小部件以填充叠加层的整个区域。</div>
+
+    <div class="setting_title">使用无障碍服务（Android 5.1+）</div>
+    <div class="setting_description">使用无障碍服务显示叠加层，因此在某些 Android 版本中，即使在锁屏界面上也可以显示。</div>
+
+    <div class="setting_title">尝试显示在最顶层</div>
+    <div class="setting_description">
+        Automagic 是否应尝试将小部件显示在所有其他内容之上（覆盖状态栏和锁屏界面）。<br/>
+        此选项可能并非在所有设备上都有效，尤其是在较新的 Android 版本（Android 8+）上。<br/>
+        此选项可以防止某些应用（如视频播放器）暂时覆盖屏幕亮度。
+    </div>
+
+    <div class="setting_title">不限制位置</div>
+    <div class="setting_description">
+        系统是否应允许将小部件放置在常规显示区域之外。在某些 Android 版本中，这也允许将其放置在导航栏区域。<br/>
+        旧版 Android 仅在启用 <b>使用无障碍服务</b> 选项时才会遵循此选项。
+    </div>
+</div>
+
+</body>
+
+</html>

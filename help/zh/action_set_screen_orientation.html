@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设置屏幕方向</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>设置屏幕方向</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>设置屏幕方向</b> 强制设备使用指定的屏幕方向设置。可用于强制屏幕始终使用横屏模式，或使用传感器启用反向竖屏和反向横屏方向。<br/>
+        <br/>
+        <span class="warning">警告：</span>此功能并非 Android 官方支持，可能无法在所有设备上运行。某些应用（如启动器或游戏）在屏幕无法按应用要求旋转时可能会崩溃。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>强制设备即使在启动器中也使用横屏模式。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">屏幕方向</div>
+    <div class="setting_description">
+        要强制设置的方向：
+        <ul>
+            <li><b>重置为默认</b>：重置为设备默认值，由系统决定方向</li>
+            <li><b>横屏</b>：强制横屏</li>
+            <li><b>竖屏</b>：强制竖屏</li>
+            <li><b>传感器</b>：强制使用传感器检测到的方向，即使应用仅请求横屏</li>
+            <li><b>不使用传感器</b>：不允许使用传感器来确定方向</li>
+            <li><b>传感器横屏</b>：由传感器决定的横屏或反向横屏（Android 2.3 起）</li>
+            <li><b>传感器竖屏</b>：由传感器决定的竖屏或反向竖屏（Android 2.3 起）</li>
+            <li><b>反向横屏</b>：强制反向横屏（Android 2.3 起）</li>
+            <li><b>反向竖屏</b>：强制反向竖屏（Android 2.3 起）</li>
+            <li><b>传感器所有方向</b>：由传感器决定的所有四个可能方向（Android 2.3 起）</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">显示状态栏通知以重置</div>
+    <div class="setting_description">在状态栏中显示一个锁形图标，表明已强制应用了方向设置。选择该通知将重置为默认值，效果等同于以 <em>重置为默认</em> 模式执行此动作。</div>
+</div>
+
+</body>
+
+</html>

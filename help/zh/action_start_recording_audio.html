@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>开始录制音频</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>开始录制音频</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>开始录制音频</b> 开始将指定的音频源录制到定义的文件中。一次只能捕获一个音频文件。<br/>
+        可以通过显示的状态栏通知手动停止录制，或者通过执行动作 <b>停止录制音频</b> 来停止。<br/>
+        <br/>
+        <span class="warning">警告：</span>由于技术或法律原因，某些音频源在大多数设备上不受支持。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>开始录制来电的音频。</li>
+        <li>在凌晨 1 点到 2 点之间录制音频。</li>
+        <li>收到短信时录制音频 10 分钟，并将生成的音频文件发送到您的邮件账户。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">音频源</div>
+    <div class="setting_description">要录制的音频源。<br/>
+        <br/>
+        <span class="warning">警告：</span>由于技术或法律原因，语音音频源在大多数设备上不受支持。
+    </div>
+
+    <div class="setting_title">音频编码器</div>
+    <div class="setting_description">用于压缩录制音频的音频编码。</div>
+
+    <div class="setting_title">最大持续时间</div>
+    <div class="setting_description">录制音频时使用的最大持续时间。</div>
+
+    <div class="setting_title">文件</div>
+    <div class="setting_description">
+        用于存储录制音频的文件的路径。建议文件扩展名为 <code>m4a</code> 或 <code>mp4</code>。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        示例：
+        <ul>
+            <li><code>/mnt/sdcard/audio_<wbr/>{triggertime,<wbr/>dateformat,<wbr/>yyyy_MM_dd}<wbr/>.m4a</code> 变为 <code>/mnt/sdcard/<wbr/>audio_2011_02_13.m4a</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">显示状态栏通知以停止录制</div>
+    <div class="setting_description">当音频正在录制时显示状态栏通知，以便停止录制。</div>
+</div>
+
+</body>
+
+</html>

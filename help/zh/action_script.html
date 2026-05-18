@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>脚本</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>脚本</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>脚本</b> 执行脚本，进行一些简单的计算，并可用于修改变量。
+    </p>
+</div>
+
+<h2>脚本说明</h2>
+
+<div class="summary">
+<h2>保留关键字</h2>
+
+<p>以下关键字是保留的，因此不允许用作变量名：</p>
+<code> abstract alias and AND assert
+    boolean break byte
+    case catch char class const continue
+    def default do double
+    else elsif ensure enum extends
+    false final finally float for
+    goto
+    if implements import in instanceof int interface
+    long
+    mod
+    native new next not NOT null
+    or OR
+    package private protected public
+    redo repeat rescue retry return
+    self short static strictfp super switch synchronized
+    then this throw throws to transient true try
+    undef unless until
+    void volatile
+    when while
+    xor XOR
+    yield</code>
+
+<p>
+    目前只使用了少数保留关键字，但它们是保留用于脚本语言的未来扩展。
+</p>
+
+
+<h2>注释</h2>
+
+<p>脚本可以包含注释，这些注释在解释脚本时不会被执行。</p>
+<ul>
+    <li><code>//</code> 之后到行尾的文本</li>
+    <li><code>/*</code> 和 <code>*/</code> 之间的文本。此类注释也可以跨越多行。</li>
+</ul>
+
+示例：
+<pre>
+    a=1+2;<b>//这是一个注释</b>
+    b=a+3;
+    c=b+a;
+    <b>/* 这是一个
+        多行注释 */</b>
+    d=c*2;
+</pre>
+
+
+<h2 id="variables">变量</h2>
+
+<p>
+    可以使用赋值运算符 <code>=</code> 将数字或字符串等值存储在变量中。<br/>
+    变量名区分大小写。变量名必须以字母、货币符号（如 "$"）或连接标点符号（如 "_"）开头。变量名的其余部分也可以包含数字。支持 Unicode 字符，但强烈建议使用 US-ASCII 字符。
+</p>
+示例：
+<pre>
+    a = 3;//将数字3赋给变量a
+    b = a;//将变量a中存储的值赋给变量b
+</pre>
+
+<p>
+    存在两种变量作用域：
+</p>
+
+<h3>流程局部</h3>
+在脚本、表达式或内联脚本中声明的每个变量，只要变量名不以 <code>global_</code> 开头，默认都是流程局部的。<br/>
+<br/>
+赋值的流程局部变量示例：
+<ul>
+    <li><code>a = 1;</code>&nbsp;&nbsp;&nbsp;数字1存储在名为 'a' 的变量中</li>
+    <li><code>var1 = 1.234;</code>&nbsp;&nbsp;&nbsp;十进制数1.234存储在名为 'var1' 的变量中</li>
+    <li><code>var_123 = "Hello World";</code>&nbsp;&nbsp;&nbsp;字符串 "Hello World" 存储在名为 'var_123' 的变量中</li>
+    <li><code>_m = true;</code>&nbsp;&nbsp;&nbsp;布尔值 'true' 存储在名为 '_m' 的变量中</li>
+    <li><code>var2 = a;</code>&nbsp;&nbsp;&nbsp;将变量 'a' 中存储的值存储在名为 'var2' 的变量中</li>
+</ul>
+
+<h3>全局</h3>
+每个以 <code>global_</code> 开头的变量都是全局的，因此可以被其他流程访问，并且还会持久化到外部存储器，并在您停止/重新启动 Automagic 服务时重新加载。<br/>
+<br/>
+赋值的全局变量示例：
+<ul>
+    <li><code>global_a = 1;</code>&nbsp;&nbsp;&nbsp;数字1存储在名为 'global_a' 的变量中</li>
+    <li><code>global_var1 = 1.234;</code>&nbsp;&nbsp;&nbsp;十进制数1.234存储在名为 'global_var1' 的变量中</li>
+    <li><code>global_var_123 = "Hello World";</code>&nbsp;&nbsp;&nbsp;字符串 "Hello World" 存储在名为 'global_var_123' 的变量中</li>
+    <li><code>global_m = true;</code>&nbsp;&nbsp;&nbsp;布尔值 'true' 存储在名为 'global_m' 的变量中</li>
+</ul>
+
+<p>
+    变量是对值的引用（类似于指针）。将一个变量中存储的值赋给另一个变量并不会复制该值，而是两个变量都指向完全相同的值。<br/>
+    当使用列表等可修改的值时，这一点尤其重要。<br/>
+    示例：
+<pre>
+    a = newList(1, 2, 3);
+    b = a;
+    //此时变量a和b都指向完全相同的列表（列表只存在一份）
+    addElement(a, 4);
+    //现在列表包含1, 2, 3, 4
+    //变量a和b仍然指向同一个列表
+
+    //因此两个循环都会在日志中打印值1, 2, 3和4：
+    for (x in a)
+    {
+        log("{x}");
+    }
+
+    for (x in b)
+    {
+        log("{x}");
+    }
+</pre>
+
+</p>
+
+
+<h2>运算符</h2>
+
+<p>表达式中支持以下运算符：</p>
+<ul>
+    <li><code>+</code>&nbsp;&nbsp;&nbsp;加法与字符串连接</li>
+    <li><code>-</code>&nbsp;&nbsp;&nbsp;减法</li>
+    <li><code>*</code>&nbsp;&nbsp;&nbsp;乘法</li>
+    <li><code>/</code>&nbsp;&nbsp;&nbsp;除法</li>
+    <li><code>%</code>&nbsp;&nbsp;&nbsp;取模</li>
+    <li><code>&lt;</code>&nbsp;&nbsp;&nbsp;小于</li>
+    <li><code>&lt;=</code>&nbsp;&nbsp;&nbsp;小于等于</li>
+    <li><code>&gt;</code>&nbsp;&nbsp;&nbsp;大于</li>
+    <li><code>&gt;=</code>&nbsp;&nbsp;&nbsp;大于等于</li>
+    <li><code>==</code>&nbsp;&nbsp;&nbsp;等于</li>
+    <li><code>!=</code>&nbsp;&nbsp;&nbsp;不等于</li>
+    <li><code>AND</code>, <code>&&</code>&nbsp;&nbsp;&nbsp;逻辑与</li>
+    <li><code>OR</code>, <code>||</code>&nbsp;&nbsp;&nbsp;逻辑或</li>
+    <li><code>XOR</code>, <code>^</code>&nbsp;&nbsp;&nbsp;异或</li>
+    <li><code>NOT</code>, <code>!</code>&nbsp;&nbsp;&nbsp;逻辑非（一元）</li>
+</ul>
+
+
+<h2>表达式</h2>
+
+<p>表达式是由变量、运算符和函数调用构成的构造，计算结果为单个值。</p>
+示例：
+<ul>
+    <li><code>42</code></li>
+    <li><code>1+2</code></li>
+    <li><code>a=1</code></li>
+    <li><code>b=a+1</code></li>
+    <li><code>c=(a+1)*(b-3)</code></li>
+    <li><code>global_a=1</code></li>
+    <li><code>a=sqrt(9)</code></li>
+    <li><code>b=addDays(triggertime, 3)</code></li>
+    <li><code>c=replace("hello automagic", "automagic", "world")</code></li>
+    <li><code>b=addDays(triggertime, sqrt(9))</code></li>
+    <li><code>b="Hello " + "World"</code></li>
+    <li><code>a=true</code></li>
+    <li><code>b=false</code></li>
+    <li><code>c=a AND b OR c&gt;=5</code></li>
+    <li><code>c=NOT a AND NOT b</code></li>
+</ul>
+
+<h3 id="inline_expressions">字符串内联表达式</h3>
+
+<p>字符串中的内联表达式可用于将字符串的一部分替换为变量或表达式。此处描述的规则也适用于帮助页面中注明<cite>支持变量</cite>的触发器、条件和动作的文本字段。<br/>
+    内联表达式包含在花括号中：<code>{expression}</code>
+</p>
+简单内联表达式示例：
+<ul>
+    <li><code>var1="Test";<br/>var2="This is a {var1}";</code><br/>评估脚本后，'var2' 将包含字符串 "This is a Test"</li>
+    <li><code>var="one plus two is {1 + 2}";</code><br/>'var' 被评估为 "one plus two is 3"</li>
+</ul>
+
+<p>可以通过定义格式类型以及根据格式类型定义要使用的模式来格式化内联表达式：<code>{var<b>,formattype,pattern</b>}</code></p>
+带格式化的内联表达式示例：
+<ul>
+    <li><code>var="Today is {getDate(),<wbr/>dateformat,<wbr/>dd.MM.yyyy}";</code><br/>'var' 将包含字符串 "Today is 21.07.2012"</li>
+    <li><code>var="It's {getDate(),<wbr/>dateformat,<wbr/>HH:mm}";</code><br/>'var' 将包含字符串 "It's 12:32"</li>
+    <li><code>var="It's {getDate(),<wbr/>dateformat,<wbr/>timezone,UTC,<wbr/>HH:mm}";</code><br/>'var' 将包含字符串 "It's 10:32"</li>
+    <li><code>var="Value: {1.456789,<wbr/>numberformat,<wbr/>0.00}";</code><br/>'var' 被评估为 "Value: 1.46"</li>
+    <li><code>var="I'm here: {location,<wbr/>locationformat,<wbr/>decimal}";</code><br/>'var' 被评估为 "I'm here: 46.76817,7.603751"</li>
+    <li><code>var="{files,<wbr/>listformat,<wbr/>comma}";</code><br/>'var' 被评估为 "/mnt/sdcard/file1,/mnt/sdcard/file2"</li>
+</ul>
+
+支持的格式类型：
+<ul>
+    <li><code>dateformat</code>：使用指定的日期模式格式化日期。有关支持的模式，请参见 <a href="dateformat_patterns.html">模式字符</a>。<br/>
+        可选的子格式 <code>timezone</code> 与时区名称一起使用，可用于定义格式化日期/时间所用的时区。接受的时区名称包括 UTC、GMT 或 <i>Area/Location</i> 形式的 Olson 时区名称，例如 <code>America/Los_Angeles</code>（取决于设备）。对于未知的时区名称，使用 GMT。<br/>
+        示例：
+        <ul>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,UTC,<wbr/>HH:mm}</code></li>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,America/Los_Angeles,<wbr/>HH:mm}</code></li>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,Europe/London,<wbr/>HH:mm}</code></li>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,Europe/Paris,<wbr/>HH:mm}</code></li>
+            <li><code>{triggertime,<wbr/>dateformat,<wbr/>timezone,Africa/Harare,<wbr/>HH:mm}</code></li>
+        </ul>
+    </li>
+    <li><code>numberformat</code>：使用指定的小数格式格式化数字。有关支持的模式，请参见 <a href="numberformat_patterns.html">模式字符</a>。</li>
+    <li><code>locationformat</code>：当未指定格式时，将位置的地址格式化为单行文本（需要数据连接）。<br/>
+        支持以下 locationformat 模式：
+        <ul>
+            <li><code>multiline</code>：将地址格式化为多行文本（需要数据连接）。</li>
+            <li><code>decimal</code>：将纬度、经度格式化为十进制数（+/-DDD.DDDDD）。示例：46.76817,7.603751。</li>
+            <li><code>microdegrees</code>：将纬度、经度乘以 1'000'000 后格式化为整数。示例：46768355,7604022。此格式在调用 REST 服务时可能有用。</li>
+            <li><code>swiss</code>：将纬度、经度转换为 <a href="http://de.wikipedia.org/wiki/Schweizer_Landeskoordinaten">瑞士坐标系</a>。</li>
+        </ul>
+    </li>
+    <li><code>listformat</code>：当未指定模式时，将值列表格式化为多行文本，每行一项。<br/>
+        支持以下 listformat 模式：
+        <ul>
+            <li><code>comma</code>：将值列表格式化为逗号分隔的列表。</li>
+            <li><code>semicolon</code>：将值列表格式化为分号分隔的列表。</li>
+        </ul>
+    </li>
+    <li><code>jsonformat</code>：将值格式化为 JSON 片段。</li>
+</ul>
+
+<p>
+    带有单引号的字符串中的内联表达式不会被解释。这对于正则表达式很有帮助，例如模式 <b>([0-9]){2}.*</b> 中的量词 <b>{2}</b> 不应被替换为 <b>2</b>。
+</p>
+示例：
+<ul>
+    <li><code>var='Today is {getDate(),<wbr/>dateformat,<wbr/>dd.MM.yyyy}';</code><br/>'var' 被评估为 'Today is {getDate(),<wbr/>dateformat,<wbr/>dd.MM.yyyy}'</li>
+</ul>
+
+
+<h2>控制结构</h2>
+
+
+<h3><code>if</code> 语句</h3>
+if 语句可用于在条件为真时评估一个代码块。<br/>
+示例：
+<pre>
+    if (a&lt;3)
+    {
+        b = 0;
+    }
+    else
+    {
+        b = 1;
+    }
+</pre>
+在此示例中，当变量 <code>a</code> 包含的值小于 3 时，变量 <code>b</code> 被赋值为 0；当变量 <code>a</code> 包含的值大于或等于 3 时，<code>b</code> 被赋值为 1。
+
+
+<h3><code>for</code> 循环</h3>
+for 循环针对值列表中的每个值评估一个代码块。<br/>
+示例：
+<pre>
+    list=newList(1, 2, 3);
+
+    for (a in list)
+    {
+        log("a contains {a}");
+    }
+</pre>
+此示例将在日志中打印以下输出：
+<pre>
+    a contains 1
+    a contains 2
+    a contains 3
+</pre>
+
+<h3>数字列表创建表达式</h3>
+由于创建包含数字序列的列表非常常见，因此可以使用 <code>[&lt;number&gt; to &lt;number&gt;, &lt;step size&gt;]</code> 的简写形式来创建此类列表：<br/>
+示例：
+<pre>
+    list = [1 to 10];//不带可选步长
+
+    for (a in list)
+    {
+        log(a);
+    }
+    //记录 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+    //内联
+    for (a in [1 to 10])
+    {
+        log(a);
+    }
+    //记录 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+    //内联，步长为2
+    for (a in [1 to 10, 2])
+    {
+        log(a);
+    }
+    //记录 1, 3, 5, 7, 9
+
+    //内联，负步长 -3
+    for (a in [10 to 1, -3])
+    {
+        log(a);
+    }
+    //记录 10, 7, 4, 1
+
+</pre>
+
+<h3>访问列表和映射条目</h3>
+可以使用方括号访问列表和映射的单个值。<br/>
+示例：
+<pre>
+    list = [1 to 10];
+    a = list[0];//获取列表的第一个元素：1
+    a = list[1];//获取列表的第二个元素：2
+
+    list[2] = 999;//将 999 赋给列表的第三个元素
+
+    map = newMap();
+    map["key1"] = 1;//创建映射条目 key1-->1
+    map["key2"] = 2;//创建映射条目 key2-->2
+
+    a = map["key1"];//获取键为 key1 的条目的值：1
+    a = map["key2"];//获取键为 key2 的条目的值：2
+</pre>
+
+<h3><code>while</code> 循环</h3>
+while 循环只要条件为真就评估一个代码块。<br/>
+示例：
+<pre>
+    a = 0;
+
+    while (a &lt; 10)
+    {
+        log(a);
+        a = a + 1;
+    }
+    //记录 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+</pre>
+
+<h3><code>return</code> 语句</h3>
+return 语句可用于提前终止脚本，并可选择返回一个给定值。<br/>
+示例：
+<pre>
+    a = null;
+    if (a == null)
+    {
+        return;
+    }
+
+    log("X");//由于 return 终止脚本，此行不会执行
+</pre>
+
+<h3><code>break</code> 语句</h3>
+break 语句可用于终止循环，并在循环体之后继续执行脚本。<br/>
+示例：
+<pre>
+    for (a in [1 to 10])
+    {
+        if (a == 4)
+        {
+            break;
+        }
+        log(a);
+    }
+
+    log("X");
+    //记录 1, 2, 3, X
+</pre>
+
+<h3><code>continue</code> 语句</h3>
+continue 语句可用于立即继续循环的下一次迭代。<br/>
+示例：
+<pre>
+    for (a in [1 to 10])
+    {
+        if (a == 4)
+        {
+            continue;
+        }
+        log(a);
+    }
+
+    log("X");
+    //记录 1, 2, 3, 5, 6, 7, 8, 9, 10, X
+</pre>
+
+<h2>函数</h2>
+可以调用内置函数来计算三角函数值、创建列表、从 XML 中提取值等等。<br/>
+示例：
+<pre>
+    a = sin(1.2);//计算结果为 0.932039...
+    a = max(1, 2, 3, 4, 5);//计算结果为 5
+    a = isEmpty([1 to 10]);//计算结果为 false
+    a = containsElement([1 to 10, 2], 3);//计算结果为 true
+</pre>
+
+<span class="tip">提示：</span> 另请参阅 <a href="script_examples.html">脚本示例</a> 页面，其中显示了一些常用的脚本片段。
+
+<ul class="functions">
+    <li><code>Object convertNull(Object value, Object defaultValue)</code><br/>返回第一个参数的值，如果该值为 null，则返回 <code>default</code>。</li>
+    <li><code>Number abs(Number value)</code><br/>返回 <code>value</code> 的绝对值。</li>
+    <li><code>Number pow(Number base, Number exponent)</code><br/>返回第一个参数的值以第二个参数为指数的幂。</li>
+    <li><code>Number sqrt(Number a)</code><br/>返回数字的平方根。</li>
+    <li><code>Number sin(Number a)</code><br/>返回弧度角的正弦值。</li>
+    <li><code>Number cos(Number a)</code><br/>返回弧度角的余弦值。</li>
+    <li><code>Number tan(Number a)</code><br/>返回弧度角的正切值。</li>
+    <li><code>Number asin(Number a)</code><br/>返回弧度角的正弦值（应为反正弦）。</li>
+    <li><code>Number acos(Number a)</code><br/>返回弧度角的反余弦值。</li>
+    <li><code>Number atan(Number a)</code><br/>返回弧度角的反正切值。</li>
+    <li><code>Number atan2(Number y, Number x)</code><br/>返回直角坐标 (x, y) 的极坐标角度。</li>
+    <li><code>Number sinh(Number a)</code><br/>返回值的双曲正弦值。</li>
+    <li><code>Number cosh(Number a)</code><br/>返回值的双曲余弦值。</li>
+    <li><code>Number tanh(Number a)</code><br/>返回值的双曲正切值。</li>
+    <li><code>Number log10(Number a)</code><br/>返回以 10 为底的对数值。</li>
+    <li><code>Number ln(Number a)</code><br/>返回值的自然对数（以 <i>e</i> 为底）。</li>
+    <li><code>Number toRadians(Number a)</code><br/>将数字从度转换为弧度。</li>
+    <li><code>Number toDegrees(Number a)</code><br/>将数字从弧度转换为度。</li>
+    <li><code>Number round(Number a)</code><br/>将数字舍入到最接近的整数。</li>
+    <li><code>Number ceil(Number a)</code><br/>返回向上舍入后的下一个最高整数值。</li>
+    <li><code>Number floor(Number a)</code><br/>返回向下舍入后的下一个最低整数值。</li>
+    <li><code>Date addDays(Date d, Number a)</code><br/>返回一个新日期，将日期 <code>d</code> 加上 <code>a</code> 天。</li>
+    <li><code>Date addHours(Date d, Number a)</code><br/>返回一个新日期，将日期 <code>d</code> 加上 <code>a</code> 小时。</li>
+    <li><code>Date addMinutes(Date d, Number a)</code><br/>返回一个新日期，将日期 <code>d</code> 加上 <code>a</code> 分钟。</li>
+    <li><code>Date addSeconds(Date d, Number a)</code><br/>返回一个新日期，将日期 <code>d</code> 加上 <code>a</code> 秒。</li>
+    <li><code>Date getDate()</code><br/>返回当前日期和时间。</li>
+    <li><code>Date getDate(String date, String pattern)</code><br/>使用指定的模式将字符串转换为日期（参见 <a href="dateformat_patterns.html">模式字符</a>）。</li>
+    <li><code>Date getDate(Number year, Number month, Number day)</code><br/>返回由参数指定的日期。</li>
+    <li><code>Date getDate(Number year, Number month, Number day, Number hours, Number minutes, Number seconds)</code><br/>返回由参数指定的日期。</li>
+    <li><code>Date getDate(Date date, Number hours, Number minutes, Number seconds)</code><br/>返回由参数指定的日期。</li>
+    <li><code>Date getDate(Date date, Number hours, Number minutes, Number seconds, String timezone)</code><br/>返回在指定时区中由参数指定的日期。</li>
+    <li><code>Number getUptimeMillis()</code><br/>返回自启动以来的毫秒数，不计算深度睡眠时间。</li>
+    <li><code>Number getElapsedRealtimeMillis()</code><br/>返回自启动以来的毫秒数，包括睡眠时间。</li>
+    <li><code>Number getDurationMillis(String duration)</code><br/>返回持续时间字符串指定的毫秒数（例如 "2m 15s" 返回 135000）。</li>
+    <li><code>String getDurationString(Number duration)</code><br/>返回表示指定毫秒数的持续时间字符串（例如 135000 返回 "2m 15s"）。</li>
+    <li><code>Number getByteSize(String byteSize)</code><br/>返回字符串指定的字节数（例如 "10kb 15b" 返回 10255）。</li>
+    <li><code>String getByteSizeString(Number byteSize)</code><br/>返回表示指定字节数的格式化字节字符串（例如 10255 返回 "10kb 15b"）。</li>
+    <li><code>Number toNumber(String number)</code><br/>将指定参数转换为数字。</li>
+    <li><code>Number min(Number n1, Number n2, ...)</code><br/>返回参数中最小的数字。</li>
+    <li><code>Number max(Number n1, Number n2, ...)</code><br/>返回参数中最大的数字。</li>
+    <li><code>Boolean isEmpty(String s)</code><br/>返回字符串是否为空。</li>
+    <li><code>Number length(String s)</code><br/>返回字符串 <code>s</code> 中的字符数。</li>
+    <li><code>String substring(String s, Number start, Number end)</code><br/>返回指定字符串的子字符串。</li>
+    <li><code>String substring(String s, Number start)</code><br/>返回从指定索引开始的子字符串。</li>
+    <li><code>String left(String s, Number length)</code><br/>返回指定字符串的前 <code>length</code> 个字符。</li>
+    <li><code>String right(String s, Number length)</code><br/>返回指定字符串的后 <code>length</code> 个字符。</li>
+    <li><code>Number indexOf(String s, String search)</code><br/>返回 <code>search</code> 在 <code>s</code> 中第一次出现的索引。</li>
+    <li><code>Number indexOf(String s, String search, Number start)</code><br/>返回 <code>search</code> 在 <code>s</code> 中从 <code>start</code> 之后第一次出现的索引。</li>
+    <li><code>Number lastIndexOf(String s, String search)</code><br/>返回 <code>search</code> 在 <code>s</code> 中最后一次出现的索引。</li>
+    <li><code>Number lastIndexOf(String s, String search, Number start)</code><br/>返回 <code>search</code> 在 <code>s</code> 中从 <code>start</code> 之前最后一次出现的索引。</li>
+    <li><code>Boolean startsWith(String s, String prefix)</code><br/>检查字符串 <code>s</code> 是否以 <code>prefix</code> 开头。</li>
+    <li><code>Boolean endsWith(String s, String suffix)</code><br/>检查字符串 <code>s</code> 是否以 <code>suffix</code> 结尾。</li>
+    <li><code>Boolean contains(String s, String search)</code><br/>检查字符串 <code>s</code> 是否包含子字符串 <code>search</code>。</li>
+    <li><code>List split(String s, String pattern)</code><br/>使用正则表达式 <code>pattern</code> 作为分隔符，将字符串 <code>s</code> 拆分为字符串列表（参见 <a href="regex_patterns.html">正则表达式</a>）。</li>
+    <li><code>List splitCSVRecord(String s)</code><br/>将逗号分隔的字符串 <code>s</code> 拆分为标记列表。会考虑用于转义字段的双引号。</li>
+    <li><code>List splitCSVRecords(String s)</code><br/>将多行逗号分隔的字符串 <code>s</code> 拆分为一个列表（每行一个），列表中的每个元素是标记列表。会考虑用于转义字段的双引号。</li>
+    <li><code>String join(List list, String delimiter)</code><br/>将列表的元素连接成一个字符串，元素之间用指定的 <code>delimiter</code> 分隔。</li>
+    <li><code>Boolean matches(String s, String pattern)</code><br/>返回字符串 <code>s</code> 是否匹配正则表达式 <code>pattern</code>（参见 <a href="regex_patterns.html">正则表达式</a>）。</li>
+    <li><code>Boolean matches(String s, String pattern, List groups)</code><br/>返回字符串 <code>s</code> 是否匹配正则表达式 <code>pattern</code>，并将捕获的组填充到现有列表 <code>groups</code> 中（参见 <a href="regex_patterns.html">正则表达式</a>）。</li>
+    <li><code>List findAll(String s, String pattern)</code><br/>返回 <code>s</code> 中所有匹配正则表达式 <code>pattern</code> 的值列表（参见 <a href="regex_patterns.html">正则表达式</a>）。</li>
+    <li><code>List findAll(String s, String pattern, boolean returnGroups)</code><br/>返回 <code>s</code> 中所有匹配正则表达式 <code>pattern</code> 的值列表。可选择让每个项目由匹配的组列表组成（参见 <a href="regex_patterns.html">正则表达式</a>）。</li>
+    <li><code>String replace(String s, String search, String replace)</code><br/>返回一个修改后的字符串，将字符串 <code>s</code> 中所有出现的 <code>search</code> 替换为 <code>replace</code>。</li>
+    <li><code>String replaceAll(String s, String regex, String replacement)</code><br/>返回一个修改后的字符串，将字符串 <code>s</code> 中所有匹配 <code>regex</code> 的子字符串替换为 <code>replacement</code>（参见 <a href="regex_patterns.html">正则表达式</a>）。</li>
+    <li><code>String trim(String s)</code><br/>返回一个修改后的字符串，去除字符串 <code>s</code> 开头和结尾的所有空白字符。</li>
+    <li><code>String concat(Object o1, ...)</code><br/>返回指定对象的字符串连接。</li>
+    <li><code>String toUpperCase(String s)</code><br/>使用默认区域设置的规则将字符串转换为大写。</li>
+    <li><code>String toLowerCase(String s)</code><br/>使用默认区域设置的规则将字符串转换为小写。</li>
+    <li><code>String encodeURLForm(String urlPart)</code><br/>对指定的 <code>urlPart</code> 进行 URL 编码（用于 application/x-www-form-urlencoded，空格编码为 +）。</li>
+    <li><code>String encodeURL(String urlPart)</code><br/>对指定的 <code>urlPart</code> 进行 URL 编码（空格编码为 %20）。</li>
+    <li><code>String encodeHTML(String text)</code><br/>对指定的 <code>text</code> 进行 HTML 编码。</li>
+    <li><code>List newList(Object o1, ...)</code><br/>返回一个包含指定对象的新列表。</li>
+    <li><code>List copyList(List list)</code><br/>返回指定列表的副本（浅拷贝）。</li>
+    <li><code>Number length(List list)</code><br/>返回 <code>list</code> 中的元素个数。</li>
+    <li><code>Boolean isEmpty(List list)</code><br/>返回列表是否包含任何元素。</li>
+    <li><code>List addElement(List list, Object o1)</code><br/>返回在列表末尾添加对象后的同一个列表。如果列表尚不存在，则返回一个新列表。</li>
+    <li><code>List addElement(List list, Number index, Object o1)</code><br/>返回在指定索引（从0开始）处添加对象后的同一个列表。</li>
+    <li><code>List addAllElements(List list, List elementsToAdd)</code><br/>返回添加了 <code>elementsToAdd</code> 列表中所有元素后的同一个列表。</li>
+    <li><code>List removeDuplicateElements(List list)</code><br/>返回删除所有重复元素后的同一个列表。</li>
+    <li><code>List removeElementValue(List list, Object o1)</code><br/>返回删除所有具有指定值的元素后的同一个列表。</li>
+    <li><code>List removeAllElementValues(List list, List elementsToRemove)</code><br/>返回删除第二个列表中包含的所有元素后的同一个列表。</li>
+    <li><code>Boolean containsElement(List list, Object o1)</code><br/>如果列表包含指定元素，则返回 <code>true</code>。</li>
+    <li><code>Object removeElement(List list, Number index)</code><br/>删除指定索引（从0开始）处的对象，并返回被删除的对象。</li>
+    <li><code>List removeElements(List list, Number fromIndex, Number toIndex)</code><br/>删除指定索引范围（从0开始，[fromIndex, toIndex)）内的对象，并以列表形式返回被删除的对象。</li>
+    <li><code>Object getElement(List list, Number index)</code><br/>返回指定索引（从0开始）处的对象。</li>
+    <li><code>List setElement(List list, Number index, Object value)</code><br/>设置指定索引（从0开始）处的对象。</li>
+    <li><code>Object getRandomElement(List list)</code><br/>返回列表中的一个随机元素。</li>
+    <li><code>List shuffleList(List list)</code><br/>随机打乱列表中的元素。</li>
+    <li><code>Number indexOfElement(List list, Object value)</code><br/>返回元素在列表中第一次出现的索引，如果列表不包含该元素则返回 -1。</li>
+    <li><code>Number indexOfElement(List list, Object value, Number start)</code><br/>返回元素在列表中大于或等于 <code>start</code> 的第一次出现的索引，如果列表不包含该元素则返回 -1。</li>
+    <li><code>List sort(List list, Boolean casesensitive, Boolean natural)</code><br/>通过对值进行排序来修改列表。</li>
+    <li><code>List reverse(List list)</code><br/>通过反转包含值的顺序来修改列表。</li>
+    <li><code>Map newMap()</code><br/>返回一个新的空映射。</li>
+    <li><code>Map newMapFromValues(String key1, Object value1, ...)</code><br/>返回一个初始化为包含指定键和值的新映射。</li>
+    <li><code>Boolean isEmpty(Map map)</code><br/>返回映射是否包含任何元素。</li>
+    <li><code>Number length(Map map)</code><br/>返回 <code>map</code> 中的元素个数。</li>
+    <li><code>Map copyMap(Map map)</code><br/>返回指定映射的副本（浅拷贝）。</li>
+    <li><code>Map addMapEntry(Map map, String key, Object value)</code><br/>向映射中添加一个新条目 <code>key-&gt;value</code> 并返回该映射。如果映射尚不存在，则返回一个新映射。</li>
+    <li><code>Map addAllMapEntries(Map map, Map entriesToAdd)</code><br/>将第二个映射的所有条目添加到第一个映射中，并返回第一个映射。</li>
+    <li><code>Object getMapValue(Map map, String key)</code><br/>返回 <code>key</code> 对应的对象，如果不存在该键的映射则返回 <code>null</code>。</li>
+    <li><code>Object getMapValue(Map map, String key, Object default)</code><br/>返回 <code>key</code> 对应的对象，如果不存在该键的映射或 <code>map</code> 为 null，则返回 <code>default</code>。</li>
+    <li><code>Object removeMapEntry(Map map, String key)</code><br/>删除给定 <code>key</code> 的条目并返回值。</li>
+    <li><code>List getMapKeys(Map map)</code><br/>返回 <code>map</code> 的键列表。</li>
+    <li><code>List getMapValues(Map map)</code><br/>返回 <code>map</code> 的值列表。</li>
+    <li><code>String evaluateXPathAsString(String xml, String xpath)</code><br/>在给定的 XML 上评估 XPath 表达式，并将结果作为字符串返回（参见 <a href="http://www.w3.org/TR/xpath/">XPath 规范</a>）。</li>
+    <li><code>String hash(String value, String encoding, String algorithm)</code><br/>使用指定的 <code>encoding</code>（如 <code>UTF-8</code> 或 <code>UTF-16LE</code>）和哈希 <code>algorithm</code>（如 <code>MD5</code> 或 <code>SHA1</code>）计算 <code>value</code> 的哈希值。</li>
+    <li><code>String toJSON(Object value)</code><br/>将指定对象转换为 JSON 字符串。</li>
+    <li><code>String toJSON(Object value, Boolean indent)</code><br/>将指定对象转换为 JSON 字符串，可选择是否缩进。</li>
+    <li><code>Object fromJSON(String value)</code><br/>将指定的 JSON 字符串转换为对象。</li>
+    <li><code>Object log(Object value)</code><br/>在 Automagic 日志中记录指定对象，并返回未修改的对象。</li>
+    <li><code>Object eval(String script)</code><br/>将字符串作为脚本进行评估，并返回最后一个表达式的值。</li>
+    <li><code>Number random()</code><br/>返回一个介于 0.0 和 1.0 之间（不包括 1.0）的随机数。</li>
+    <li><code>Number random(Number low, Number high)</code><br/>返回一个介于 <code>low</code> 和 <code>high</code> 之间（包括两端）的随机数。</li>
+    <li><code>Boolean sleep(Number milliseconds)</code><br/>等待指定的 <code>milliseconds</code> 毫秒。</li>
+    <li><code>Boolean sleep(String duration)</code><br/>等待指定的 <code>duration</code>，如 "2m 30s"。</li>
+    <li><code>Boolean existsFile(String path)</code><br/>检查由 <code>path</code> 指定的文件是否存在。</li>
+    <li><code>Boolean isDirectory(String path)</code><br/>检查由 <code>path</code> 指定的文件是否为目录。</li>
+    <li><code>String getExternalStorageDir()</code><br/>返回主外部存储目录的路径。</li>
+    <li><code>Number getPixelColor(Bitmap image_data, Number x, Number y)</code><br/>返回图像中位置 <code>x</code>、<code>y</code> 处像素的颜色（argb）。</li>
+    <li><code>Number getRed(Number color)</code><br/>返回指定 <code>color</code> 的红色分量。</li>
+    <li><code>Number getGreen(Number color)</code><br/>返回指定 <code>color</code> 的绿色分量。</li>
+    <li><code>Number getBlue(Number color)</code><br/>返回指定 <code>color</code> 的蓝色分量。</li>
+    <li><code>Number getAlpha(Number color)</code><br/>返回指定 <code>color</code> 的 Alpha 分量。</li>
+    <li><code>Number newColor(Number a, Number r, Number g, Number b)</code><br/>从指定的 ARGB 分量返回一个新颜色。</li>
+    <li><code>Number distance(Location loc1, Location loc2)</code><br/>计算位置 <code>loc1</code> 和 <code>loc2</code> 之间的距离（米）。</li>
+    <li><code>Location newLocation(Number latitude, Number longitude)</code><br/>为指定的 <code>latitude</code> 和 <code>longitude</code> 创建一个新位置。</li>
+    <li><code>String setHTTPResponseHeader(String header, String value)</code><br/>将 HTTP 响应头设置为指定值，并返回该值。</li>
+    <li><code>Number setHTTPResponseStatus(Number status)</code><br/>将 HTTP 响应状态设置为指定值，并返回该值。</li>
+    <li><code>Boolean isList(Object value)</code><br/>返回指定值是否为列表。</li>
+    <li><code>Boolean isMap(Object value)</code><br/>返回指定值是否为映射。</li>
+    <li><code>Boolean isString(Object value)</code><br/>返回指定值是否为字符串。</li>
+    <li><code>Boolean isNumber(Object value)</code><br/>返回指定值是否为数字。</li>
+    <li><code>Boolean isBoolean(Object value)</code><br/>返回指定值是否为布尔值。</li>
+    <li><code>Boolean isLocation(Object value)</code><br/>返回指定值是否为位置。</li>
+    <li><code>Object getWidgetElementProperty(String widgetName, String elementName, String property)</code><br/>获取指定小工具元素的当前属性值。</li>
+    <li><code>Object setWidgetElementProperty(String widgetName, String elementName, String property, Object value)</code><br/>将指定小工具元素的给定属性设置为 <code>value</code>。</li>
+    <li><code>Boolean refreshWidget(String widgetName, Boolean reloadImages)</code><br/>刷新小工具，并可选择重新加载图像。</li>
+    <li><code>String getAppName(String packageName)</code><br/>返回指定包的应用显示名称，如果不可用则返回 null。</li>
+    <li><code>String getActivityName(String packageName, String className)</code><br/>返回指定包和类的活动的显示名称，如果不可用则返回 null。</li>
+    <li><code>String getServiceName(String packageName, String className)</code><br/>返回指定包和类的服务的显示名称，如果不可用则返回 null。</li>
+    <li><code>List getFlowNames()</code><br/>返回包含所有流程名称的列表。</li>
+    <li><code>List getFlowNamesByGroup(String group)</code><br/>返回包含指定 <code>group</code> 中流程名称的列表。</li>
+    <li><code>List getFlowGroupNames()</code><br/>返回包含流程组名称的列表。</li>
+    <li><code>List getWidgetNames()</code><br/>返回包含所有小工具名称的列表。</li>
+    <li><code>Map getFlowStatisticsDuration()</code><br/>返回已执行流程的映射。键=流程名称，值=总执行持续时间（毫秒），按值降序排序。</li>
+    <li><code>Map getFlowStatisticsCount()</code><br/>返回已执行流程的映射。键=流程名称，值=总执行次数，按值降序排序。</li>
+    <li><code>Boolean resetFlowStatistics()</code><br/>重置流程统计信息。</li>
+    <li><code>Object getValue(String name, Object default)</code><br/>返回名为 <code>name</code> 的变量的值，如果变量未定义或为 null，则返回 <code>default</code>。</li>
+    <li><code>Object setValue(String name, Object value)</code><br/>将名为 <code>name</code> 的变量设置为 <code>value</code>，并返回 <code>value</code>。</li>
+    <li><code>Object removeVariable(String name)</code><br/>删除名为 <code>name</code> 的变量。</li>
+    <li><code>List getVariableNames()</code><br/>返回当前所有可用变量（局部和全局）的列表。</li>
+    <li><code>Number getAndroidSDKVersion()</code><br/>返回 Android 框架的 SDK 版本号（参见 <a href="https://source.android.com/source/build-numbers.html#platform-code-names-versions-api-levels-and-ndk-releases">Android API 版本</a>）。</li>
+    <li><code>Object getContext()</code><br/>返回应用的上下文。</li>
+    <li><code>Object callJavaStaticMethod(String className, String methodSignature, Object params, ...)</code><br/>调用定义类的公共静态方法。</li>
+    <li><code>Object callJavaConstructor(String className, String constructorSignature, Object params, ...)</code><br/>调用定义类的公共构造函数。</li>
+    <li><code>Object callJavaMethod(Object obj, String className, String methodSignature, Object params, ...)</code><br/>在定义的对象上调用指定的实例方法。</li>
+    <li><code>Object getJavaStaticField(String className, String fieldName)</code><br/>返回指定公共静态字段的值。</li>
+    <li><code>Object setJavaStaticField(String className, String fieldName, Object value)</code><br/>设置指定公共静态字段的值。</li>
+    <li><code>Object getJavaField(Object obj, String className, String fieldName)</code><br/>返回指定公共实例字段的值。</li>
+    <li><code>Object setJavaField(Object obj, String className, String fieldName, Object value)</code><br/>设置指定公共实例字段的值。</li>
+</ul>
+<span class="note">注意：</span> 是否缺少某个函数？请通过论坛告知我们。
+
+
+<h2>高级主题</h2>
+脚本中的每个可执行表达式都会计算出一个值。代码块会计算为块中最后一个表达式产生的值，并允许创建包含多个表达式的内联脚本：
+<pre>
+    s = "{a=1;b=2}";
+    log(s);//记录 2
+
+    a = true;
+    b = if (a) 1 else 2;
+    log(b);//记录 1
+
+    for (a in [0 to 10])
+    {
+        log(if(a&lt;5) "X" else "-");
+    }
+    //记录 X, X, X, X, X, -, -, -, -, -, -
+
+    b=0;
+    log(for(a in [1 to 10]) {b=b+a});
+    //记录 55
+
+</pre>
+
+</div>
+
+</body>
+
+</html>

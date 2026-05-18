@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>发送广播</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>发送广播</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>发送广播</b> 使用指定的意图发送广播。另请参阅 <a href="http://developer.android.com/reference/android/content/Intent.html">Android Intent 类的文档</a>。
+        <br/>
+        <span class="tip">提示：</span> 某些广播接收器需要特殊权限才能启动。如果广播接收器失败，请在测试动作后检查日志。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>控制一个通过广播接收器暴露其操作的应用。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">动作</div>
+    <div class="setting_description">要在意图中使用的动作。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">类别列表</div>
+    <div class="setting_description">作为逗号分隔列表的类别列表，要添加到意图中。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">数据 URI</div>
+    <div class="setting_description">要在意图上设置的数据 URI。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">Mime 类型</div>
+    <div class="setting_description">要在意图上设置的 MIME 类型。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">要启动的特定包。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">类名</div>
+    <div class="setting_description">要启动的特定类。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">标志列表</div>
+    <div class="setting_description">要添加到意图的标志。</div>
+
+    <div class="setting_title">附加数据</div>
+    <div class="setting_description">
+        用于向意图添加无限数量附加数据的脚本。<br/>
+        <br/>
+        除了 Automagic 的常规内置函数外，还可以使用以下函数向意图添加附加数据：
+        <ul>
+            <li><code>putString(key, value)</code></li>
+            <li><code>putBoolean(key, value)</code></li>
+            <li><code>putFloat(key, value)</code></li>
+            <li><code>putDouble(key, value)</code></li>
+            <li><code>putByte(key, value)</code></li>
+            <li><code>putShort(key, value)</code></li>
+            <li><code>putChar(key, value)</code></li>
+            <li><code>putInt(key, value)</code></li>
+            <li><code>putLong(key, value)</code></li>
+            <li><code>putUri(key, value)</code></li>
+            <li><code>putBooleanArray(key, value)</code></li>
+            <li><code>putByteArray(key, value)</code></li>
+            <li><code>putIntArray(key, value)</code></li>
+            <li><code>putIntegerArrayList(key, value)</code></li>
+            <li><code>putLongArray(key, value)</code></li>
+            <li><code>putFloatArray(key, value)</code></li>
+            <li><code>putDoubleArray(key, value)</code></li>
+            <li><code>putShortArray(key, value)</code></li>
+            <li><code>putCharArray(key, value)</code></li>
+            <li><code>putStringArray(key, value)</code></li>
+            <li><code>putStringArrayList(key, value)</code></li>
+            <li><code>putUriArray(key, value)</code></li>
+            <li><code>putUriArrayList(key, value)</code></li>
+        </ul>
+        <br/>
+
+        示例：
+        <pre>putString("key1", "Hello");<br/>putBoolean("key2", true);<br/>putDouble("key3", 1.23);<br/>putInt("key4", 42);<br/>putInt("key5", a+4*b);</pre>
+
+        <a href="action_script.html">参见动作脚本中关于脚本语言的说明。</a>
+
+    </div>
+
+    <div class="setting_title">发送有序广播</div>
+    <div class="setting_description">是否应发送有序广播，以允许广播接收器向 Automagic 提供结果。</div>
+
+    <div class="setting_title">访问结果附加数据</div>
+    <div class="setting_description">
+        用于访问返回的附加数据的脚本。<br/>
+        支持以下函数：
+        <ul>
+            <li><code>getString(String key)</code></li>
+            <li><code>getChar(String key, String defaultValue)</code></li>
+            <li><code>getBoolean(String key, Boolean defaultValue)</code></li>
+            <li><code>getFloat(String key, Number defaultValue)</code></li>
+            <li><code>getDouble(String key, Number defaultValue)</code></li>
+            <li><code>getByte(String key, Number defaultValue)</code></li>
+            <li><code>getShort(String key, Number defaultValue)</code></li>
+            <li><code>getInt(String key, Number defaultValue)</code></li>
+            <li><code>getLong(String key, Number defaultValue)</code></li>
+            <li><code>getBundle(String key)</code></li>
+            <li><code>getUri(String key)</code></li>
+            <li><code>getBooleanArray(String key)</code></li>
+            <li><code>getByteArray(String key)</code></li>
+            <li><code>getShortArray(String key)</code></li>
+            <li><code>getCharArray(String key)</code></li>
+            <li><code>getIntArray(String key)</code></li>
+            <li><code>getIntegerArrayList(String key)</code></li>
+            <li><code>getLongArray(String key)</code></li>
+            <li><code>getFloatArray(String key)</code></li>
+            <li><code>getDoubleArray(String key)</code></li>
+            <li><code>getStringArray(String key)</code></li>
+            <li><code>getUriArray(String key)</code></li>
+            <li><code>getUriArrayList(String key)</code></li>
+            <li><code>getParcelableAsString(String key)</code></li>
+            <li><code>getParcelableArrayAsString(String key)</code></li>
+            <li><code>getParcelableArrayListAsString(String key)</code></li>
+            <li><code>getParcelable(String key)</code></li>
+        </ul>
+
+        <a href="action_script.html">参见动作脚本中关于脚本语言的说明。</a>
+    </div>
+</div>
+
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>result_code</code>（仅当启用了<em>发送有序广播</em>时）</div>
+    <div class="variable_description">返回的结果代码</div>
+
+    <div class="variable_name"><code>operation</code>（仅当启用了<em>发送有序广播</em>时）</div>
+    <div class="variable_description">字符串 "ok"（当 result_code 为 -1 时），否则为 "cancel"</div>
+
+    <div class="variable_name"><code>data_string</code>（仅当启用了<em>发送有序广播</em>时）</div>
+    <div class="variable_description">接收到的意图的数据（字符串形式）</div>
+
+    <div class="variable_name"><code>abort_broadcast</code>（仅当启用了<em>发送有序广播</em>时）</div>
+    <div class="variable_description">布尔标志，指示广播接收器是否中止了广播。</div>
+</div>
+
+</body>
+
+</html>

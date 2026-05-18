@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设置 LineageOS 系统设置</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>设置 LineageOS 系统设置</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>设置 LineageOS 系统设置</b> 将指定值存储到系统的设置数据库中。<br/>
+        <br/>
+        <span class="warning">警告：</span> 将系统设置修改为不支持的值可能会损害您的设备或导致系统崩溃。使用风险自负！<br/>
+        <br/>
+        <span class="note">注意：</span> 某些设置的更改不会立即被系统采纳，而是需要额外的事件发生，例如关闭并重新打开屏幕。某些设置需要通过特殊的 API 更改，在设置数据库中更改此类设置的值会被系统忽略。<br/>
+        <br/>
+        <span class="note">注意：</span> 在某些 Android 版本上，可以使用 <code>adb</code> 授予修改 <b>安全</b> 和 <b>全局</b> 类别设置的权限而无需 root：
+            <ol>
+                <li>在计算机上安装 <code>adb</code>（<a href="https://www.google.com/search?q=install+adb+for+android">搜索互联网了解如何安装 adb</a>）</li>
+                <li>在 Android 设备的 <b>系统设置</b> -&gt; <b>开发者选项</b> 中启用 <b>USB 调试</b></li>
+                <li>将 Android 设备连接到计算机</li>
+                <li>在终端中执行以下命令：<code>adb shell pm grant ch.gridvision.ppam.androidautomagic lineageos.permission.WRITE_SECURE_SETTINGS</code></li>
+            </ol>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>更改 Automagic 中常规操作不可用的 ROM 特定设置的值。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">类别</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>系统</b>：用于常规设置</li>
+            <li><b>安全</b>：用于通常无法修改的设置</li>
+            <li><b>全局</b>：用于适用于设备所有用户的全局设置</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">名称</div>
+    <div class="setting_description">要修改的设置名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">值</div>
+    <div class="setting_description">要存储到系统设置数据库中的值。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+</body>
+
+</html>

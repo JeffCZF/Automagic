@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设置数据漫游状态</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>设置数据漫游状态</h1>
+
+<div class="summary">
+    <p>
+       动作 <b>设置数据漫游状态</b> 打开或关闭全局数据漫游设置。<br/>
+       <br/>
+       <span class="warning">警告：</span> 此功能需要 root 权限，不受 Android 官方支持，可能无法在所有设备上正常工作。
+        <br/>
+        <span class="note">注意：</span> 在某些 Android 版本上，可以使用 <code>adb</code> 授予执行动作的权限而无需 root：
+        <ol>
+            <li>在计算机上安装 <code>adb</code>（<a href="https://www.google.com/search?q=install+adb+for+android">搜索互联网了解如何安装 adb</a>）</li>
+            <li>在 Android 设备的 <b>系统设置</b> -&gt; <b>开发者选项</b> 中启用 <b>USB 调试</b></li>
+            <li>将 Android 设备连接到计算机</li>
+            <li>在终端中执行以下命令：<code>adb shell pm grant ch.gridvision.ppam.androidautomagic android.permission.WRITE_SECURE_SETTINGS</code></li>
+        </ol>
+    </p>
+
+    示例：
+    <ul>
+        <li>每天早晨在国外激活数据漫游 10 分钟以同步邮件，然后在一天中的其余时间再次停用数据漫游。</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">数据漫游</div>
+    <div class="setting_description">是打开还是关闭数据漫游。</div>
+</div>
+
+</body>
+
+</html>

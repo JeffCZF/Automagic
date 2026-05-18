@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>声音</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>声音</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>声音</b> 播放选定的声音。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当 <b>Gleeo Time Tracker</b> 正在记录时，每 5 分钟发出哔声。</li>
+        <li>收到短信时播放额外的提醒。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">声音类型</div>
+    <div class="setting_description">
+        要选择的声音类型。<br/>
+        <br/>
+        可能的设置：
+        <ul>
+            <li><b>内置声音</b>：选择内置的通知、闹钟或铃声</li>
+            <li><b>文件</b>：选择要播放的任意音频文件</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">声音</div>
+    <div class="setting_description">所选铃声、通知或闹钟声音的名称。</div>
+
+    <div class="setting_title">文件</div>
+    <div class="setting_description">要播放的音频文件的路径或 URL。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">音频流类型</div>
+    <div class="setting_description">用于播放声音的流。</div>
+
+    <div class="setting_title">起始位置</div>
+    <div class="setting_description">用于开始播放的起始位置（以毫秒为单位）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">显示状态栏通知以停止声音</div>
+    <div class="setting_description">当声音正在播放时显示状态栏通知，选择该通知将停止声音。</div>
+
+    <div class="setting_title">等待声音完成</div>
+    <div class="setting_description">使动作等待声音完成，然后再继续执行流程中的下一个元素。</div>
+
+    <div class="setting_title">请求音频焦点</div>
+    <div class="setting_description">
+        定义 Automagic 是否以及如何请求音频焦点。这会导致其他应用（如音乐播放器）暂停播放或暂时降低音量。<br/>
+        <br/>
+        可能的设置：
+        <ul>
+            <li><b>瞬时</b>：Automagic 请求临时音频焦点，其他应用通常会暂时暂停播放（取决于应用）</li>
+            <li><b>瞬时可降低</b>：Automagic 请求临时音频焦点，其他应用要么暂时暂停播放，要么暂时降低音量（取决于应用）</li>
+            <li><b>正常</b>：Automagic 请求正常的音频焦点，其他应用通常会暂停/停止播放（取决于应用）</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>

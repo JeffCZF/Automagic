@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设置锁屏图案状态</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>设置锁屏图案状态</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>设置锁屏图案状态</b> 启用或禁用系统设置，决定是否使用锁屏图案作为屏幕锁。<br/>
+        <br/>
+        <span class="warning">警告：</span> 此功能需要 root 权限，不受 Android 官方支持，可能无法在所有设备上正常工作。
+    </p>
+
+    示例：
+    <ul>
+        <li>在家停用图案锁</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">锁屏图案</div>
+    <div class="setting_description">是启用还是禁用锁屏图案。</div>
+
+    <div class="setting_title">方法</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>安全设置</b>：更改 Android 常规设置数据库中的设置（Android 4.2 及更低版本）</li>
+            <li><b>数据库</b>：直接访问包含锁屏设置的数据库（Android 4.3+）</li>
+            <li><b>服务</b>：请求系统服务更改设置（Android 4.3+）</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>查询内容提供者</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>查询内容提供者</h1>
+
+<div class="summary">
+    <p>
+        <b>查询内容提供者</b>动作允许从其他应用的内容提供者加载数据。内容提供者将数据以一张或多张表的形式呈现给 Automagic，类似于关系数据库中的表。<br/>
+        <br/>
+        <span class="warning">警告：</span> 此功能允许访问 Android 未正式提供的数据，可能并非在所有设备型号和 Android 版本上都可用。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">内容 URI</div>
+    <div class="setting_description">内容提供者数据的 URI。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">投影</div>
+    <div class="setting_description">要返回的表列表。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">选择条件</div>
+    <div class="setting_description">声明要返回哪些行的过滤器，格式类似于 SQL WHERE 子句（不包括 WHERE 本身）。选择条件可以包含 ? 字符，这些字符将被内容提供者的 <em>选择参数</em> 中提供的值替换。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">选择参数</div>
+    <div class="setting_description">用于替换选择条件中每个 ? 字符的值。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">排序顺序</div>
+    <div class="setting_description">如何对行进行排序，格式类似于 SQL ORDER BY 子句（不包括 ORDER BY 本身）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">结果类型</div>
+    <div class="setting_description">
+        定义 Automagic 应如何向流程提供数据：
+        <ul>
+            <li><code>表格</code>：向流程提供一个行列表，每行包含一个值列表。</li>
+            <li><code>表格（转置）</code>：与表格相同但转置。为每一列提供一个包含该列所有值的列表。</li>
+            <li><code>列表</code>：将返回的表格转换为扁平列表。</li>
+            <li><code>单个值</code>：仅向流程提供返回数据的第一个值。</li>
+            <li><code>文本</code>：将返回的表格转换为 CSV 文本。</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">包含标题行</div>
+    <div class="setting_description">返回的结果是否应包含带有列标题的行。</div>
+
+    <div class="setting_title">变量</div>
+    <div class="setting_description">用于存储结果的变量名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>result</code></div>
+    <div class="variable_description">根据 <em>结果类型</em> 定义的结果数据</div>
+</div>
+
+</body>
+
+</html>
