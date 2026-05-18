@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>K-9 邮件已收到</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>K-9 邮件已收到</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>K-9 邮件已收到</b> 在 <a href="https://play.google.com/store/apps/details?id=com.fsck.k9">K-9 Mail</a> 收到邮件时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当收到老板的邮件时播放提醒声音。</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">K9 账户列表</div>
+    <div class="setting_description">要考虑的账户的逗号分隔列表（不区分大小写）。支持 glob 模式（*, ?）。</div>
+
+    <div class="setting_title">发件人列表</div>
+    <div class="setting_description">要考虑的发件人邮件地址的逗号分隔列表（不区分大小写）。支持 glob 模式（*, ?）。</div>
+
+    <div class="setting_title">主题列表</div>
+    <div class="setting_description">要考虑的主题的逗号分隔列表（不区分大小写）。支持 glob 模式（*, ?）。</div>
+
+    <div class="setting_title">收件人列表</div>
+    <div class="setting_description">要考虑的收件人邮件地址的逗号分隔列表（不区分大小写）。支持 glob 模式（*, ?）。</div>
+
+    <div class="setting_title">抄送列表</div>
+    <div class="setting_description">要考虑的抄送邮件地址的逗号分隔列表（不区分大小写）。支持 glob 模式（*, ?）。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>k9_account</code></div>
+    <div class="variable_description">邮件的 K-9 Mail 账户</div>
+
+    <div class="variable_name"><code>k9_folder</code></div>
+    <div class="variable_description">邮件的 K-9 文件夹</div>
+
+    <div class="variable_name"><code>k9_to</code></div>
+    <div class="variable_description">邮件的收件人</div>
+
+    <div class="variable_name"><code>k9_from</code></div>
+    <div class="variable_description">邮件的发件人</div>
+
+    <div class="variable_name"><code>k9_from_self</code></div>
+    <div class="variable_description">邮件是否由您自己发送（仅在较新版本的 K-9 上设置）</div>
+
+    <div class="variable_name"><code>k9_subject</code></div>
+    <div class="variable_description">邮件的主题</div>
+
+    <div class="variable_name"><code>k9_sent_date</code></div>
+    <div class="variable_description">邮件发送的日期</div>
+
+    <div class="variable_name"><code>k9_cc</code></div>
+    <div class="variable_description">邮件的抄送</div>
+
+    <div class="variable_name"><code>k9_bcc</code></div>
+    <div class="variable_description">邮件的密送</div>
+</div>
+
+</body>
+
+</html>

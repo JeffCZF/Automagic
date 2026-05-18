@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>日历事件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>日历事件</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>日历事件</b> 在日历上的事件开始或结束时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当会议开始时将铃声静音。</li>
+        <li>在会议开始前 5 分钟振动。</li>
+        <li>当会议开始时在 <em>Gleeo Time Tracker</em> 中开始记录任务。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">在事件开始时触发</div>
+    <div class="setting_description">触发器是否应在事件开始时执行。持续时间指定触发器应在事件开始之前还是之后的某一时间量执行。</div>
+
+    <div class="setting_title">在事件结束时触发</div>
+    <div class="setting_description">触发器是否应在事件结束时执行。持续时间指定触发器应在事件结束之前还是之后的某一时间量执行。</div>
+
+    <div class="setting_title">日历</div>
+    <div class="setting_description">应检查事件的日历名称的逗号分隔列表。名称可以包含全局模式字符，如 <code>*</code> 和 <code>?</code>。</div>
+
+    <div class="setting_title">标题</div>
+    <div class="setting_description">要匹配的事件标题的逗号分隔列表。标题可以包含全局模式字符，如 <code>*</code> 和 <code>?</code>。<br/>
+        <br/>
+        示例：
+        <ul>
+            <li><code>Plan*</code> 匹配标题如 <code>Planning</code>、<code>Plan B</code> 等。</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">描述</div>
+    <div class="setting_description">要匹配的事件描述的逗号分隔列表。描述可以包含全局模式字符，如 <code>*</code> 和 <code>?</code>。</div>
+
+    <div class="setting_title">位置</div>
+    <div class="setting_description">要匹配的事件位置的逗号分隔列表。位置可以包含全局模式字符，如 <code>*</code> 和 <code>?</code>。</div>
+
+    <div class="setting_title">事件类型</div>
+    <div class="setting_description">触发器是考虑全天事件还是常规事件（非全天），或者两者都考虑。</div>
+
+    <div class="setting_title">事件可用性</div>
+    <div class="setting_description">触发器是考虑标记为空闲、忙碌还是暂定的事件。</div>
+
+    <div class="setting_title">在设备空闲/打盹中允许 (Android 6+)</div>
+    <div class="setting_description">定义是否允许此触发器将设备从空闲/打盹模式唤醒。（参见 <a href="device_idle_mode.html">设备空闲/打盹模式</a>）</div>
+
+    <div class="setting_title">像闹钟一样 (Android 5+)</div>
+    <div class="setting_description">
+        定义此触发器是否应像闹钟一样处理，闹钟通常显示在状态栏中。<br/>
+        此选项确保 Android 在指定时间精确调用触发器，并防止系统延迟事件。
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>event_calendar</code></div>
+    <div class="variable_description">事件的日历名称</div>
+
+    <div class="variable_name"><code>event_title</code></div>
+    <div class="variable_description">事件的标题</div>
+
+    <div class="variable_name"><code>event_description</code></div>
+    <div class="variable_description">事件的描述</div>
+
+    <div class="variable_name"><code>event_location</code></div>
+    <div class="variable_description">事件的位置</div>
+
+    <div class="variable_name"><code>event_start</code></div>
+    <div class="variable_description">事件的开始时间</div>
+
+    <div class="variable_name"><code>event_end</code></div>
+    <div class="variable_description">事件的结束时间</div>
+
+    <div class="variable_name"><code>event_all_day</code></div>
+    <div class="variable_description">指示事件是否为全天事件的布尔值</div>
+
+    <div class="variable_name"><code>event_availability</code></div>
+    <div class="variable_description">FREE、BUSY 或 TENTATIVE，取决于事件的可用性</div>
+
+    <div class="variable_name"><code>event_id</code></div>
+    <div class="variable_description">事件的 ID</div>
+</div>
+
+</body>
+
+</html>

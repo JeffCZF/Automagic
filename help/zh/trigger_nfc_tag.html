@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>NFC 标签</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>NFC 标签</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>NFC 标签</b> 在检测到 NFC 标签时执行流程。<br/>
+        您可以将一个特殊的 ID 写入 NFC 标签，用于识别标签并执行流程（当您有可写 NFC 标签时，这是推荐使用的选项），或者您也可以读取现有 NFC 标签的 ID。这对于只读 NFC 标签（如信用卡中常见的或某些设备制造商的只读 NFC 标签（Live Tags、Smart Tags 等））特别有用。另请查看本页设置部分中的<code>提示</code>。<br/>
+        <br/>
+        <span class="note">注意：</span>并非所有 NFC 标签都受支持。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当扫描卧室中的 NFC 标签时打开飞行模式。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">标签类型</div>
+    <div class="setting_description">是使用在 Automagic 中定义的特定 ID 写入 NFC 标签（推荐），还是使用现有的 NFC 标签（不适用于所有标签，当安装了其他也处理 NFC 标签的应用时，某些设备会显示应用选择列表）。</div>
+
+    <div class="setting_title">标签 ID</div>
+    <div class="setting_description">标签 ID 的逗号分隔列表。可以使用 glob 模式匹配多个标签 ID。</div>
+
+    <div class="setting_title">将 ID 写入 NFC 标签</div>
+    <div class="setting_description">
+        打开一个屏幕，将指定的 ID 写入 NFC 标签。NFC 标签必须可写且必须能够包含 NDEF 格式的数据。<br/>
+        可以将多个 ID 写入标签，但标签 ID 必须仅包含常规字符、下划线和数字。<br/>
+        <br/>
+        写入器屏幕上的选项 <b>写入备用标签信息</b> 允许定义是否应将不同类型的信息写入 NFC 标签。
+        当扫描常规 Automagic NFC 标签时，某些设备会显示警告对话框，因为标签包含 Web URL。
+        写入备用标签使用不同的 URL，以避免出现此警告消息。<br/>
+        <br/>
+        Android 4+：写入器屏幕上的选项 <b>包含 Android 应用记录</b> 允许定义是否应将额外的 AAR（Android 应用记录）写入标签。
+        AAR 在 NFC 标签上使用略多的空间，但可确保标签优先由 Automagic 处理，而不是由其他应用程序处理。
+    </div>
+
+    <div class="setting_title">从 NFC 标签读取 ID</div>
+    <div class="setting_description">
+        打开一个屏幕，读取现有 NFC 标签的 ID。可以使用 glob 模式匹配多个标签 ID。<br/>
+        <br/>
+        <span class="tip">提示：</span>某些设备包含可以处理通用 NFC 标签的应用程序，并在扫描 NFC 标签时显示在选择列表中。当选择对话框困扰您时，请卸载或停用未使用的应用程序。您可以在 Android 4+ 设备的系统设置中停用应用程序（系统设置 -> 应用程序 -> 全部，选择应用程序 -> 停用）。<br/>
+        例如，您可以在 Galaxy Nexus 上禁用 <strong>Tags</strong> 应用，以防止显示选择列表。
+    </div>
+
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>nfc_tag_ids</code></div>
+    <div class="variable_description">扫描到的标签 ID，或者当标签包含多个 ID 时，为逗号分隔的列表</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>正则表达式</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <style type="text/css">
+        div#center {
+            position: absolute;
+            left: 50%;
+            width: 1000px;
+            margin-left: -490px;
+            background: #2D2D2D;
+        }
+        .datatable td { padding-right: 20px; }
+        .pattern_column { white-space: nowrap; vertical-align: top;}
+        code {white-space: pre;}
+        code.example {white-space: pre;}
+    </style>
+</head>
+<body>
+<h3>正则表达式</h3>
+
+<p>
+正则表达式可用于测试文本是否包含特定文本，或更一般地检查给定文本是否匹配定义的模式。
+</p>
+基本模式示例：<br/>
+ <table>
+<tr> <td class="pattern_column"><code>Test.*</code></td> <td>此模式匹配以 Test 开头且后跟任意数量字符的文本，例如 <b>Test</b>、<b>Testabc</b>，但不匹配 <b>abcTest</b>、<b>123Test123</b></td></tr>
+<tr> <td class="pattern_column"><code>Test.+</code></td> <td>此模式匹配以 Test 开头且后跟任意数量字符，但必须在 <code>Test</code> 之后至少包含一个字符。例如 <b>TestX</b>，但不匹配 <b>Test</b> </td> </tr>
+<tr> <td class="pattern_column"><code>[a-c]{3}</code></td> <td>此模式匹配恰好由三个 a 到 c 字符组成的文本，例如：<b>aaa</b>, <b>abc</b>, <b>cba</b>，但不匹配 <b>xyz</b>。</td> </tr>
+<tr> <td class="pattern_column"><code>\d{3}.*</code></td> <td>此模式匹配以三个数字开头的文本，例如 <b>123abc</b>, <b>123456</b>，但不匹配 <b>12abc</b> 或 <b>abc123</b>。</td> </tr>
+</table>
+
+ <p>
+ Automagic 在动作 <em>脚本</em> 或条件 <em>表达式</em> 中通过以下函数支持正则表达式：
+     <ul class="functions">
+     <li><code>Boolean matches(String s, String pattern)</code><br/>返回字符串 <code>s</code> 是否匹配正则表达式 <code>pattern</code>。</li>
+     <li><code>Boolean matches(String s, String pattern, List groups)</code><br/>返回字符串 <code>s</code> 是否匹配正则表达式 <code>pattern</code>，并将捕获的组填充到现有列表 <code>groups</code> 中。</li>
+     <li><code>List findAll(String s, String pattern)</code><br/>返回 <code>s</code> 中所有匹配正则表达式 <code>pattern</code> 的值的列表。</li>
+     <li><code>List findAll(String s, String pattern, boolean returnGroups)</code><br/>返回 <code>s</code> 中所有匹配正则表达式 <code>pattern</code> 的值的列表。可选地，每个项目由匹配组的列表组成。（参见 <a href="regex_patterns.html">正则表达式</a>）</li>
+     <li><code>String replaceAll(String s, String regex, String replacement)</code><br/>通过在字符串 <code>s</code> 中将所有匹配 <code>regex</code> 的子字符串替换为 <code>replacement</code> 来返回修改后的字符串。</li>
+     <li><code>List split(String s, String pattern)</code><br/>使用正则表达式 <code>pattern</code> 作为分隔符，将字符串 <code>s</code> 拆分为字符串列表。</li>
+     </ul>
+ </p>
+ <br/>
+
+<h3>函数 <code>Boolean matches(String s, String pattern)</code> 的示例</h3>
+<ul class="functions">
+    <li>
+        测试文本是否包含单词 <b>test</b>：<br/>
+        <code class="example">result = matches("this is a test", ".*test.*")</code><br/>
+    </li>
+    <li>
+        测试文本开头是否包含至少三个数字：<br/>
+        <code class="example">result = matches("1234567", "\\d{3}.*")</code><br/>
+        正则表达式本身只需要一个反斜杠，但在 Automagic 的脚本字符串中，一个反斜杠必须再用一个反斜杠转义。
+    </li>
+</ul>
+
+
+<h3>函数 <code>Boolean matches(String s, String pattern, List groups)</code> 的示例</h3>
+<ul class="functions">
+    <li>
+        测试文本是否包含数字，并将第一个数字存储在列表 <code>groups</code> 中：<br/>
+        <code class="example">groups = newList();
+result = matches("contact 123456 called", "\\D*(\\d*).*");
+        </code><br/>
+        列表 <code>groups</code> 将包含两个元素 "contact 123456 called" 和 "123456"。
+    </li>
+</ul>
+
+
+<h3>函数 <code>List findAll(String s, String pattern)</code> 的示例</h3>
+<ul class="functions">
+    <li>
+        返回 <code>s</code> 中所有匹配正则表达式 <code>pattern</code> 的值的列表：<br/>
+        <code class="example">result = findAll("contact 123456 calls at 8 o'clock", "\\d*");
+        </code><br/>
+        列表 <code>groups</code> 将包含两个元素 "123456" 和 "8"。
+    </li>
+</ul>
+
+
+<h3>函数 <code>String replaceAll(String s, String regex, String replacement)</code> 的示例</h3>
+<ul class="functions">
+    <li>
+        从文本中删除所有数字：<br/>
+        <code class="example">result = replaceAll("contact 123456 called", "\\d", "");</code><br/>
+        <code>result</code> 将包含 "contact  called"。
+    </li>
+    <li>
+        删除连续的空白字符，并将其替换为一个空格字符：<br/>
+        <code class="example">result = replaceAll("a  b    c", "\\s+", " ");</code><br/>
+        <code>result</code> 将包含 "a b c"。
+    </li>
+    <li>
+        用空格分隔文本中的字符：<br/>
+        <code class="example">result = replaceAll("1234567", "(.)", "$1 ");</code><br/>
+        <code>result</code> 将包含 "1 2 3 4 5 6 7 "。<br/>
+        $1 指代由括号括起来的第一个捕获组中匹配的文本。
+    </li>
+    <li>
+        在字符之间插入不同的分隔符：<br/>
+        <code class="example">result = replaceAll("123456", "(.)(.)", "$1/$2-");</code><br/>
+        <code>result</code> 将包含 "1/2-3/4-5/6-"。<br/>
+        $1 指代由括号括起来的第一个捕获组中匹配的文本，$2 指代由括号括起来的第二个捕获组中匹配的文本。
+    </li>
+</ul>
+
+
+<h3>函数 <code>List split(String s, String pattern)</code> 的示例</h3>
+<ul class="functions">
+    <li>
+        在每个冒号处拆分文本以创建标记列表：<br/>
+        <code class="example">result = split("this:is:a:test", ":");</code><br/>
+        列表 <code>result</code> 将包含四个元素 "this"、"is"、"a" 和 "test"。
+    </li>
+    <li>
+        将文本拆分为单词列表：<br/>
+        <code class="example">result = split("this is a:test", "\\W");</code><br/>
+        列表 <code>result</code> 将包含四个元素 "this"、"is"、"a" 和 "test"。
+    </li>
+</ul>
+
+     <br/>
+<h3>Android 正则表达式</h3>
+ <p>Automagic 使用 Android 内置的类来支持正则表达式。<a href="http://developer.android.com/reference/java/util/regex/Pattern.html">Android API 在线文档</a>
+</p>
+
+     <p>
+以下文档是正则表达式语法最重要功能的摘录。
+     </p>
+     <br/>
+ <h3>转义序列</h3>
+ <p><table>
+ <tr> <td> \ </td> <td>引用下一个元字符（因此 <code>\.</code> 匹配字面量 <code>.</code>）。</td> </tr>
+ <tr> <td> \Q </td> <td>引用所有后续元字符，直到 <code>\E</code>。</td> </tr>
+ <tr> <td> \E </td> <td>停止引用元字符（由 <code>\Q</code> 开始）。</td> </tr>
+ <tr> <td> \\ </td> <td>一个字面量反斜杠。</td> </tr>
+ <tr> <td> &#x005c;u<i>hhhh</i> </td> <td>Unicode 字符 U+hhhh（十六进制）。</td> </tr>
+ <tr> <td> &#x005c;x<i>hh</i> </td> <td>Unicode 字符 U+00hh（十六进制）。</td> </tr>
+ <tr> <td> \c<i>x</i> </td> <td>ASCII 控制字符 ^x（因此 <code>\cH</code> 将是 ^H，U+0008）。</td> </tr>
+ <tr> <td> \a </td> <td>ASCII 响铃字符 (U+0007)。</td> </tr>
+ <tr> <td> \e </td> <td>ASCII ESC 字符 (U+001b)。</td> </tr>
+ <tr> <td> \f </td> <td>ASCII 换页字符 (U+000c)。</td> </tr>
+ <tr> <td> \n </td> <td>ASCII 换行字符 (U+000a)。</td> </tr>
+ <tr> <td> \r </td> <td>ASCII 回车字符 (U+000d)。</td> </tr>
+ <tr> <td> \t </td> <td>ASCII 制表字符 (U+0009)。</td> </tr>
+ </table>
+
+ <h3>字符类</h3>
+ <p>可以使用集合操作构造任意字符类：
+ <table>
+ <tr> <td> [abc] </td> <td><code>a</code>、<code>b</code> 或 <code>c</code> 中的任意一个。（枚举。）</td> </tr>
+ <tr> <td> [a-c] </td> <td><code>a</code>、<code>b</code> 或 <code>c</code> 中的任意一个。（范围。）</td> </tr>
+ <tr> <td> [^abc] </td> <td>除了 <code>a</code>、<code>b</code> 或 <code>c</code> 之外的任意字符。（取反。）</td> </tr>
+ <tr> <td> [[a-f][0-9]] </td> <td>任意位于任一范围内的字符。（并集。）</td> </tr>
+ <tr> <td> [[a-z]&&[jkl]] </td> <td>任意同时位于两个范围内的字符。（交集。）</td> </tr>
+ </table>
+ <p>大多数情况下，内置字符类更有用：
+ <table>
+ <tr> <td> \d </td> <td>任意数字字符（请参阅下面的注释）。</td> </tr>
+ <tr> <td> \D </td> <td>任意非数字字符（请参阅下面的注释）。</td> </tr>
+ <tr> <td> \s </td> <td>任意空白字符（请参阅下面的注释）。</td> </tr>
+ <tr> <td> \S </td> <td>任意非空白字符（请参阅下面的注释）。</td> </tr>
+ <tr> <td> \w </td> <td>任意单词字符（请参阅下面的注释）。</td> </tr>
+ <tr> <td> \W </td> <td>任意非单词字符（请参阅下面的注释）。</td> </tr>
+ <tr> <td> \p{<i>NAME</i>} </td> <td> 位于给定 <i>NAME</i> 类中的任意字符。 </td> </tr>
+ <tr> <td> \P{<i>NAME</i>} </td> <td> <i>不</i> 位于命名类中的任意字符。 </td> </tr>
+ </table>
+ <p>请注意，这些内置类不仅仅涵盖传统的 ASCII 范围。例如，<code>\w</code> 等同于字符类 <code>[\p{Ll}\p{Lu}\p{Lt}\p{Lo}\p{Nd}]</code>。
+ 有关更多详细信息，请参阅 <a href="http://www.unicode.org/reports/tr18/#Compatibility_Properties">Unicode TR-18</a>，
+ 并请记住，每个类中的字符集可能因 Unicode 版本而异。
+ 如果您实际上只想匹配 ASCII 字符，请指定您想要的显式字符；
+ 如果您指的是 0-9，请使用 <code>[0-9]</code> 而不是 <code>\d</code>，后者还会包括古穆基数字等。
+
+ <h3>量词</h3>
+ <p>量词匹配前一个正则表达式的若干实例。
+ <table>
+ <tr> <td> * </td> <td>零个或多个。</td> </tr>
+ <tr> <td> ? </td> <td>零个或一个。</td> </tr>
+ <tr> <td> + </td> <td>一个或多个。</td> </tr>
+ <tr> <td> {<i>n</i>} </td> <td>恰好 <i>n</i> 个。</td> </tr>
+ <tr> <td> {<i>n,</i>} </td> <td>至少 <i>n</i> 个。</td> </tr>
+ <tr> <td> {<i>n</i>,<i>m</i>} </td> <td>至少 <i>n</i> 个，但不超过 <i>m</i> 个。</td> </tr>
+ </table>
+ <p>默认情况下，量词是"贪婪的"，意味着它们会匹配尽可能长的输入序列。也有非贪婪量词，它们匹配尽可能短的输入序列。它们与贪婪量词相同，但尾部带有一个 <code>?</code>：
+ <table>
+ <tr> <td> *? </td> <td>零个或多个（非贪婪）。</td> </tr>
+ <tr> <td> ?? </td> <td>零个或一个（非贪婪）。</td> </tr>
+ <tr> <td> +? </td> <td>一个或多个（非贪婪）。</td> </tr>
+ <tr> <td> {<i>n</i>}? </td> <td>恰好 <i>n</i> 个（非贪婪）。</td> </tr>
+ <tr> <td> {<i>n,</i>}? </td> <td>至少 <i>n</i> 个（非贪婪）。</td> </tr>
+ <tr> <td> {<i>n</i>,<i>m</i>}? </td> <td>至少 <i>n</i> 个，但不超过 <i>m</i> 个（非贪婪）。</td> </tr>
+ </table>
+ <p>默认情况下，量词允许回溯。也有防止回溯的占有量词。它们与贪婪量词相同，但尾部带有一个 <code>+</code>：
+ <table>
+ <tr> <td> *+ </td> <td>零个或多个（占有）。</td> </tr>
+ <tr> <td> ?+ </td> <td>零个或一个（占有）。</td> </tr>
+ <tr> <td> ++ </td> <td>一个或多个（占有）。</td> </tr>
+ <tr> <td> {<i>n</i>}+ </td> <td>恰好 <i>n</i> 个（占有）。</td> </tr>
+ <tr> <td> {<i>n,</i>}+ </td> <td>至少 <i>n</i> 个（占有）。</td> </tr>
+ <tr> <td> {<i>n</i>,<i>m</i>}+ </td> <td>至少 <i>n</i> 个，但不超过 <i>m</i> 个（占有）。</td> </tr>
+ </table>
+
+ <h3>零宽断言</h3>
+ <p><table>
+ <tr> <td> ^ </td> <td>在行首。</td> </tr>
+ <tr> <td> $ </td> <td>在行尾。</td> </tr>
+ <tr> <td> \A </td> <td>在输入开头。</td> </tr>
+ <tr> <td> \b </td> <td>在单词边界。</td> </tr>
+ <tr> <td> \B </td> <td>在非单词边界。</td> </tr>
+ <tr> <td> \G </td> <td>在上一个匹配的末尾。</td> </tr>
+ <tr> <td> \z </td> <td>在输入末尾。</td> </tr>
+ <tr> <td> \Z </td> <td>在输入末尾，或在末尾换行符之前。</td> </tr>
+ </table>
+
+ <h3>环视断言</h3>
+ <p>环视断言断言子模式在当前 position 之后（正向预查）或之前（反向预查）匹配（正）或不匹配（负），而不将匹配的文本包含在包含的匹配中。反向预查模式的可能匹配的最大长度不得无限。
+ <p><table>
+ <tr> <td> (?=<i>a</i>) </td> <td>零宽正向预查。</td> </tr>
+ <tr> <td> (?!<i>a</i>) </td> <td>零宽负向预查。</td> </tr>
+ <tr> <td> (?&lt;=<i>a</i>) </td> <td>零宽正向后顾。</td> </tr>
+ <tr> <td> (?&lt;!<i>a</i>) </td> <td>零宽负向后顾。</td> </tr>
+ </table>
+
+ <h3>组</h3>
+
+ <p><table>
+ <tr> <td> (<i>a</i>) </td> <td>一个捕获组。</td> </tr>
+ <tr> <td> (?:<i>a</i>) </td> <td>一个非捕获组。</td> </tr>
+ <tr> <td> (?&gt;<i>a</i>) </td> <td>一个独立的非捕获组。（子组的第一个匹配是唯一尝试的匹配。）</td> </tr>
+ <tr> <td> \<i>n</i> </td> <td>捕获组 <i>n</i> 已经匹配的文本。</td> </tr>
+ </table>
+ <p>有关如何编号和访问捕获组的详细信息，请参阅 <code><a href="http://developer.android.com/reference/java/util/regex/Matcher.html#group()">group()</a></code>。
+
+ <h3>运算符</h3>
+ <p><table>
+ <tr> <td> <i>ab</i> </td> <td>表达式 <i>a</i> 后跟表达式 <i>b</i>。</td> </tr>
+ <tr> <td> <i>a</i>|<i>b</i> </td> <td>表达式 <i>a</i> 或表达式 <i>b</i>。</td> </tr>
+ </table>
+
+ <h3>标志</h3>
+ <p><table>
+ <tr> <td> (?dimsux-dimsux:<i>a</i>) </td> <td>在给定的标志启用/禁用状态下计算表达式 <i>a</i>。</td> </tr>
+ <tr> <td> (?dimsux-dimsux) </td> <td>在给定的标志启用/禁用状态下计算模式的其余部分。</td> </tr>
+ </table>
+
+ <p>标志有：
+ <table>
+ <tr><td><code>i</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#CASE_INSENSITIVE">CASE_INSENSITIVE</a></code></td> <td>不区分大小写匹配</td></tr>
+ <tr><td><code>d</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#UNIX_LINES">UNIX_LINES</a></code></td>       <td>仅接受 <code>'\n'</code> 作为行终止符</td></tr>
+ <tr><td><code>m</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#MULTILINE">MULTILINE</a></code></td>        <td>允许 <code>^</code> 和 <code>$</code> 匹配任意行的开头/结尾</td></tr>
+ <tr><td><code>s</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#DOTALL">DOTALL</a></code></td>           <td>允许 <code>.</code> 匹配 <code>'\n'</code>（"s" 代表 "单行"）</td></tr>
+ <tr><td><code>u</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#UNICODE_CASE">UNICODE_CASE</a></code></td>     <td>启用 Unicode 大小写折叠</td></tr>
+ <tr><td><code>x</code></td> <td><code><a href="http://developer.android.com/reference/java/util/regex/Pattern.html#COMMENTS">COMMENTS</a></code></td>         <td>允许空白和注释</td></tr>
+ </table>
+
+</body>
+
+</html>

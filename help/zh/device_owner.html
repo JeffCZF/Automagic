@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设备所有者</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>设备所有者</h1>
+
+<div class="summary">
+
+    <p>
+        将应用设为设备管理员作为设备所有者，可以为应用启用一些其他方式无法获得的功能。
+    </p>
+    <p>
+        将 Automagic 设置为设备所有者的步骤相当复杂，并且可能出错，因此此功能完全不提供支持，您需自行承担风险。
+    </p>
+    <ol>
+        <li>在设备上启用开发者选项 -> USB 调试</li>
+        <li>将屏幕锁定设置为 <b>无</b></li>
+        <li>安装 Google Play 上提供的 Automagic</li>
+        <li>从设备中移除所有 Google 账号</li>
+        <li>执行 <code>adb shell dpm set-device-owner ch.gridvision.ppam.androidautomagic/.AutomagicDeviceAdminReceiver</code></li>
+        <li>添加您的 Google 账号</li>
+    </ol>
+</div>
+
+</body>
+
+</html>

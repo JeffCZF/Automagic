@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>应用包事件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>应用包事件</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>应用包事件</b> 在应用/包被安装、更新或移除时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将应用更新的日期和时间写入日志文件以供参考。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">事件</div>
+    <div class="setting_description">
+        事件类型：
+        <ul>
+            <li><b>已添加</b>：已安装新包</li>
+            <li><b>已更改</b>：包的组件已启用/禁用</li>
+            <li><b>数据已清除</b>：应用的数据已被清除</li>
+            <li><b>已替换</b>：包已更新</li>
+            <li><b>已重启</b>：包已重启，包的所有进程已终止</li>
+            <li><b>已移除</b>：包已被移除或正在更新过程中</li>
+            <li><b>已完全移除</b>：包已被卸载（且数据已删除）（Android 4）</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">要检查的包名列表。支持全局模式。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">包的名称</div>
+
+    <div class="variable_name"><code>app_name</code></div>
+    <div class="variable_description">应用的显示名称（仅在应用仍安装时可用）</div>
+
+    <div class="variable_name"><code>uid</code></div>
+    <div class="variable_description">分配给包的 UID</div>
+
+    <div class="variable_name"><code>replacing</code></div>
+    <div class="variable_description">当包正在更新时为 true（仅针对事件 <em>已添加</em> 和 <em>已移除</em> 设置）</div>
+
+    <div class="variable_name"><code>changed_component_name_list</code></div>
+    <div class="variable_description">已更改组件的列表（仅针对事件 <em>已更改</em> 设置）</div>
+
+    <div class="variable_name"><code>dont_kill_app</code></div>
+    <div class="variable_description">当应用不应被终止时为 true（仅针对事件 <em>已更改</em> 设置）</div>
+
+    <div class="variable_name"><code>data_removed</code></div>
+    <div class="variable_description">当数据也已被移除时为 true（仅针对事件 <em>已移除</em> 设置）</div>
+</div>
+
+</body>
+
+</html>

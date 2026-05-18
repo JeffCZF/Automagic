@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>电池低电量状态</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>电池低电量状态</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>电池低电量状态</b> 在电池电量变低时或在电量低之后又恢复正常时执行。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当电池电量变低时降低显示亮度。</li>
+        <li>当电池电量变低时关闭 WiFi。</li>
+        <li>当电池电量恢复正常时打开 WiFi。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+    <div class="setting_title">电池状态</div>
+    <div class="setting_description">
+        <b>低</b><br/>
+        电池电量变低（确切值可能因不同设备而异）。<br/>
+        <br/>
+        <b>正常</b><br/>
+        电池电量恢复正常（确切值可能因不同设备而异）。<br/>
+        <br/>
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+</div>
+
+</body>
+
+</html>

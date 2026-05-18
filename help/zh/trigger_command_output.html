@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>命令输出</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>命令输出</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>命令输出</b> 在命令打印包含特定文本的行时执行。<br/>
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">命令</div>
+    <div class="setting_description">
+        要执行的命令。该命令传递给 <code>/bin/sh</code> 进行解释，或者当选中 <em>以 root 身份</em> 时传递给 <code>su</code>。
+    </div>
+
+    <div class="setting_title">SE 上下文</div>
+    <div class="setting_description">用于执行命令的 SE 上下文。当使用 Android 5+ 或将 SELinux 设置为强制执行的任何其他设备时，通常需要此设置。需要允许切换 SE 上下文的 <em>su</em>（如 SuperSU v1.97+）。</div>
+
+    <div class="setting_title">工作目录</div>
+    <div class="setting_description">执行命令的路径。</div>
+
+    <div class="setting_title">输出触发条件</div>
+    <div class="setting_description">输出中需要包含的文本才能触发。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>stdout</code></div>
+    <div class="variable_description">写入 stdout 的最后 10 行</div>
+
+    <div class="variable_name"><code>stderr</code></div>
+    <div class="variable_description">写入 stderr 的最后 10 行</div>
+
+    <div class="variable_name"><code>output</code></div>
+    <div class="variable_description">触发行</div>
+
+    <div class="variable_name"><code>output_type</code></div>
+    <div class="variable_description">当触发行写入 stdout 时为字符串 <code>stdout</code>，否则为 stderr</div>
+</div>
+
+</body>
+
+</html>

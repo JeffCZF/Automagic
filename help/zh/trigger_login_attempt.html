@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>登录尝试</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>登录尝试</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>登录尝试</b> 在有人尝试登录设备（即尝试解锁设备）但未成功时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当有人连续三次输入错误的 PIN 码时，使用前置摄像头拍照。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">失败/失败后成功</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>失败：</b>当登录尝试失败时执行触发器</li>
+            <li><b>失败后成功：</b>当登录尝试在之前失败一次或多次后成功时执行触发器</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">何时</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>每次失败尝试时：</b>每次失败尝试执行一次</li>
+            <li><b>在第 N 次失败尝试时：</b>当失败登录尝试次数达到指定次数时，正好执行一次触发器</li>
+        </ul>
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>failed_login_attempt</code></div>
+    <div class="variable_description">失败登录尝试的次数</div>
+</div>
+
+</body>
+
+</html>

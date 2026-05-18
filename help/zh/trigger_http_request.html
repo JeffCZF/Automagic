@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HTTP 请求（实验性）</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>HTTP 请求（实验性）</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>HTTP 请求（实验性）</b> 在收到使用指定路径和端口的 HTTP 请求时执行。<br/>
+        <br/>
+        <span class="note">注意：</span>内置的 Web 服务器既不快，也不应尝试上传大文件。请不要用它来运行网店、企业网站或像 Slashdot 这样的网站。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当请求 URL <code>http://192.168.1.XX:8080/sms?receiver=12345&text=test</code> 时，从 PC 使用手机发送短信。</li>
+        <li>当请求 URL <code>http://192.168.1.XX:8080/files/xyz</code> 时，返回一个包含 SD 卡上文件列表的页面。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">路径</div>
+    <div class="setting_description">
+        此触发器要处理的路径。支持 glob 模式（*, ?）。<br/>
+        示例：
+        <ul>
+            <li><code>/automagic/test</code></li>
+            <li><code>/automagic/files/*</code> 处理所有以 <code>/automagic/files/</code> 开头的路径</li>
+        </ul>
+        当多个触发器匹配请求的路径时，具有最长路径的触发器优先，因为只能写入一个响应。<br/>
+        示例：当存在路径为 <code>/automagic/test</code> 和 <code>/automagic/*</code> 的两个触发器时，第一个触发器优先。
+    </div>
+
+    <div class="setting_title">端口</div>
+    <div class="setting_description">服务器的端口。</div>
+
+    <div class="setting_title">仅绑定到 WiFi 接口</div>
+    <div class="setting_description">是在所有接口上侦听 HTTP 请求，还是仅在 WiFi 接口上侦听。</div>
+
+    <div class="setting_title">保持 WiFi 唤醒</div>
+    <div class="setting_description">是否保持 WiFi 无线电唤醒，否则 WiFi 无线电可能会关闭以节省电池，从而无法再连接到您的设备。</div>
+
+    <div class="setting_title">完成 HTTP 响应</div>
+    <div class="setting_description">是否通过向客户端发送空响应来完成 HTTP 响应。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>remote_host</code></div>
+    <div class="variable_description">远程主机的名称或 IP</div>
+
+    <div class="variable_name"><code>remote_port</code></div>
+    <div class="variable_description">远程主机的端口</div>
+
+    <div class="variable_name"><code>request_path</code></div>
+    <div class="variable_description">请求的解码路径（例如 <code>/automagic/test</code>）</div>
+
+    <div class="variable_name"><code>method</code></div>
+    <div class="variable_description">HTTP 方法（例如 GET, POST, PUT）</div>
+
+    <div class="variable_name"><code>header_*</code></div>
+    <div class="variable_description">
+        所有标头的值。变量名使用前缀 <code>header_</code> 和标头名称构建，将短横线替换为下划线并将名称转换为小写。<br/>
+        示例：
+        <ul>
+            <li>标头 <code>Accept</code> 存储在变量 <code>header_accept</code> 中</li>
+            <li>标头 <code>Accept-Encoding</code> 存储在变量 <code>header_accept_encoding</code> 中</li>
+        </ul>
+        导致无效变量名的标头将被忽略。
+    </div>
+
+    <div class="variable_name"><code>param_*</code></div>
+    <div class="variable_description">
+        所有请求参数的值。变量名使用前缀 <code>param_</code> 和参数名称构建，将名称转换为小写。<br/>
+        示例：
+        <ul>
+            <li>参数 <code>test</code> 存储在变量 <code>param_test</code> 中</li>
+        </ul>
+        导致无效变量名的参数将被忽略。
+    </div>
+
+    <div class="variable_name"><code>file_*</code></div>
+    <div class="variable_description">
+        所有上传文件的路径。变量名使用前缀 <code>file_</code> 和参数名称构建，将名称转换为小写。<br/>
+        示例：
+        <ul>
+            <li>参数 <code>File</code> 存储在变量 <code>file_file</code> 中</li>
+        </ul>
+        导致无效变量名的参数将被忽略。
+    </div>
+
+    <div class="variable_name"><code>http_headers</code></div>
+    <div class="variable_description">包含所有接收到的 HTTP 标头的未修改名称和值的映射</div>
+
+    <div class="variable_name"><code>http_params</code></div>
+    <div class="variable_description">包含所有接收到的 HTTP 参数的未修改名称和值的映射</div>
+
+    <div class="variable_name"><code>http_files</code></div>
+    <div class="variable_description">包含所有未修改的表单字段名称和上传文件路径的映射</div>
+</div>
+
+</body>
+
+</html>

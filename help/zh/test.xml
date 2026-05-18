@@ -1,0 +1,17 @@
+<books>
+    <book>
+        <title>书 1</title>
+        <price>12.50</price>
+        <pages format="A4">745</pages>
+    </book>
+    <book>
+        <title>书 2</title>
+        <price>35.70</price>
+        <pages format="A5">120</pages>
+    </book>
+    <book>
+        <title>书 3</title>
+        <price>17.90</price>
+        <pages format="letter">1230</pages>
+    </book>
+</books>

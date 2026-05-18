@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>文件观察器</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>文件观察器</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>文件观察器</b> 在文件系统上的感兴趣路径被访问或更改时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>在文件被修改后创建其副本。</li>
+        <li>当文件夹 <code>/sdcard/DCIM/Camera/</code> 中创建了新的子文件时，将新图像上传到 Dropbox。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+    <div class="setting_title">要观察的路径</div>
+    <div class="setting_description">要观察的文件或目录的逗号分隔列表。<a href="action_script.html#inline_expressions">支持变量（在触发器激活时替换）。</a></div>
+
+    <div class="setting_title">事件类型</div>
+    <div class="setting_description">
+        要观察的事件类型。
+        <ul>
+            <li><b>文件已访问</b>：从文件中读取了数据</li>
+            <li><b>修改</b>：数据已写入文件</li>
+            <li><b>元数据已更改</b>：元数据（权限、所有者、时间戳）被显式更改</li>
+            <li><b>可写文件已关闭</b>：有人以写入方式打开了文件或目录，然后将其关闭</li>
+            <li><b>不可写文件已关闭</b>：有人以只读方式打开了文件或目录，然后将其关闭</li>
+            <li><b>文件已打开</b>：文件或目录已打开</li>
+            <li><b>文件已移出</b>：文件或子目录已从受监控的目录中移出</li>
+            <li><b>文件已移入</b>：文件或子目录已移至受监控的目录中</li>
+            <li><b>子文件已创建</b>：在受监控的目录下创建了新的文件或子目录</li>
+            <li><b>子文件已删除</b>：从受监控的目录中删除了文件</li>
+            <li><b>删除自身</b>：受监控的文件或目录已被删除；监控实际上停止</li>
+            <li><b>自身移动</b>：受监控的文件或目录已被移动；监控继续</li>
+        </ul>
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>registered_path</code></div>
+    <div class="variable_description">受观察的文件或目录的路径</div>
+
+    <div class="variable_name"><code>event</code></div>
+    <div class="variable_description">以数字表示的事件：
+        <ul>
+            <li><b>文件已访问</b>：1 (0x00000001)</li>
+            <li><b>修改</b>：2 (0x00000002)</li>
+            <li><b>元数据已更改</b>：4 (0x00000004)</li>
+            <li><b>可写文件已关闭</b>：8 (0x00000008)</li>
+            <li><b>不可写文件已关闭</b>：16 (0x00000010)</li>
+            <li><b>文件已打开</b>：32 (0x00000020)</li>
+            <li><b>文件已移出</b>：64 (0x00000040)</li>
+            <li><b>文件已移入</b>：128 (0x00000080)</li>
+            <li><b>子文件已创建</b>：256 (0x00000100)</li>
+            <li><b>子文件已删除</b>：512 (0x00000200)</li>
+            <li><b>删除自身</b>：1024 (0x00000400)</li>
+            <li><b>自身移动</b>：2048 (0x00000800)</li>
+        </ul>
+    </div>
+
+    <div class="variable_name"><code>path</code></div>
+    <div class="variable_description">触发事件的文件或目录的路径，相对于主监控的文件或目录</div>
+</div>
+
+</body>
+
+</html>

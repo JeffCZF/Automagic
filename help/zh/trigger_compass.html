@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>指南针</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>指南针</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>指南针</b> 在设备改变其方向时执行流程。<br/>
+        <br/>
+        <span class="warning">警告：</span>此触发器使用设备硬件传感器，可能会增加电池使用量（取决于设备型号）。某些设备在屏幕关闭时会关闭传感器。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当设备朝向北方时播放哔声。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">类型</div>
+    <div class="setting_description">
+        触发器的类型。<br/>
+        <br/>
+        <ul>
+            <li><b>定期</b>：以定期时间间隔执行流程</li>
+            <li><b>更改时</b>：当方向至少更改了若干度时执行流程。</li>
+            <li><b>相对扇区更改时</b>：记住首次启用此触发器时的设备方向，将方向划分为指定数量的等扇区，并在设备处于不同扇区时执行流程。</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">频率</div>
+    <div class="setting_description">定义流程执行之间的频率。</div>
+
+    <div class="setting_title">容差（度）</div>
+    <div class="setting_description">执行流程所需设备方向的最小变化量。</div>
+
+    <div class="setting_title">在稳定时触发</div>
+    <div class="setting_description">仅在设备在一小段时间内不再改变方向时执行流程。</div>
+
+    <div class="setting_title">扇区数</div>
+    <div class="setting_description">
+        将设备方向划分为等扇区的数量。扇区从 1 开始编号，并以顺时针方向递增。<br/>
+        <br/>
+        示例：<br/>
+        当需要 4 个扇区时，360° 的可能度数被划分为 4 个开口角各为 90° 的扇区。这些扇区是相对于启用触发器时的初始设备方向。
+        <ul>
+            <li>扇区 1：315° 至 45°</li>
+            <li>扇区 2：45° 至 135°</li>
+            <li>扇区 3：135° 至 225°</li>
+            <li>扇区 4：225° 至 315°</li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>azimuth</code></div>
+    <div class="variable_description">方位角（度）</div>
+
+    <div class="variable_name"><code>pitch</code></div>
+    <div class="variable_description">俯仰角（度）</div>
+
+    <div class="variable_name"><code>roll</code></div>
+    <div class="variable_description">横滚角（度）</div>
+
+    <div class="variable_name"><code>azimuth_sector</code>（仅限相对扇区更改时）</div>
+    <div class="variable_description">方位角扇区（1 到扇区数）</div>
+
+    <div class="variable_name"><code>pitch_sector</code>（仅限相对扇区更改时）</div>
+    <div class="variable_description">俯仰角扇区（1 到扇区数）</div>
+
+    <div class="variable_name"><code>roll_sector</code>（仅限相对扇区更改时）</div>
+    <div class="variable_description">横滚角扇区（1 到扇区数）</div>
+</div>
+
+</body>
+
+</html>

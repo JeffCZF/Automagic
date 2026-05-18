@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>WiFi 可用</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>WiFi 可用</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>WiFi 可用</b> 检查当前是否有特定的 WiFi 接入点可用。当 WiFi 刚刚启用且尚无扫描结果时，条件会等待第一个可用的扫描结果。<br/>
+        <br/>
+        <span class="note">注意：</span>从 Android 6 开始，仅当系统的位置服务启用时，扫描结果才会提供给应用。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>检查某个免费接入点是否可用并启用该接入点。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">SSID 列表</div>
+    <div class="setting_description">
+        要接受的 SSID 的逗号分隔列表。当列表中任一接入点可用时，条件为真。可以使用全局模式来匹配多个 SSID。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        条件提供的变量与具有最高信号强度的可用接入点相关。
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>access_points</code></div>
+    <div class="variable_description">可用接入点 SSID 的列表</div>
+
+    <div class="variable_name"><code>bssid</code>（仅在 SSID 可用时设置）</div>
+    <div class="variable_description">可用接入点的 BSSID</div>
+
+    <div class="variable_name"><code>bssids</code>（仅在 SSID 可用时设置）</div>
+    <div class="variable_description">可用接入点的 BSSID 列表</div>
+
+    <div class="variable_name"><code>ssid</code>（仅在 SSID 可用时设置）</div>
+    <div class="variable_description">WiFi 网络的 SSID</div>
+
+    <div class="variable_name"><code>capabilities</code>（仅在 SSID 可用时设置）</div>
+    <div class="variable_description">WiFi 网络的能力</div>
+
+    <div class="variable_name"><code>frequency</code>（仅在 SSID 可用时设置）</div>
+    <div class="variable_description">WiFi 网络的频率</div>
+
+    <div class="variable_name"><code>level</code>（仅在 SSID 可用时设置）</div>
+    <div class="variable_description">WiFi 网络的信号强度水平</div>
+</div>
+
+</body>
+
+</html>

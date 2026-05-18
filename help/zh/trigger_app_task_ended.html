@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>应用任务已结束</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>应用任务已结束</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>应用任务已结束</b> 在应用程序移至后台或关闭，即用户将焦点移至另一个应用时执行。<br/>
+        该应用程序可能仍在后台运行，或者托管该应用程序的进程可能仍在内存中。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当您离开浏览器时，将媒体音量调回正常。</li>
+        <li>当您不再使用 Google Maps 时，将显示亮度调回正常。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">方法</div>
+    <div class="setting_description">如何确定应用。在某些设备上，方法 <b>使用情况统计信息</b> 可能会延迟。</div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">输入应用程序的包名，或使用按钮显示可用应用程序列表。可以使用全局模式 (*, ?) 来匹配名称相似的应用。单个 * 字符匹配所有应用。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">包的名称</div>
+
+    <div class="variable_name"><code>app_name</code></div>
+    <div class="variable_description">应用的显示名称</div>
+</div>
+
+</body>
+
+</html>

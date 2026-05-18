@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>位置</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>位置</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>位置</b> 在位置进入或退出定义区域时执行。<br/>
+        位置的准确性在很大程度上取决于可用的位置提供程序。<br/>
+        <br/>
+        <span class="tip">提示：</span>在手机设置中启用 GPS 可以大大提高位置准确性，但可能会使用更多电池。使用 WiFi 接入点的位置可能足够准确，并且可以在全局手机设置中禁用 GPS 以减少电池消耗。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当您在办公室时，在 Gleeo Time Tracker 中开始记录；当您离开时，停止记录。</li>
+        <li>当您在办公室时，将铃声切换到振动。</li>
+        <li>在教堂里关闭铃声。（在重要时手动执行！）</li>
+        <li>当您到家时发送短信。</li>
+    </ul>
+
+    <p>
+        <span class="note">注意：</span>当设备未主动使用且使用经典方法时，位置通常每 4 分钟检查一次。这可能导致状态栏上的 GPS 图标每 4 分钟可见一次。当您快速穿过半径较小的位置且 4 分钟的检查错过了该位置时，可能会错过进入/退出位置。
+        当设备处于活动状态或其他应用程序也在使用位置功能时（例如使用 Google 地图时），位置报告可能会更频繁。
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">方法</div>
+    <div class="setting_description">
+        用于检测地理围栏的方法。<br/>
+        <em>现代</em> 使用 Google 提供的新地理围栏 API，应经过调整以仅使用最少的电池电量。<br/>
+        检测位置的算法未知，并且可能因设备型号而异。请尝试两种方法，看看哪种最适合您。
+    </div>
+
+    <div class="setting_title">位置</div>
+    <div class="setting_description">此触发器使用的位置。</div>
+
+    <div class="setting_title">位置名称</div>
+    <div class="setting_description">用于此位置的名称。此名称用于触发器名称和在地图上选择现有位置。</div>
+
+    <div class="setting_title">半径</div>
+    <div class="setting_description">位置周围的半径（米）。</div>
+
+    <div class="setting_title">进入/退出</div>
+    <div class="setting_description">是在进入定义半径内的位置时还是退出时执行流程。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>location</code></div>
+    <div class="variable_description">配置的位置</div>
+
+    <div class="variable_name"><code>location_name</code></div>
+    <div class="variable_description">位置的名称</div>
+
+    <div class="variable_name"><code>entering</code></div>
+    <div class="variable_description">是否已进入位置</div>
+</div>
+
+</body>
+
+</html>

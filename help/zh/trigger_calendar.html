@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>日历</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>日历</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>日历</b> 在定义的日期和时间执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>在每个月的最后一个星期五发送提醒邮件。</li>
+        <li>在每个月的第一个星期一导出并通过邮件发送您的时间跟踪数据。</li>
+    </ul>
+
+    <span class="note">注意：</span> 您可以使用触发器 <b>时间</b> 在每个工作日或每个星期一执行流程。
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">日期/时间</div>
+    <div class="setting_description">定义流程应执行的日期和时间，或者当这是一个重复触发器时，流程应首次执行的时间。</div>
+
+    <div class="setting_title">重复</div>
+    <div class="setting_description">定义此触发器应何时重复。</div>
+
+    <div class="setting_title">在设备空闲/打盹中允许 (Android 6+)</div>
+    <div class="setting_description">定义是否允许此触发器将设备从空闲/打盹模式唤醒。（参见 <a href="device_idle_mode.html">设备空闲/打盹模式</a>）</div>
+
+    <div class="setting_title">像闹钟一样 (Android 5+)</div>
+    <div class="setting_description">
+        定义此触发器是否应像闹钟一样处理，闹钟通常显示在状态栏中。<br/>
+        此选项确保 Android 在指定时间精确调用触发器，并防止系统延迟事件。
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+</div>
+
+</body>
+
+</html>

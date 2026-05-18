@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>WiFi 已连接</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>WiFi 已连接</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>WiFi 已连接</b> 检查设备当前是否连接到指定的 WiFi 网络之一。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当您在办公室并连接到无线网络时，在 <b>Gleeo Time Tracker</b> 中开始记录。</li>
+        <li>仅在连接到家中免费无线网络时启用下载大型 PDF 文件的流程。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">SSID 列表</div>
+    <div class="setting_description">要接受的 SSID 的逗号分隔列表。可以使用全局模式来匹配多个 SSID。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>bssid</code></div>
+    <div class="variable_description">已连接的 WiFi 网络的 BSSID</div>
+
+    <div class="variable_name"><code>ssid</code></div>
+    <div class="variable_description">已连接的 WiFi 网络的 SSID</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>服务正在运行</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>服务正在运行</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>服务正在运行</b> 检查指定的服务当前是否正在运行。
+    </p>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">服务类</div>
+    <div class="setting_description">要检查的服务的类名。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">服务的包名</div>
+
+    <div class="variable_name"><code>service_name</code></div>
+    <div class="variable_description">服务的显示名称</div>
+
+    <div class="variable_name"><code>pid</code></div>
+    <div class="variable_description">此服务在其中运行的进程</div>
+
+    <div class="variable_name"><code>uid</code></div>
+    <div class="variable_description">拥有此服务的用户 ID</div>
+
+    <div class="variable_name"><code>active_since</code></div>
+    <div class="variable_description">此服务启动的时间（自设备启动以来的毫秒数）</div>
+
+    <div class="variable_name"><code>last_activity_time</code></div>
+    <div class="variable_description">此服务上次活动的时间（自启动以来，不计睡眠阶段的毫秒数）</div>
+
+    <div class="variable_name"><code>restarting</code></div>
+    <div class="variable_description">此服务将启动的时间，如果服务当前正在运行则为 0</div>
+
+    <div class="variable_name"><code>foreground</code></div>
+    <div class="variable_description">当服务作为前台进程运行时为 true</div>
+</div>
+
+</body>
+
+</html>

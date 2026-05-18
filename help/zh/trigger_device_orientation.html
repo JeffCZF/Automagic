@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>设备方向</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>设备方向</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>设备方向</b> 在设备移动到定义的方向时执行流程。<br/>
+        <br/>
+        <span class="warning">警告：</span>此触发器使用设备硬件传感器，可能会增加电池使用量（取决于设备型号）。某些设备在屏幕关闭时会关闭传感器。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当设备屏幕朝下时降低铃声音量。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">设备方向</div>
+    <div class="setting_description">
+        设备的期望方向。<br/>
+        <br/>
+        <ul>
+            <li><b>屏幕朝下：</b>设备显示屏朝下，例如放在桌子上且显示屏朝向桌面。</li>
+            <li><b>屏幕朝上：</b>设备显示屏朝上，例如放在桌子上且显示屏背对桌面。</li>
+            <li><b>屏幕朝左：</b>设备较长的一侧放在桌子上，显示屏朝左，且设备上边缘指向远离您的方向。</li>
+            <li><b>屏幕朝右：</b>设备较长的一侧放在桌子上，显示屏朝右，且设备上边缘指向远离您的方向。</li>
+            <li><b>直立放置：</b>设备直立放置在桌子上。</li>
+            <li><b>倒立放置：</b>设备倒立放置在桌子上。</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">取反</div>
+    <div class="setting_description">是否应对条件取反。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+</div>
+
+</body>
+
+</html>

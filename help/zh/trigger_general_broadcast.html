@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>通用广播</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>通用广播</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>通用广播</b> 在运行时动态注册一个具有指定 Intent 过滤器的广播接收器。<br/> 另请参阅 <a href="http://developer.android.com/guide/components/intents-filters.html">Android 开发者文档</a>。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>
+            接收当前的 WiFi 信号强度（仅当显示屏打开时）：<br/>
+            动作：<code>android.net.wifi.RSSI_CHANGED</code><br/>
+            访问 Intent 附加数据：<code>value=getInt("newRssi", 0);</code>
+        </li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">动作</div>
+    <div class="setting_description">要在 Intent 过滤器中使用的动作。</div>
+
+    <div class="setting_title">类别列表</div>
+    <div class="setting_description">要在 Intent 过滤器中使用的类别列表。</div>
+
+    <div class="setting_title">数据方案列表</div>
+    <div class="setting_description">要在 Intent 过滤器中使用的数据方案列表（如 <code>http</code>、<code>content</code> 等）。</div>
+
+    <div class="setting_title">数据授权列表</div>
+    <div class="setting_description">要在 Intent 过滤器中使用的数据授权列表（<code>host:port</code>）。</div>
+
+    <div class="setting_title">数据路径字面量列表</div>
+    <div class="setting_description">要在 Intent 过滤器中使用的数据路径列表（指定的模式必须匹配整个路径）</div>
+
+    <div class="setting_title">数据路径前缀列表</div>
+    <div class="setting_description">要在 Intent 过滤器中使用的数据路径列表（指定的模式必须匹配路径的前缀）</div>
+
+    <div class="setting_title">数据路径 Glob 列表</div>
+    <div class="setting_description">要在 Intent 过滤器中使用的数据路径列表（指定的 glob 模式必须匹配整个路径）</div>
+
+    <div class="setting_title">数据类型列表</div>
+    <div class="setting_description">要在 Intent 过滤器中使用的 MIME 类型列表。</div>
+
+    <div class="setting_title">访问 Intent 附加数据</div>
+    <div class="setting_description">
+        用于访问接收到的 Intent 中附加数据的脚本。<br/>
+        支持以下函数：
+        <ul>
+            <li><code>getString(String key)</code></li>
+            <li><code>getChar(String key, String defaultValue)</code></li>
+            <li><code>getBoolean(String key, Boolean defaultValue)</code></li>
+            <li><code>getFloat(String key, Number defaultValue)</code></li>
+            <li><code>getDouble(String key, Number defaultValue)</code></li>
+            <li><code>getByte(String key, Number defaultValue)</code></li>
+            <li><code>getShort(String key, Number defaultValue)</code></li>
+            <li><code>getInt(String key, Number defaultValue)</code></li>
+            <li><code>getLong(String key, Number defaultValue)</code></li>
+            <li><code>getBundle(String key)</code></li>
+            <li><code>getUri(String key)</code></li>
+            <li><code>getBooleanArray(String key)</code></li>
+            <li><code>getByteArray(String key)</code></li>
+            <li><code>getShortArray(String key)</code></li>
+            <li><code>getCharArray(String key)</code></li>
+            <li><code>getIntArray(String key)</code></li>
+            <li><code>getIntegerArrayList(String key)</code></li>
+            <li><code>getLongArray(String key)</code></li>
+            <li><code>getFloatArray(String key)</code></li>
+            <li><code>getDoubleArray(String key)</code></li>
+            <li><code>getStringArray(String key)</code></li>
+            <li><code>getUriArray(String key)</code></li>
+            <li><code>getUriArrayList(String key)</code></li>
+            <li><code>getParcelableAsString(String key)</code></li>
+            <li><code>getParcelableArrayAsString(String key)</code></li>
+            <li><code>getParcelableArrayListAsString(String key)</code></li>
+            <li><code>getParcelable(String key)</code></li>
+        </ul>
+        <br/>
+
+        示例：
+        <pre>
+    value = getString("key1");
+    value = getBoolean("key2", true);
+    value = getDouble("key3", 1.23);
+    value = getInt("key4", 42);
+    value = getInt("key5", a+4*b);
+        </pre>
+
+        可以使用函数 <code>getBundle(String name)</code> 访问包装在 Bundle-extra 中的 Intent 数据。<br/>
+        可以通过使用用于访问常规附加数据的函数但额外指定 bundle 来访问 Bundle 中包含的值。<br/>
+        <br/>
+
+        示例：
+        <pre>
+    bundle = getBundle("key1");
+    value = getString(bundle, "key2");
+        </pre>
+        紧凑形式：
+        <pre>
+    value = getString(getBundle("key1"), "key2");
+        </pre>
+
+        访问 PowerAMP 曲目信息的示例：
+        <pre>
+    track_info = getBundle("track");
+
+    artist = getString(track_info, "artist");
+    album = getString(track_info, "album");
+    title = getString(track_info, "title");
+    path = getString(track_info, "path");
+    duration = getInt(track_info, "dur", 0);
+        </pre>
+    </div>
+
+    <div class="setting_title">初始粘性广播</div>
+    <div class="setting_description">是否忽略为粘性广播发送的初始广播。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>action</code></div>
+    <div class="variable_description">接收到的 Intent 的动作</div>
+
+    <div class="variable_name"><code>data_string</code></div>
+    <div class="variable_description">接收到的 Intent 的数据（字符串形式）</div>
+
+    <div class="variable_name"><code>categories</code></div>
+    <div class="variable_description">类别列表</div>
+
+    <div class="variable_name"><code>scheme</code></div>
+    <div class="variable_description">接收到的 Intent 的方案</div>
+
+    <div class="variable_name"><code>type</code></div>
+    <div class="variable_description">接收到的 Intent 的显式设置的 MIME 类型</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>脚本示例</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <style type="text/css">
+        textarea.sample_code {
+            outline: none !important;
+            margin-bottom: 10pt;
+            background-color: #000000;
+            color: white;
+            border: 0;
+            font-family: monospace;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>脚本示例</h1>
+
+<div class="summary">
+<p>
+    本页展示了内置脚本语言提供的最重要函数的一些简短示例。
+</p>
+<p>
+   将示例复制/粘贴到动作 <b>脚本</b> 中，并使用 <b>菜单->执行</b> 来测试该动作。输出将写入可通过 <b>菜单->日志</b> 访问的 Automagic 日志中。
+</p>
+
+<h2>字符串操作</h2>
+
+<h3>测试变量是否包含某个值（完全匹配）</h3>
+<textarea class="sample_code" cols="80" rows="27" readonly wrap="off">
+value = "test";
+result = value == "test";
+log(result); // true
+
+result = value == "abcd";
+log(result); // false
+
+// 在 if-then-else 中使用结果
+if (result)
+{
+    log("相同的值");
+}
+else
+{
+    log("不同的值");
+}
+
+// 无需先赋值给变量
+if (value == "test")
+{
+    log("它是 test");
+}
+else
+{
+    log("value 包含其他内容");
+}
+</textarea>
+
+<h3>测试变量是否部分包含特定文本</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+value = "this is a test value";
+result = contains(value, "test");
+log(result);// true
+
+result = contains(value, "1234");
+log(result);// false
+</textarea>
+
+<h3>测试字符串是否匹配正则表达式（参见 <a href="regex_patterns.html">正则表达式</a>）</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+value = "my suitcase code is 1234";
+result = matches(value, '.*\\d{4}.*');
+log(result);// true
+
+result = matches(value, '.*\\d{5}.*');
+log(result);// false
+</textarea>
+
+<h3>查找正则表达式中组的内容</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+value = "my code is 1234";
+list = newList();
+result = matches(value, '.*(\\d{4}).*', list);
+log(result);// true
+
+log(list);// [my code is 1234, 1234]
+</textarea>
+
+
+<h3>从多行文本创建行列表</h3>
+<textarea class="sample_code" cols="80" rows="9" readonly wrap="off">
+value = "line1\nline2\nline3\nline4";
+lines = split(value, "\\n"); // 或 "\\r?\\n" 用于 Windows+Unix
+
+// 记录每一行
+for (line in lines)
+{
+    log(line);
+}
+</textarea>
+
+
+<h3>创建单词列表</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "The code of my suitcase is 1234";
+words = split(value, "\\W");
+log(words);// [The, code, of, my, suitcase, is, 1234]
+</textarea>
+
+
+<h3>提取 HTML 元素的内容</h3>
+<textarea class="sample_code" cols="80" rows="6" readonly wrap="off">
+text = "&lt;html>这是内容&lt;/html>";
+start = indexOf(text, "&lt;html>") + 6;
+end = indexOf(text, "&lt;/html>", start);
+value = substring(text, start, end);
+log(value);// 这是内容
+</textarea>
+
+
+<h3>将电话号码从 00411234567 修改为 0 0 4 1 1 2 3 4 5 6 7 以获得更好的文本转语音输出</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "00411234567";
+optimized_value = replaceAll(value, "(.)", "$1 ");
+log(optimized_value);// 0 0 4 1 1 2 3 4 5 6 7
+</textarea>
+
+
+<h3>测试文件名是否以 .mp3 结尾</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+filename = "test.mp3";
+result = endsWith(filename, ".mp3");
+log(result);// true
+</textarea>
+
+
+<h3>剥离文件扩展名</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+filename = "test.mp3";
+name = left(filename, length(filename) - 4);
+log(name);// test
+</textarea>
+
+
+<h3>将文本转换为大写</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "This is a test";
+upper = toUpperCase(value);
+log(upper);// THIS IS A TEST
+</textarea>
+
+
+<h3>去除文本周围的空格</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "   test   ";
+trimmed = trim(value);
+log(trimmed);// test
+</textarea>
+
+
+<h3>在字符串字面量中替换变量</h3>
+<textarea class="sample_code" cols="80" rows="5" readonly wrap="off">
+date = getDate();// 获取当前日期+时间
+number = 42;
+value = "今天是 {date,dateformat,dd.MM.yyyy}，生命、宇宙以及任何事情的终极问题的答案是 {number}";
+log(value); // 今天是 29.03.2014，生命、宇宙以及任何事情的终极问题的答案是 42
+</textarea>
+
+
+<h2>日期和时间</h2>
+
+<h3>获取并格式化当前日期 + 时间（参见 <a href="dateformat_patterns.html">日期格式模式</a>）</h3>
+<textarea class="sample_code" cols="80" rows="9" readonly wrap="off">
+date = getDate();
+log("现在是 {date,dateformat,yyyy.MM.dd HH:mm:ss.SSS}");// 现在是 2014.03.29 14:03:25.437
+log("现在是 {date,dateformat,yyyy.MM.dd hh:mm:ss a}");// 现在是 2014.03.29 02:03:25 下午
+log("现在是 {date,dateformat,dd. MMM yy}");// 现在是 29. 三月 14
+log("现在是 {date,dateformat,dd. MMMM yy}");// 现在是 29. 三月 14
+log("现在是 {date,dateformat,EEE dd. MMMM yy}");// 现在是 星期六 29. 三月 14
+log("现在是 {date,dateformat,EEEE dd. MMMM yy}");// 现在是 星期六 29. 三月 14
+log("现在是第 {date,dateformat,w} 周");// 现在是第 13 周
+</textarea>
+
+
+<h3>创建特定日期</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+date = getDate(2014, 3, 29);// 29.03.2014 00:00:00
+date = getDate(2014, 3, 29, 14, 3, 0);// 29.03.2014 14:03:00
+date = getDate(date, 13, 0, 0);// 29.03.2014 13:00:00
+</textarea>
+
+
+<h3>两个日期之间的间隔</h3>
+<textarea class="sample_code" cols="80" rows="16" readonly wrap="off">
+date1 = getDate(2014, 3, 29, 14, 0, 0);// 29.03.2014 14:00:00
+date2 = getDate(2014, 3, 29, 15, 7, 30);// 29.03.2014 15:07:30
+difference = date2 - date1;
+
+// 记录以毫秒为单位的差值
+log(difference);// 4050000
+
+// 记录以秒为单位的差值
+log(difference/1000);// 4050
+
+// 以时长格式记录差值
+log(getDurationString(difference));// 1h 7m 30s
+
+// 以 HH:mm:ss 格式记录差值（仅当小于 24 小时时有效）
+log("{difference,dateformat,timezone,UTC,HH:mm:ss}");// 01:07:30
+</textarea>
+
+
+<h3>从文本值中获取日期并重新格式化</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+value = "03/29/2014 14:00";
+date = getDate(value, "MM/dd/yyyy HH:mm");
+log("{date,dateformat,EEEE dd. MMMM}");// 星期六 29. 三月
+</textarea>
+
+
+<h3>修改日期</h3>
+<textarea class="sample_code" cols="80" rows="10" readonly wrap="off">
+date = getDate(2014, 3, 29, 14, 0, 0);// 29.03.2014 14:00:00
+new_date = addSeconds(date, 30);// 29.03.2014 14:00:30
+new_date = addMinutes(date, 15);// 29.03.2014 14:15:00
+new_date = addHours(date, 3);// 29.03.2014 17:00:00
+
+// 通过添加毫秒数实现相同效果
+new_date = date + 30*1000;// 29.03.2014 14:00:30
+new_date = date + 15*60*1000;// 29.03.2014 14:15:00
+new_date = date + 3*60*60*1000;// 29.03.2014 17:00:00
+</textarea>
+
+
+<h2>列表</h2>
+
+<h3>创建列表</h3>
+<textarea class="sample_code" cols="80" rows="9" readonly wrap="off">
+list = newList();
+log(list);// [] (空)
+
+list = newList("a", "b", "c");
+log(list);// [a, b, c]
+
+list = [1 to 10];
+log(list);// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</textarea>
+
+
+<h3>向列表添加元素</h3>
+<textarea class="sample_code" cols="80" rows="10" readonly wrap="off">
+list = newList();
+
+// 添加元素
+addElement(list, "a");
+addElement(list, "b");
+addElement(list, "c");
+addElement(list, "d");
+addElement(list, "e");
+log(list);// [a, b, c, d, e]
+</textarea>
+
+
+<h3>排序列表中的值</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("c", "a", "d", "b");
+sort(list);
+log(list);// [a, b, c, d]
+</textarea>
+
+
+<h3>反转列表中的值</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+reverse(list);
+log(list);// [d, c, b, a]
+</textarea>
+
+
+<h3>查找元素的索引</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+index = indexOfElement(list, "c");
+log(index);// 2
+</textarea>
+
+
+<h3>在特定索引处移除元素</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+removeElement(list, 2);
+log(list);// [a, b, d]
+</textarea>
+
+
+<h3>将元素插入列表</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+addElement(list, 2, "x");
+log(list);// [a, b, x, c, d]
+</textarea>
+
+
+<h3>测试元素是否在列表中</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+result = containsElement(list, "c");
+log(result);// true
+</textarea>
+
+
+<h3>如果元素不在列表中则添加</h3>
+<textarea class="sample_code" cols="80" rows="8" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+element = "x";
+if (not containsElement(list, element))
+{
+    addElement(list, element);
+}
+log(list);// [a, b, c, d, x]
+</textarea>
+
+
+<h3>从列表中移除值 "c"</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+removeElementValue(list, "c");
+log(list);// [a, b, d]
+</textarea>
+
+
+<h3>测试列表中元素的数量</h3>
+<textarea class="sample_code" cols="80" rows="4" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+length = length(list);
+log(length);// 4
+</textarea>
+
+
+<h3>向列表添加元素，但保持列表长度为 4</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+addElement(list, "x");
+if (length(list) > 4)
+{
+    removeElement(list, 0);
+}
+log(list);// [b, c, d, x]
+</textarea>
+
+
+<h3>遍历列表元素</h3>
+<textarea class="sample_code" cols="80" rows="7" readonly wrap="off">
+list = newList("a", "b", "c", "d");
+for (element in list)
+{
+    log(element);
+}
+// 分别在不同的行记录 a, b, c, d
+</textarea>
+
+
+<h2>映射</h2>
+
+<h3>创建空映射</h3>
+<textarea class="sample_code" cols="80" rows="3" readonly wrap="off">
+map = newMap();
+log(map);// {} (空)
+</textarea>
+
+<h3>向映射添加键/值对</h3>
+<textarea class="sample_code" cols="80" rows="6" readonly wrap="off">
+map = newMap();
+addMapEntry(map, "key1", "a");
+addMapEntry(map, "key2", "b");
+addMapEntry(map, "key3", "c");
+log(map);// {key1=a, key2=b, key3=c}
+</textarea>
+
+
+<h3>覆盖条目</h3>
+<textarea class="sample_code" cols="80" rows="8" readonly wrap="off">
+map = newMap();
+addMapEntry(map, "key1", "a");
+addMapEntry(map, "key2", "b");
+addMapEntry(map, "key3", "c");
+
+addMapEntry(map, "key3", "x");
+log(map);// {key1=a, key3=b, key3=x}
+</textarea>
+
+
+<h3>访问键对应的值</h3>
+<textarea class="sample_code" cols="80" rows="8" readonly wrap="off">
+map = newMap();
+addMapEntry(map, "key1", "a");
+addMapEntry(map, "key2", "b");
+addMapEntry(map, "key3", "c");
+
+value = getMapValue(map, "key2");
+log(value);// b
+</textarea>
+
+<h3>获取映射中所有键和值的列表</h3>
+<textarea class="sample_code" cols="80" rows="13" readonly wrap="off">
+map = newMap();
+addMapEntry(map, "key1", "a");
+addMapEntry(map, "key2", "b");
+addMapEntry(map, "key3", "c");
+
+// 获取映射中所有值的列表
+values = getMapValues(map);
+log(values);// [a, b, c]
+
+// 获取映射中所有键的列表
+values = getMapKeys(map);
+log(values);// [key1, key2, key3]
+</textarea>
+
+
+<h2>XML</h2>
+
+本节中的示例使用以下输入 XML（位于变量 <code>input</code> 中）：
+<pre>
+&lt;books>
+    &lt;book>
+        &lt;title>书 1&lt;/title>
+        &lt;price>12.50&lt;/price>
+        &lt;pages format="A4">745&lt;/pages>
+    &lt;/book>
+    &lt;book>
+        &lt;title>书 2&lt;/title>
+        &lt;price>35.70&lt;/price>
+        &lt;pages format="A5">120&lt;/pages>
+    &lt;/book>
+    &lt;book>
+        &lt;title>书 3&lt;/title>
+        &lt;price>17.90&lt;/price>
+        &lt;pages format="letter">1230&lt;/pages>
+    &lt;/book>
+&lt;/books>
+</pre>
+
+
+<h3>提取书名</h3>
+<textarea class="sample_code" cols="80" rows="12" readonly wrap="off">
+// 第一本书的标题
+title = evaluateXPathAsString(input, "/books/book[1]/title");
+log(title);// 书 1
+
+// 第二本书的标题
+title = evaluateXPathAsString(input, "/books/book[2]/title");
+log(title);// 书 2
+
+// 最后一本书的标题
+title = evaluateXPathAsString(input, "/books/book[last()]/title");
+log(title);// 书 3
+</textarea>
+
+
+<h3>提取书的价格</h3>
+<textarea class="sample_code" cols="80" rows="8" readonly wrap="off">
+// 标题为 '书 1' 的书的价格
+price = evaluateXPathAsString(input, "/books/book[title='书 1']/price");
+log(price);// 12.50
+
+// 页数超过 1000 的第一本书的价格
+price = evaluateXPathAsString(input, "/books/book[pages>1000]/price");
+log(price);// 17.90
+</textarea>
+
+
+<h3>打印书 1 的格式</h3>
+<textarea class="sample_code" cols="80" rows="3" readonly wrap="off">
+format = evaluateXPathAsString(input, "/books/book[title='书 1']/pages/@format");
+log(format);// A4
+</textarea>
+
+<h3>打印页面格式为 A5 的书名</h3>
+<textarea class="sample_code" cols="80" rows="3" readonly wrap="off">
+format = evaluateXPathAsString(input, "/books/book/pages[@format='A5']/../title");
+log(format);// 书 2
+</textarea>
+
+
+
+
+<h2>数论</h2>
+
+<h3>RSA（使用实验性函数）</h3>
+<textarea class="sample_code" cols="80" rows="23" readonly wrap="off">
+p = randomProbablePrime(512);
+q = randomProbablePrime(512);
+
+phi = (p-1)*(q-1);
+n = p*q;
+e = 65537;
+
+pk = modInverse(e, phi);
+
+log("n: " + n);
+
+orig = "这是一个测试";
+log("orig: " + orig);
+
+m = convertStringToBigInteger(orig);
+log("m: " + m);
+
+enc = modPow(m, e, n);
+log("编码后: " + enc);
+
+dec = modPow(enc, pk, n);
+log("解码后: " + convertBigIntegerToString(dec));
+</textarea>
+
+
+<h3>Diffie Hellman（使用实验性函数）</h3>
+<textarea class="sample_code" cols="80" rows="12" readonly wrap="off">
+g = 5;
+p = randomProbablePrime(512);
+
+a = 6;
+b = 15;
+
+alice = modPow(g, a, p);
+bob = modPow(g, b, p);
+
+log(s = modPow(bob, a, p));
+log(s = modPow(alice, b, p));
+</textarea>
+
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>媒体按钮事件（实验性）</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>媒体按钮事件（实验性）</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>媒体按钮事件（实验性）</b> 在系统检测到媒体按钮事件时执行流程，例如按下耳机上的播放按钮时。<br/>
+        <br/>
+        <span class="warning">警告：</span>启动音频播放器后，未来的事件通常会发送到音频播放器，而不再发送到 Automagic。如果这不是所需的行为，则必须使用动作 <b>重新注册媒体按钮接收器</b> 重新注册 Automagic 以接收事件。
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">事件</div>
+    <div class="setting_description">触发器应针对所有媒体按钮事件执行还是仅针对特定按钮执行。</div>
+
+    <div class="setting_title">特定事件</div>
+    <div class="setting_description">
+        应响应的事件/按钮。<br/>
+        有线耳机通常生成事件 <em>耳机挂钩</em>。
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>key_code</code></div>
+    <div class="variable_description">数字键码</div>
+
+    <div class="variable_name"><code>key_code_name</code>（Android 3.1+）</div>
+    <div class="variable_description">键码的名称</div>
+
+    <div class="variable_name"><code>key_duration</code></div>
+    <div class="variable_description">事件的持续时间（毫秒）</div>
+
+    <div class="variable_name"><code>key_source_device_id</code></div>
+    <div class="variable_description">发送设备的 ID</div>
+</div>
+
+</body>
+
+</html>

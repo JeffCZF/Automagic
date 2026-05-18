@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>硬件按键事件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>硬件按键事件</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>硬件按键事件</b> 在指定的按键被按下/释放时执行。大多数设备通常只提供音量增大和音量减小的硬件按键。电源键通常无法被拦截。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当按下音量减小键时，在浏览器窗口中向下滚动。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">按键</div>
+    <div class="setting_description">应执行触发器的按键名称列表。支持 glob 模式（*, ?）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">动作</div>
+    <div class="setting_description">是按下、释放还是两者都应执行触发器。</div>
+
+    <div class="setting_title">阻止事件（阻止按下和释放动作）</div>
+    <div class="setting_description">是否应阻止按键事件，以便系统不会将按键事件发送给其他应用。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>key_code</code></div>
+    <div class="variable_description">数字键码</div>
+
+    <div class="variable_name"><code>key_code_name</code></div>
+    <div class="variable_description">键码的名称</div>
+
+    <div class="variable_name"><code>key_duration</code></div>
+    <div class="variable_description">事件的持续时间（毫秒）</div>
+
+    <div class="variable_name"><code>key_source_device_id</code></div>
+    <div class="variable_description">发送设备的 ID</div>
+
+    <div class="variable_name"><code>key_action_down</code></div>
+    <div class="variable_description">动作是否为按下</div>
+
+    <div class="variable_name"><code>key_action_down</code></div>
+    <div class="variable_description">动作是否为释放</div>
+</div>
+
+</body>
+
+</html>

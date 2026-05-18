@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>GPS 状态事件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>GPS 状态事件</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>GPS 状态事件</b> 在系统开始或停止使用 GPS 时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当系统开始使用 GPS 以获取信息时振动。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">GPS 状态事件</div>
+    <div class="setting_description">
+        事件的类型：
+        <ul>
+            <li><b>已开始</b>：当系统开始使用 GPS 时执行触发器</li>
+            <li><b>已停止</b>：当系统停止使用 GPS 时执行触发器</li>
+            <li><b>收到首次定位</b>：当系统使用 GPS 且刚刚确定首次定位时执行触发器</li>
+            <li><b>卫星状态已更改</b>：当卫星状态更改时执行触发器（通常非常频繁）</li>
+        </ul>
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>gps_event_type</code></div>
+    <div class="variable_description">事件类型（1=已开始，2=已停止，3=首次定位，4=卫星状态）</div>
+
+    <div class="variable_name"><code>satellites</code></div>
+    <div class="variable_description">包含字符串的列表，每个字符串包含一颗卫星的信息</div>
+
+    <div class="variable_name"><code>time_to_first_fix</code></div>
+    <div class="variable_description">从打开 GPS 到收到首次定位之间的毫秒数，当尚未确定定位时包含 0 或上一个值</div>
+</div>
+
+</body>
+
+</html>

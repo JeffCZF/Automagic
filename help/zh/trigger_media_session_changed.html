@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>媒体会话已更改（实验性）</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>媒体会话已更改（实验性）</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>媒体会话已更改（实验性）</b> 在指定播放器的媒体会话发生更改（播放新曲目、加载媒体图像等）时执行。仅位置发生常规更改不会调用触发器。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>在叠加小部件中显示当前曲目的标题。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">包名称</div>
+    <div class="setting_description">要监视的媒体播放器的名称。支持 glob 模式（*, ?）。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>playback_state</code></div>
+    <div class="variable_description">当前状态（0=无，1=已停止，2=已暂停，3=正在播放，4=快进，5=快退，6=缓冲，7=错误，8=连接中，9=跳到上一个，10=跳到下一个，11=跳到队列中的项目）</div>
+
+    <div class="variable_name"><code>playback_position</code></div>
+    <div class="variable_description">当前位置（毫秒）</div>
+
+    <div class="variable_name"><code>title</code></div>
+    <div class="variable_description">标题</div>
+
+    <div class="variable_name"><code>subtitle</code></div>
+    <div class="variable_description">副标题</div>
+
+    <div class="variable_name"><code>description</code></div>
+    <div class="variable_description">描述</div>
+
+    <div class="variable_name"><code>icon</code></div>
+    <div class="variable_description">当前图像</div>
+
+    <div class="variable_name"><code>icon_uri</code></div>
+    <div class="variable_description">加载图像的 URI</div>
+
+    <div class="variable_name"><code>media_duration</code></div>
+    <div class="variable_description">曲目的持续时间（毫秒）</div>
+</div>
+
+</body>
+
+</html>

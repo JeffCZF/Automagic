@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>十进制格式模版</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<table BORDER="1" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+ <tr>
+ <th align="left">符号</th>
+ <th align="left">位置</th>
+ <th align="left">本地化？</th>
+ <th align="left">含义</th>
+ </tr>
+ <tr valign="top">
+ <td><code>0</code></td>
+ <td>数字</td>
+ <td>是</td>
+ <td>数字。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>@</code></td>
+ <td>数字</td>
+ <td>否</td>
+ <td>有效数字。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>#</code></td>
+ <td>数字</td>
+ <td>是</td>
+ <td>数字，不显示前导零。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>.</code></td>
+ <td>数字</td>
+ <td>是</td>
+ <td>小数分隔符或货币小数分隔符。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>-</code></td>
+ <td>数字</td>
+ <td>是</td>
+ <td>负号。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>,</code></td>
+ <td>数字</td>
+ <td>是</td>
+ <td>分组分隔符。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>E</code></td>
+ <td>数字</td>
+ <td>是</td>
+ <td>在科学记数法中分隔尾数和指数。<em>在前缀或后缀中不需要引号。</em></td>
+ </tr>
+ <tr valign="top">
+ <td><code>+</code></td>
+ <td>指数</td>
+ <td>是</td>
+ <td>在正指数前添加本地化的加号。<em>在前缀或后缀中不需要引号。</em></td>
+ </tr>
+ <tr valign="top">
+ <td><code>;</code></td>
+ <td>子模式边界</td>
+ <td>是</td>
+ <td>分隔正子模式和负子模式。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>%</code></td>
+ <td>前缀或后缀</td>
+ <td>是</td>
+ <td>乘以 100 并显示为百分比。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>‰</code> (<code>\u2030</code>)</td>
+ <td>前缀或后缀</td>
+ <td>是</td>
+ <td>乘以 1000 并显示为千分比。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>¤</code> (<code>\u00A4</code>)</td>
+ <td>前缀或后缀</td>
+ <td>否</td>
+ <td>货币符号，替换为货币符号。如果加倍，则替换为国际货币符号。如果出现在模式中，则使用货币小数分隔符而不是小数分隔符。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>'</code></td>
+ <td>前缀或后缀</td>
+ <td>否</td>
+ <td>用于在前缀或后缀中引用特殊字符，例如 <code>"'#'#"</code> 将 123 格式化为 <code>"#123"</code>。要创建单引号本身，请连续使用两个：<code>"# o''clock"</code>。</td>
+ </tr>
+ <tr valign="top">
+ <td><code>*</code></td>
+ <td>前缀或后缀边界</td>
+ <td>是</td>
+ <td>填充转义，位于填充字符之前。</td>
+ </tr>
+ </table>
+<br/>
+
+<div class="summary">
+    <p class="sample_separator">&nbsp;</p>
+    示例：<br/>
+    示例使用数字 <b>1234.567</b>。
+    <table BORDER="1" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+        <tr><td><B>格式</B></td><td><B>结果</B></td></tr>
+        <tr><td><code>0.00</code></td><td>1234.57</td></tr>
+        <tr><td><code>0.00000</code></td><td>1234.56700</td></tr>
+        <tr><td><code>0.00###</code></td><td>1234.567</td></tr>
+        <tr><td><code>#,###</code></td><td>1,234</td></tr>
+    </table>
+</div>
+</body>
+
+</html>
