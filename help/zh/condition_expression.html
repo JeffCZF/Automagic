@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>表达式</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>表达式</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>表达式</b> 检查表达式是否为真。
+    </p>
+
+    表达式示例：
+    <ul>
+        <li><code>a==1</code></li>
+        <li><code>b &gt; =3</code></li>
+        <li><code>c &lt; b AND a &gt; 3</code></li>
+        <li><code>(a--)==0</code></li>
+        <li><code>startsWith(a, "test")</code></li>
+        <li><code>a &gt; addDays(b, 4)</code></li>
+        <li><code>isEmpty(files)</code></li>
+    </ul>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>检查位置的精度是否足够好：<code>location_accuracy&lt;300</code></li>
+        <li>检查计数器是否达到零：<code>counter==0</code></li>
+    </ul>
+
+    <a href="action_script.html">有关脚本语言的说明，请参阅动作脚本。</a>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">表达式</div>
+    <div class="setting_description">
+        要计算的表达式。<br/>
+        <br/>
+        <span class="note">注意：</span>变量可以直接在表达式中使用，无需使用花括号转义。<br/>
+        <br/>
+        示例：使用 <code>location_accuracy</code> 而不是 <code>{location_accuracy}</code>。
+    </div>
+
+</div>
+
+</body>
+
+</html>

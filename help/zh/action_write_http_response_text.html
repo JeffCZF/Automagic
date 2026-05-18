@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>写入 HTTP 响应文本（实验性）</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>写入 HTTP 响应文本（实验性）</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>写入 HTTP 响应文本（实验性）</b> 将指定的文本作为对 HTTP 请求的响应写入。该流程必须由触发器 <em>HTTP 请求</em> 调用才能写入响应。<br/><br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当请求特定页面时，返回一个包含设备信息的页面。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">文本</div>
+    <div class="setting_description">要写入的文本。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">内容类型</div>
+    <div class="setting_description">内容的内容类型（例如 text/plain 或 text/html）。仅当尚未向客户端返回任何数据时，才考虑内容类型。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">自定义 HTTP 头</div>
+    <div class="setting_description">
+        包含要发送的自定义 HTTP 头的文本。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        每行应以头名称和冒号开头，后跟要发送的值。<br/>
+        <br/>
+        示例：
+        <ul>
+            <li><code>User-Agent: my own user agent</code></li>
+            <li><code>SOAPAction: "test"</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">完成 HTTP 响应</div>
+    <div class="setting_description">是否通过立即将文本发送到客户端来完成 HTTP 响应。</div>
+</div>
+
+</body>
+
+</html>

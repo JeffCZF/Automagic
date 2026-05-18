@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>压缩文件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>压缩文件</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>压缩文件</b> 创建一个包含指定文件和目录的 ZIP 存档。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将目录 <code>/mnt/sdcard/xyz/</code> 中的所有文件压缩到 ZIP 文件 <code>/mnt/sdcard/backup.zip</code> 中。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">源文件</div>
+    <div class="setting_description">
+        要压缩的文件或目录的逗号分隔列表。可以使用全局模式来匹配多个文件。<a href="action_script.html#inline_expressions">支持变量。</a>
+        <br/>
+        示例：
+        <ul>
+            <li><code>/mnt/sdcard/export*</code> 匹配文件夹 <code>/mnt/sdcard</code> 中所有以 <code>export</code> 开头的文件</li>
+        </ul>
+        ZIP 文件中的文件是基于要存档文件的父目录相对存储的：
+        <ul>
+            <li>源文件 <code>/mnt/sdcard/export*</code> 将直接在 ZIP 文件中存储所有 export* 文件（不带父文件夹）</li>
+            <li>源文件 <code>/mnt/sdcard/download/</code>（注意尾部斜杠）将直接在 ZIP 文件中存储文件夹 download 中的所有文件（不带父文件夹）</li>
+            <li>源文件 <code>/mnt/sdcard/download</code>（无尾部斜杠）将在 ZIP 文件中存储文件夹 <code>download</code> 及其包含的文件</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">ZIP 文件</div>
+    <div class="setting_description">
+        要创建的目标 ZIP 文件的绝对路径。<a href="action_script.html#inline_expressions">支持变量。</a>
+    </div>
+
+    <div class="setting_title">显示进度通知</div>
+    <div class="setting_description">是否在状态栏上显示指示操作进度的通知。</div>
+</div>
+
+</body>
+
+</html>

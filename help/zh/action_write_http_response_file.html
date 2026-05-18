@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>写入 HTTP 响应文件（实验性）</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>写入 HTTP 响应文件（实验性）</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>写入 HTTP 响应文件（实验性）</b> 将指定的文件作为对 HTTP 请求的响应写入。该流程必须由触发器 <em>HTTP 请求</em> 调用才能写入响应。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当连接到同一 WiFi 网络时，从台式电脑获取 Android 设备上的文件。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">文件</div>
+    <div class="setting_description">要传送的文件的名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">自定义 HTTP 头</div>
+    <div class="setting_description">
+        包含要发送的自定义 HTTP 头的文本。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        每行应以头名称和冒号开头，后跟要发送的值。<br/>
+        <br/>
+        示例：
+        <ul>
+            <li><code>User-Agent: my own user agent</code></li>
+            <li><code>SOAPAction: "test"</code></li>
+        </ul>
+    </div>
+</div>
+
+
+</body>
+
+</html>

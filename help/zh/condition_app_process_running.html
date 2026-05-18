@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>应用进程正在运行</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>应用进程正在运行</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>应用进程正在运行</b> 检查托管应用的进程当前是否正在运行。<br/>
+        <br/>
+        <span class="note">注意：</span>即使进程可能不再需要且有足够的空闲内存可用，Android 也会将进程保留在内存中。<br/>
+        <br/>
+        <span class="note">注意：</span>Google 已在 Android 5.1.1 上移除了用于访问此信息的官方 API，这意味着该条件现在被标记为 <em>非官方支持</em>。
+        <br/>
+        <span class="note">注意：</span>在大多数运行 Android 7 的设备上，用于访问此信息的非官方变通方法已不再有效。
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">要检查的进程名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>pid</code></div>
+    <div class="variable_description">进程的 ID</div>
+
+    <div class="variable_name"><code>importance</code> (Android &lt;5.1.1)</div>
+    <div class="variable_description">进程的重要性。值越小，重要性越高。</div>
+
+    <div class="variable_name"><code>lru</code> (Android &lt;5.1.1)</div>
+    <div class="variable_description">最近最少使用。值越小表示最近使用过。</div>
+
+    <div class="variable_name"><code>process_state</code>（并非在所有 Android 版本上都可用，Android &lt;5.1.1）</div>
+    <div class="variable_description">进程状态（2=托管当前顶层活动的进程）</div>
+
+    <div class="variable_name"><code>uid</code></div>
+    <div class="variable_description">进程的用户 ID</div>
+</div>
+
+</body>
+
+</html>

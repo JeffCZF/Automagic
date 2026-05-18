@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>位置</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>位置</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>位置</b> 检查位置是否在特定区域内，或者通过比较上次执行的位置和当前位置来检查是否进入或离开了一个区域。<br/><br/>
+        该条件使用流程中已通过位置触发器提供的可用位置，或使用系统的最后已知位置。<br/>
+        当流程中没有可用位置并且设备没有准备好的最后已知位置时，条件会失败。这通常发生在手动执行流程时。请使用某个位置触发器来执行您的流程，或者在条件到达之前使用动作 <strong>Init Variable Location</strong> 明确获取位置。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当您进入办公室时启用 WiFi。</li>
+        <li>当您离开办公室时，在 <b>Gleeo Time Tracker</b> 中停止记录。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">位置</div>
+    <div class="setting_description">此条件使用的位置。</div>
+
+    <div class="setting_title">位置名称</div>
+    <div class="setting_description">用于此位置的名称。此名称用于条件名称和在地图上选择现有位置。</div>
+
+    <div class="setting_title">半径</div>
+    <div class="setting_description">位置周围的半径（以米为单位）。</div>
+
+    <div class="setting_title">进入</div>
+    <div class="setting_description">当位置之前位于定义位置之外，现在位于内部时为真。</div>
+
+    <div class="setting_title">离开</div>
+    <div class="setting_description">当位置之前位于定义位置之内，现在位于外部时为真。</div>
+
+    <div class="setting_title">先前状态未知时忽略</div>
+    <div class="setting_description">当之前不知道位置时忽略进入/离开。这通常是启动 <b>Automagic</b> 后首次执行流程时的情况。</div>
+
+    <div class="setting_title">内部</div>
+    <div class="setting_description">当位置在内部时为真。即使之前已在内部，也可能为真，因此对于触发器提供的每个位置，此条件都可能为真。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>location</code></div>
+    <div class="variable_description">报告的位置</div>
+
+    <div class="variable_name"><code>location_name</code></div>
+    <div class="variable_description">位置的名称</div>
+
+    <div class="variable_name"><code>entering</code></div>
+    <div class="variable_description">是否已进入位置</div>
+
+    <div class="variable_name"><code>exiting</code></div>
+    <div class="variable_description">是否已离开位置</div>
+
+    <div class="variable_name"><code>inside</code></div>
+    <div class="variable_description">位置是否在定义的区域内</div>
+</div>
+</body>
+
+</html>

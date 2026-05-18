@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>压力传感器</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>压力传感器</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>压力传感器</b> 检查测量的气压是低于还是高于定义的值。<br/>
+        <br/>
+        <span class="warning">警告：</span>某些设备在屏幕关闭时会关闭传感器。<br/>
+        <span class="warning">警告：</span>某些设备无法确定传感器的当前值，仅在传感器测量值发生变化时才提供值。此条件在此类设备上无效。
+    </p>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">气压（单位：毫巴）</div>
+    <div class="setting_description">条件是检查气压是否高于还是低于定义的气压。</div>
+
+    <div class="setting_title">超时</div>
+    <div class="setting_description">等待传感器值的时间量，当没有可用的值时，条件会以错误终止。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>pressure</code></div>
+    <div class="variable_description">测量的气压（单位：毫巴）</div>
+</div>
+
+</body>
+
+</html>

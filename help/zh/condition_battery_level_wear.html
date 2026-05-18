@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>电池电量 (Android Wear)</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>电池电量 (Android Wear)</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>电池电量 (Android Wear)</b> 检查电池电量是否高于或低于特定水平。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>仅在电池电量高于 50% 时下载文件。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">Android Wear 设备</div>
+    <div class="setting_description">目标设备。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">电池电量</div>
+    <div class="setting_description">
+        定义必须满足的条件，以便在 true 分支上继续流程：<br/>
+        <br/>
+        <b>低于</b><br/>
+        当系统报告的百分比低于定义的水平时为真<br/>
+        <br/>
+        <b>高于</b><br/>
+        当系统报告的百分比高于定义的水平时为真<br/>
+        <br/>
+        <b>等于</b><br/>
+        当系统报告的百分比恰好等于定义的水平时为真<br/>
+        <br/>
+        <b>已满</b><br/>
+        当系统报告的电池状态为已满时为真<br/>
+    </div>
+
+    <div class="setting_title">电量百分比</div>
+    <div class="setting_description">定义电量百分比。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>battery_level</code></div>
+    <div class="variable_description">电池的充电水平</div>
+
+    <div class="variable_name"><code>battery_percentage</code></div>
+    <div class="variable_description">充电百分比</div>
+
+    <div class="variable_name"><code>battery_plugged</code></div>
+    <div class="variable_description">电池是否已连接电源（1=AC 适配器，2=USB，4=无线）或未连接（0=未连接）</div>
+
+    <div class="variable_name"><code>battery_present</code></div>
+    <div class="variable_description">电池是否存在</div>
+
+    <div class="variable_name"><code>battery_scale</code></div>
+    <div class="variable_description">最大电池电量</div>
+
+    <div class="variable_name"><code>battery_status</code></div>
+    <div class="variable_description">电池状态（1=未知，2=充电中，3=放电中，4=未充电，5=已满）</div>
+
+    <div class="variable_name"><code>battery_technology</code></div>
+    <div class="variable_description">电池技术</div>
+
+    <div class="variable_name"><code>battery_temperature</code></div>
+    <div class="variable_description">电池温度（以十分之一摄氏度为单位）</div>
+
+    <div class="variable_name"><code>battery_voltage</code></div>
+    <div class="variable_description">当前电池电压</div>
+
+    <div class="variable_name"><code>battery_health</code></div>
+    <div class="variable_description">电池健康状况（1=未知，2=良好，3=过热，4=已失效，5=过压，6=未指定的故障，7=过冷）</div>
+
+    <div class="variable_name"><code>node_id</code></div>
+    <div class="variable_description">Wear 节点的 ID</div>
+</div>
+
+</body>
+
+</html>

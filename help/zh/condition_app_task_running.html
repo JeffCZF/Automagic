@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>应用任务正在运行</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>应用任务正在运行</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>应用任务正在运行</b> 检查指定包之一的任务当前是否正在运行。<br/>
+        <br/>
+        <span class="warning">警告：</span>此功能并非 Android 5+ 官方支持，可能无法在所有设备上运行。
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">方法</div>
+    <div class="setting_description">应如何确定应用。在某些设备上，方法 <b>使用情况统计信息</b> 可能会延迟。</div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">要检查的应用的名称。支持全局模式 (*, ?)。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">仅检查最近的应用任务</div>
+    <div class="setting_description">
+        是否仅检查最近的应用任务（在许多 Android 版本中，这是活动应用）<br/>
+        <br/>
+        <span class="warning">警告：</span>在 Android 5+ 上必须激活此选项。
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">前台应用的包名</div>
+
+    <div class="variable_name"><code>index</code>（Android 5+ 上不可用）</div>
+    <div class="variable_description">此任务的索引。索引为零表示最近运行的任务。</div>
+
+    <div class="variable_name"><code>base_activity</code>（Android 5+ 上不可用）</div>
+    <div class="variable_description">作为任务中第一个活动启动的组件</div>
+
+    <div class="variable_name"><code>top_activity</code>（Android 5+ 上不可用）</div>
+    <div class="variable_description">任务历史堆栈顶部的活动组件</div>
+
+    <div class="variable_name"><code>id</code>（Android 5+ 上不可用）</div>
+    <div class="variable_description">此任务的唯一标识符</div>
+
+    <div class="variable_name"><code>num_running</code>（Android 5+ 上不可用）</div>
+    <div class="variable_description">此任务中当前正在运行（未停止和持久化）的活动数量</div>
+
+    <div class="variable_name"><code>description</code>（Android 5+ 上不可用）</div>
+    <div class="variable_description">任务当前状态的描述</div>
+</div>
+
+</body>
+
+</html>

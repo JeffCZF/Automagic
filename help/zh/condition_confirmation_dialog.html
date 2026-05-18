@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>确认对话框</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>确认对话框</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>确认对话框</b> 显示一个带有问题的对话框，并根据按下的按钮继续流程执行。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>打开蓝牙，但先请求确认。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">标题</div>
+    <div class="setting_description">对话框的可选标题。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">问题</div>
+    <div class="setting_description">要询问的问题的文本。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">False 按钮 / True 按钮</div>
+    <div class="setting_description">执行条件的 true/false 分支的按钮的文本标签。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">返回按钮行为</div>
+    <div class="setting_description">是忽略返回按钮，还是以 true 或 false 确认对话框。</div>
+
+    <div class="setting_title">激活超时</div>
+    <div class="setting_description">当用户在指定时间内没有响应时，是否应使用自动超时。</div>
+
+    <div class="setting_title">持续时间</div>
+    <div class="setting_description">自动关闭对话框并继续流程的时间量。</div>
+
+    <div class="setting_title">超时时的值</div>
+    <div class="setting_description">流程应继续到 true 分支还是 false 分支。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>operation</code></div>
+    <div class="variable_description">用于关闭对话框的操作。<br/>
+        <br/>
+        可以是以下之一：
+        <ul>
+            <li><code>yes</code>：用户按下“是”按钮时</li>
+            <li><code>no</code>：用户按下“否”按钮时</li>
+            <li><code>timeout</code>：对话框因超时关闭时</li>
+            <li><code>cancel</code>：用户按下返回键且设置了相应选项时</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>

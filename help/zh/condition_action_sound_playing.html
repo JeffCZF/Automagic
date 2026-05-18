@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>动作声音正在播放</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>动作声音正在播放</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>动作声音正在播放</b> 检查动作“声音”当前是否正在播放声音。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>根据当前是否正在播放声音来刷新小部件中的停止按钮。</li>
+    </ul>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>sound_position</code></div>
+    <div class="variable_description">声音的播放位置（毫秒）（如果多个声音正在播放，则为第一个声音），如果没有声音播放则为 null</div>
+
+    <div class="variable_name"><code>sound_duration</code></div>
+    <div class="variable_description">声音的总持续时间（毫秒）（如果多个声音正在播放，则为第一个声音），如果 Android 媒体框架无法确定持续时间（如直播流等），则为 null</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>手机信号强度</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>手机信号强度</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>手机信号强度</b> 检查移动网络的信号强度是高于还是低于特定水平。
+        <br/>
+        <span class="warning">警告：</span>某些设备在屏幕关闭时不会将当前信号强度发送给应用程序。您可以使用相关选项定期打开屏幕或唤醒设备。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当网络强度非常弱时，每五分钟发出哔声。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">SIM</div>
+    <div class="setting_description">SIM 卡。</div>
+
+    <div class="setting_title">信号强度条件</div>
+    <div class="setting_description">
+        定义必须满足的条件才执行流程：<br/>
+        <br/>
+        <b>低于</b><br/>
+        当系统报告的信号强度低于定义的水平时为真<br/>
+        <br/>
+        <b>高于</b><br/>
+        当系统报告的信号强度高于定义的水平时为真<br/>
+        <br/>
+        <b>等于</b><br/>
+        当系统报告的信号强度恰好等于定义的水平时为真<br/>
+    </div>
+
+    <div class="setting_title">信号强度</div>
+    <div class="setting_description">定义要使用的信号强度。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>is_gsm</code></div>
+    <div class="variable_description">为 GSM 时为 true</div>
+
+    <div class="variable_name"><code>signal_strength_level</code></div>
+    <div class="variable_description">信号强度值，范围从 0 到 4，类似于标准 Android 设备上的信号格</div>
+
+    <div class="variable_name"><code>signal_strength_asu</code></div>
+    <div class="variable_description">ASU 信号强度（0-31）</div>
+
+    <div class="variable_name"><code>gsm_signal_strength</code></div>
+    <div class="variable_description">GSM 信号强度（0-31，99 表示未知，-1 表示不可用）</div>
+
+    <div class="variable_name"><code>gsm_bit_error_rate</code></div>
+    <div class="variable_description">GSM 误码率（0-7，99 表示未知，-1 表示不可用）</div>
+
+    <div class="variable_name"><code>cdma_dbm</code></div>
+    <div class="variable_description">CDMA RSSI 值，单位 dBm（-1 表示不可用）</div>
+
+    <div class="variable_name"><code>cdma_ecio</code></div>
+    <div class="variable_description">CDMA Ec/Io 值，单位 dB*10（-1 表示不可用）</div>
+
+    <div class="variable_name"><code>evdo_dbm</code></div>
+    <div class="variable_description">EVDO RSSI 值，单位 dBm（-1 表示不可用）</div>
+
+    <div class="variable_name"><code>evdo_ecio</code></div>
+    <div class="variable_description">EVDO Ec/Io 值，单位 dB*10（-1 表示不可用）</div>
+
+    <div class="variable_name"><code>evdo_snr</code></div>
+    <div class="variable_description">EVDO 信噪比（0-8，-1 表示不可用）</div>
+
+    <div class="variable_name"><code>lte_dbm</code></div>
+    <div class="variable_description">LTE RSRP 值，单位 dBm（-1 表示不可用）</div>
+</div>
+
+</body>
+
+</html>

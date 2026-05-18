@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>启动服务</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>启动服务</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>启动服务</b> 使用指定的 Intent 启动一个服务。另请参阅 <a href="http://developer.android.com/reference/android/content/Intent.html">Android Intent 类的文档</a>。
+        <br/>
+        <span class="tip">提示：</span>某些服务需要特殊权限才能启动。当服务启动失败时，请在测试动作后检查日志。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">动作</div>
+    <div class="setting_description">要在 Intent 中使用的动作。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">类别列表</div>
+    <div class="setting_description">要添加到 Intent 中的类别列表，以逗号分隔。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">数据 URI</div>
+    <div class="setting_description">要在 Intent 上设置的数据 URI。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">Mime 类型</div>
+    <div class="setting_description">要在 Intent 上设置的 MIME 类型。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">要启动的特定包。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">类名</div>
+    <div class="setting_description">要启动的特定服务。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">标志列表</div>
+    <div class="setting_description">要添加到 Intent 的标志。</div>
+
+    <div class="setting_title">附加数据</div>
+    <div class="setting_description">
+        用于向 Intent 添加无限数量附加数据的脚本。<br/>
+        <br/>
+        除了 Automagic 的常规内置函数外，还可以使用以下函数向 Intent 添加附加数据：
+        <ul>
+            <li><code>putString(key, value)</code></li>
+            <li><code>putBoolean(key, value)</code></li>
+            <li><code>putFloat(key, value)</code></li>
+            <li><code>putDouble(key, value)</code></li>
+            <li><code>putByte(key, value)</code></li>
+            <li><code>putShort(key, value)</code></li>
+            <li><code>putChar(key, value)</code></li>
+            <li><code>putInt(key, value)</code></li>
+            <li><code>putLong(key, value)</code></li>
+            <li><code>putUri(key, value)</code></li>
+            <li><code>putBooleanArray(key, value)</code></li>
+            <li><code>putByteArray(key, value)</code></li>
+            <li><code>putIntArray(key, value)</code></li>
+            <li><code>putIntegerArrayList(key, value)</code></li>
+            <li><code>putLongArray(key, value)</code></li>
+            <li><code>putFloatArray(key, value)</code></li>
+            <li><code>putDoubleArray(key, value)</code></li>
+            <li><code>putShortArray(key, value)</code></li>
+            <li><code>putCharArray(key, value)</code></li>
+            <li><code>putStringArray(key, value)</code></li>
+            <li><code>putStringArrayList(key, value)</code></li>
+            <li><code>putUriArray(key, value)</code></li>
+            <li><code>putUriArrayList(key, value)</code></li>
+        </ul>
+        <br/>
+
+        示例：
+        <pre>putString("key1", "Hello");<br/>putBoolean("key2", true);<br/>putDouble("key3", 1.23);<br/>putInt("key4", 42);<br/>putInt("key5", a+4*b);</pre>
+
+        <a href="action_script.html">有关脚本语言的说明，请参阅动作脚本。</a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

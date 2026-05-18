@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>拍照</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>拍照</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>拍照</b> 使用内置相机应用拍照，或直接在后台拍照而不显示用户界面/预览（Android 4+）<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>每小时拍摄一张照片并将图片上传到 Dropbox。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">录制模式</div>
+    <div class="setting_description">使用相机应用还是在后台拍照而不显示用户界面（Android 4+）。</div>
+
+    <div class="setting_title">目标文件</div>
+    <div class="setting_description">用于保存照片的目标文件。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">相机</div>
+    <div class="setting_description">用于拍照的相机。</div>
+
+    <div class="setting_title">图片大小</div>
+    <div class="setting_description">图像的分辨率。</div>
+
+    <div class="setting_title">缩放</div>
+    <div class="setting_description">缩放比例。</div>
+
+    <div class="setting_title">场景模式</div>
+    <div class="setting_description">场景模式。</div>
+
+    <div class="setting_title">闪光灯模式</div>
+    <div class="setting_description">是否使用闪光灯。</div>
+
+    <div class="setting_title">白平衡</div>
+    <div class="setting_description">要使用的白平衡设置。</div>
+
+    <div class="setting_title">对焦模式</div>
+    <div class="setting_description">要使用的对焦模式。</div>
+
+    <div class="setting_title">效果</div>
+    <div class="setting_description">应用于图像的效果。并非所有效果都能与所有相机配合使用。前置摄像头通常会忽略效果。</div>
+
+    <div class="setting_title">等待预览图像</div>
+    <div class="setting_description">Automagic 是否应等待相机生成有效的预览图像后再拍照。可以取消选中以更快地拍照，或者解决相机不生成任何预览图像而导致超时的问题。</div>
+
+    <div class="setting_title">延迟以修复黑色照片</div>
+    <div class="setting_description">在 Android 初始化相机后，Automagic 是否应以及应延迟多长时间再拍照。在某些设备上，延迟约 2 秒可以防止相机生成黑色照片。</div>
+
+    <div class="setting_title">添加到图库</div>
+    <div class="setting_description">是否应使图像在图库应用中可用。否则，图片将在系统下次扫描设备中的媒体文件时变为可用。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>picture_path</code></div>
+    <div class="variable_description">照片的目标路径</div>
+</div>
+
+</body>
+
+</html>

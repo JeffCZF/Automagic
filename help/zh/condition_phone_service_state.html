@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>电话服务状态</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>电话服务状态</h1>
+
+<div class="summary">
+    <p>
+        条件 <b>电话服务状态</b> 检查电话服务当前是否可用、不可用或仅可拨打紧急电话。<br/>
+        <br/>
+        <span class="warning">警告：</span>某些设备在屏幕关闭时不会将当前服务状态发送给应用程序。
+    </p>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">SIM</div>
+    <div class="setting_description">SIM 卡。</div>
+
+    <div class="setting_title">电话服务状态</div>
+    <div class="setting_description">接受的状态。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>service_state</code></div>
+    <div class="variable_description">服务状态（0=服务中，1=无服务，2=仅限紧急呼叫，3=关机）</div>
+
+    <div class="variable_name"><code>roaming</code></div>
+    <div class="variable_description">指示漫游状态的布尔值</div>
+</div>
+
+</body>
+
+</html>
