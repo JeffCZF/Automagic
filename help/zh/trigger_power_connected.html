@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>电源</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>电源</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>电源</b> 在电源连接到设备（充电器或 USB 数据线）时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>连接电源时打开 WiFi。</li>
+        <li>连接电源时增加屏幕亮度。</li>
+        <li>断开电源时将屏幕亮度设置为自动。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">电源已连接/已断开</div>
+    <div class="setting_description">
+        <b>已连接</b><br/>
+        选中时，在电源连接时执行流程。<br/>
+        <ul>
+            <li><b>交流适配器</b>：使用交流适配器充电时</li>
+            <li><b>USB</b>：通过 USB 连接充电时</li>
+            <li><b>无线</b>：无线充电时</li>
+        </ul>
+        <br/>
+        <b>已断开</b><br/>
+        选中时，在电源断开时执行流程。<br/>
+        <br/>
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>battery_level</code></div>
+    <div class="variable_description">电池的电量级别</div>
+
+    <div class="variable_name"><code>battery_percentage</code></div>
+    <div class="variable_description">电量百分比</div>
+
+    <div class="variable_name"><code>battery_plugged</code></div>
+    <div class="variable_description">电池是否已插入电源（1=交流适配器，2=USB，4=无线）或未插入（0=未插入）</div>
+
+    <div class="variable_name"><code>battery_present</code></div>
+    <div class="variable_description">电池是否存在</div>
+
+    <div class="variable_name"><code>battery_scale</code></div>
+    <div class="variable_description">最大电池电量级别</div>
+
+    <div class="variable_name"><code>battery_status</code></div>
+    <div class="variable_description">电池的状态（1=未知，2=充电中，3=放电中，4=未充电，5=已满）</div>
+
+    <div class="variable_name"><code>battery_technology</code></div>
+    <div class="variable_description">电池的技术</div>
+
+    <div class="variable_name"><code>battery_temperature</code></div>
+    <div class="variable_description">电池的温度（以十分之一摄氏度为单位）</div>
+
+    <div class="variable_name"><code>battery_voltage</code></div>
+    <div class="variable_description">当前的电池电压</div>
+
+    <div class="variable_name"><code>battery_health</code></div>
+    <div class="variable_description">电池的健康状况</div>
+
+    <div class="variable_name"><code>battery_charge_counter</code>（Android 5+）</div>
+    <div class="variable_description">电池容量（微安时）。不可用时为 null</div>
+
+    <div class="variable_name"><code>battery_current_now</code>（Android 5+）</div>
+    <div class="variable_description">瞬时电池电流（微安）（正值=充电，负值=放电）。不可用时为 null</div>
+
+    <div class="variable_name"><code>battery_current_average</code>（Android 5+）</div>
+    <div class="variable_description">平均电池电流（微安）（正值=充电，负值=放电）。不可用时为 null</div>
+
+    <div class="variable_name"><code>battery_energy_counter</code>（Android 5+）</div>
+    <div class="variable_description">电池剩余能量（纳瓦时）。不可用时为 null</div>
+</div>
+
+</body>
+
+</html>

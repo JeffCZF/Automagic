@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>收到查看 Web URL 意图</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>收到查看 Web URL 意图</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>收到查看 Web URL 意图</b> 在应用想要在浏览器中显示 URL 时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>接收 URL 请求，并大声朗读天气网站上的文本，将所有其他 URL 转发到浏览器以正常显示。</li>
+    </ul>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>data_string</code></div>
+    <div class="variable_description">接收到的 URL（http:// 或 https://）</div>
+
+    <div class="variable_name"><code>categories</code></div>
+    <div class="variable_description">类别列表</div>
+
+    <div class="variable_name"><code>scheme</code></div>
+    <div class="variable_description">接收到的意图的方案</div>
+
+    <div class="variable_name"><code>type</code></div>
+    <div class="variable_description">接收到的意图的显式设置的 MIME 类型</div>
+</div>
+
+</body>
+
+</html>

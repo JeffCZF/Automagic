@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>UI 事件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>UI 事件</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>UI 事件</b> 在系统检测到用户界面中的更改时执行流程，例如当窗口打开、按钮被按下、列表被滚动、文本已输入等。<br/>
+        <br/>
+        <span class="note">注意：</span>系统不会将所有事件通知给 Automagic。一些发生非常频繁的事件可能会被系统跳过。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当按下 Google Play 中的“安装”按钮时执行流程。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">事件类型</div>
+    <div class="setting_description">
+        <ul>
+            <li><em>窗口已打开</em>：新窗口、对话框或弹出窗口已打开。变量 <code>text</code> 通常包含窗口的标题。</li>
+            <li><em>组件已点击</em>：按钮或标签已被点击。图像按钮的变量 <code>text</code> 通常为空。</li>
+            <li><em>组件已长按</em>：按钮或标签已被长按。图像按钮的变量 <code>text</code> 通常为空。</li>
+            <li><em>组件已选中</em>：一个元素已被选中，例如列表中的一行或下拉菜单中的一个元素。</li>
+            <li><em>组件已获得焦点</em>：输入焦点已移动到另一个元素。</li>
+            <li><em>组件已滚动</em>：列表已被滚动。</li>
+            <li><em>文本已更改</em>：文本输入字段中的文本已更改。</li>
+            <li><em>文本选择已更改</em>：文本选择或光标位置已更改。</li>
+            <li><em>公告</em>：应用发出公告，例如更改书籍中的页面。</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">包名称</div>
+    <div class="setting_description">此触发器要考虑的应用列表。支持 glob 模式（*, ?）。</div>
+
+    <div class="setting_title">文本</div>
+    <div class="setting_description">事件中应包含的文本。</div>
+
+    <div class="setting_title">从文本中移除非打印字符</div>
+    <div class="setting_description">是否应从文本中移除非打印 unicode 字符，例如可能在用户界面组件中使用的从左到右标记。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>event_type</code></div>
+    <div class="variable_description">
+        由数字表示的事件：
+        <ul>
+            <li><em>窗口已打开</em>：<code>32</code></li>
+            <li><em>视图已点击</em>：<code>1</code></li>
+            <li><em>视图已长按</em>：<code>2</code></li>
+            <li><em>视图已选中</em>：<code>4</code></li>
+            <li><em>视图已获得焦点</em>：<code>8</code></li>
+            <li><em>文本已更改</em>：<code>16</code></li>
+            <li><em>文本选择已更改</em>：<code>8192</code></li>
+            <li><em>视图已滚动</em>：<code>4096</code></li>
+            <li><em>公告</em>：<code>16384</code></li>
+        </ul>
+    </div>
+
+    <div class="variable_name"><code>content_description</code></div>
+    <div class="variable_description">源的内容描述</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">发起应用的包名称</div>
+
+    <div class="variable_name"><code>source_class_name</code></div>
+    <div class="variable_description">源的类名称</div>
+
+    <div class="variable_name"><code>source_bounds</code></div>
+    <div class="variable_description">元素的位置和大小（无法确定时为 null）</div>
+
+    <div class="variable_name"><code>text</code></div>
+    <div class="variable_description">源的文本或打开的窗口标题</div>
+
+    <div class="variable_name"><code>label</code></div>
+    <div class="variable_description">源的标签</div>
+
+    <div class="variable_name"><code>enabled</code></div>
+    <div class="variable_description">源是否已启用</div>
+
+    <div class="variable_name"><code>checked</code></div>
+    <div class="variable_description">源是否已选中</div>
+
+    <div class="variable_name"><code>fullscreen</code></div>
+    <div class="variable_description">源是否在全屏模式下执行</div>
+
+    <div class="variable_name"><code>password</code></div>
+    <div class="variable_description">源是否为密码字段</div>
+
+    <div class="variable_name"><code>scrollable</code></div>
+    <div class="variable_description">源是否可滚动</div>
+
+    <div class="variable_name"><code>scroll_x</code></div>
+    <div class="variable_description">源左边缘的滚动偏移量（像素）</div>
+
+    <div class="variable_name"><code>scroll_y</code></div>
+    <div class="variable_description">源上边缘的滚动偏移量（像素）</div>
+
+    <div class="variable_name"><code>from_index</code></div>
+    <div class="variable_description">元素的起始索引</div>
+
+    <div class="variable_name"><code>to_index</code></div>
+    <div class="variable_description">元素的结束索引</div>
+
+    <div class="variable_name"><code>item_count</code></div>
+    <div class="variable_description">列表中的元素数量</div>
+
+    <div class="variable_name"><code>current_item_index</code></div>
+    <div class="variable_description">元素包含在列表中时的项目位置</div>
+
+    <div class="variable_name"><code>added_count</code></div>
+    <div class="variable_description">编辑文本时添加的字符数</div>
+
+    <div class="variable_name"><code>removed_count</code></div>
+    <div class="variable_description">编辑文本时删除的字符数</div>
+
+    <div class="variable_name"><code>before_text</code></div>
+    <div class="variable_description">更改前的文本</div>
+
+    <div class="variable_name"><code>app_name</code></div>
+    <div class="variable_description">发起应用的名称</div>
+</div>
+
+</body>
+
+</html>

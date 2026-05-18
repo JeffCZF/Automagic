@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>定期位置更新</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>定期位置更新</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>定期位置更新</b> 以定期间隔执行，并将位置传递给执行的流程。<br/>
+        位置的准确性在很大程度上取决于所选的位置提供程序。<br/>
+        <br/>
+        <span class="tip">提示：</span>更新之间的时间间隔越长，使用的电池越少。建议频率约为 4 分钟。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>每 5 分钟将位置记录到文件。</li>
+        <li>每小时通过短信将您的位置发送给某人。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">位置提供程序</div>
+    <div class="setting_description">要使用的位置提供程序。<br/>
+        <br/>
+        <b>网络</b><br/>
+        此提供程序使用蜂窝基站和 Wi-Fi 信号提供的位置。根据环境，此提供程序可以提供大约 60 米精度的位置。使用蜂窝基站找到的位置可能非常不准确（最远可达数公里或英里）。<br/>
+        <br/>
+        <b>被动</b><br/>
+        此提供程序从当前活动的提供程序（网络或 GPS）提供位置，而自身不激活任何提供程序。这可能导致位置更新非常不频繁。<br/>
+        <br/>
+        <b>GPS</b><br/>
+        此提供程序使用 GPS 接收器提供位置。此提供程序通常比网络提供程序使用更多的电池。<br/>
+        <br/>
+        <b>高精度（实验性）</b><br/>
+        此提供程序使用设备上可用的不同传感器提供最精细的可用位置。<br/>
+        <br/>
+        <b>平衡功耗/精度（实验性）</b><br/>
+        此提供程序提供精度约为 100m 的位置，并且比高精度提供程序使用更少的电池。<br/>
+        <br/>
+        <b>低功耗（实验性）</b><br/>
+        此提供程序提供精度约为 10km 的位置。<br/>
+        <br/>
+        <b>无功耗（实验性）</b><br/>
+        此提供程序仅在设备上的其他应用程序请求位置时提供位置。<br/>
+        <br/>
+    </div>
+
+    <div class="setting_title">频率</div>
+    <div class="setting_description">期望的位置更新之间的时间。当未选中 <b>强制精确频率</b> 时，位置更新之间的实际时间取决于位置提供程序。<br/>
+        位置提供程序（例如 GPS）可以忽略指定的频率并每隔几秒提供更新。
+    </div>
+
+    <div class="setting_title">强制精确频率</div>
+    <div class="setting_description">确保即使位置提供程序更频繁或较不频繁地提供位置更新，也按照 <b>频率</b> 指定的间隔提供位置。</div>
+
+    <div class="setting_title">最低精度（以米为单位）</div>
+    <div class="setting_description">只有至少具有指定精度的较新位置才会传递给流程。<br/>
+        这对于过滤使用蜂窝基站计算的位置（当也可用使用 WiFi 的更精确位置时）非常有用。
+    </div>
+
+    <div class="setting_title">限制时间范围</div>
+    <div class="setting_description">触发器是始终活动还是仅在定义的时间范围内活动。</div>
+
+    <div class="setting_title">工作日</div>
+    <div class="setting_description">触发器应处于活动状态的日期。</div>
+
+    <div class="setting_title">从 - 到</div>
+    <div class="setting_description">时间范围的开始和结束。如果“到”时间小于“从”时间，则“到”时间将移至第二天，以简化跨午夜的时间范围检查。</div>
+
+    <div class="setting_title">允许在设备空闲/打盹模式下触发（Android 6+）</div>
+    <div class="setting_description">定义是否允许此触发器将设备从空闲/打盹模式唤醒。（请参阅 <a href="device_idle_mode.html">设备空闲/打盹模式</a>）</div>
+
+    <div class="setting_title">如同闹钟（Android 5+）</div>
+    <div class="setting_description">
+        定义是否应像闹钟一样处理此触发器，闹钟通常会显示在状态栏中。<br/>
+        此选项可确保 Android 在指定的时间准确调用触发器，并防止系统延迟事件。
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>location</code></div>
+    <div class="variable_description">报告的位置</div>
+
+    <div class="variable_name"><code>location_accuracy</code></div>
+    <div class="variable_description">位置的精度</div>
+
+    <div class="variable_name"><code>location_altitude</code></div>
+    <div class="variable_description">位置的海拔（如果可用）</div>
+
+    <div class="variable_name"><code>location_bearing</code></div>
+    <div class="variable_description">行进方向，以真北以东的度数表示（如果可用）</div>
+
+    <div class="variable_name"><code>location_speed</code></div>
+    <div class="variable_description">行进速度，以米每秒为单位（如果可用）</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>电话服务状态</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>电话服务状态</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>电话服务状态</b> 在设备检测到指定状态时执行。<br/>
+        <br/>
+        <span class="warning">警告：</span>某些设备在屏幕关闭时不会将当前服务状态发送给应用程序。您可以定期使用动作 <b>打开屏幕</b> 来缓解此问题。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当没有服务时播放警告声音。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">SIM</div>
+    <div class="setting_description">SIM 卡。</div>
+
+    <div class="setting_title">电话服务状态</div>
+    <div class="setting_description">
+        <b>有服务</b><br/>
+        当电话服务恢复正常操作时执行流程。<br/>
+        <br/>
+        <b>无服务</b><br/>
+        当电话服务不可用时执行流程。<br/>
+        <br/>
+        <b>仅紧急呼叫</b><br/>
+        当只能拨打紧急号码时执行流程。<br/>
+        <br/>
+        <b>电源关闭</b><br/>
+        当无线电被明确关闭时执行流程。<br/>
+        <br/>
+    </div>
+
+    <div class="setting_title">唤醒设备</div>
+    <div class="setting_description">触发器应每隔 X 分钟唤醒设备的 CPU 还是不唤醒。选择更短的时间间隔会消耗更多电池。</div>
+
+    <div class="setting_title">打开屏幕</div>
+    <div class="setting_description">是否应短暂打开显示屏。此选项会增加电池消耗，仅当值否则不更新时才应启用。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>previous_service_state</code></div>
+    <div class="variable_description">上一个服务状态（0=有服务，1=无服务，2=仅紧急呼叫，3=电源关闭）</div>
+
+    <div class="variable_name"><code>service_state</code></div>
+    <div class="variable_description">当前的服务的状态（0=有服务，1=无服务，2=仅紧急呼叫，3=电源关闭）</div>
+
+    <div class="variable_name"><code>roaming</code></div>
+    <div class="variable_description">布尔值，指示漫游状态</div>
+</div>
+
+</body>
+
+</html>

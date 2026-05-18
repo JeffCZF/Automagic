@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>收到发送/分享多个意图</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>收到发送/分享多个意图</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>发送/分享多个意图已接收</b> 在应用中使用发送/分享菜单并将多个项目分享给 Automagic 时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>在文件管理器中选择多个文件，并将这些文件分享给 Automagic。</li>
+    </ul>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>data_string</code></div>
+    <div class="variable_description">此意图所针对的数据的 URI，或为 null</div>
+
+    <div class="variable_name"><code>mimetype</code></div>
+    <div class="variable_description">发送的数据的 MIME 类型</div>
+
+    <div class="variable_name"><code>texts</code></div>
+    <div class="variable_description">文本项目列表（如果可用）</div>
+
+    <div class="variable_name"><code>stream_uris</code></div>
+    <div class="variable_description">URI 列表（如果可用）</div>
+
+    <div class="variable_name"><code>html_texts</code></div>
+    <div class="variable_description">可选的文本作为 HTML（如果可用）</div>
+
+    <div class="variable_name"><code>email</code></div>
+    <div class="variable_description">邮件接收者列表（如果可用）</div>
+
+    <div class="variable_name"><code>cc</code></div>
+    <div class="variable_description">要抄送的邮件地址列表</div>
+
+    <div class="variable_name"><code>bcc</code></div>
+    <div class="variable_description">要密送的邮件地址列表</div>
+
+    <div class="variable_name"><code>subject</code></div>
+    <div class="variable_description">主题（如果可用）</div>
+</div>
+
+</body>
+
+</html>

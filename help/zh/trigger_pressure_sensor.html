@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>压力传感器</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>压力传感器</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>压力传感器</b> 在压力传感器测量到的压力上升超过或下降到低于某一水平时，或在指定时间内压力变化至少达到指定量时执行。<br/>
+        <br/>
+        <span class="warning">警告：</span>此触发器使用设备硬件传感器，可能会增加电池用量（取决于设备型号）。一些设备在屏幕关闭时关闭传感器。<br/>
+        <br/>
+        <span class="tip">提示：</span>如果您只需要每隔几分钟检查一次压力，建议使用条件 <b>压力传感器</b>，因为条件不会持续使用传感器，从而消耗更少的电池。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>走下楼梯时如果压力发生变化，执行流程。</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">类型</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>下降到低于</b>：当测量到的压力下降到低于某个值时执行触发器</li>
+            <li><b>上升到高于</b>：当测量到的压力上升到高于某个值时执行触发器</li>
+            <li><b>在持续时间内下降</b>：当测量到的压力在给定时间内下降一定量时执行触发器</li>
+            <li><b>在持续时间内上升</b>：当测量到的压力在给定时间内上升一定量时执行触发器</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">压力（毫巴）</div>
+    <div class="setting_description">要比较的压力值，单位为毫巴。</div>
+
+    <div class="setting_title">阈值</div>
+    <div class="setting_description">
+        再次执行触发器之前所需的最小压力变化。<br/>
+        <br/>
+        示例：<br/>
+        类型：<b>下降到低于</b>，压力 <b>1000 毫巴</b>，阈值：<b>5 毫巴</b><br/>
+        当压力下降到低于 1000 毫巴时执行触发器。压力必须再次上升到至少 1005 毫巴，触发器才能再次执行。
+    </div>
+
+    <div class="setting_title">变化量（毫巴）</div>
+    <div class="setting_description">压力的变化量，单位为毫巴。</div>
+
+    <div class="setting_title">持续时间</div>
+    <div class="setting_description">压力变化必须持续的时间，以满足触发器执行。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>pressure</code></div>
+    <div class="variable_description">测量到的压力（毫巴）</div>
+</div>
+
+</body>
+
+</html>

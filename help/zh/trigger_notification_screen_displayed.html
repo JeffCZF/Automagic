@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>屏幕通知已显示</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>屏幕通知已显示</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>屏幕通知已显示</b> 在屏幕上显示通知时执行。<br/>
+        <br/>
+        <span class="note">注意：</span>至少需要 Android 4.0 (ICS)。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>朗读通知的文本。</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">包名称</div>
+    <div class="setting_description">显示通知的应用程序的逗号分隔列表。可以使用 glob 模式匹配多个包。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>notification_message</code></div>
+    <div class="variable_description">显示的通知文本</div>
+
+    <div class="variable_name"><code>package_name</code></div>
+    <div class="variable_description">显示通知的包名称</div>
+
+    <div class="variable_name"><code>app_name</code></div>
+    <div class="variable_description">应用的显示名称</div>
+</div>
+
+</body>
+
+</html>

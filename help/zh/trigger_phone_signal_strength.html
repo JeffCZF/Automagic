@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>电话信号强度</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>电话信号强度</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>电话信号强度</b> 在信号强度低于或超过指定值时执行。<br/>
+        <br/>
+        <span class="warning">警告：</span>某些设备在屏幕关闭时不会将当前信号强度发送给应用程序。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当信号强度变差时播放提醒。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">SIM</div>
+    <div class="setting_description">SIM 卡。</div>
+
+    <div class="setting_title">信号强度条件</div>
+    <div class="setting_description">
+        定义必须满足才能执行流程的条件：<br/>
+        <br/>
+        <b>变得低于</b><br/>
+        当上次报告的值高于定义的水平且当前值低于定义的水平时执行流程<br/>
+        <br/>
+        <b>变得高于</b><br/>
+        当上次报告的值低于定义的水平且当前值高于定义的水平时执行流程<br/>
+        <br/>
+        <b>变得等于</b><br/>
+        当上次报告的值与定义的水平不同且当前值等于定义的水平时执行流程<br/>
+        <br/>
+        <b>低于</b><br/>
+        每当系统报告的值低于定义的水平时执行流程。根据设备，这可能导致流程每几秒钟执行一次。即使上次值相同，也会执行流程。<br/>
+        <br/>
+        <b>高于</b><br/>
+        每当系统报告的值高于定义的水平时执行流程。根据设备，这可能导致流程每几秒钟执行一次。即使上次值相同，也会执行流程。<br/>
+        <br/>
+        <b>正好等于</b><br/>
+        每当系统报告的值正好在定义的水平上时执行流程。根据设备，这可能导致流程每几秒钟执行一次。即使上次值相同，也会执行流程。<br/>
+    </div>
+
+    <div class="setting_title">信号强度</div>
+    <div class="setting_description">定义要使用的信号强度。</div>
+
+    <div class="setting_title">唤醒设备</div>
+    <div class="setting_description">触发器应每隔 X 分钟唤醒设备的 CPU 还是不唤醒。选择更短的时间间隔会消耗更多电池。</div>
+
+    <div class="setting_title">打开屏幕</div>
+    <div class="setting_description">是否应短暂打开显示屏。此选项会增加电池消耗，仅当值否则不更新时才应启用。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>is_gsm</code></div>
+    <div class="variable_description">如果是 GSM 则为 true</div>
+
+    <div class="variable_name"><code>signal_strength_level</code></div>
+    <div class="variable_description">信号强度，值为 0 到 4，类似于标准 Android 设备上的信号条</div>
+
+    <div class="variable_name"><code>signal_strength_asu</code></div>
+    <div class="variable_description">信号强度（ASU）（0-31）</div>
+
+    <div class="variable_name"><code>gsm_signal_strength</code></div>
+    <div class="variable_description">GSM 信号强度（0-31，99 表示未知，-1 表示不可用）</div>
+
+    <div class="variable_name"><code>gsm_bit_error_rate</code></div>
+    <div class="variable_description">GSM 误码率（0-7，99 表示未知，-1 表示不可用）</div>
+
+    <div class="variable_name"><code>cdma_dbm</code></div>
+    <div class="variable_description">CDMA RSSI 值（dBm）（-1 表示不可用）</div>
+
+    <div class="variable_name"><code>cdma_ecio</code></div>
+    <div class="variable_description">CDMA Ec/Io 值（dB*10）（-1 表示不可用）</div>
+
+    <div class="variable_name"><code>evdo_dbm</code></div>
+    <div class="variable_description">EVDO RSSI 值（dBm）（-1 表示不可用）</div>
+
+    <div class="variable_name"><code>evdo_ecio</code></div>
+    <div class="variable_description">EVDO Ec/Io 值（dB*10）（-1 表示不可用）</div>
+
+    <div class="variable_name"><code>evdo_snr</code></div>
+    <div class="variable_description">EVDO 信噪比（0-8，-1 表示不可用）</div>
+
+    <div class="variable_name"><code>lte_dbm</code></div>
+    <div class="variable_description">LTE RSRP 值（dBm）（-1 表示不可用）</div>
+</div>
+
+</body>
+
+</html>

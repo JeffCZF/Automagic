@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>用户活动（实验性）</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>用户活动（实验性）</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>用户活动（实验性）</b> 要求设备定期检查用户最可能的身体活动，例如驾驶汽车、骑自行车或步行。<br/>
+        <br/>
+        <span class="note">注意：</span>检测当前活动是 Google 提供的设备功能。Automagic 无法更改或提高检测到的活动的质量。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>每 5 分钟检查一次活动，以衡量用户每天步行多长时间以及在办公室坐多长时间。</li>
+        <li>当用户在车内驾驶时增加铃声音量。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">触发条件</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>检测到活动时</b>：当定义的活动开始或结束时执行流程。</li>
+            <li><b>定期</b>：即使活动保持不变，也定期执行流程。</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">活动</div>
+    <div class="setting_description">
+        定义哪个活动应触发流程。<b>开始</b> 当检测到的活动切换到定义的活动且之前不同时执行流程。<b>结束</b> 当定义的活动之前正在进行且现在不再检测到时执行流程。
+    </div>
+
+    <div class="setting_title">强制精确频率</div>
+    <div class="setting_description">确保即使检测到的活动更频繁或较不频繁地变化，也正好以定义的频率执行流程。</div>
+
+    <div class="setting_title">检查频率</div>
+    <div class="setting_description">
+        期望的活动检查之间的时间。当未选中 <b>强制精确频率</b> 时，活动更新之间的实际时间取决于设备。<br/>
+        当另一个应用对活动更新感兴趣并使用更短的更新间隔时，设备可以更频繁地检测活动。某些设备在检测到活动 <code>still</code> 并且有可用的低功耗传感器来检测设备移动时，会关闭活动检测。
+    </div>
+
+    <div class="setting_title">最低置信度</div>
+    <div class="setting_description">接受的最低置信度级别（0=不确定，100=确定）。</div>
+
+    <div class="setting_title">限制时间范围</div>
+    <div class="setting_description">触发器是始终活动还是仅在定义的时间范围内活动。</div>
+
+    <div class="setting_title">工作日</div>
+    <div class="setting_description">触发器应处于活动状态的日期。</div>
+
+    <div class="setting_title">从 - 到</div>
+    <div class="setting_description">时间范围的开始和结束。如果“到”时间小于“从”时间，则“到”时间将移至第二天，以简化跨午夜的时间范围检查。</div>
+
+    <div class="setting_title">允许在设备空闲/打盹模式下触发（Android 6+）</div>
+    <div class="setting_description">定义是否允许此触发器将设备从空闲/打盹模式唤醒。（请参阅 <a href="device_idle_mode.html">设备空闲/打盹模式</a>）</div>
+
+    <div class="setting_title">如同闹钟（Android 5+）</div>
+    <div class="setting_description">
+        定义是否应像闹钟一样处理此触发器，闹钟通常会显示在状态栏中。<br/>
+        此选项可确保 Android 在指定的时间准确调用触发器，并防止系统延迟事件。
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>activity_name</code></div>
+    <div class="variable_description">活动的名称（"in_vehicle"、"on_bicycle"、"on_foot"、"still"、"unknown"、"tilting"、"walking"、"running"）</div>
+
+    <div class="variable_name"><code>activity_type</code></div>
+    <div class="variable_description">活动的类型（数字：0=in_vehicle，1=on_bicycle，2=on_foot，3=still，4=unknown，5=tilting，7=walking，8=running）</div>
+
+    <div class="variable_name"><code>activity_confidence</code></div>
+    <div class="variable_description">置信度，数字介于 0=不确定 到 100=确定 之间</div>
+
+    <div class="variable_name"><code>activity_time</code></div>
+    <div class="variable_description">最初检测到活动的时间</div>
+
+    <div class="variable_name"><code>detected_activities</code></div>
+    <div class="variable_description">检测到的活动列表，按置信度排序（降序）。每个项目是一个包含 activity_name、activity_type、activity_confidence 的映射。</div>
+</div>
+
+</body>
+
+</html>

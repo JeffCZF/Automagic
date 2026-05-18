@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>短信已收到</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>短信已收到</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>短信已收到</b> 在根据选项中定义的条件收到短信时执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当短信包含关键字 <strong>Alert!</strong> 时播放特殊提醒</li>
+        <li>当短信包含 <strong>Where are you?</strong> 时，将包含您的位置的短信发送回短信发送者</li>
+        <li>大声朗读收到的短信。</li>
+        <li>当短信包含 <strong>house search!</strong> 时，删除 SD 卡上的密码文件</li>
+        <li>当短信包含 <strong>device lost!</strong> 时，播放重复声音并振动</li>
+    </ul>
+
+    <span class="tip">提示：</span>使用不会出现在普通短信中的关键字或密码，以避免不愉快的意外。<br/>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+    <div class="setting_title">短信发送者列表</div>
+    <div class="setting_description">执行流程的呼叫号码列表。多个号码可以用逗号分隔。<br/>
+        可以使用 glob 模式（*, ?）来过滤相似的号码，如公司号码段：<br/>
+        <br/>
+        示例：
+        <ul>
+            <li>+17001111111</li>
+            <li>+17001111111,+17002222222</li>
+            <li>*70033311*</li>
+            <li>*70033311*,*70033?22*</li>
+        </ul>
+
+        特殊字符如 <code>+</code>、<code>-</code> 和 <code>.</code> 在比较号码前会被移除。<br/>
+        <br/>
+        <span class="warning">警告：</span>来电号码的格式取决于所使用的运营商。<br/>
+        您必须查看日志文件以查看所使用的确切格式，或者可以添加一个动作 <b>屏幕通知</b>，文本为 <code>{sms_sender}</code> 以查看实际号码。<br/>
+    </div>
+
+    <div class="setting_title">包含文本</div>
+    <div class="setting_description">只有当短信文本包含给定文本（不支持通配符）时才执行流程。文本不区分大小写。</div>
+
+    <div class="setting_title">防止其他应用接收短信</div>
+    <div class="setting_description">
+        阻止默认短信应用程序接收此短信。<br/>
+        <br/>
+        <span class="warning">警告：</span>仅当您确定 <b>包含文本</b> 不会意外匹配常规短信时，才勾选此选项。<br/>
+        <span class="warning">警告：</span>此功能在 Android 4.4+ 上不受支持。<br/>
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>sms_text</code></div>
+    <div class="variable_description">短信的文本</div>
+
+    <div class="variable_name"><code>sms_sender</code></div>
+    <div class="variable_description">短信的发送者</div>
+
+    <div class="variable_name"><code>contact_name</code></div>
+    <div class="variable_description">联系人的姓名（如果可用）</div>
+
+    <div class="variable_name"><code>contact_company</code></div>
+    <div class="variable_description">联系人的公司（如果可用）</div>
+
+    <div class="variable_name"><code>contact_title</code></div>
+    <div class="variable_description">联系人的职位（如果可用）</div>
+
+    <div class="variable_name"><code>contact_note</code></div>
+    <div class="variable_description">联系人的备注（如果可用）</div>
+
+    <div class="variable_name"><code>contact_nickname</code></div>
+    <div class="variable_description">联系人的昵称（如果可用）</div>
+
+    <div class="variable_name"><code>contact_email</code></div>
+    <div class="variable_description">联系人的一个电子邮件地址（如果可用）</div>
+
+    <div class="variable_name"><code>contact_groups</code></div>
+    <div class="variable_description">联系人的群组列表（如果可用）</div>
+</div>
+
+</body>
+
+</html>

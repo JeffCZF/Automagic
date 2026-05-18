@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>计步器</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>计步器</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>计步器</b> 使用设备的计步器/步数器，并在计数到指定步数时执行流程。设备可以优化电池使用，并在显示屏关闭时较不频繁地通知 Automagic。<br/>
+        <br/>
+        <span class="warning">警告：</span>此触发器使用设备硬件传感器，可能会增加电池用量（取决于设备型号）。一些设备在屏幕关闭时不计步。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当一天计步少于 1000 步时，为第二天创建日历事件“强烈建议训练”。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">每第 n 步（或更不频繁）</div>
+    <div class="setting_description">定义多少步后应执行流程。计步器可以较不频繁地通知 Automagic 以节省电池。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>step_count</code></div>
+    <div class="variable_description">自触发器启用以来的步数</div>
+
+    <div class="variable_name"><code>step_count_total</code></div>
+    <div class="variable_description">自上次重启以来传感器计数的步数</div>
+
+    <div class="variable_name"><code>last_step_time</code></div>
+    <div class="variable_description">最后一次检测到步数的时间点。Automagic 尝试提供常规系统时间，但可能由于 ROM 差异在某些设备上失败。</div>
+</div>
+
+</body>
+
+</html>

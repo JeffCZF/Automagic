@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Automagic 短信送达报告已收到</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Automagic 短信送达报告已收到</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>Automagic 短信送达报告已收到</b> 在收到异步送达报告时执行。<br/>
+        <br/>
+        <span class="note">注意：</span>每条短信可能收到多个送达报告，例如状态 48（发送待处理）和稍后状态 0（成功）当短信已送达时。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当送达报告指示错误时，再次发送一次短信。</li>
+    </ul>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>sms_receiver</code></div>
+    <div class="variable_description">短信的原始接收者</div>
+
+    <div class="variable_name"><code>sms_text</code></div>
+    <div class="variable_description">短信的原始文本</div>
+
+    <div class="variable_name"><code>sms_delivery_report_status</code></div>
+    <div class="variable_description">状态码（0-31=成功，32-63=发送待处理，&gt;=64=错误）</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>状态栏通知已选中</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>状态栏通知已选中</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>状态栏通知已选中</b> 在选中之前使用动作 <b>状态栏通知</b> 显示的通知时执行流程。<br/>
+    </p>
+
+    示例：
+    <ul>
+        <li>当流程启用飞行模式时显示通知。当选中状态栏中的通知时手动关闭飞行模式。</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">通知</div>
+    <div class="setting_description">
+        <b>创建自己的通知</b><br/>
+        在状态栏上创建一个新通知。<br/>
+        <br/>
+        <b>对来自动作的通知触发</b><br/>
+        当选中由动作 <b>状态栏通知</b> 提供的通知时触发流程。<br/>
+        <br/>
+    </div>
+
+    <div class="setting_title">图标</div>
+    <div class="setting_description">
+        用于此通知的图标。<br/>
+        <br/>
+        从 Android 6 开始支持自定义图标。<br/>
+        <br/>
+        <span class="note">注意：</span>Android 通常会将所有非透明部分显示为白色，因此建议创建具有透明背景和白色内容颜色的自定义 PNG 图像。<br/>
+        <span class="note">注意：</span>在某些 Android 6.0 设备上，选项“自定义图标”可能导致崩溃。
+    </div>
+
+    <div class="setting_title">标题</div>
+    <div class="setting_description">通知的标题。</div>
+
+    <div class="setting_title">消息</div>
+    <div class="setting_description">通知的消息。</div>
+
+    <div class="setting_title">播放声音</div>
+    <div class="setting_description">选中时播放默认通知声音。</div>
+
+    <div class="setting_title">振动</div>
+    <div class="setting_description">选中时振动。</div>
+
+    <div class="setting_title">闪烁 LED</div>
+    <div class="setting_description">使用提供的颜色和闪烁频率闪烁通知 LED。通知 LED 和用户定义的颜色并非在所有设备上都受支持。</div>
+
+    <div class="setting_title">强调色</div>
+    <div class="setting_description">设备用于通知的颜色（通常是展开状态栏中图标背景的颜色）。</div>
+
+    <div class="setting_title">进行中</div>
+    <div class="setting_description">将此通知标记为进行中事件，并防止从状态栏中移除此通知。选择此选项时，通知 ID 是必需的。</div>
+
+    <div class="setting_title">类别（Android 5+）</div>
+    <div class="setting_description">通知的类别。类别定义通知是否被允许通过免打扰过滤器。</div>
+
+    <div class="setting_title">优先级（Android 4.1+）</div>
+    <div class="setting_description">定义通知的优先级。优先级低的通知可能仅显示在展开的状态栏中（取决于 Android 版本）。</div>
+
+    <div class="setting_title">可见性（Android 5+）</div>
+    <div class="setting_description">通知是秘密、私有还是公开，这定义了通知是否显示在锁定屏幕上。还必须适当配置锁定屏幕。</div>
+
+    <div class="setting_title">通知 ID</div>
+    <div class="setting_description">触发器应针对一个特定 ID 还是所有通知执行。可以在动作 <b>状态栏通知</b> 中定义 ID。</div>
+
+    <div class="setting_title">大消息（Android 4.1+）</div>
+    <div class="setting_description">
+        定义当通知展开（通过在通知上向下滑动）时显示的大消息。当通知作为通知抽屉中最顶部的通知显示时，通常也会显示大消息。您可以使用优先级设置来影响通知的顺序。
+    </div>
+
+    <div class="setting_title">大图标（Android 3+）</div>
+    <div class="setting_description">定义是否应在通知中显示大图标。</div>
+
+    <div class="setting_title">群组（Android 7+）</div>
+    <div class="setting_description">定义此通知的群组。</div>
+
+    <div class="setting_title">群组摘要（Android 7+）</div>
+    <div class="setting_description">定义此通知是否为此群组的群组摘要。</div>
+
+    <div class="setting_title">动作（Android 4.1+）</div>
+    <div class="setting_description">
+        当通知展开（通过在通知上向下滑动）时，最多显示三个动作作为按钮。当通知作为通知抽屉中最顶部的通知显示时，通常也会显示动作按钮。您可以使用优先级设置来影响通知的顺序。<br/>
+        <br/>
+        <span class="tip">提示：</span>使用动作 <b>执行流程</b> 来执行由多个动作和条件组成的复杂流程。<br/>
+        <br/>
+        以下变量提供给执行的动作：
+        <ul>
+            <li><code>action_number</code>：包含动作的编号（1、2 或 3）</li>
+            <li><code>action_text</code>：通知上所选动作按钮的文本标签</li>
+        </ul>
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>notification_title</code></div>
+    <div class="variable_description">通知的标题</div>
+
+    <div class="variable_name"><code>notification_message</code></div>
+    <div class="variable_description">通知的消息</div>
+
+    <div class="variable_name"><code>notification_id</code></div>
+    <div class="variable_description">所选通知的 ID</div>
+</div>
+
+</body>
+
+</html>

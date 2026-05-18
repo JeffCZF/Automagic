@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>速度</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>速度</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>速度</b> 在 GPS 接收器测量到的速度上升超过或下降到低于某一水平时执行。<br/>
+        <br/>
+        <span class="warning">警告：</span>此触发器使用 GPS 接收器，可能会增加电池用量（取决于设备型号）。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当您驾驶速度超过 120 公里/小时时，将位置记录到文件中。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">类型</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>下降到低于</b>：当报告的速度下降到低于某个值时执行触发器</li>
+            <li><b>上升到高于</b>：当报告的速度上升到高于某个值时执行触发器</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">速度</div>
+    <div class="setting_description">要比较的速度。</div>
+
+    <div class="setting_title">单位</div>
+    <div class="setting_description">速度的单位。</div>
+
+    <div class="setting_title">阈值</div>
+    <div class="setting_description">
+        再次执行触发器之前所需的最小速度变化。<br/>
+        <br/>
+        示例：<br/>
+        类型：<b>下降到低于</b>，速度 <b>40 公里/小时</b>，阈值：<b>10 公里/小时</b><br/>
+        当速度下降到低于 40 公里/小时时执行触发器。速度必须再次上升到至少 50 公里/小时，触发器才能再次执行。
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>location</code></div>
+    <div class="variable_description">报告的位置</div>
+
+    <div class="variable_name"><code>location_accuracy</code></div>
+    <div class="variable_description">位置的精度</div>
+
+    <div class="variable_name"><code>location_altitude</code></div>
+    <div class="variable_description">位置的海拔（如果可用）</div>
+
+    <div class="variable_name"><code>location_bearing</code></div>
+    <div class="variable_description">行进方向，以真北以东的度数表示（如果可用）</div>
+
+    <div class="variable_name"><code>location_speed</code></div>
+    <div class="variable_description">行进速度，以米每秒为单位</div>
+</div>
+
+</body>
+
+</html>

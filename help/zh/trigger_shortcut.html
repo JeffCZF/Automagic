@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>快捷方式</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>快捷方式</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>快捷方式</b> 在启动器上的快捷方式被按下时执行。<br/>
+        您可以通过按下 <b>安装快捷方式</b> 按钮创建快捷方式并选择图标。<br/>
+        <br/>
+        <span class="note">注意：</span>从 Android 8 开始，安装快捷方式按钮可能不再有效。在这种情况下，您可以通过保存触发器，然后转到启动器，长按空白区域，选择 <em>小部件</em>，然后选择 <em>AM Shortcut</em> 来创建新的快捷方式。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>按下快捷方式打开 WiFi。</li>
+        <li>按下快捷方式启动设置应用屏幕。</li>
+        <li>按下快捷方式在 Gleeo Time Tracker 中开始记录。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">标题</div>
+    <div class="setting_description">要创建的快捷方式的标题/名称。标题用于在 Automagic 中标识快捷方式触发器，这意味着当两个快捷方式触发器使用相同的标题时，一个快捷方式可以执行多个触发器。标题在按下 <b>安装快捷方式</b> 按钮时传递给启动器。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+</div>
+
+</body>
+
+</html>

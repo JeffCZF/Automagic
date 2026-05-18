@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>定期计时器</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>定期计时器</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>定期计时器</b> 在指定的间隔内执行。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>每 5 分钟提醒您在 Gleeo Time Tracker 中的录制任务。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">间隔</div>
+    <div class="setting_description">定义流程执行之间的时间间隔。</div>
+
+    <div class="setting_title">在睡眠模式下唤醒设备</div>
+    <div class="setting_description">
+        定义是否应从睡眠模式唤醒设备。<br/>
+        禁用此选项可节省少量电池，但会在设备休眠时将触发器调用延迟未知的时间。
+    </div>
+
+    <div class="setting_title">限制时间范围</div>
+    <div class="setting_description">触发器是始终活动还是仅在定义的时间范围内活动。</div>
+
+    <div class="setting_title">工作日</div>
+    <div class="setting_description">触发器应处于活动状态的日期。</div>
+
+    <div class="setting_title">从 - 到</div>
+    <div class="setting_description">时间范围的开始和结束。如果“到”时间小于“从”时间，则“到”时间将移至第二天，以简化跨午夜的时间范围检查。</div>
+
+    <div class="setting_title">在固定时间</div>
+    <div class="setting_description">
+        定义计时器是否应在设定的间隔内，相对于午夜（或当有限时间范围生效时相对于“从”时间）定期执行流程。<br/>
+        如果未设置此选项，则间隔从触发器启用的时刻开始。<br/>
+        <br/>
+        流程在 07:13 激活时的示例：
+        <ul>
+            <li>选项 <b>未设置</b>，间隔 1 小时：流程在 08:13, 09:13, 10:13, ... 执行</li>
+            <li>选项 <b>已设置</b>，间隔 1 小时：流程在 08:00, 09:00, 10:00, ... 执行</li>
+            <li>选项 <b>已设置</b>，间隔 1 小时，时间范围 07:00 - 09:00：流程在 08:00, 09:00 执行（第二天：07:00, 08:00, 09:00）</li>
+            <li>选项 <b>已设置</b>，间隔 1 小时，时间范围 07:30 - 09:30：流程在 07:30, 08:30, 09:30 执行</li>
+        </ul>
+        <br/>
+        请注意，禁用<em>在睡眠模式下唤醒设备</em>可能会在设备处于深度睡眠时延迟执行。
+    </div>
+
+    <div class="setting_title">允许在设备空闲/打盹模式下触发（Android 6+）</div>
+    <div class="setting_description">定义是否允许此触发器将设备从空闲/打盹模式唤醒。（请参阅 <a href="device_idle_mode.html">设备空闲/打盹模式</a>）</div>
+
+    <div class="setting_title">如同闹钟（Android 5+）</div>
+    <div class="setting_description">
+        定义是否应像闹钟一样处理此触发器，闹钟通常会显示在状态栏中。<br/>
+        此选项可确保 Android 在指定的时间准确调用触发器，并防止系统延迟事件。
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+</div>
+
+</body>
+
+</html>

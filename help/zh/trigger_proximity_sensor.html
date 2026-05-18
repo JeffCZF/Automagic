@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>距离传感器</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>距离传感器</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>距离传感器</b> 在距离传感器测量到的距离越过定义的距离时执行。<br/>
+        <br/>
+        <span class="warning">警告：</span>此触发器使用设备硬件传感器，可能会增加电池用量（取决于设备型号）。一些设备在屏幕关闭时关闭传感器。
+    </p>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">距离（厘米）</div>
+    <div class="setting_description">当距离越过高于还是低于定义的距离以及具体的厘米距离时执行触发器。</div>
+
+    <div class="setting_title">保持设备唤醒</div>
+    <div class="setting_description">确保设备在执行动作时不进入深度睡眠。此选项会增加电池消耗，仅当距离传感器在显示屏关闭时停止工作时才应启用。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>proximity</code></div>
+    <div class="variable_description">距离传感器的测量值</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>音量长按事件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>音量长按事件</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>音量长按事件</b> 在某个音量键被长时间按下或按住然后释放时执行。<br/>
+        <br/>
+        <span class="note">注意：</span>必须使用 <code>adb</code> 向 Automagic 授予权限才能使用此功能：
+    <ol>
+        <li>在计算机上安装 <code>adb</code>（<a href="https://www.google.com/search?q=install+adb+for+android">搜索互联网了解如何安装 adb</a>）</li>
+        <li>在 Android 设备的 <b>系统设置</b> -&gt; <b>开发者选项</b> 中启用 <b>USB 调试</b></li>
+        <li>将您的 Android 设备连接到计算机</li>
+        <li>在终端中执行以下命令：<code>adb shell pm grant ch.gridvision.ppam.androidautomagic android.permission.SET_VOLUME_KEY_LONG_PRESS_LISTENER</code></li>
+    </ol>
+    <span class="warning">警告：</span>此功能不受 Android 官方支持，可能无法在所有设备上运行。<br/>
+    <span class="warning">警告：</span>激活此触发器会阻止长时间按住音量按钮以更改音量。<br/>
+    <span class="warning">警告：</span>如果在按住音量键时显示应用或对话框，此触发器可能会错过抬起事件。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>按住音量减键以跳到下一首歌曲。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">按键</div>
+    <div class="setting_description">应执行触发器的按键名称列表。支持 glob 模式（*, ?）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">按下持续时间</div>
+    <div class="setting_description">必须按住键以执行触发器的最短时间。当达到指定持续时间时将执行按下动作，一旦键被释放就执行抬起动作。</div>
+
+    <div class="setting_title">动作</div>
+    <div class="setting_description">是按下、抬起还是两者都应执行触发器。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>key_code</code></div>
+    <div class="variable_description">数字键码</div>
+
+    <div class="variable_name"><code>key_code_name</code></div>
+    <div class="variable_description">键码的名称</div>
+
+    <div class="variable_name"><code>key_duration</code></div>
+    <div class="variable_description">事件的持续时间（毫秒）</div>
+
+    <div class="variable_name"><code>key_source_device_id</code></div>
+    <div class="variable_description">发送设备的 ID</div>
+
+    <div class="variable_name"><code>key_action_down</code></div>
+    <div class="variable_description">动作是否为按下</div>
+
+    <div class="variable_name"><code>key_action_up</code></div>
+    <div class="variable_description">动作是否为抬起</div>
+</div>
+
+</body>
+
+</html>

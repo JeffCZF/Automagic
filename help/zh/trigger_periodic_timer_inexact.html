@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>不精确的定期计时器</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>不精确的定期计时器</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>不精确的定期计时器</b> 大约在指定的间隔内执行。设备可以稍微调整触发器的时间，并在设备当前也执行其他任务时调用触发器。此触发器比常规触发器 <b>定期计时器</b> 使用更少的电池。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>大约每小时检查一次服务器是否在线。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">间隔（不精确）</div>
+    <div class="setting_description">定义流程执行之间的时间间隔。Android 仅支持此列表中可用的时间。</div>
+
+    <div class="setting_title">在睡眠模式下唤醒设备</div>
+    <div class="setting_description">
+        定义是否应从睡眠模式唤醒设备。<br/>
+        禁用此选项可节省少量电池，但会在设备休眠时将触发器调用延迟未知的时间。
+    </div>
+
+    <div class="setting_title">限制时间范围</div>
+    <div class="setting_description">触发器是始终活动还是仅在定义的时间范围内活动。</div>
+
+    <div class="setting_title">工作日</div>
+    <div class="setting_description">触发器应处于活动状态的日期。</div>
+
+    <div class="setting_title">从 - 到</div>
+    <div class="setting_description">时间范围的开始和结束。如果“到”时间小于“从”时间，则“到”时间将移至第二天，以简化跨午夜的时间范围检查。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+</div>
+
+
+</body>
+
+</html>

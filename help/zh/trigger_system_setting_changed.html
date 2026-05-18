@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>系统设置已更改</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>系统设置已更改</h1>
+
+<div class="summary">
+    <p>
+        触发器 <b>系统设置已更改</b> 在系统设置数据库中的某项设置发生更改时执行。<br/>
+        <br/>
+        <span class="warning">警告：</span>此功能不受 Android 官方支持，可能无法在所有设备上运行。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当系统打开拦截模式时播放提醒。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">类别</div>
+    <div class="setting_description">
+        <ul>
+            <li><b>System</b>：用于常规设置</li>
+            <li><b>Secure</b>：用于通常无法修改的设置</li>
+            <li><b>Global</b>：用于设备所有用户有效的全局设置（Android 4.2+）</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">名称</div>
+    <div class="setting_description">要监视的设置名称。支持 glob 模式。</div>
+
+    <div class="setting_title">变量</div>
+    <div class="setting_description">将设置的新值传递给流程的变量名称。</div>
+</div>
+
+<div class="variables_section">
+    变量是一个值的容器，可在许多动作和条件中用于动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">有关说明，请参阅动作脚本。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>triggertime</code></div>
+    <div class="variable_description">触发器执行的时间</div>
+
+    <div class="variable_name"><code>old_setting</code></div>
+    <div class="variable_description">设置更改前的值</div>
+
+    <div class="variable_name"><code>setting</code></div>
+    <div class="variable_description">设置的新值</div>
+
+    <div class="variable_name"><code>setting_name</code></div>
+    <div class="variable_description">已更改的设置名称。当使用 glob 模式监视多个设置时尤其有用。</div>
+</div>
+
+</body>
+
+</html>
