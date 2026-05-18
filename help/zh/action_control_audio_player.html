@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>控制音频播放器</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>控制音频播放器</h1>
+
+<div class="summary">
+    <p>
+        <b>控制音频播放器</b>动作可以启动并控制 Android 的默认音频播放器。请注意，设备或制造商特定的音频播放器可能无法正常工作。<br/>
+        <br/>
+        <span class="warning">警告：</span>此功能不受 Android 官方支持，可能无法在所有设备上正常工作。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>断开耳机时暂停音频播放器。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">控制类型</div>
+    <div class="setting_description">
+        定义控制媒体播放器的方法：
+        <ul>
+            <li><b>媒体按键</b>：模拟按下媒体按键</li>
+            <li><b>广播</b>：向音频服务发送广播</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">媒体按键</div>
+    <div class="setting_description">
+        要按下的按键（并非所有应用都支持所有按键）：
+        <ul>
+            <li><b>播放</b>：开始播放（Android >3）</li>
+            <li><b>播放/暂停</b>：在播放和暂停之间切换</li>
+            <li><b>暂停</b>：暂停音频播放器（Android >3）</li>
+            <li><b>停止</b>：停止音频播放器</li>
+            <li><b>上一首</b>：播放上一曲目</li>
+            <li><b>下一首</b>：播放下一曲目</li>
+            <li><b>快进</b>：快进</li>
+            <li><b>快退</b>：快退</li>
+            <li><b>弹出</b>：弹出媒体（例如 CD 托盘）（Android >3）</li>
+            <li><b>关闭</b>：关闭媒体托盘（例如 CD 托盘）（Android >3）</li>
+            <li><b>录音</b>：开始录音（Android >3）</li>
+            <li><b>音轨</b>：切换音频轨道（Android >4.4）</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">发送到指定应用</div>
+    <div class="setting_description">选择是由系统选择处理媒体按键的应用，还是将媒体按键事件发送到特定应用。当安装了多个音频播放器且事件未被所需播放器处理时，此选项非常有用。</div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">接收媒体按键事件的应用包名。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">类名</div>
+    <div class="setting_description">应用内处理媒体按键的组件类名。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">操作</div>
+    <div class="setting_description">
+        要执行的操作：
+        <ul>
+            <li><b>启动</b>：启动音频播放器</li>
+            <li><b>播放</b>：开始播放</li>
+            <li><b>播放/暂停</b>：在播放和暂停之间切换</li>
+            <li><b>暂停</b>：暂停音频播放器</li>
+            <li><b>停止</b>：停止音频播放器</li>
+            <li><b>上一首</b>：播放上一曲目</li>
+            <li><b>下一首</b>：播放下一曲目</li>
+            <li><b>循环模式</b>：激活下一个循环模式</li>
+            <li><b>切换随机播放</b>：打开/关闭随机播放模式</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+
+</html>

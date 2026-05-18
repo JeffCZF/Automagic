@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>映射值</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>映射值</h1>
+
+<div class="summary">
+    <p>
+        <b>映射值</b>动作接受一个输入值（键）并将其映射到一个输出值。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>扫描实验室门上的条形码，并将值映射到项目/任务以启动时间追踪器。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">输入值</div>
+    <div class="setting_description">
+        要映射到另一个值的输入值。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        示例：
+        <ul>
+            <li><code>{barcode_text}</code> 用于映射条形码</li>
+            <li><code>{incoming_number}</code> 用于映射来电号码</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">映射定义</div>
+    <div class="setting_description">
+        用于指定如何将值映射到目标值的定义。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        映射示例：<br/>
+        <code>key1=>value1</code><br/>
+        <code>key2=>value2</code><br/>
+        <br/>
+        赋值运算符（<code>=&gt;</code>）之前的部分用于指定要匹配的键值。可以使用逗号分隔的列表为一个目标值指定多个键。还可以使用通配符 <code>*</code> 和 <code>?</code> 匹配多个值。<br/>
+        赋值运算符（<code>=&gt;</code>）之后的部分定义用作映射值的目标值。<br/>
+        映射规则从上到下逐行评估。应用第一个匹配的规则。
+        <br/>
+        <br/>
+        多键映射示例：<br/>
+        <code>key1=>value1</code><br/>
+        <code>key2,key3,key4=>value2</code><br/>
+        <br/>
+        <br/>
+        通配符映射示例：<br/>
+        <code>key1=>value1</code><br/>
+        <code>key?=>value2</code><br/>
+        <code>key*=>value3</code><br/>
+        <br/>
+        在上面的示例中，值 <code>key1</code> 将映射到 <code>value1</code>，因为它是匹配输入值的第一行。<br/>
+        值 <code>key2</code> 到 <code>key9</code> 将匹配第二条规则。<br/>
+        值 <code>key123</code> 将匹配第三条规则。<br/>
+        <br/>
+        如果没有规则匹配，输出值将设置为 <code>null</code>。<br/>
+        <br/>
+        <br/>
+        如果您想将一些已知的条形码映射到有意义的任务名称，但在没有匹配规则时也想使用原始条形码，可以使用以下方法（在此示例中，输入值将设置为 <code>{barcode_text}</code>）：<br/>
+        <br/>
+        映射定义：<br/>
+        <code>123321123=>Meeting</code><br/>
+        <code>989878945=>Office</code><br/>
+        <code>*=>{barcode_text}</code><br/>
+        <br/>
+        第三条规则匹配所有未知的条形码值，并将其映射到原始值。您也可以使用条件 <b>表达式</b> 来检测无法映射的值。<br/>
+        <br/>
+        执行动作时检测到的最后二十个无法映射的值将记录在列表中，并可通过按钮 <b>添加未映射的值...</b> 添加。
+    </div>
+
+    <div class="setting_title">输出变量</div>
+    <div class="setting_description">
+        用于存储结果的变量名称（通常不带花括号，除非您想创建动态命名的变量）。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+    </div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>mapped_value</code></div>
+    <div class="variable_description">目标值</div>
+</div>
+
+</body>
+
+</html>

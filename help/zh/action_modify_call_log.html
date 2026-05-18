@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>修改通话记录</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>修改通话记录</h1>
+
+<div class="summary">
+    <p>
+        <b>修改通话记录</b>动点将通话记录条目标记为已读或清除通话记录。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>每周一早上删除通话记录。</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">操作</div>
+    <div class="setting_description">是将条目标记为已读，还是清除通话记录。</div>
+
+    <div class="setting_title">号码</div>
+    <div class="setting_description">
+        要删除的通话号码列表。多个号码可用逗号分隔。<br/>
+        可以使用通配符（*、?）过滤相似号码，如公司号码段：<br/>
+        <br/>
+        示例：
+        <ul>
+            <li>+17001111111</li>
+            <li>+17001111111,+17002222222</li>
+            <li>*70033311*</li>
+            <li>*70033311*,*70033?22*</li>
+        </ul>
+
+        在比较号码之前，会去除特殊字符，如 <code>+</code>、<code>-</code> 和 <code>.</code>。
+    </div>
+</div>
+
+
+</body>
+
+</html>

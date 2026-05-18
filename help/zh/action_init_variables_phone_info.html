@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量手机信息</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量手机信息</h1>
+
+<div class="summary">
+    <p>
+        <b>初始化变量手机信息</b>动作初始化所需的变量（并非所有值在所有设备上都可用）。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>每小时检查一次网络运营商。</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">SIM 卡</div>
+    <div class="setting_description">SIM 卡。</div>
+
+    <div class="setting_title">设备 ID 变量（例如 IMEI/MEID/ESN）</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">软件版本变量（例如 IMEI/SV）</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">线路 1 号码变量（例如 MSISDN）</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">网络国家 ISO 变量</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">网络运营商变量（例如 MCC+MNC）</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">网络运营商名称变量</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">手机类型变量</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">SIM 状态变量</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">SIM 国家 ISO 变量</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">SIM 运营商变量</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">SIM 运营商名称变量</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">SIM 序列号变量</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">用户 ID 变量（例如 IMSI）</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">语音信箱字母标识变量</div>
+    <div class="setting_description">变量名称。</div>
+
+    <div class="setting_title">语音信箱号码变量</div>
+    <div class="setting_description">变量名称。</div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>device_id</code></div>
+    <div class="variable_description">设备 ID（例如 IMEI/MEID/ESN），不可用时为 null</div>
+
+    <div class="variable_name"><code>device_software_version</code></div>
+    <div class="variable_description">软件版本（例如 IMEI/SV），不可用时为 null</div>
+
+    <div class="variable_name"><code>line1_number</code></div>
+    <div class="variable_description">线路 1 的电话号码字符串（例如 MSISDN），不可用时为 null</div>
+
+    <div class="variable_name"><code>network_country_iso</code></div>
+    <div class="variable_description">ISO 国家代码（仅当注册到网络时，在 CDMA 上不可靠）</div>
+
+    <div class="variable_name"><code>network_operator</code></div>
+    <div class="variable_description">数字网络运营商名称 MCC+MNC（仅当注册到网络时，在 CDMA 上不可靠）</div>
+
+    <div class="variable_name"><code>network_operator_name</code></div>
+    <div class="variable_description">网络运营商名称（仅当注册到网络时，在 CDMA 上不可靠）</div>
+
+    <div class="variable_name"><code>phone_type</code></div>
+    <div class="variable_description">手机类型（0=无，1=GSM，2=CDMA，3=SIP）</div>
+
+    <div class="variable_name"><code>sim_state</code></div>
+    <div class="variable_description">SIM 卡状态（0=未知，1=缺失，2=需要 PIN，3=需要 PUK，4=网络锁定，5=就绪）</div>
+
+    <div class="variable_name"><code>sim_country_iso</code></div>
+    <div class="variable_description">SIM ISO 国家代码</div>
+
+    <div class="variable_name"><code>sim_operator</code></div>
+    <div class="variable_description">SIM MCC+MNC（仅当 SIM 状态为就绪时可用）</div>
+
+    <div class="variable_name"><code>sim_operator_name</code></div>
+    <div class="variable_description">服务提供商名称 SPN（仅当 SIM 状态为就绪时可用）</div>
+
+    <div class="variable_name"><code>sim_serial_number</code></div>
+    <div class="variable_description">SIM 卡序列号，不可用时为 null</div>
+
+    <div class="variable_name"><code>subscriber_id</code></div>
+    <div class="variable_description">用户 ID（例如 IMSI），不可用时为 null</div>
+
+    <div class="variable_name"><code>voice_mail_alpha_tag</code></div>
+    <div class="variable_description">与语音信箱号码关联的字母标识</div>
+
+    <div class="variable_name"><code>voice_mail_number</code></div>
+    <div class="variable_description">语音信箱号码，不可用时为 null</div>
+</div>
+
+</body>
+
+</html>

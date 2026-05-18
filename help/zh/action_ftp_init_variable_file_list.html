@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FTP 初始化变量文件列表</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>FTP 初始化变量文件列表</h1>
+
+<div class="summary">
+    <p>
+        <b>FTP 初始化变量文件列表</b>动作列出目录中与指定名称模式匹配的文件。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>获取文件列表，并仅下载小于 1MB 的文件。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">协议</div>
+    <div class="setting_description">使用常规 FTP（未加密）、FTPS（基于 SSL/TLS 的隐式 FTP，默认端口 990）还是 FTPES（基于 SSL/TLS 的显式 FTP）。</div>
+
+    <div class="setting_title">数据通道保护（仅适用于 FTPS 和 FTPES）</div>
+    <div class="setting_description">数据通道上传输的数据是否应加密（P）或不加密（C）。</div>
+
+    <div class="setting_title">服务器/端口</div>
+    <div class="setting_description">FTP 服务器的名称或 IP 及端口（默认 21）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">用户名</div>
+    <div class="setting_description">连接的用户名。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">密码</div>
+    <div class="setting_description">连接的密码。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">变量</div>
+    <div class="setting_description">用于保存文件列表的变量名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">文件模式</div>
+    <div class="setting_description">要列出的文件。文件模式可以包含通配符，如 <code>*</code> 和 <code>?</code>。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">包含文件属性</div>
+    <div class="setting_description">选中时，为每个文件返回包含路径、文件类型、文件大小和文件日期的属性列表。</div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>files</code></div>
+    <div class="variable_description">文件列表</div>
+</div>
+
+</body>
+
+</html>

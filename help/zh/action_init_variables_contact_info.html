@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量联系人信息</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量联系人信息</h1>
+
+<div class="summary">
+    <p>
+        <b>初始化变量联系人信息</b>动作加载指定联系人的信息，并将信息存储在一个映射中。<br/>
+        <br/>
+        <span class="tip">提示：</span> 可以使用条件 <b>调试对话框</b> 来显示映射中存储的键和值。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>显示一个联系人的所有电话号码。</li>
+    </ul>
+</div>
+
+<div class="summary">
+    <p>联系人的JSON示例：</p>
+    <pre style="overflow-x: auto;max-width: 720px;">
+        {
+          "display_name": "Contact XYZ", // 联系人姓名
+          "photo_thumb_uri": "content://com.android.contacts/contacts/124/photo", // 小图片的URI
+          "photo_uri": "content://com.android.contacts/display_photo/3", // 大图片的URI
+          "last_time_contacted": 1479667934531, // 上次联系的时间点，0表示未知
+          "starred": true, // 联系人是否在收藏夹中
+          "times_contacted": 1, // 联系次数（根据联系人应用）
+          "phone_list": [{ // 电话号码列表
+            "number": "+41987654321",
+            "type": 2,
+            "type_label": "Mobile"
+          }, ... ],
+          "organization_list": [{ // 组织列表
+            "company": "Company X",
+            "type": 2,
+            "type_label": "Other",
+            "title": "Company"
+          }, ... ],
+          "note_list": [{ // 备注列表
+              "note": "Note 1"
+            }, ... ],
+          "nickname_list": [{ // 昵称列表
+            "nickname": "MR. incredible",
+            "type": 0,
+            "type_label": "Other"
+          }, ... ],
+          "email_list": [{ // 电子邮件地址列表
+            "email": "example@gmail.com",
+            "type": 1,
+            "type_label": "Home"
+          }, ... ],
+          "relation_list": [{ // 关系列表
+            "relation": "Person 123",
+            "type": 1,
+            "type_label": "Assistant
+          }, ... ],
+          "structured_postal_list": [{ // 地址列表
+            "formatted_address": "Mainstreet X\n1234 City",
+            "type": 1,
+            "type_label": "Home",
+            "street": "Mainstreet X",
+            "city": "City",
+            "postcode": "1234"
+          }, ... ],
+          "structured_name_list": [{ // 姓名列表
+            "display_name": "Contact XYZ",
+            "given_name": "Contact",
+            "family_name": "XYZ"
+          }, ... ],
+          "website_list": [{ // 网站列表
+            "url": "www.automagic4android.com",
+            "type": 7,
+            "type_label": "Other"
+          }, ... ],
+          "sip_address_list": [{ // SIP地址列表
+            "number": "+41987654321",
+            "type": 2,
+            "type_label": "Mobile"
+          }, ... ],
+          "event_list": [{ // 事件列表
+            "start_date": "1978-07-04",
+            "type": 3,
+            "type_label": "Birthday"
+          }, ...],
+          "group_list": [ // 组列表
+            "Group1",
+            "Group2",
+            "Group3"
+          ]
+        }
+    </pre>
+    <p>请注意，未来的Automagic版本可能会添加额外的键值对。</p>
+    <br/>
+    <p>在动作<b>脚本</b>中访问值的示例：</p>
+    <pre style="overflow-x: auto;max-width: 720px;">
+        name = contact_info["display_name"];
+        photo_uri = contact_info["photo_uri"];
+        phone1 = contact_info["phone_list"][0]["number"];
+        phone2 = contact_info["phone_list"][1]["number"];
+        phone2type = contact_info["phone_list"][1]["type_label"];
+        nickname1 = contact_info["nickname_list"][0]["nickname"];
+    </pre>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">搜索类型</div>
+    <div class="setting_description">定义如何搜索联系人。使用找到的第一个联系人来提供信息。</div>
+
+    <div class="setting_title">搜索值</div>
+    <div class="setting_description">用于搜索联系人的值。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>contact_info</code></div>
+    <div class="variable_description">包含查询信息的映射</div>
+</div>
+
+</body>
+
+</html>

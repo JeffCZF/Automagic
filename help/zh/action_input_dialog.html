@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>输入对话框</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>输入对话框</h1>
+
+<div class="summary">
+    <p>
+        <b>输入对话框</b>动作显示一个输入对话框，包含输入文本字段、密码字段、单选或多选列表。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>询问用户是否要关闭 WiFi。</li>
+        <li>询问用于 FTP 上传的密码。</li>
+        <li>询问晚上是否应激活飞行模式。如果用户在 30 秒内没有响应，则激活飞行模式。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">输入对话框类型</div>
+    <div class="setting_description">要显示的输入对话框类型。<br/>
+        <br/>
+        可以是以下之一：
+        <ul>
+            <li><code>多行文本</code>：用于多行纯文本输入</li>
+            <li><code>单行文本</code>：用于单行纯文本输入</li>
+            <li><code>密码</code>：用于密码输入</li>
+            <li><code>PIN</code>：用于 PIN 输入</li>
+            <li><code>数字</code>：用于输入数字字符</li>
+            <li><code>电话号码</code>：用于输入电话号码中使用的字符</li>
+            <li><code>日期</code>：显示日期选择器</li>
+            <li><code>时间</code>：显示时间选择器</li>
+            <li><code>日期和时间</code>：显示带有日期和时间选择器的对话框</li>
+            <li><code>单选菜单</code>：显示值列表，类似于没有“确定”、“取消”按钮的菜单</li>
+            <li><code>多选</code>：显示值列表，用户可以选择多个值</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">标题</div>
+    <div class="setting_description">输入对话框的标题。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">提示（仅适用于 <code>文本</code> 和 <code>密码</code>）</div>
+    <div class="setting_description">在输入对话框中显示的问题或输入描述。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">列表值（仅适用于 <code>单选</code> 和 <code>多选</code>）</div>
+    <div class="setting_description">以逗号分隔的值列表，作为用户可供选择的值显示。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">默认值</div>
+    <div class="setting_description">
+        用户未更改输入值时提供的默认值。当用户取消对话框或按返回键时，也会提供此值。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        用户是否取消了对话框可以使用变量 <code>operation</code> 来判断（见下文）。<br/>
+        <br/>
+        日期/时间输入类型的默认值必须按照以下指定格式进行格式化：
+        <ul>
+            <li><code>日期</code>：模式 <code>yyyy-MM-dd</code>，例如 <code>2014-01-25</code> 或使用变量 <code>{variable,dateformat,yyyy-MM-dd}</code></li>
+            <li><code>时间</code>：模式 <code>HH:mm</code>（24小时制），例如 <code>14:20</code> 或使用变量 <code>{variable,dateformat,HH:mm}</code></li>
+            <li><code>日期和时间</code>：模式 <code>yyyy-MM-dd HH:mm</code>（时间使用24小时制），例如 <code>2014-01-25 14:20</code> 或使用变量 <code>{variable,dateformat,yyyy-MM-dd HH:mm}</code></li>
+        </ul>
+        未根据上述规则格式化的值将被忽略。
+    </div>
+
+    <div class="setting_title">字体大小</div>
+    <div class="setting_description">用于输入文本值的字体大小。</div>
+
+    <div class="setting_title">激活超时</div>
+    <div class="setting_description">是否应在用户未在指定时间内反应时，自动超时并向流程提供值。</div>
+
+    <div class="setting_title">持续时间</div>
+    <div class="setting_description">自动关闭对话框并继续流程的时间量。</div>
+
+    <div class="setting_title">超时时的值</div>
+    <div class="setting_description">发生超时时提供给流程的值。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">选项</div>
+    <div class="setting_description">
+        <ul>
+            <li><em>锁定时显示</em>：即使设备已锁定也显示输入对话框</li>
+            <li><em>开启屏幕</em>：首次显示对话框时开启屏幕</li>
+            <li><em>保持屏幕开启</em>：只要对话框显示，就保持屏幕开启（电源按钮仍允许关闭屏幕）</li>
+            <li><em>放大对话框宽度</em>：放大对话框宽度以覆盖几乎整个屏幕</li>
+            <li><em>键盘提示大写句子</em>：向键盘提示句子应以大写字母开头</li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>operation</code></div>
+    <div class="variable_description">用于关闭对话框的操作。<br/>
+        <br/>
+        可以是以下之一：
+        <ul>
+            <li><code>ok</code>：用户按下“确定”按钮</li>
+            <li><code>cancel</code>：用户按下“取消”按钮或返回键</li>
+            <li><code>timeout</code>：对话框因超时关闭</li>
+        </ul>
+    </div>
+
+    <div class="variable_name"><code>value</code></div>
+    <div class="variable_description">
+        对话框中选择的值，或者对于 <code>多选</code> 类型是值的列表，或者对于日期/时间类型的输入对话框是日期。
+        对于类型 <em>时间</em>，<code>value</code> 是当前日期下输入的时间。
+    </div>
+
+    <div class="variable_name"><code>index</code></div>
+    <div class="variable_description"><code>单选</code> 列表中所选值的索引，如果无法定义则为 -1</div>
+
+    <div class="variable_name"><code>indices</code></div>
+    <div class="variable_description"><code>多选</code> 列表中所选值的索引列表，对于每个无法定义的值则为 -1</div>
+</div>
+
+</body>
+
+</html>

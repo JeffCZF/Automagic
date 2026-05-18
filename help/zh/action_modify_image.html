@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>修改图像</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>修改图像</h1>
+
+<div class="summary">
+    <p>
+        <b>修改图像</b>动作可用于修改先前通过动作 <b>初始化变量图像文件</b> 加载的图像。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>加载图像，缩小尺寸，并通过邮件发送较小的文件。</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">变量</div>
+    <div class="setting_description">包含图像像素数据的变量名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">操作</div>
+    <div class="setting_description">
+        应用于图像的修改类型：
+        <ul>
+            <li><em>缩放</em>：改变图像大小，可以保持宽高比或拉伸图像</li>
+            <li><em>旋转</em>：将图像旋转 90° 或 180°</li>
+            <li><em>镜像</em>：水平或垂直镜像图像</li>
+            <li><em>裁剪并缩放</em>：从图像中心提取尽可能大的区域，同时保持原始图像的宽高比，并缩放到所需大小</li>
+            <li><em>裁剪至选区</em>：将图像裁剪到定义的区域</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">宽度（缩放）</div>
+    <div class="setting_description">图像的新宽度。如果仅指定了新高度，宽度将按比例调整。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">高度（缩放）</div>
+    <div class="setting_description">图像的新高度。如果仅指定了新宽度，高度将按比例调整。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">旋转</div>
+    <div class="setting_description">图像应如何旋转。</div>
+
+    <div class="setting_title">镜像</div>
+    <div class="setting_description">图像应水平还是垂直镜像。</div>
+
+    <div class="setting_title">宽度（裁剪并缩放）</div>
+    <div class="setting_description">图像的新宽度。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">高度（裁剪并缩放）</div>
+    <div class="setting_description">图像的新高度。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">X、Y（裁剪至选区）</div>
+    <div class="setting_description">选区的 X 和 Y 位置。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">宽度、高度（裁剪至选区）</div>
+    <div class="setting_description">选区的宽度和高度。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>image_data</code></div>
+    <div class="variable_description">图像的局部变量</div>
+
+    <div class="variable_name"><code>image_width</code></div>
+    <div class="variable_description">修改后图像的宽度</div>
+
+    <div class="variable_name"><code>image_height</code></div>
+    <div class="variable_description">修改后图像的高度</div>
+</div>
+
+</body>
+
+</html>

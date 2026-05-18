@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Google Drive 删除文件（实验性）</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Google Drive 删除文件（实验性）</h1>
+
+<div class="summary">
+    <p>
+        <b>Google Drive 删除文件（实验性）</b>动作删除 Dropbox 上指定的文件。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>在将新文件上传到文件夹之前，删除该文件夹中的所有文件，以清除不再需要的文件。</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">设备帐户</div>
+    <div class="setting_description">用于访问 Google Drive 的帐户。</div>
+
+    <div class="setting_title">Google Drive 路径</div>
+    <div class="setting_description">
+        要在 Google Drive 上删除的文件或目录的逗号分隔列表。可以使用通配符模式匹配多个文件。<a href="action_script.html#inline_expressions">支持变量。</a>
+        <br/>
+        示例：
+        <ul>
+            <li><code>/backup/export*</code> 匹配 <code>/backup</code> 文件夹中所有以 <code>export</code> 开头的文件</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">显示进度通知</div>
+    <div class="setting_description">是否在状态栏上显示指示操作进度的通知。</div>
+</div>
+
+</body>
+
+</html>

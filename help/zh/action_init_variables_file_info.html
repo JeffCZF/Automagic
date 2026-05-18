@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量文件信息</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量文件信息</h1>
+
+<div class="summary">
+    <p>
+        <b>初始化变量文件信息</b>动作将文件的相关信息作为变量提供给流程。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>检查文件是否超过一周，并删除该文件。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">文件</div>
+    <div class="setting_description">要检查的文件。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">文件类型</div>
+    <div class="setting_description">用于存储文件类型的变量（<code>dir</code>、<code>file</code> 或 <code>other</code>）。</div>
+
+    <div class="setting_title">文件是否存在</div>
+    <div class="setting_description">用于存储文件是否存在的变量。</div>
+
+    <div class="setting_title">文件大小</div>
+    <div class="setting_description">用于存储文件大小（字节）的变量。</div>
+
+    <div class="setting_title">目录递归</div>
+    <div class="setting_description">对于目录，是收集所有直接包含的文件的大小，还是递归遍历并汇总所有子目录的大小。</div>
+
+    <div class="setting_title">文件最后修改时间</div>
+    <div class="setting_description">用于存储最后修改时间戳的变量。</div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>file_type</code></div>
+    <div class="variable_description">文件类型（<code>dir</code>、<code>file</code> 或 <code>other</code>）</div>
+
+    <div class="variable_name"><code>file_exists</code></div>
+    <div class="variable_description">文件是否存在（<code>true</code> 或 <code>false</code>）</div>
+
+    <div class="variable_name"><code>file_size</code></div>
+    <div class="variable_description">文件大小（字节）（或目录中文件的总和）</div>
+
+    <div class="variable_name"><code>file_last_modified</code></div>
+    <div class="variable_description">最后修改时间戳</div>
+</div>
+
+</body>
+
+</html>

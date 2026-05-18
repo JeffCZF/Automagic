@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>创建日历事件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>创建日历事件</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>创建日历事件</b> 在设备的指定日历上创建事件（需要 Android 4+）<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>根据收到的短信文本创建日历事件。</li>
+        <li>为每次收到的通话创建日历事件。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">日历</div>
+    <div class="setting_description">要创建事件的日历名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">开始/结束类型</div>
+    <div class="setting_description">事件是相对于动作执行时间创建，还是使用绝对时间创建。</div>
+
+    <div class="setting_title">开始于</div>
+    <div class="setting_description">事件从现在开始的偏移量。例如 <em>1h</em> 创建一小时后开始的事件。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">持续时间</div>
+    <div class="setting_description">事件的期望持续时间，如 <em>1h</em> 或 <em>45m</em>。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">从</div>
+    <div class="setting_description">一个脚本，其最后一条语句必须计算为日期（自1970年以来的毫秒数），用作事件的开始时间。</div>
+
+    <div class="setting_title">到</div>
+    <div class="setting_description">一个脚本，其最后一条语句必须计算为日期（自1970年以来的毫秒数），用作事件的结束时间。</div>
+
+    <div class="setting_title">全天</div>
+    <div class="setting_description">勾选后创建持续一整天的活动，事件跨越与<em>开始于/持续时间</em>或<em>从/到</em>中指定的时间段相交的所有日期。</div>
+
+    <div class="setting_title">标题</div>
+    <div class="setting_description">标题。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">描述</div>
+    <div class="setting_description">描述。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">位置</div>
+    <div class="setting_description">事件地点。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">提醒</div>
+    <div class="setting_description">要创建的提醒。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">事件可用性</div>
+    <div class="setting_description">可用性（并非所有日历都支持“暂定”）。</div>
+
+    <div class="setting_title">可见性</div>
+    <div class="setting_description">可见性。</div>
+</div>
+
+</body>
+
+</html>

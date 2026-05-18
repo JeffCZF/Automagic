@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Gleeo 开始记录</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Gleeo 开始记录</h1>
+
+<div class="summary">
+    <p>
+        <b>Gleeo 开始记录</b>动作在 <b>Gleeo Time Tracker</b> 中开始记录定义的项目和任务（如果该任务尚未记录）。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当您到达办公室时开始计时。</li>
+        <li>当您的雇主打电话时开始计时。</li>
+        <li>当您按下启动器上的快捷方式时开始计时。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">域</div>
+    <div class="setting_description">要开始记录的域名。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">项目</div>
+    <div class="setting_description">要开始记录的项目名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">任务</div>
+    <div class="setting_description">
+        要开始记录的任务。如果任务在 <b>Gleeo Time Tracker</b> 中尚不存在，则会创建它。<br/>
+        <a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        示例：
+        <ul>
+            <li><code>Phone Support for {incoming_number}</code> 变为 <code>Phone Support for 17001111111</code></li>
+            <li><code>Visiting {trigger}</code> 变为 <code>Visiting Customer X</code>（使用不同的位置触发器，命名为 <code>Customer X</code>、<code>Customer Y</code> 等）</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">详细信息</div>
+    <div class="setting_description">条目的详细信息。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">额外 1</div>
+    <div class="setting_description">条目的额外字段 1。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">额外 2</div>
+    <div class="setting_description">条目的额外字段 2。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">移至后台</div>
+    <div class="setting_description">开始任务后是否将 <b>Gleeo Time Tracker</b> 移至后台。</div>
+</div>
+
+</body>
+
+</html>

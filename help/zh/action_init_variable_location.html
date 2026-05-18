@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量位置</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量位置</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>初始化变量位置</b> 从定义的位置提供者获取一个位置，并将该位置存储在变量中。<br/>
+        <br/>
+        <span class="note">注意：</span> 获取一个位置可能需要几秒钟才能完成。被动提供者可能直到其他应用激活某个位置提供者后才返回位置。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>响应包含文本 <strong>你在哪里？</strong> 的短信，将位置发送给发件人。</li>
+        <li>当雇主来电时，将位置坐标存储到文件中。</li>
+        <li>每次拨打电话时，通过邮件发送位置和电话号码。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+    <div class="setting_title">变量</div>
+    <div class="setting_description">
+        用于存储位置的变量名称。
+    </div>
+
+    <div class="setting_title">新位置或最后已知位置</div>
+    <div class="setting_description">定义操作是应获取新位置，还是应使用最后已知位置。加载最后已知位置速度非常快，但可能返回过时的位置，或者在设备刚启动时可能没有可用位置。</div>
+
+    <div class="setting_title">位置提供者</div>
+    <div class="setting_description">要使用的位置提供者。<br/>
+        <b>网络</b><br/>
+        此提供者使用基站和 Wi-Fi 信号提供的位置。根据环境，此提供者可以提供精度约为 60 米的位置。使用基站定位的位置可能非常不准确（可达数公里或英里）。<br/>
+        <br/>
+        <b>被动</b><br/>
+        此提供者从当前活动提供者（网络或 GPS）传递位置，而不自行激活任何提供者。这可能导致位置更新非常不频繁。<br/>
+        <br/>
+        <b>GPS</b><br/>
+        此提供者使用 GPS 接收器提供位置。此提供者通常比网络提供者消耗更多电量。<br/>
+        <br/>
+        <b>高精度（实验性）</b><br/>
+        此提供者使用设备上可用的不同传感器提供最精细的可用位置。<br/>
+        <br/>
+        <b>平衡电量/精度（实验性）</b><br/>
+        此提供者提供精度约为 100 米的位置，比高精度提供者消耗更少的电量。<br/>
+        <br/>
+        <b>低电量（实验性）</b><br/>
+        此提供者提供精度约为 10 公里的位置。<br/>
+        <br/>
+        <b>无功耗（实验性）</b><br/>
+        此提供者仅当设备上的其他应用请求位置时才会传递位置。<br/>
+        <br/>
+    </div>
+
+    <div class="setting_title">最小精度（以米为单位）</div>
+    <div class="setting_description">仅接受至少具有此精度的较新位置。<br/>
+        当同时有使用 Wi-Fi 的更精确位置时，可用于过滤掉使用基站计算的位置。
+    </div>
+
+    <div class="setting_title">超时</div>
+    <div class="setting_description">等待位置修复的最长时间，否则流程将以错误终止。</div>
+
+</div>
+
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>location</code></div>
+    <div class="variable_description">报告的位置</div>
+
+    <div class="variable_name"><code>location_accuracy</code></div>
+    <div class="variable_description">位置的精度</div>
+
+    <div class="variable_name"><code>location_altitude</code></div>
+    <div class="variable_description">位置的海拔（如果可用，并非所有设备都支持）</div>
+
+    <div class="variable_name"><code>location_bearing</code></div>
+    <div class="variable_description">行进方向（相对于正北的度数，如果可用，并非所有设备都支持）</div>
+
+    <div class="variable_name"><code>location_speed</code></div>
+    <div class="variable_description">行进速度（米/秒，如果可用，并非所有设备都支持）</div>
+</div>
+
+</body>
+
+</html>

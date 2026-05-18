@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量通话记录</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量通话记录</h1>
+
+<div class="summary">
+    <p>
+        <b>初始化变量通话记录</b>动作使用通话记录中最后一个条目的值初始化变量。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>使用最后一次通话的值更新小工具。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">查询条件</div>
+    <div class="setting_description">指定应将哪个通话存储到变量中。</div>
+
+    <div class="setting_title">通话号码变量</div>
+    <div class="setting_description">用于存储通话号码的变量名称。</div>
+
+    <div class="setting_title">通话日期/时间变量</div>
+    <div class="setting_description">用于存储通话时间点的变量名称。</div>
+
+    <div class="setting_title">通话时长变量</div>
+    <div class="setting_description">用于存储通话时长的变量名称。</div>
+
+    <div class="setting_title">通话类型变量</div>
+    <div class="setting_description">用于存储通话类型的变量名称（1=呼入，2=呼出，3=未接）。</div>
+
+    <div class="setting_title">通话联系人姓名变量</div>
+    <div class="setting_description">用于存储联系人姓名的变量名称。</div>
+
+    <div class="setting_title">通话新标志变量</div>
+    <div class="setting_description">用于存储通话记录条目是否尚未标记为已读的变量名称。</div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>call_number</code></div>
+    <div class="variable_description">通话号码</div>
+
+    <div class="variable_name"><code>call_time</code></div>
+    <div class="variable_description">通话时间（自1970年以来的毫秒数）</div>
+
+    <div class="variable_name"><code>call_duration</code></div>
+    <div class="variable_description">通话时长（秒）</div>
+
+    <div class="variable_name"><code>call_type</code></div>
+    <div class="variable_description">通话类型（1=呼入，2=呼出，3=未接）</div>
+
+    <div class="variable_name"><code>call_cached_name</code></div>
+    <div class="variable_description">联系人姓名（如果之后修改了联系人，可能会过时）</div>
+
+    <div class="variable_name"><code>call_new</code></div>
+    <div class="variable_description">通话记录条目是否尚未被确认（true或false）</div>
+</div>
+
+</body>
+
+</html>

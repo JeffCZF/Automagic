@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>修改 Automagic 状态栏通知</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>修改 Automagic 状态栏通知</h1>
+
+<div class="summary">
+    <p>
+        <b>修改 Automagic 状态栏通知</b>动作修改通常由 Automagic 出于技术原因显示的永久通知。当 Automagic 中与该通知相关的某个设置被更改时，修改后的通知外观将重置为默认值。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当特定流程运行时显示不同的图标。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">图标</div>
+    <div class="setting_description">
+        用于此通知的图标。<br/>
+        <br/>
+        从 Android 6 开始支持自定义图标。<br/>
+        <br/>
+        <span class="note">注意：</span> Android 通常会将所有非透明部分显示为白色，因此建议创建具有透明背景和白色内容的自定义 PNG 图像。<br/>
+        <span class="note">注意：</span> 选项“自定义图标”可能导致某些 Android 6.0 设备崩溃。
+    </div>
+
+    <div class="setting_title">标题</div>
+    <div class="setting_description">通知的标题。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">消息</div>
+    <div class="setting_description">通知的消息。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">强调色</div>
+    <div class="setting_description">设备在通知中使用的颜色（通常是展开状态栏中图标的背景色）。</div>
+
+    <div class="setting_title">类别（Android 5+）</div>
+    <div class="setting_description">通知的类别。类别定义通知是否允许通过中断过滤器。</div>
+
+    <div class="setting_title">优先级（Android 4.1+）</div>
+    <div class="setting_description">定义通知的优先级。低优先级的通知可能仅在展开的状态栏中显示（取决于 Android 版本）。</div>
+
+    <div class="setting_title">可见性（Android 5+）</div>
+    <div class="setting_description">通知是秘密、私有还是公共，这定义了通知是否在锁屏上显示。锁屏也必须相应配置。</div>
+
+    <div class="setting_title">大消息（Android 4.1+）</div>
+    <div class="setting_description">
+        定义展开通知时（通过在通知上向下滑动）显示的大消息。当通知作为通知抽屉中最顶部的通知显示时，通常也会显示大消息。您可以通过使用优先级设置来影响通知的顺序。<a href="action_script.html#inline_expressions">支持变量。</a>
+    </div>
+
+    <div class="setting_title">显示进度条</div>
+    <div class="setting_description">定义是否应在通知中显示进度条。</div>
+
+    <div class="setting_title">不确定进度</div>
+    <div class="setting_description">进度是否应不确定。</div>
+
+    <div class="setting_title">进度条值 / 最大值</div>
+    <div class="setting_description">进度的当前值和最大值（100%）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">大图标（Android 3+）</div>
+    <div class="setting_description">定义是否应在通知中显示大图标。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">组（Android 7+）</div>
+    <div class="setting_description">定义此通知的组。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">组摘要（Android 7+）</div>
+    <div class="setting_description">定义此通知是否为此组的组摘要。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">操作（Android 4.1+）</div>
+    <div class="setting_description">
+        展开通知时（通过在通知上向下滑动），最多三个操作显示为按钮。当通知作为通知抽屉中最顶部的通知显示时，通常也会显示操作按钮。您可以通过使用优先级设置来影响通知的顺序。<br/>
+        <br/>
+        <span class="tip">提示：</span> 使用动作 <b>执行流程</b> 来执行由多个动作和条件组成的复杂流程。<br/>
+        <br/>
+        以下变量将提供给被执行的动作：
+        <ul>
+            <li><code>action_number</code>：包含操作的编号（1、2 或 3）</li>
+            <li><code>action_text</code>：通知上所选操作按钮的文本标签</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+
+</html>

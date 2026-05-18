@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量网络流量</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量网络流量</h1>
+
+<div class="summary">
+    <p>
+        <b>初始化变量网络流量</b>动作使用系统或运行特定应用的特定用户 ID 自设备启动以来的发送和接收字节数初始化变量。<br/>
+        <br/>
+        <span class="note">注意：</span> 某些设备不收集用户/应用特定值。这也是 Android 4.3 的一个已知问题。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将每天传输的数据量存储到日志文件中。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">流量</div>
+    <div class="setting_description">是存储系统的总体传输数据，还是存储特定应用（或用户 ID）传输的数据。</div>
+
+    <div class="setting_title">总发送字节数变量</div>
+    <div class="setting_description">用于存储自设备启动以来发送字节数的变量名称。</div>
+
+    <div class="setting_title">总接收字节数变量</div>
+    <div class="setting_description">用于存储自设备启动以来接收字节数的变量名称。</div>
+
+    <div class="setting_title">移动网络发送字节数变量</div>
+    <div class="setting_description">用于存储自设备启动以来在移动接口上发送字节数的变量名称。</div>
+
+    <div class="setting_title">移动网络接收字节数变量</div>
+    <div class="setting_description">用于存储自设备启动以来在移动接口上接收字节数的变量名称。</div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">要检查的包名（即运行该应用的用户）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">发送字节数变量</div>
+    <div class="setting_description">用于存储运行指定应用的用户 ID 自设备启动以来发送字节数的变量名称。</div>
+
+    <div class="setting_title">接收字节数变量</div>
+    <div class="setting_description">用于存储运行指定应用的用户 ID 自设备启动以来接收字节数的变量名称。</div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>total_transmitted_bytes</code></div>
+    <div class="variable_description">发送字节数，如果设备不支持此统计则为 -1</div>
+
+    <div class="variable_name"><code>total_received_bytes</code></div>
+    <div class="variable_description">接收字节数，如果设备不支持此统计则为 -1</div>
+
+    <div class="variable_name"><code>mobile_transmitted_bytes</code></div>
+    <div class="variable_description">通过移动接口发送的字节数，如果设备不支持此统计则为 -1</div>
+
+    <div class="variable_name"><code>mobile_received_bytes</code></div>
+    <div class="variable_description">通过移动接口接收的字节数，如果设备不支持此统计则为 -1</div>
+
+    <div class="variable_name"><code>uid_transmitted_bytes</code></div>
+    <div class="variable_description">用户 ID 发送的字节数，如果设备不支持此统计则为 -1</div>
+
+    <div class="variable_name"><code>uid_received_bytes</code></div>
+    <div class="variable_description">用户 ID 接收的字节数，如果设备不支持此统计则为 -1</div>
+</div>
+
+</body>
+
+</html>

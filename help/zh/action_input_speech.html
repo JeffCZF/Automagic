@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>语音输入（实验性）</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>语音输入（实验性）</h1>
+
+<div class="summary">
+    <p>
+        <b>语音输入（实验性）</b>动作启动设备的语音识别，并将识别出的文本通过变量 <code>value</code> 提供给流程。语音识别引擎通常需要网络访问。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>使用语音命令控制 Automagic。</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">UI 模式</div>
+    <div class="setting_description">是显示用户界面，还是在后台执行语音识别。</div>
+
+    <div class="setting_title">提示</div>
+    <div class="setting_description">在用户界面中显示的可选标题。此设置可能被引擎忽略。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">语言</div>
+    <div class="setting_description">可选，语音识别引擎中使用的期望语言。此设置可能被引擎忽略。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">使用蓝牙耳机（Android 3+）</div>
+    <div class="setting_description">是否使用蓝牙耳机。</div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>value</code></div>
+    <div class="variable_description">识别出的文本</div>
+
+    <div class="variable_name"><code>operation</code></div>
+    <div class="variable_description">识别是否成功（ok）或失败（cancel）</div>
+</div>
+
+</body>
+
+</html>

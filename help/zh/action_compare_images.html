@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>比较图像</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>比较图像</h1>
+
+<div class="summary">
+    <p>
+        <b>比较图像</b>动作逐像素比较两张图像，并输出一张用选定颜色显示差异的图像，同时提供包含相同像素总数和不同像素总数的变量。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>比较两张截图，检查屏幕内容是否有变化。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">图像 1 变量</div>
+    <div class="setting_description">包含第一张待比较图像的变量名称。</div>
+
+    <div class="setting_title">图像 1 左上内嵌</div>
+    <div class="setting_description">比较时要忽略的左上角内嵌区域。该值可以是不带后缀的像素数，也可以带百分号表示百分比。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">图像 1 右下内嵌</div>
+    <div class="setting_description">比较时要忽略的右下角内嵌区域。该值可以是不带后缀的像素数，也可以带百分号表示百分比。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">图像 2 变量</div>
+    <div class="setting_description">包含第二张待比较图像的变量名称。</div>
+
+    <div class="setting_title">图像 2 左上内嵌</div>
+    <div class="setting_description">比较时要忽略的左上角内嵌区域。该值可以是不带后缀的像素数，也可以带百分号表示百分比。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">图像 2 右下内嵌</div>
+    <div class="setting_description">比较时要忽略的右下角内嵌区域。该值可以是不带后缀的像素数，也可以带百分号表示百分比。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">容差</div>
+    <div class="setting_description">
+        容差值，用于指定两张图像上对应像素允许有多大差异仍被视为相同。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        示例：
+        <ul>
+            <li>0 = 无容差，像素必须完全相同</li>
+            <li>0.1 = 有一定容差，像素可以略有差异但仍视为相同</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">差异输出颜色</div>
+    <div class="setting_description">在结果图像上用于标记差异像素的颜色。相同像素在结果图像上为透明。</div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>image_data</code></div>
+    <div class="variable_description">结果图像，其中差异像素以指定颜色显示</div>
+
+    <div class="variable_name"><code>equal_pixel_count</code></div>
+    <div class="variable_description">相同像素的数量</div>
+
+    <div class="variable_name"><code>different_pixel_count</code></div>
+    <div class="variable_description">不同像素的数量</div>
+</div>
+
+</body>
+
+</html>

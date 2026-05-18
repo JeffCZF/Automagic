@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量图像文件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量图像文件</h1>
+
+<div class="summary">
+    <p>
+        <b>初始化变量图像文件</b>动作将图像的像素数据加载到指定的局部变量中，以便使用动作 <b>修改图像</b> 修改图像或使用脚本函数 <b>getPixelColor</b> 读取像素的颜色值。<br/>
+        <br/>
+        <span class="warning">警告：</span> 加载大图像会占用大量内存，在最坏的情况下可能导致 Automagic 崩溃。建议仅将一张图像读入内存，并且不要加载非常大的图像。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>加载图像，缩小尺寸，并通过邮件发送较小的文件。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">文件</div>
+    <div class="setting_description">图像文件的路径或 URL。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">变量</div>
+    <div class="setting_description">用于存储像素数据的局部变量名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>image_data</code></div>
+    <div class="variable_description">图像的局部变量</div>
+
+    <div class="variable_name"><code>image_width</code></div>
+    <div class="variable_description">图像的宽度</div>
+
+    <div class="variable_name"><code>image_height</code></div>
+    <div class="variable_description">图像的高度</div>
+</div>
+
+</body>
+
+</html>

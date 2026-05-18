@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>控制用户界面</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>控制用户界面</h1>
+
+<div class="summary">
+    <p>
+        <b>控制用户界面</b>动作利用设备的无障碍功能来控制用户界面，可以自动按下按钮、长按元素、滚动列表以及更改复选框和单选按钮的值。<br/>
+        <br/>
+        <span class="note">注意：</span>此动作通过模拟用户输入来控制用户界面，因此屏幕必须处于活动状态、已解锁且用户界面必须显示在屏幕上。<br/>
+        要使用此动作，需要在首选项中启用 Automagic 的无障碍服务。至少需要 Android 4.1（Jelly Bean）。<br/>
+        <br/>
+        <span class="note">注意：</span>在某些设备上，如果屏幕亮度或屏幕滤镜应用在其他控件上显示覆盖层，则无法开启无障碍服务。当无法在系统设置中按下“确定”按钮时，请暂时禁用此类应用。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>启动位置设置页面并启用/禁用 GPS。</li>
+        <li>按下“立即检查”按钮启动设备更新检查。</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">脚本</div>
+    <div class="setting_description">
+        定义要执行的操作。<br/>
+        <a href="action_script.html#inline_expressions">参见动作脚本中关于脚本语言基本功能的说明。</a><br/>
+        <br/>
+        <span class="warning">警告：</span> 以下示例脚本高度依赖于具体设备！请仅将脚本作为参考，不要直接复制/粘贴脚本。它可能会在您的设备上点击错误的控件元素。<br/>
+        <br/>
+        清除所有通知：
+        <pre>
+notifications();//展开通知栏
+sleep(1000);//等待一秒让动画完成
+clicked = click("清除所有通知");//点击按钮
+if(not clicked) //检查按钮是否成功点击
+{
+    back();//当清除按钮不可用时隐藏通知栏
+}
+        </pre>
+
+        切换 GPS 开/关：<br/>
+        使用动作 <b>启动应用：设置/位置服务</b> 直接启动 GPS 设置页面
+        <pre>
+sleep(1000);//等待设置页面显示
+click("GPS 卫星");//切换设置开/关
+sleep(500);
+back();//返回上一个屏幕
+        </pre>
+
+        打开应用抽屉：
+        <pre>
+home();//确保主屏幕正在显示
+sleep(1000);//等待一秒让动画完成
+click("应用");//打开应用抽屉
+        </pre>
+    </div>
+</div>
+
+<h2>支持的函数</h2>
+
+<ul class="functions">
+    <li><code>Boolean sleep(Number milliseconds)</code><br/>等待指定的<code>milliseconds</code>毫秒。</li>
+    <li><code>Boolean sleep(String duration)</code><br/>等待指定的<code>milliseconds</code>毫秒。</li>
+    <li><code>Boolean back()</code><br/>按下返回键。</li>
+    <li><code>Boolean home()</code><br/>按下主屏幕键。</li>
+    <li><code>Boolean notifications()</code><br/>展开状态栏。</li>
+    <li><code>Boolean quickSettings()</code><br/>打开状态栏的快捷设置。</li>
+    <li><code>Boolean recents()</code><br/>打开最近使用的应用列表。</li>
+    <li><code>Boolean powerDialog()</code><br/>打开电源长按对话框。（Android 5+）</li>
+    <li><code>Boolean toggleSplitScreen()</code><br/>切换分屏模式。（Android 7+）</li>
+    <li><code>Boolean lockScreen()</code><br/>锁定屏幕。（Android 9+）</li>
+    <li><code>Boolean takeScreenshot()</code><br/>截取屏幕截图。（Android 9+）</li>
+    <li><code>Boolean click(String pattern)</code><br/>点击包含给定 glob 模式 <code>pattern</code> 的元素。</li>
+    <li><code>Boolean click(Number x, Number y)</code><br/>点击指定位置的元素。</li>
+    <li><code>Boolean clickById(String id)</code><br/>点击具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean clickByIdAndIndex(String id, Number index)</code><br/>点击具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean touchGesture(Number startMillis, Number endMillis, List coordinates, ...)</code><br/>通过在指定时间内回放给定的坐标来模拟触摸屏输入。（Android 7+）</li>
+    <li><code>Boolean longclick(String pattern)</code><br/>长按包含给定 glob 模式 <code>pattern</code> 的元素。</li>
+    <li><code>Boolean longclick(Number x, Number y)</code><br/>长按指定位置的元素。</li>
+    <li><code>Boolean longclickById(String id, Number index)</code><br/>长按具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean longclickByIdAndIndex(String id, Number index)</code><br/>长按具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean check(String pattern)</code><br/>勾选包含给定 glob 模式 <code>pattern</code> 的元素。</li>
+    <li><code>Boolean check(Number x, Number y)</code><br/>勾选指定位置的元素。</li>
+    <li><code>Boolean checkById(String id, Number index)</code><br/>勾选具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean checkByIdAndIndex(String id, Number index)</code><br/>勾选具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean isChecked(String pattern)</code><br/>测试包含给定 glob 模式 <code>pattern</code> 的元素是否被勾选。</li>
+    <li><code>Boolean isChecked(Number x, Number y)</code><br/>测试指定位置的元素是否被勾选。</li>
+    <li><code>Boolean isCheckedById(String id)</code><br/>测试具有给定 <code>id</code> 的元素是否被勾选。（Android 4.3+）</li>
+    <li><code>Boolean isCheckedByIdAndIndex(String id, Number index)</code><br/>测试具有给定 <code>id</code> 的第 n 个元素是否被勾选。（Android 4.3+）</li>
+    <li><code>Boolean uncheck(String pattern)</code><br/>取消勾选包含给定 glob 模式 <code>pattern</code> 的元素。</li>
+    <li><code>Boolean uncheck(Number x, Number y)</code><br/>取消勾选指定位置的元素。</li>
+    <li><code>Boolean uncheckById(String id)</code><br/>取消勾选具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean uncheckByIdAndIndex(String id, Number index)</code><br/>取消勾选具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean scrollForward(String pattern)</code><br/>向前滚动包含给定 glob 模式 <code>pattern</code> 的元素。</li>
+    <li><code>Boolean scrollForward(Number x, Number y)</code><br/>向前滚动指定位置的元素。</li>
+    <li><code>Boolean scrollForwardById(String id)</code><br/>向前滚动具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean scrollForwardByIdAndIndex(String id, Number index)</code><br/>向前滚动具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean scrollBackward(String pattern)</code><br/>向后滚动包含给定 glob 模式 <code>pattern</code> 的元素。</li>
+    <li><code>Boolean scrollBackward(Number x, Number y)</code><br/>向后滚动指定位置的元素。</li>
+    <li><code>Boolean scrollBackwardById(String id)</code><br/>向后滚动具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean scrollBackwardByIdAndIndex(String id, Number index)</code><br/>向后滚动具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean select(String pattern)</code><br/>选择包含给定 glob 模式 <code>pattern</code> 的元素。</li>
+    <li><code>Boolean select(Number x, Number y)</code><br/>选择指定位置的元素。</li>
+    <li><code>Boolean selectById(String id)</code><br/>选择具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean selectByIdAndIndex(String id, Number index)</code><br/>选择具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean clearSelection(String pattern)</code><br/>取消选择包含给定 glob 模式 <code>pattern</code> 的元素。</li>
+    <li><code>Boolean clearSelection(Number x, Number y)</code><br/>取消选择指定位置的元素。</li>
+    <li><code>Boolean clearSelectionById(String id)</code><br/>取消选择具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean clearSelectionByIdAndIndex(String id, Number index)</code><br/>取消选择具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean focus(String pattern)</code><br/>聚焦包含给定 glob 模式 <code>pattern</code> 的元素。</li>
+    <li><code>Boolean focus(Number x, Number y)</code><br/>聚焦指定位置的元素。</li>
+    <li><code>Boolean focusById(String id)</code><br/>聚焦具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean focusByIdAndIndex(String id, Number index)</code><br/>聚焦具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean expand(String pattern)</code><br/>展开包含给定 glob 模式 <code>pattern</code> 的元素。（Android 4.4+）</li>
+    <li><code>Boolean expand(Number x, Number y)</code><br/>展开指定位置的元素。（Android 4.4+）</li>
+    <li><code>Boolean expandById(String id)</code><br/>展开具有给定 <code>id</code> 的元素。（Android 4.4+）</li>
+    <li><code>Boolean expandByIdAndIndex(String id, Number index)</code><br/>展开具有给定 <code>id</code> 的第 n 个元素。（Android 4.4+）</li>
+    <li><code>Boolean collapse(String pattern)</code><br/>折叠包含给定 glob 模式 <code>pattern</code> 的元素。（Android 4.4+）</li>
+    <li><code>Boolean collapse(Number x, Number y)</code><br/>折叠指定位置的元素。（Android 4.4+）</li>
+    <li><code>Boolean cut()</code><br/>剪切聚焦元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean cut(String pattern)</code><br/>剪切包含给定 glob 模式 <code>pattern</code> 的元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean cut(Number x, Number y)</code><br/>剪切指定位置的元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean cutById(String id)</code><br/>剪切具有给定 <code>id</code> 的元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean cutByIdAndIndex(String id, Number index)</code><br/>剪切具有给定 <code>id</code> 的第 n 个元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean copy()</code><br/>复制聚焦元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean copy(String pattern)</code><br/>复制包含给定 glob 模式 <code>pattern</code> 的元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean copy(Number x, Number y)</code><br/>复制指定位置的元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean copyById(String id)</code><br/>复制具有给定 <code>id</code> 的元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean copyByIdAndIndex(String id, Number index)</code><br/>复制具有给定 <code>id</code> 的第 n 个元素中的文本。（Android 4.3+）</li>
+    <li><code>Boolean paste()</code><br/>粘贴文本到聚焦元素。（Android 4.3+）</li>
+    <li><code>Boolean paste(String pattern)</code><br/>粘贴文本到包含给定 glob 模式 <code>pattern</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean paste(Number x, Number y)</code><br/>粘贴文本到指定位置的元素。（Android 4.3+）</li>
+    <li><code>Boolean pasteById(String id)</code><br/>粘贴文本到具有给定 <code>id</code> 的元素。（Android 4.3+）</li>
+    <li><code>Boolean pasteByIdAndIndex(String id, Number index)</code><br/>粘贴文本到具有给定 <code>id</code> 的第 n 个元素。（Android 4.3+）</li>
+    <li><code>Boolean setSelection2(Number start, Number end)</code><br/>将聚焦元素的选区设置为指定范围。（Android 4.3+）</li>
+    <li><code>Boolean setSelection2(String pattern, Number start, Number end)</code><br/>设置包含给定 glob 模式 <code>pattern</code> 的元素的选区。（Android 4.3+）</li>
+    <li><code>Boolean setSelection2(Number x, Number y, Number start, Number end)</code><br/>设置指定位置的元素的选区。（Android 4.3+）</li>
+    <li><code>Boolean setSelection2ById(String id, Number start, Number end)</code><br/>设置具有给定 <code>id</code> 的元素的选区。（Android 4.3+）</li>
+    <li><code>Boolean setSelection2ByIdAndIndex(String id, Number index, Number start, Number end)</code><br/>设置具有给定 <code>id</code> 的第 n 个元素的选区。（Android 4.3+）</li>
+    <li><code>Boolean dismiss(String pattern)</code><br/>关闭包含给定 glob 模式 <code>pattern</code> 的元素。（Android 4.4+）</li>
+    <li><code>Boolean dismiss(Number x, Number y)</code><br/>关闭指定位置的元素。（Android 4.4+）</li>
+    <li><code>Boolean dismissById(String id)</code><br/>关闭具有给定 <code>id</code> 的元素。（Android 4.4+）</li>
+    <li><code>Boolean dismissByIdAndIndex(String id, Number index)</code><br/>关闭具有给定 <code>id</code> 的第 n 个元素。（Android 4.4+）</li>
+    <li><code>String getText()</code><br/>返回聚焦元素的文本。</li>
+    <li><code>String getText(String pattern)</code><br/>返回包含给定 glob 模式 <code>pattern</code> 的元素的文本。</li>
+    <li><code>String getText(Number x, Number y)</code><br/>返回指定位置的元素的文本。</li>
+    <li><code>String getTextById(String id)</code><br/>返回具有给定 <code>id</code> 的元素的文本。（Android 4.3+）</li>
+    <li><code>String getTextByIdAndIndex(String id, Number index)</code><br/>返回具有给定 <code>id</code> 的第 n 个元素的文本。（Android 4.3+）</li>
+    <li><code>String getContentDescription()</code><br/>返回聚焦元素的内容描述。</li>
+    <li><code>String getContentDescription(String pattern)</code><br/>返回包含给定 glob 模式 <code>pattern</code> 的元素的内容描述。</li>
+    <li><code>String getContentDescription(Number x, Number y)</code><br/>返回指定位置的元素的内容描述。</li>
+    <li><code>String getContentDescriptionById(String id)</code><br/>返回具有给定 <code>id</code> 的元素的内容描述。（Android 4.3+）</li>
+    <li><code>String getContentDescriptionByIdAndIndex(String id, Number index)</code><br/>返回具有给定 <code>id</code> 的第 n 个元素的内容描述。（Android 4.3+）</li>
+    <li><code>String getTextInActiveWindow()</code><br/>返回所有文本元素的文本。文本元素的顺序可能与视觉位置不同。</li>
+    <li><code>String getContentDescriptionInActiveWindow()</code><br/>返回所有元素的内容描述。文本元素的顺序可能与视觉位置不同。</li>
+    <li><code>Boolean setText2(String pattern, String text)</code><br/>设置包含给定 glob 模式 <code>pattern</code> 的元素的文本。（Android 5+）</li>
+    <li><code>Boolean setText2(Number x, Number y, String text)</code><br/>设置指定位置的元素的文本。（Android 5+）</li>
+    <li><code>Boolean setText2ById(String id, String text)</code><br/>设置具有给定 <code>id</code> 的元素的文本。（Android 5+）</li>
+    <li><code>Boolean setText2ByIdAndIndex(String id, Number index, String text)</code><br/>设置具有给定 <code>id</code> 的第 n 个元素的文本。（Android 5+）</li>
+    <li><code>List getBounds(String pattern)</code><br/>返回包含给定 glob 模式 <code>pattern</code> 的元素的边界，以列表形式返回 [x, y, width, height]。</li>
+    <li><code>List getBoundsById(String id)</code><br/>返回具有给定 <code>id</code> 的元素的边界，以列表形式返回 [x, y, width, height]。（Android 4.3+）</li>
+    <li><code>List getBoundsByIdAndIndex(String id, Number index)</code><br/>返回具有给定 <code>id</code> 的第 n 个元素的边界，以列表形式返回 [x, y, width, height]。（Android 4.3+）</li>
+    <li><code>Boolean existsElementById(String id)</code><br/>如果当前窗口上存在具有给定 <code>id</code> 的元素，则返回 true。（Android 4.3+）</li>
+    <li><code>Boolean existsElementByIdAndIndex(String id, Number index)</code><br/>如果当前窗口上存在具有给定 <code>id</code> 的第 n 个元素，则返回 true。（Android 4.3+）</li>
+    <li><code>Number getNumberOfElementsWithId(String id)</code><br/>返回当前窗口上具有指定 <code>id</code> 的元素数量。（Android 4.3+）</li>
+    <li><code>Boolean sendKey(Number keyCode)</code><br/>模拟指定的按键（需要 Automagic 输入法）。</li>
+    <li><code>Boolean sendKey(String keyCodeName)</code><br/>模拟指定的按键（需要 Automagic 输入法）。</li>
+    <li><code>Boolean sendKey(String keyCodeName, String metaKey, ...)</code><br/>模拟带修饰键状态的指定按键（需要 Automagic 输入法）。</li>
+    <li><code>Boolean sendText(String text)</code><br/>发送文本到聚焦的组件（需要 Automagic 输入法）。</li>
+    <li><code>Boolean setText(String text)</code><br/>设置聚焦组件的文本（需要 Automagic 输入法）。</li>
+    <li><code>Boolean setSelection(Number start, Number end)</code><br/>设置聚焦组件的选区（需要 Automagic 输入法）。</li>
+    <li><code>List getSelection()</code><br/>返回光标的起始和结束位置，以列表形式返回 [start, end]（需要 Automagic 输入法）。</li>
+    <li><code>Boolean selectAll()</code><br/>全选聚焦组件的文本（需要 Automagic 输入法）。</li>
+</ul>
+
+</body>
+
+</html>

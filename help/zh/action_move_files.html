@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>移动文件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>移动文件</h1>
+
+<div class="summary">
+    <p>
+        <b>移动文件</b>动作在本地将一个或多个文件移动到指定的目标目录或文件。<br/>
+        移动操作在可能的情况下使用 <code>rename</code> 操作实现。如果 <code>rename</code> 不可行，则会将文件/文件夹复制到目标目录，然后删除源文件。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将目录 <code>/mnt/sdcard/xyz/</code> 中的所有文件移动到文件夹 <code>/mnt/sdcard/xyz_backup/</code>。</li>
+        <li>将目录 <code>/mnt/sdcard/xyz</code> 重命名为 <code>/mnt/sdcard/xyz_backup</code>。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">源文件</div>
+    <div class="setting_description">
+        要移动的文件或目录的逗号分隔列表。可以使用通配符模式匹配多个文件。<a href="action_script.html#inline_expressions">支持变量。</a>
+        <br/>
+        示例：
+        <ul>
+            <li><code>/mnt/sdcard/export*</code> 匹配 <code>/mnt/sdcard</code> 文件夹中所有以 <code>export</code> 开头的文件</li>
+        </ul>
+        当匹配多个文件时，目标必须是一个目录。如果目录不存在，将会创建它。<br/>
+        以斜杠结尾的目录（如 <code>/mnt/sdcard/</code>）匹配该目录中包含的文件，就像使用 <code>/mnt/sdcard/*</code> 一样。
+    </div>
+
+    <div class="setting_title">目标</div>
+    <div class="setting_description">
+        目标文件或目录的绝对路径。<a href="action_script.html#inline_expressions">支持变量。</a>
+    </div>
+
+    <div class="setting_title">显示进度通知</div>
+    <div class="setting_description">是否在状态栏上显示指示操作进度的通知。</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Dropbox 上传文件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Dropbox 上传文件</h1>
+
+<div class="summary">
+    <p>
+        <b>Dropbox 上传文件</b>动点将一个或多个文件和目录递归上传到您的 Dropbox。<br/>
+        <br/>
+        <span class="warning">警告：</span> 此操作将上传所有指定的文件，并覆盖已存在的目标文件。即使 Dropbox 上已存在相同文件，也会上传。<br/>
+        <br/>
+        <span class="warning">警告：</span> Dropbox 限制了每个用户可以传输的数据量。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将 Gleeo Time Tracker 中的所有数据备份上传到您的 Dropbox。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">Dropbox 访问</div>
+    <div class="setting_description">
+        指示当前是否可以访问 Dropbox，并允许登录您的 Dropbox 帐户。<br/>
+        <br/>
+        通常不需要安装 Dropbox 应用，但可以帮助解决某些设备上的身份验证问题。
+    </div>
+
+    <div class="setting_title">源文件</div>
+    <div class="setting_description">
+        要上传到 Dropbox 的文件或目录的逗号分隔列表。可以使用通配符模式匹配多个文件。<a href="action_script.html#inline_expressions">支持变量。</a>
+        <br/>
+        示例：
+        <ul>
+            <li><code>/mnt/sdcard/export*</code> 匹配 <code>/mnt/sdcard</code> 文件夹中所有以 <code>export</code> 开头的文件</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">Dropbox 上的路径</div>
+    <div class="setting_description">要将文件上传到的 Dropbox 上目标的绝对路径。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">显示进度通知</div>
+    <div class="setting_description">是否在状态栏上显示指示操作进度的通知。</div>
+</div>
+
+
+</body>
+
+</html>

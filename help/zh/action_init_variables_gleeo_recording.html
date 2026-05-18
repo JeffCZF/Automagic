@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量 Gleeo 记录状态</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量 Gleeo 记录状态</h1>
+
+<div class="summary">
+    <p>
+        <b>初始化变量 Gleeo 记录状态</b>动作检查 <b>Gleeo Time Tracker</b> 中是否有任务正在记录，并将正在记录的项目和任务存储到变量中。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当有人来电时存储正在记录的任务，并在通话结束后再次开始记录同一任务。</li>
+        <li>当您正在处理特定项目时，不要使用有趣的提示音。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">记录布尔值的变量</div>
+    <div class="setting_description">用于存储 <b>Gleeo Time Tracker</b> 当前是否正在记录的布尔值的变量名称。</div>
+
+    <div class="setting_title">记录域标题的变量</div>
+    <div class="setting_description">用于存储 <b>Gleeo Time Tracker</b> 当前正在记录的域的变量名称。</div>
+
+    <div class="setting_title">记录项目名称的变量</div>
+    <div class="setting_description">用于存储 <b>Gleeo Time Tracker</b> 当前正在记录的项目的变量名称。</div>
+
+    <div class="setting_title">记录任务名称的变量</div>
+    <div class="setting_description">用于存储 <b>Gleeo Time Tracker</b> 当前正在记录的任务的变量名称。</div>
+
+    <div class="setting_title">记录开始时间的变量</div>
+    <div class="setting_description">用于存储当前正在记录的任务的开始时间的变量名称。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>recording</code></div>
+    <div class="variable_description">记录布尔值</div>
+
+    <div class="variable_name"><code>recording_domain_name</code></div>
+    <div class="variable_description">域名</div>
+
+    <div class="variable_name"><code>recording_project_title</code></div>
+    <div class="variable_description">项目名称</div>
+
+    <div class="variable_name"><code>recording_task_name</code></div>
+    <div class="variable_description">任务名称</div>
+
+    <div class="variable_name"><code>recording_start</code></div>
+    <div class="variable_description">当前记录任务的开始时间</div>
+</div>
+
+</body>
+
+</html>

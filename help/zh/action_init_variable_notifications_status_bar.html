@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量状态栏通知</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量状态栏通知</h1>
+
+<div class="summary">
+    <p>
+        动作 <b>初始化变量状态栏通知</b> 将所有当前显示的通知作为列表存储到变量中。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>当您收到内容为 <em>get notifications</em> 的短信时，将所有显示的通知文本通过邮件发送到您的帐户。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">变量</div>
+    <div class="setting_description">用于存储通知列表的变量名称。</div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>notifications</code></div>
+    <div class="variable_description">
+        所有通知的列表，每个通知包含一个带有以下键的映射：<br/><br/>
+
+        <div class="variable_name"><code>title</code></div>
+        <div class="variable_description">显示的通知标题</div>
+
+        <div class="variable_name"><code>content_title</code></div>
+        <div class="variable_description">通知显示的内容标题</div>
+
+        <div class="variable_name"><code>content_title_big</code></div>
+        <div class="variable_description">通知显示的大内容标题</div>
+
+        <div class="variable_name"><code>notification_text</code>（此功能不受 Android 官方支持，并非对所有通知都有效）</div>
+        <div class="variable_description">通知的文本内容</div>
+
+        <div class="variable_name"><code>notification_text_big</code>（Android 4.1+，此功能不受 Android 官方支持，并非对所有通知都有效）</div>
+        <div class="variable_description">通知的大尺寸展开视图的文本内容</div>
+
+        <div class="variable_name"><code>notification_channel_id</code>（Android 8.0+）</div>
+        <div class="variable_description">通知通道的 ID</div>
+
+        <div class="variable_name"><code>notification_priority</code>（Android 4.1+，此功能不受 Android 官方支持，并非对所有通知都有效）</div>
+        <div class="variable_description">通知的优先级（-2=最低 到 2=最高），如果可用</div>
+
+        <div class="variable_name"><code>notification_large_icon</code>（Android 4.1+，此功能不受 Android 官方支持，并非对所有通知都有效）</div>
+        <div class="variable_description">通知的大图标，如果可用</div>
+
+        <div class="variable_name"><code>notification_when</code></div>
+        <div class="variable_description">通知中显示的时间</div>
+
+        <div class="variable_name"><code>notification_number</code></div>
+        <div class="variable_description">通知中显示的数字，如果可用</div>
+
+        <div class="variable_name"><code>notification_vibrate_default</code></div>
+        <div class="variable_description">通知是否使用默认模式振动</div>
+
+        <div class="variable_name"><code>notification_vibrate_pattern</code></div>
+        <div class="variable_description">振动模式，以数字列表表示（暂停持续时间（毫秒），振动持续时间（毫秒），...），如果可用</div>
+
+        <div class="variable_name"><code>notification_sound_default</code></div>
+        <div class="variable_description">通知是否应播放默认通知音</div>
+
+        <div class="variable_name"><code>notification_sound_uri</code></div>
+        <div class="variable_description">要播放的声音的 URI，如果可用</div>
+
+        <div class="variable_name"><code>notification_people</code>（Android 4.4+）</div>
+        <div class="variable_description">通知的相关人员列表（URI 列表），如果可用</div>
+
+        <div class="variable_name"><code>notification_info_text</code>（Android 4.4+）</div>
+        <div class="variable_description">通知显示的信息文本，如果可用</div>
+
+        <div class="variable_name"><code>notification_sub_text</code>（Android 4.4+）</div>
+        <div class="variable_description">通知显示的副文本，如果可用</div>
+
+        <div class="variable_name"><code>notification_summary_text</code>（Android 4.4+）</div>
+        <div class="variable_description">通知显示的摘要文本，如果可用</div>
+
+        <div class="variable_name"><code>notification_progress</code>（Android 4.4+）</div>
+        <div class="variable_description">通知显示的当前进度，如果可用</div>
+
+        <div class="variable_name"><code>notification_progress_max</code>（Android 4.4+）</div>
+        <div class="variable_description">最大进度，如果可用</div>
+
+        <div class="variable_name"><code>notification_progress_indeterminate</code>（Android 4.4+）</div>
+        <div class="variable_description">进度是否为不确定，如果可用</div>
+
+        <div class="variable_name"><code>notification_text_lines</code>（Android 4.4+）</div>
+        <div class="variable_description">通知显示的文本行，如果可用</div>
+
+        <div class="variable_name"><code>notification_background_image_uri</code>（Android 5+）</div>
+        <div class="variable_description">要显示的背景图像的 URI，如果可用</div>
+
+        <div class="variable_name"><code>notification_category</code>（Android 5+）</div>
+        <div class="variable_description">通知的类别，如果可用</div>
+
+        <div class="variable_name"><code>notification_accent_color</code>（Android 5+）</div>
+        <div class="variable_description">通知的强调色，如果可用</div>
+
+        <div class="variable_name"><code>notification_ticker_text</code></div>
+        <div class="variable_description">通知显示的滚动文本</div>
+
+        <div class="variable_name"><code>notification_visibility</code>（Android 5+）</div>
+        <div class="variable_description">通知的可见性（-1=秘密，0=私有，1=公共）</div>
+
+        <div class="variable_name"><code>notification_ongoing</code></div>
+        <div class="variable_description">是否为持续事件</div>
+
+        <div class="variable_name"><code>notification_foreground_service</code></div>
+        <div class="variable_description">此通知是否用于标记前台服务</div>
+
+        <div class="variable_name"><code>notification_local_only</code></div>
+        <div class="variable_description">通知是否仅应在本地设备上显示</div>
+
+        <div class="variable_name"><code>notification_group</code>（Android 7+）</div>
+        <div class="variable_description">通知的组键</div>
+
+        <div class="variable_name"><code>notification_is_group_summary</code>（Android 7+）</div>
+        <div class="variable_description">通知是否为组摘要</div>
+
+        <div class="variable_name"><code>package_name</code></div>
+        <div class="variable_description">显示通知的包名</div>
+
+        <div class="variable_name"><code>app_name</code></div>
+        <div class="variable_description">应用的显示名称</div>
+
+        <div class="variable_name"><code>id</code>（Android 4.3+）</div>
+        <div class="variable_description">通知的 ID</div>
+
+        <div class="variable_name"><code>buttons</code>（Android 4.1+，此功能不受 Android 官方支持，并非对所有通知都有效）</div>
+        <div class="variable_description">大尺寸展开通知上可用的按钮列表</div>
+    </div>
+</div>
+
+</body>
+
+</html>

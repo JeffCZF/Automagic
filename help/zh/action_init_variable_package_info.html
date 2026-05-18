@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量包信息</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量包信息</h1>
+
+<div class="summary">
+    <p>
+        <b>初始化变量包信息</b>动作加载指定应用/包的信息，并将信息存储在一个映射中。<br/>
+        <br/>
+        <span class="tip">提示：</span> 可以使用条件 <b>调试对话框</b> 来显示映射中存储的键和值。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>加载应用使用的权限列表，并检查哪些权限已被授予。</li>
+    </ul>
+</div>
+
+<div class="summary">
+    <h2>格式</h2>
+    <p>映射包含包名作为键，以及包含查询信息的映射作为值。JSON 示例：</p>
+    <pre style="overflow-x: auto;">
+        {
+          "package1": {"version_name": xyz, "version_code": 123},
+          "package2": {"version_name": xyz, "version_code": 123}
+        }
+    </pre>
+    <p>针对一个应用查询的 JSON 示例：</p>
+    <pre style="overflow-x: auto;max-width: 720px;">
+        {
+          "com.android.vending": {
+            "version_name": "6.4.12.C-all [0] 2744941", // 版本名称
+            "version_code": 80641200, // 版本号
+            "first_install_time": 1230796800000, // 应用首次安装的时间（自1970年以来的毫秒数）
+            "last_update_time": 1461091018180, // 应用最后更新的时间（自1970年以来的毫秒数）
+            "install_location": -1, // -1=自动？，0=自动，1=仅内部，2=偏好外部
+            "application_info": {
+              "data_dir": "/data/user/0/com.android.vending", // 分配给包的持久数据目录的完整路径
+              "class_name": "com.google.android.finsky.FinskyApp", // 实现 Application 对象的类
+              "source_dir": "/data/app/com.android.vending-2/base.apk", // 此应用的基本 APK 的完整路径
+              "label": "Google Play Store", // 应用的标签（当前区域设置）
+              "uid": 10024, // 分配给此应用的内核用户 ID
+              "icon_uri": "android.resource://com.android.vending/2130903045", // 加载应用图标的 URI
+              "target_sdk_version": 23, // 应用目标 API 级别
+              "enabled": true // Android 系统是否可以实例化应用的组件
+            },
+            "requested_permissions": [
+              {
+                "permission": "android.permission.WRITE_EXTERNAL_STORAGE", // 权限名称
+                "requested_permission_flag": 3, // 1=请求，3=请求并已授予
+                "label": "modify or delete the contents of your USB storage", // 权限标签
+                "description": "Allows the app to write to the USB storage.", // 权限描述
+                "protection_level": 1, // 保护级别（数字）
+                "protection_level_text": "dangerous", // 保护级别（文本）
+                "group": "android.permission-group.STORAGE", // 权限组名称
+                "group_label": "Storage", // 权限组标签
+                "group_description": "access photos, media, and files on your device" // 权限组描述
+              }, ...
+            ],
+            "activity_info": [
+              {
+                "name": "com.android.vending.AssetBrowserActivity",
+                "label": "Play Store",
+                "icon_uri": "android.resource://com.android.vending/2130903045",
+                "enabled": true, // 活动是否启用
+                "exported": true // 活动是否可被其他应用使用
+                "permission": "com.google.android..." // 访问此活动所需的权限（如果已定义）
+              },
+            ],
+            "receiver_info": [
+              {
+                "name": "com.google.android.gcm.GCMBroadcastReceiver",
+                "label": "Google Play Store",
+                "enabled": true,
+                "exported": true,
+                "permission": "com.google.android.c2dm.permission.SEND"
+              }, ...
+            ],
+            "provider_info": [
+              {
+                "name": "com.google.android.finsky.providers.RecentSuggestionsProvider",
+                "label": "Google Play Store",
+                "authority": "com.google.android.finsky.RecentSuggestionsProvider",
+                "enabled": true,
+                "exported": false
+              }, ...
+            ],
+            "service_info": [
+              {
+                "name": "com.google.android.finsky.services.ReviewsService",
+                "label": "Google Play Store",
+                "enabled": true,
+                "exported": true
+              }, ...
+            ]
+          }, ...
+        }
+    </pre>
+    <p>请注意，未来的 Automagic 版本可能会添加额外的键值对。</p>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">类型</div>
+    <div class="setting_description">查询所有已安装包的信息还是仅查询少数选定的包。</div>
+
+    <div class="setting_title">包名</div>
+    <div class="setting_description">要查询的包列表。支持通配符（*、?）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">包含权限信息</div>
+    <div class="setting_description">是否查询应用请求的权限信息。</div>
+
+    <div class="setting_title">包含活动信息</div>
+    <div class="setting_description">是否查询应用定义的活动信息。</div>
+
+    <div class="setting_title">包含接收器信息</div>
+    <div class="setting_description">是否查询应用定义的接收器信息。</div>
+
+    <div class="setting_title">包含提供者信息</div>
+    <div class="setting_description">是否查询应用定义的内容提供者信息。</div>
+
+    <div class="setting_title">包含服务信息</div>
+    <div class="setting_description">是否查询应用定义的服务信息。</div>
+
+    <div class="setting_title">变量</div>
+    <div class="setting_description">用于存储结果的变量名称。</div>
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>package_info</code></div>
+    <div class="variable_description">包含查询信息的映射</div>
+</div>
+
+</body>
+
+</html>

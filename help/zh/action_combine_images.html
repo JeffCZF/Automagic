@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>图片合成</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>图片合成</h1>
+
+<div class="summary">
+    <p>
+        <b>图片合成</b>动作用于将两张图片叠加合成。需使用<b>初始化图片变量文件</b>动作预先加载图片。<br/>
+        <br/>
+        <span class="note">注意：</span>此动作需在内存中创建图片副本，若内存不足，请先缩放图片以降低资源占用。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将商标作为水印叠加到图片上。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">基础图片变量（DST）</div>
+    <div class="setting_description">包含基础图片的变量，合成结果将保存至此变量。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">叠加图片变量（SRC）</div>
+    <div class="setting_description">包含待合成图片的变量。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">混合模式</div>
+    <div class="setting_description">选择两张图片的合成方式。</div>
+
+    <div class="setting_title">叠加图片对齐方式</div>
+    <div class="setting_description">叠加图片相对于基础图片的对齐方式。</div>
+
+    <div class="setting_title">X/Y轴偏移量</div>
+    <div class="setting_description">叠加图片相对对齐基准点的偏移量。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">叠加图片透明度</div>
+    <div class="setting_description">叠加图片的透明度（0-100%）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+</div>
+
+</body>
+
+</html>

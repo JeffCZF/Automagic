@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>导入流程</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>导入流程</h1>
+
+<div class="summary">
+    <p>
+        <b>导入流程</b>动作导入指定文件中的所有流程。导入的流程为<b>禁用</b>状态。已存在的流程不会被导入。<br/>
+        如果需要在导入后启用流程，可以使用动作 <b>设置流程状态</b> 和变量 <code>{imported_flow_names,listformat,comma}</code>。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>导入一个流程以锁定被盗设备上的设备。</li>
+    </ul>
+</div>
+
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">文件</div>
+    <div class="setting_description">要导入的文件。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">替换现有项</div>
+    <div class="setting_description">是否替换同名的现有流程、触发器、动作、条件和小工具。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>imported_flow_names</code></div>
+    <div class="variable_description">已导入的流程列表</div>
+
+    <div class="variable_name"><code>duplicate_flow_names</code></div>
+    <div class="variable_description">重复且未导入的流程列表</div>
+</div>
+
+</body>
+
+</html>

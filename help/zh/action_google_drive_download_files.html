@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Google Drive 下载文件（实验性）</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Google Drive 下载文件（实验性）</h1>
+
+<div class="summary">
+    <p>
+        <b>Google Drive 下载文件（实验性）</b>动作将多个文件和目录递归下载到您的设备。<br/>
+        <br/>
+        <span class="warning">警告：</span> 此操作将下载所有指定的文件，并覆盖已存在的目标文件。即使设备上已存在相同文件，也会下载。<br/>
+        <br/>
+        <span class="note">注意：</span> Google Drive 允许创建重复文件，这在常规文件系统上是不可能的。在这种情况下，Automagic 只考虑最新的文件，并忽略重复项。<br/>
+        <span class="note">注意：</span> Google 文档不会被下载。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>每天早上下载包含您密码的 keypass 最新文件，以确保您拥有最新的离线副本。</li>
+    </ul>
+
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">设备帐户</div>
+    <div class="setting_description">用于访问 Google Drive 的帐户。</div>
+
+    <div class="setting_title">Google Drive 路径</div>
+    <div class="setting_description">
+        要从 Google Drive 下载的文件或目录的逗号分隔列表。可以使用通配符模式匹配多个文件。<a href="action_script.html#inline_expressions">支持变量。</a>
+        <br/>
+        示例：
+        <ul>
+            <li><code>/backup/export*</code> 匹配 <code>/backup</code> 文件夹中所有以 <code>export</code> 开头的文件</li>
+        </ul>
+    </div>
+
+    <div class="setting_title">目标</div>
+    <div class="setting_description">要将文件下载到的目标目录的绝对路径。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">显示进度通知</div>
+    <div class="setting_description">是否在状态栏上显示指示操作进度的通知。</div>
+</div>
+
+</body>
+
+</html>

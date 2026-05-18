@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FTP 上传文件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>FTP 上传文件</h1>
+
+<div class="summary">
+    <p>
+        <b>FTP 上传文件</b>动作将单个文件上传到 FTP 服务器。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将 Gleeo Time Tracker 中的所有数据备份上传到您公司的服务器。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">协议</div>
+    <div class="setting_description">使用常规 FTP（未加密）、FTPS（基于 SSL/TLS 的隐式 FTP，默认端口 990）还是 FTPES（基于 SSL/TLS 的显式 FTP）。</div>
+
+    <div class="setting_title">数据通道保护（仅适用于 FTPS 和 FTPES）</div>
+    <div class="setting_description">数据通道上传输的数据是否应加密（P）或不加密（C）。</div>
+
+    <div class="setting_title">服务器/端口</div>
+    <div class="setting_description">FTP 服务器的名称或 IP 及端口（默认 21）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">用户名</div>
+    <div class="setting_description">连接的用户名。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">密码</div>
+    <div class="setting_description">连接的密码。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">本地文件</div>
+    <div class="setting_description">要上传的本地文件的绝对路径。<a href="action_script.html#inline_expressions">支持变量。</a>
+        <br/>
+        示例：
+        <ul>
+            <li><code>/mnt/sdcard/export_<wbr/>{triggertime,<wbr/>dateformat,<wbr/>yyyy_MM_dd}<wbr/>.csv</code> 变为 <code>/mnt/sdcard/<wbr/>export_2011_02_13.csv</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">服务器上的路径（包含文件名）</div>
+    <div class="setting_description">文件在 FTP 服务器上的绝对路径。路径必须包含目标文件的文件名。这允许您在服务器上使用不同的名称存储文件。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">控制编码</div>
+    <div class="setting_description">是否对控制通道使用特殊编码（文件名的编码，而不是文本文件内容的编码）。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">显示进度通知</div>
+    <div class="setting_description">是否在状态栏上显示指示操作进度的通知。</div>
+</div>
+
+</body>
+
+</html>

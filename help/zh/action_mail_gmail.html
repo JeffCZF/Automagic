@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>使用 Gmail 发送邮件</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>使用 Gmail 发送邮件</h1>
+
+<div class="summary">
+    <p>
+        <b>使用 Gmail 发送邮件</b>动作使用您的 Gmail 帐户发送邮件。<br/>
+        <br/>
+        <span class="note">注意：</span> 如果您在 Google 帐户中启用了 <strong>两步验证</strong>，则需要在 Google 帐户设置中为登录创建应用专用密码：<a href="https://www.google.com/settings/security">https://www.google.com/settings/security</a>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将每条短信作为邮件转发到您的收件箱。</li>
+        <li>每 30 分钟将您的位置发送给您的女朋友。</li>
+        <li>将新的 <b>Gleeo Time Tracker</b> 备份发送到您的收件箱。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">认证</div>
+    <div class="setting_description">是使用设备上可用的帐户（OAuth），还是输入帐户名和密码。</div>
+
+    <div class="setting_title">邮件帐户</div>
+    <div class="setting_description">要使用的帐户名称，如 <code>xyz@gmail.com</code>。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">密码</div>
+    <div class="setting_description">
+        您的邮件帐户密码。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        <span class="note">信息：</span> 密码以加密形式存储在设备内部存储中，不属于常规的 <code>flows.xml</code> 文件。
+    </div>
+
+    <div class="setting_title">收件人</div>
+    <div class="setting_description">收件人的邮件地址。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">回复至</div>
+    <div class="setting_description">发送回复的地址。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">主题</div>
+    <div class="setting_description">邮件主题。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">正文</div>
+    <div class="setting_description">邮件正文。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">正文 MIME 类型</div>
+    <div class="setting_description">正文是 HTML 还是应解释为纯文本（无格式）。</div>
+
+    <div class="setting_title">要附加的文件</div>
+    <div class="setting_description">
+        要附加的文件的逗号分隔列表。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        <span class="tip">提示：</span> 通过动作 <b>初始化变量文件列表</b> 存储在列表中的文件可以使用 <code>{files,<wbr/>listformat,<wbr/>comma}</code> 格式化为逗号分隔的列表。
+    </div>
+
+</div>
+
+</body>
+
+</html>

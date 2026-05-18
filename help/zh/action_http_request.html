@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HTTP 请求</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>HTTP 请求</h1>
+
+<div class="summary">
+    <p>
+        <b>HTTP 请求</b>动点使用指定的 HTTP 请求方法从服务器请求资源。<br/>
+        <br/>
+        <span class="note">注意：</span> 此操作用于技术性请求（REST 等）并使用脚本处理响应。如果您只是想下载文件，请使用动作 <em>下载 URL</em>。<br/>
+        该操作在出现一般错误时以状态码 -1 终止。当甚至无法建立与服务器的连接时（网络不可用、无法解析 IP 等），它将因错误而终止。使用异常连接来处理此类错误。<br/>
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>获取天气服务的网页并测试是否包含 <em>rain</em> 这个词。</li>
+        <li>从在线零售商的 REST 服务获取产品价格。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">URL</div>
+    <div class="setting_description">要请求的 URL。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        示例：
+        <ul>
+            <li><code>http://example.com/<wbr/>weather.html?ts=<wbr/>{triggertime,dateformat,yyyyMMdd}<wbr/></code> 变为 <code>http://example.com/<wbr/>weather.html?ts=20110213</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">验证证书（https）</div>
+    <div class="setting_description">是否应检查证书。对于忽略自签名证书的错误可能很有用。</div>
+
+    <div class="setting_title">认证</div>
+    <div class="setting_description">是否应使用基本认证将用户名和密码传递给服务器。</div>
+
+    <div class="setting_title">用户名</div>
+    <div class="setting_description">要传递给服务器的用户名。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">密码</div>
+    <div class="setting_description">要传递给服务器的密码。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">客户端证书</div>
+    <div class="setting_description">是否应使用客户端证书。</div>
+
+    <div class="setting_title">客户端证书路径</div>
+    <div class="setting_description">PKCS#12 文件的路径。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">客户端证书密码</div>
+    <div class="setting_description">访问客户端证书的密码。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">网络类型</div>
+    <div class="setting_description">使用当前可用的默认网络，还是在 WiFi 或蜂窝网络上发送请求。</div>
+
+    <div class="setting_title">请求方法</div>
+    <div class="setting_description">要使用的 HTTP 请求方法。并非所有设备都支持所有方法。</div>
+
+    <div class="setting_title">内容类型</div>
+    <div class="setting_description">请求中用作标头 Content-Type 的内容类型。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">表单字段列表</div>
+    <div class="setting_description">
+        以逗号分隔的 key=value 列表，作为 <code>application/x-www-form-urlencoded</code> 发送到服务器。值会自动进行 URL 编码。<a href="action_script.html#inline_expressions">支持变量。</a>
+        <br/>
+        <br/>
+        示例：<code>Firstname=Hugo,Lastname=Habicht</code>
+    </div>
+
+    <div class="setting_title">数据</div>
+    <div class="setting_description">要发送到服务器的文本数据。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">表单字段名称</div>
+    <div class="setting_description">用于上传文件的表单字段名称。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">要上传的文件</div>
+    <div class="setting_description">要上传的文件的路径。请求的文件名会根据指定的文件自动确定。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">超时</div>
+    <div class="setting_description">要使用的超时时间。</div>
+
+    <div class="setting_title">自定义 HTTP 标头</div>
+    <div class="setting_description">
+        包含要发送的自定义 HTTP 标头的文本。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        每行应以标头名称和冒号开头，后跟要发送的值。<br/>
+        <br/>
+        示例：
+        <ul>
+            <li><code>User-Agent: my own user agent</code></li>
+            <li><code>SOAPAction: "test"</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">将响应存储在变量或文件中</div>
+    <div class="setting_description">将响应存储在变量还是文件中。</div>
+
+    <div class="setting_title">变量</div>
+    <div class="setting_description">用于存储响应的变量名称。响应将被转换为字符串。<a href="action_script.html#inline_expressions">支持变量。</a><br/>
+        <br/>
+        <span class="warning">警告：</span> 大于 1MB 的响应不支持存储在变量中。
+    </div>
+
+    <div class="setting_title">编码</div>
+    <div class="setting_description">用于从服务器读取响应的编码。留空以使用服务器响应指定的编码。</div>
+
+    <div class="setting_title">文件</div>
+    <div class="setting_description">存储文件的路径。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+</div>
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><em>在“变量”字段中声明的名称</em></div>
+    <div class="variable_description">作为字符串的响应</div>
+
+    <div class="variable_name"><code>status_code</code></div>
+    <div class="variable_description">数字 HTTP 状态码，发生一般错误时为 -1</div>
+
+    <div class="variable_name"><code>error_message</code></div>
+    <div class="variable_description">当请求无法执行且 <code>status_code</code> 设置为 -1 时的错误消息</div>
+
+    <div class="variable_name"><code>header_*</code></div>
+    <div class="variable_description">
+        响应标头的所有值。变量名称使用前缀 <code>header_</code> 构建，并将标头名称中的短划线替换为下划线，并将名称转换为小写。<br/>
+        示例：
+        <ul>
+            <li>标头 <code>Accept</code> 存储在变量 <code>header_accept</code> 中</li>
+            <li>标头 <code>Accept-Encoding</code> 存储在变量 <code>header_accept_encoding</code> 中</li>
+        </ul>
+        在响应中多次指定的标头值将作为列表提供。<br/>
+        导致无效变量名称的标头将被忽略。
+    </div>
+</div>
+
+</body>
+
+</html>

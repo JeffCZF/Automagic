@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>初始化变量文件列表</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>初始化变量文件列表</h1>
+
+<div class="summary">
+    <p>
+        <b>初始化变量文件列表</b>动作列出目录中的所有文件或仅新添加的文件，并将列表存储在变量中。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将目录中的所有文件通过邮件发送到您的邮箱。</li>
+        <li>将 <b>Gleeo Time Tracker</b> 的所有新备份文件发送到您的收件箱。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+    <div class="setting_title">变量</div>
+    <div class="setting_description">
+        用于保存文件列表的变量名称。
+    </div>
+
+    <div class="setting_title">文件模式</div>
+    <div class="setting_description">
+        要列出的文件。文件模式可以包含通配符，如 <code>*</code> 和 <code>?</code>。<br/>
+        <br/>
+        示例：
+        <ul>
+            <li><code>/mnt/sdcard/folder/*</code></li>
+            <li><code>/mnt/sdcard/GTT-export-20120101.csv</code></li>
+            <li><code>/mnt/sdcard/GTT-export-*.csv</code></li>
+            <li><code>/mnt/sdcard/file1,/mnt/sdcard/file2,/mnt/sdcard/file3</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">仅包含更改</div>
+    <div class="setting_description">
+        是存储所有匹配 <b>文件模式</b> 中指定的模式的文件，还是仅存储新文件。<br/>
+        如果文件在上次执行此操作时不存在，或者文件大小发生变化，或者自上次执行此操作以来文件的修改时间发生变化，则认为该文件是新文件。
+    </div>
+
+    <div class="setting_title">包含文件属性</div>
+    <div class="setting_description">选中时，为每个文件返回包含路径、文件类型、文件大小和文件日期的属性列表。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>files</code></div>
+    <div class="variable_description">文件列表</div>
+</div>
+
+</body>
+
+</html>

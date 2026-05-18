@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Gleeo 文件系统导出</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<h1>Gleeo 文件系统导出</h1>
+
+<div class="summary">
+    <p>
+        <b>Gleeo 文件系统导出</b>动作创建指定项目和时间范围的 CSV 导出。
+    </p>
+
+    <p class="sample_separator">&nbsp;</p>
+    示例：
+    <ul>
+        <li>将 Gleeo Time Tracker 中的所有数据备份到 SD 卡。</li>
+        <li>通过按下启动器上的快捷方式导出当前月份，并将创建的文件附加到 Google Mail 邮件草稿中。</li>
+        <li>每月将当月所有记录的条目导出到 SD 卡，并通过邮件将文件发送给您的雇主。</li>
+    </ul>
+</div>
+
+<div class="settings_section">
+    <div class="settings_title">设置</div>
+
+    <div class="setting_title">要导出的域</div>
+    <div class="setting_description">要导出的域列表。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">要导出的项目</div>
+    <div class="setting_description">要导出的项目列表。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">要导出的任务</div>
+    <div class="setting_description">要导出的任务列表。<a href="action_script.html#inline_expressions">支持变量。</a></div>
+
+    <div class="setting_title">时间范围</div>
+    <div class="setting_description">要导出的时间范围。</div>
+
+    <div class="setting_title">CSV 列分隔符</div>
+    <div class="setting_description">用于分隔两列的分隔符。Excel 用户可以将其设置为 <code>分号</code> 以简化在 Excel 中的导入。</div>
+
+    <div class="setting_title">目标文件</div>
+    <div class="setting_description">用于存储导出数据的文件。可以使用变量基于时间创建动态文件名。<br/>
+        <br/>
+        示例：
+        <ul>
+            <li><code>/mnt/sdcard/export_<wbr/>{triggertime,<wbr/>dateformat,<wbr/>yyyy_MM_dd}<wbr/>.csv</code> 变为 <code>/mnt/sdcard/<wbr/>export_2011_02_13.csv</code></li>
+            <li><code>/mnt/sdcard/export_<wbr/>{export_start_time,<wbr/>dateformat,<wbr/>yyyy_MM_dd}-<wbr/>{export_end_time,<wbr/>dateformat,<wbr/>yyyy_MM_dd}<wbr/>.csv</code> 变为 <code>/mnt/sdcard/<wbr/>export_2011_03_01-2011_03_31.csv</code></li>
+        </ul>
+    </div>
+
+    <div class="setting_title">编码</div>
+    <div class="setting_description">用于保存文件的编码。</div>
+
+    <div class="setting_title">附加到邮件</div>
+    <div class="setting_description">打开所需的邮件应用并附加 CSV 文件。</div>
+</div>
+
+
+<div class="variables_section">
+    变量是存储值的容器，可在许多动作和条件中使用，以动态定义文本的一部分。<br/><a href="action_script.html#inline_expressions">参见动作脚本说明。</a><br/>
+    <br/>
+
+    <div class="variables_title">提供的变量</div>
+
+    <div class="variable_name"><code>export_start_time</code></div>
+    <div class="variable_description">导出时间范围的开始时间</div>
+
+    <div class="variable_name"><code>export_end_time</code></div>
+    <div class="variable_description">导出时间范围的结束时间</div>
+
+    <div class="variable_name"><code>export_path</code></div>
+    <div class="variable_description">导出文件的绝对路径</div>
+</div>
+
+</body>
+
+</html>
